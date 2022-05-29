@@ -50,6 +50,8 @@ export default class gameManager extends cc.Component {
         if (this.pause) return;
         this.player1.playerMoveDir('IDLE');
         this.player2.playerMoveDir('IDLE');
+        if(keyboardInput[cc.macro.KEY.space])
+            this.player1.playerAttack();
         if (keyboardInput[cc.macro.KEY.s] && keyboardInput[cc.macro.KEY.d] ) {
             this.player1.playerMoveDir('SE');
         }

@@ -11,6 +11,9 @@ const { ccclass, property } = cc._decorator;
 @ccclass
 export default class player extends cc.Component {
 
+    @property(cc.Prefab)
+    private bulletPrefab: cc.Prefab = null;
+
     private moveDir: string = 'S';
 
     private speed: number = 250;
@@ -19,10 +22,32 @@ export default class player extends cc.Component {
 
     private animateState = null;
 
-    // onLoad () {}-=
+    private maxBullet: number = 5;
+
+    private bulletPool: cc.NodePool = null;
+
+    private nextAttackTime: number = 0;
+
+    private nextReloadTime: number = 0;
+
+    private attackCooldown: number = 0.2;
+
+    private reloadCooldown: number = 5;
+
+
+    private tmp;
+
+    onLoad () {
+        this.bulletPool = new cc.NodePool('bullet');
+        this.anim = this.getComponent(cc.Animation);
+    }
 
     start() {
-        this.anim = this.getComponent(cc.Animation);
+        for(let i: number = 0; i < this.maxBullet; i++) {
+            let bullet = cc.instantiate(this.bulletPrefab);
+            this.bulletPool.put(bullet);
+        }
+
     }
 
     playerMoveDir(dir: string) {
@@ -104,8 +129,28 @@ export default class player extends cc.Component {
         }
     }
 
+    playerAttack() {
+        let currentTime = cc.director.getTotalTime() / 1000.0;
+        if(currentTime >= this.nextAttackTime){
+            this.nextAttackTime = currentTime + this.attackCooldown;
+            this.createBullet();
+        }
+    }   
+
+    createBullet() {
+        let bullet = null;
+        if (this.bulletPool.size() > 0){
+            bullet = this.bulletPool.get(this.bulletPool);
+        }
+
+        if(bullet != null)
+            bullet.getComponent('bullet').init(this.node);
+    }
+
     update(dt) {
+               
         this.playerMove(dt);
         this.playerAnimation();
+        
     }
 }
