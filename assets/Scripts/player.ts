@@ -34,12 +34,22 @@ export default class player extends cc.Component {
 
     private reloadCooldown: number = 5;
 
+    private enemys: cc.Node = null;
 
-    private tmp;
+    private enemyCount: number = 0;
+
+    private targetPosition: cc.Vec2 = cc.v2(0, 0);
+
+    private nextTraceTime: number = 0;
+
+    private traceCooldown: number = 0.5;
+
 
     onLoad () {
         this.bulletPool = new cc.NodePool('bullet');
         this.anim = this.getComponent(cc.Animation);
+        this.enemys = cc.find("Canvas/enemy");
+        this.enemyCount = this.enemys.childrenCount;
     }
 
     start() {
@@ -144,13 +154,31 @@ export default class player extends cc.Component {
         }
 
         if(bullet != null)
-            bullet.getComponent('bullet').init(this.node);
+            bullet.getComponent('bullet').init(this.node, this.targetPosition);
+    }
+    
+    traceEnemy() {
+        let currentTime = cc.director.getTotalTime() / 1000.0;
+        if(currentTime >= this.nextTraceTime){
+            this.nextTraceTime = currentTime + this.traceCooldown;
+            let nextTargetDistance = 9007199254740992; // INT_MAX
+            let nextTargetPosition = cc.v2(0, 0);
+            for(let i = 0; i < this.enemyCount; i++){
+                let currentDistance = this.node.position.sub(this.enemys.children[i].position).mag()
+                if(currentDistance < nextTargetDistance) {
+                    nextTargetDistance = currentDistance;
+                    nextTargetPosition = cc.v2(this.enemys.children[i].position.x, this.enemys.children[i].position.y);
+                }
+            }
+            this.targetPosition = nextTargetPosition;
+        }
     }
 
     update(dt) {
-               
         this.playerMove(dt);
         this.playerAnimation();
+        this.traceEnemy();
+
         
     }
 }

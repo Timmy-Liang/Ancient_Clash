@@ -10,15 +10,17 @@ const { ccclass, property } = cc._decorator;
 @ccclass
 export default class bullet extends cc.Component {
 
+    private targetPosition: cc.Vec2 = cc.v2(0, 0);
 
     private bulletManager = null;
 
     public isTriggered = false; // I add this to make the bullet kill one enemy at a time.
 
     // when created, the bullet need to be placed at correct position and play animation.
-    public init(node: cc.Node) {
-        this.setInitPos(node);
+    public init(node: cc.Node, target: cc.Vec2) {
+        this.setInitPos(node, target);
         this.bulletMove()
+        this.targetPosition = target;
     }
 
     // this function is called when the bullet manager calls "get" API.
@@ -29,16 +31,18 @@ export default class bullet extends cc.Component {
     }
 
     //this function sets the bullet's initial position when it is reused.
-    setInitPos(node: cc.Node) {
+    setInitPos(node: cc.Node, target: cc.Vec2) {
+        let offset = target.normalize();
         this.node.parent = node.parent; // don't mount under the player, otherwise it will change direction when player move
-
-        this.node.setPosition(cc.v2(-100, 0));
+        
+        this.node.setPosition(cc.v2(128, 70));
         this.node.position = this.node.position.addSelf(node.position);
     }
 
     //make the bullet move from current position
     bulletMove() {
-        let moveDir = cc.moveBy(2, -300, 0);            
+
+        let moveDir = cc.moveTo(0.2, this.targetPosition);
 
         // move bullet to 500 far from current position in 0.8s
 
