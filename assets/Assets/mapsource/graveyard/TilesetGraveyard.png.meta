@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "ef8552ed-4718-46fb-929d-8009dead424d",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 200,
+  "height": 200,
+  "platformSettings": {},
+  "subMetas": {
+    "TilesetGraveyard": {
+      "ver": "1.0.6",
+      "uuid": "9c26f7b2-b9fa-4d2c-8e21-3d8f388291ea",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "ef8552ed-4718-46fb-929d-8009dead424d",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -2.5,
+      "offsetY": 4,
+      "trimX": 1,
+      "trimY": 2,
+      "width": 193,
+      "height": 188,
+      "rawWidth": 200,
+      "rawHeight": 200,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
