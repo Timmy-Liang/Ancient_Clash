@@ -33,12 +33,16 @@ export default class player extends cc.Component {
     private attackCooldown: number = 0.2;
 
     private reloadCooldown: number = 5;
+    
+    private attacking: boolean = false;
 
     private enemys: cc.Node = null;
 
     private enemyCount: number = 0;
 
     private targetPosition: cc.Vec2 = cc.v2(0, 0);
+
+    private targetDirection: string = '';
 
     private nextTraceTime: number = 0;
 
@@ -65,7 +69,6 @@ export default class player extends cc.Component {
     }
 
     playerMove(dt: number) {
-
         switch (this.moveDir) {
             case 'N':
                 this.node.y += this.speed * dt;
@@ -99,7 +102,10 @@ export default class player extends cc.Component {
         }
     }
 
-    playerAnimation() {
+    playerWalkAnimation() {
+        if(this.attacking)
+            return; 
+            
         switch (this.moveDir) {
             case 'N':
                 if(this.animateState == null || this.animateState.name != 'playerWalkN')
@@ -139,11 +145,46 @@ export default class player extends cc.Component {
         }
     }
 
+    playerAttackAnimation() {
+        let angle = calcAngleDegrees(this.targetPosition.x - this.node.x, this.targetPosition.y - this.node.y);
+        if(angle < 157.5 && angle >= 112.5){
+            this.targetDirection = 'NW';
+        }
+        else if(angle < 112.5 && angle >= 67.5) {
+            this.targetDirection = 'N'
+        }
+        else if(angle < 67.5 && angle >= 22.5) {
+            this.targetDirection = 'NE';
+        }
+        else if(angle < 22.5 && angle >= -22.5) {
+            this.targetDirection = 'E';
+        }
+        else if(angle < -22.5 && angle >= -67.5){
+            this.targetDirection = 'SE';
+        }
+        else if(angle < -67.5 && angle >= -112.5){
+            this.targetDirection = 'S';
+        }
+        else if(angle < -112.5 && angle >= -157.5) {
+            this.targetDirection = 'SW';
+        }
+        else{
+            this.targetDirection = 'W';
+        }
+        this.anim.stop();
+        this.attacking = true;
+        this.animateState = this.anim.play('playerAttack' + this.targetDirection);
+        this.anim.on('finished', (e) =>{
+            this.attacking = false;
+        })
+    }
+
     playerAttack() {
         let currentTime = cc.director.getTotalTime() / 1000.0;
         if(currentTime >= this.nextAttackTime){
             this.nextAttackTime = currentTime + this.attackCooldown;
             this.createBullet();
+            this.playerAttackAnimation();
         }
     }   
 
@@ -154,7 +195,7 @@ export default class player extends cc.Component {
         }
 
         if(bullet != null)
-            bullet.getComponent('bullet').init(this.node, this.targetPosition);
+            bullet.getComponent('bullet').init(this.node, this.targetPosition, this.targetDirection);
     }
     
     traceEnemy() {
@@ -176,9 +217,12 @@ export default class player extends cc.Component {
 
     update(dt) {
         this.playerMove(dt);
-        this.playerAnimation();
+        this.playerWalkAnimation();
         this.traceEnemy();
-
-        
     }
+}
+
+
+function calcAngleDegrees(x, y) {
+    return Math.atan2(y, x) * 180 / Math.PI;
 }

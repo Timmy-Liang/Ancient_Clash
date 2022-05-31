@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "20114a79-a45d-437f-9bd7-596a6df72650",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 128,
+  "height": 128,
+  "platformSettings": {},
+  "subMetas": {
+    "OrcCrossbow_Walking_S0006": {
+      "ver": "1.0.6",
+      "uuid": "43da70fe-2027-481d-9e8b-2f4fe18988c1",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "20114a79-a45d-437f-9bd7-596a6df72650",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 3,
+      "offsetY": -14,
+      "trimX": 36,
+      "trimY": 47,
+      "width": 62,
+      "height": 62,
+      "rawWidth": 128,
+      "rawHeight": 128,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -48,8 +48,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 165,
-      "height": 119
+      "width": 61,
+      "height": 62
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -67,8 +67,8 @@
         0,
         0,
         1,
-        0.8,
-        0.8,
+        1,
+        1,
         0.8
       ]
     },
@@ -101,7 +101,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "ea89ba8b-2e9b-4892-8203-e2a4806d0f78"
+      "__uuid__": "b4efa2cf-cc60-41e0-b390-0624ba02c404"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -125,6 +125,9 @@
       "__id__": 1
     },
     "_enabled": true,
+    "bulletPrefab": {
+      "__uuid__": "778e5903-1be9-4295-93b9-25d03fff0c13"
+    },
     "_id": ""
   },
   {
@@ -160,7 +163,7 @@
       "__id__": 1
     },
     "_enabled": true,
-    "tag": 0,
+    "tag": 1,
     "_density": 1,
     "_sensor": false,
     "_friction": 0.2,
@@ -168,13 +171,13 @@
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
-      "x": 45.9,
+      "x": -9,
       "y": 0
     },
     "_size": {
       "__type__": "cc.Size",
-      "width": 62.1,
-      "height": 119
+      "width": 45.5,
+      "height": 62
     },
     "_id": ""
   },
@@ -211,6 +214,30 @@
       },
       {
         "__uuid__": "62f18812-60a1-46e3-8209-424546ed7cef"
+      },
+      {
+        "__uuid__": "a0f6db97-f472-46a2-91f6-48333c46c890"
+      },
+      {
+        "__uuid__": "1278c074-3962-4cfa-975c-64fc628ef639"
+      },
+      {
+        "__uuid__": "f5c41c36-1661-48eb-9935-0d1ca3639ddc"
+      },
+      {
+        "__uuid__": "cf33c371-e803-4c6e-a239-ff7f4260a6de"
+      },
+      {
+        "__uuid__": "2013e37f-9844-449d-92ac-46dbbf49712c"
+      },
+      {
+        "__uuid__": "e0c8de04-3dfc-4ac7-919b-e9371fd72c1e"
+      },
+      {
+        "__uuid__": "7861ba91-f885-4fe1-ac58-89df225f2021"
+      },
+      {
+        "__uuid__": "59213363-a29b-488d-90b4-5ed74b0405f1"
       }
     ],
     "playOnLoad": false,

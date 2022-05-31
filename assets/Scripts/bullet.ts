@@ -17,10 +17,10 @@ export default class bullet extends cc.Component {
     public isTriggered = false; // I add this to make the bullet kill one enemy at a time.
 
     // when created, the bullet need to be placed at correct position and play animation.
-    public init(node: cc.Node, target: cc.Vec2) {
-        this.setInitPos(node, target);
+    public init(node: cc.Node, targetPosition: cc.Vec2, targetDirection: string) {
+        this.setInitPos(node, targetDirection);
         this.bulletMove()
-        this.targetPosition = target;
+        this.targetPosition = targetPosition;
     }
 
     // this function is called when the bullet manager calls "get" API.
@@ -31,11 +31,10 @@ export default class bullet extends cc.Component {
     }
 
     //this function sets the bullet's initial position when it is reused.
-    setInitPos(node: cc.Node, target: cc.Vec2) {
-        let offset = target.normalize();
+    setInitPos(node: cc.Node, targetDirection: string) {
         this.node.parent = node.parent; // don't mount under the player, otherwise it will change direction when player move
         
-        this.node.setPosition(cc.v2(128, 70));
+        //this.node.setPosition(cc.v2(128, 70));
         this.node.position = this.node.position.addSelf(node.position);
     }
 
@@ -57,7 +56,11 @@ export default class bullet extends cc.Component {
     }
 
     //detect collision with enemies
-    onBeginContact(contact, selfCollider, otherCollider) {
+    onBeginContact(contact, selt, other) {
+        if(other.tag == 1){
+            contact.disabled = true;
+            return;
+        }
         this.node.stopAllActions();
 
         this.unscheduleAllCallbacks();

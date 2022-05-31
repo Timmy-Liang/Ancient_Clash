@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "97f03ec9-65d8-42a8-a710-950885819457",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 128,
+  "height": 128,
+  "platformSettings": {},
+  "subMetas": {
+    "OrcCrossbow_Attacking_NW0002": {
+      "ver": "1.0.6",
+      "uuid": "c655eb55-9817-4a72-88fd-a5edc91090b3",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "97f03ec9-65d8-42a8-a710-950885819457",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 7.5,
+      "offsetY": 0,
+      "trimX": 41,
+      "trimY": 36,
+      "width": 61,
+      "height": 56,
+      "rawWidth": 128,
+      "rawHeight": 128,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
