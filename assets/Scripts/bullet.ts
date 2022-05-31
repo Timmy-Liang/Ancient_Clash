@@ -34,7 +34,7 @@ export default class bullet extends cc.Component {
     setInitPos(node: cc.Node, targetDirection: string) {
         this.node.parent = node.parent; // don't mount under the player, otherwise it will change direction when player move
         
-        //this.node.setPosition(cc.v2(128, 70));
+        this.node.setPosition(cc.v2(0, 0));
         this.node.position = this.node.position.addSelf(node.position);
     }
 
