@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "OrcCrossbow_Attacking_NW0012",
+    "texture": "6bff33ab-1fee-4d07-8c24-59a5f9a681fe",
+    "atlas": "",
+    "rect": [
+      31,
+      32,
+      62,
+      59
+    ],
+    "offset": [
+      -2,
+      2.5
+    ],
+    "originalSize": [
+      128,
+      128
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

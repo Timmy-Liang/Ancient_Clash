@@ -1,0 +1,2112 @@
+{
+  "9836134e-b892-4283-b6b2-78b5acf3ed45": {
+    "asset": 1641824999000,
+    "meta": 1653984300475,
+    "relativePath": "effects"
+  },
+  "f8e6b000-5643-4b86-9080-aa680ce1f599": {
+    "asset": 1641824999000,
+    "meta": 1653984300475,
+    "relativePath": "image"
+  },
+  "5c3eedba-6c41-4c0c-9ba7-d91f813cbd1c": {
+    "asset": 1641824999000,
+    "meta": 1653984300475,
+    "relativePath": "materials"
+  },
+  "fc09f9bd-2cce-4605-b630-8145ef809ed6": {
+    "asset": 1641824999000,
+    "meta": 1653984300475,
+    "relativePath": "misc"
+  },
+  "db019bf7-f71c-4111-98cf-918ea180cb48": {
+    "asset": 1641824999000,
+    "meta": 1653984300476,
+    "relativePath": "model"
+  },
+  "f6e6dd15-71d1-4ffe-ace7-24fd39942c05": {
+    "asset": 1641824999000,
+    "meta": 1653984300476,
+    "relativePath": "obsolete"
+  },
+  "f743d2b6-b7ea-4c14-a55b-547ed4d0a045": {
+    "asset": 1641824999000,
+    "meta": 1653984300476,
+    "relativePath": "particle"
+  },
+  "ae6c6c98-11e4-452f-8758-75f5c6a56e83": {
+    "asset": 1641825000000,
+    "meta": 1653984300476,
+    "relativePath": "prefab"
+  },
+  "d8afc78c-4eac-4a9f-83dd-67bc70344d33": {
+    "asset": 1641825000000,
+    "meta": 1653984300477,
+    "relativePath": "resources"
+  },
+  "430eccbf-bf2c-4e6e-8c0c-884bbb487f32": {
+    "asset": 1641824999000,
+    "meta": 1653984300487,
+    "relativePath": "effects/__builtin-editor-gizmo-line.effect"
+  },
+  "6c5cf6e1-b044-4eac-9431-835644d57381": {
+    "asset": 1641824999000,
+    "meta": 1653984300491,
+    "relativePath": "effects/__builtin-editor-gizmo-unlit.effect"
+  },
+  "115286d1-2e10-49ee-aab4-341583f607e8": {
+    "asset": 1641824999000,
+    "meta": 1653984300508,
+    "relativePath": "effects/__builtin-editor-gizmo.effect"
+  },
+  "abc2cb62-7852-4525-a90d-d474487b88f2": {
+    "asset": 1641824999000,
+    "meta": 1653984300560,
+    "relativePath": "effects/builtin-phong.effect"
+  },
+  "e2f00085-c597-422d-9759-52c360279106": {
+    "asset": 1641824999000,
+    "meta": 1653984300585,
+    "relativePath": "effects/builtin-toon.effect"
+  },
+  "71561142-4c83-4933-afca-cb7a17f67053": {
+    "asset": 1641824999000,
+    "meta": 1653984300595,
+    "relativePath": "image/default_btn_disabled.png"
+  },
+  "e851e89b-faa2-4484-bea6-5c01dd9f06e2": {
+    "asset": 1641824999000,
+    "meta": 1653984300596,
+    "relativePath": "image/default_btn_normal.png"
+  },
+  "edd215b9-2796-4a05-aaf5-81f96c9281ce": {
+    "asset": 1641824999000,
+    "meta": 1653984300596,
+    "relativePath": "image/default_editbox_bg.png"
+  },
+  "99170b0b-d210-46f1-b213-7d9e3f23098a": {
+    "asset": 1641824999000,
+    "meta": 1653984300597,
+    "relativePath": "image/default_progressbar_bg.png"
+  },
+  "cfef78f1-c8df-49b7-8ed0-4c953ace2621": {
+    "asset": 1641824999000,
+    "meta": 1653984300598,
+    "relativePath": "image/default_progressbar.png"
+  },
+  "b43ff3c2-02bb-4874-81f7-f2dea6970f18": {
+    "asset": 1641824999000,
+    "meta": 1653984300598,
+    "relativePath": "image/default_btn_pressed.png"
+  },
+  "d81ec8ad-247c-4e62-aa3c-d35c4193c7af": {
+    "asset": 1641824999000,
+    "meta": 1653984300599,
+    "relativePath": "image/default_panel.png"
+  },
+  "600301aa-3357-4a10-b086-84f011fa32ba": {
+    "asset": 1641824999000,
+    "meta": 1653984300599,
+    "relativePath": "image/default-particle.png"
+  },
+  "0291c134-b3da-4098-b7b5-e397edbe947f": {
+    "asset": 1641824999000,
+    "meta": 1653984300604,
+    "relativePath": "image/default_scrollbar.png"
+  },
+  "567dcd80-8bf4-4535-8a5a-313f1caf078a": {
+    "asset": 1641824999000,
+    "meta": 1653984300604,
+    "relativePath": "image/default_radio_button_off.png"
+  },
+  "9d60001f-b5f4-4726-a629-2659e3ded0b8": {
+    "asset": 1641824999000,
+    "meta": 1653984300605,
+    "relativePath": "image/default_radio_button_on.png"
+  },
+  "4bab67cb-18e6-4099-b840-355f0473f890": {
+    "asset": 1641824999000,
+    "meta": 1653984300605,
+    "relativePath": "image/default_scrollbar_bg.png"
+  },
+  "e39e96e6-6f6e-413f-bcf1-ac7679bb648a": {
+    "asset": 1641824999000,
+    "meta": 1653984300607,
+    "relativePath": "model/prefab"
+  },
+  "617323dd-11f4-4dd3-8eec-0caf6b3b45b9": {
+    "asset": 1641824999000,
+    "meta": 1653984300606,
+    "relativePath": "image/default_scrollbar_vertical_bg.png"
+  },
+  "d6d3ca85-4681-47c1-b5dd-d036a9d39ea2": {
+    "asset": 1641824999000,
+    "meta": 1653984300607,
+    "relativePath": "image/default_scrollbar_vertical.png"
+  },
+  "c4480a0a-6ac5-443f-8b40-361a14257fc8": {
+    "asset": 1641824999000,
+    "meta": 1653984300812,
+    "relativePath": "materials/builtin-phong.mtl"
+  },
+  "0275e94c-56a7-410f-bd1a-fc7483f7d14a": {
+    "asset": 1641824999000,
+    "meta": 1653984300607,
+    "relativePath": "image/default_sprite_splash.png"
+  },
+  "6e056173-d285-473c-b206-40a7fff5386e": {
+    "asset": 1641824999000,
+    "meta": 1653984300669,
+    "relativePath": "image/default_sprite.png"
+  },
+  "73a0903d-d80e-4e3c-aa67-f999543c08f5": {
+    "asset": 1641824999000,
+    "meta": 1653984300677,
+    "relativePath": "image/default_toggle_checkmark.png"
+  },
+  "c25b9d50-c8fc-4d27-beeb-6e7c1f2e5c0f": {
+    "asset": 1641824999000,
+    "meta": 1653984300678,
+    "relativePath": "image/default_toggle_disabled.png"
+  },
+  "2be36297-9abb-4fee-8049-9ed5e271da8a": {
+    "asset": 1641824999000,
+    "meta": 1653984300680,
+    "relativePath": "misc/default_video.mp4"
+  },
+  "897ef7a1-4860-4f64-968d-f5924b18668a": {
+    "asset": 1641825000000,
+    "meta": 1653984300681,
+    "relativePath": "prefab/2d-camera.prefab"
+  },
+  "b181c1e4-0a72-4a91-bfb0-ae6f36ca60bd": {
+    "asset": 1641824999000,
+    "meta": 1653984300678,
+    "relativePath": "image/default_toggle_pressed.png"
+  },
+  "70d7cdb0-04cd-41bb-9480-c06a4785f386": {
+    "asset": 1641825000000,
+    "meta": 1653984300682,
+    "relativePath": "prefab/3d-camera.prefab"
+  },
+  "70bbeb73-6dc2-4ee4-8faf-76b3a0e34ec4": {
+    "asset": 1641825000000,
+    "meta": 1653984300683,
+    "relativePath": "prefab/3d-particle.prefab"
+  },
+  "d29077ba-1627-4a72-9579-7b56a235340c": {
+    "asset": 1641824999000,
+    "meta": 1653984300679,
+    "relativePath": "image/default_toggle_normal.png"
+  },
+  "972b9a4d-47ee-4c74-b5c3-61d8a69bc29f": {
+    "asset": 1641825000000,
+    "meta": 1653984300683,
+    "relativePath": "prefab/button.prefab"
+  },
+  "a3ee0214-b432-4865-9666-4a3211814282": {
+    "asset": 1641825000000,
+    "meta": 1653984300684,
+    "relativePath": "prefab/light"
+  },
+  "ed88f13d-fcad-4848-aa35-65a2cb973584": {
+    "asset": 1641825000000,
+    "meta": 1653984300685,
+    "relativePath": "prefab/3d-stage.prefab"
+  },
+  "8a96b965-2dc0-4e03-aa90-3b79cb93b5b4": {
+    "asset": 1641824999000,
+    "meta": 1653984300684,
+    "relativePath": "obsolete/atom.png"
+  },
+  "2c937608-2562-40ea-b264-7395df6f0cea": {
+    "asset": 1641825000000,
+    "meta": 1653984300686,
+    "relativePath": "prefab/canvas.prefab"
+  },
+  "61aeb05b-3b32-452b-8eed-2b76deeed554": {
+    "asset": 1641825000000,
+    "meta": 1653984300686,
+    "relativePath": "prefab/editbox.prefab"
+  },
+  "27756ebb-3d33-44b0-9b96-e858fadd4dd4": {
+    "asset": 1641825000000,
+    "meta": 1653984300687,
+    "relativePath": "prefab/label.prefab"
+  },
+  "d0a82d39-bede-46c4-b698-c81ff0dedfff": {
+    "asset": 1641824999000,
+    "meta": 1653984300684,
+    "relativePath": "particle/atom.png"
+  },
+  "785a442c-3ceb-45be-a46e-7317f625f3b9": {
+    "asset": 1641825000000,
+    "meta": 1653984300687,
+    "relativePath": "prefab/layout.prefab"
+  },
+  "ca8401fe-ad6e-41a8-bd46-8e3e4e9945be": {
+    "asset": 1641825000000,
+    "meta": 1653984300688,
+    "relativePath": "prefab/pageview.prefab"
+  },
+  "cd33edea-55f5-46c2-958d-357a01384a36": {
+    "asset": 1641825000000,
+    "meta": 1653984300688,
+    "relativePath": "prefab/particlesystem.prefab"
+  },
+  "5965ffac-69da-4b55-bcde-9225d0613c28": {
+    "asset": 1641825000000,
+    "meta": 1653984300689,
+    "relativePath": "prefab/progressBar.prefab"
+  },
+  "4a37dd57-78cd-4cec-aad4-f11a73d12b63": {
+    "asset": 1641825000000,
+    "meta": 1653984300690,
+    "relativePath": "prefab/richtext.prefab"
+  },
+  "96083d03-c332-4a3f-9386-d03e2d19e8ee": {
+    "asset": 1641825000000,
+    "meta": 1653984300690,
+    "relativePath": "prefab/sprite.prefab"
+  },
+  "32044bd2-481f-4cf1-a656-e2b2fb1594eb": {
+    "asset": 1641825000000,
+    "meta": 1653984300691,
+    "relativePath": "prefab/scrollview.prefab"
+  },
+  "0004d1cf-a0ad-47d8-ab17-34d3db9d35a3": {
+    "asset": 1641825000000,
+    "meta": 1653984300691,
+    "relativePath": "prefab/slider.prefab"
+  },
+  "7de03a80-4457-438d-95a7-3e7cdffd6086": {
+    "asset": 1641825000000,
+    "meta": 1653984300692,
+    "relativePath": "prefab/tiledmap.prefab"
+  },
+  "1f55e3be-b89b-4b79-88de-47fd31018044": {
+    "asset": 1641825000000,
+    "meta": 1653984300692,
+    "relativePath": "prefab/sprite_splash.prefab"
+  },
+  "294c1663-4adf-4a1e-a795-53808011a38a": {
+    "asset": 1641825000000,
+    "meta": 1653984300693,
+    "relativePath": "resources/effects"
+  },
+  "0e42ba95-1fa1-46aa-b2cf-143cd1bcee2c": {
+    "asset": 1641825000000,
+    "meta": 1653984300693,
+    "relativePath": "prefab/tiledtile.prefab"
+  },
+  "bbee2217-c261-49bd-a8ce-708d6bcc3500": {
+    "asset": 1641825000000,
+    "meta": 1653984300693,
+    "relativePath": "resources/materials"
+  },
+  "b8223619-7e38-47c4-841f-9160c232495a": {
+    "asset": 1641824999000,
+    "meta": 1653984300819,
+    "relativePath": "obsolete/atom.plist"
+  },
+  "0d784963-d024-4ea6-a7db-03be0ad63010": {
+    "asset": 1641825000000,
+    "meta": 1653984300694,
+    "relativePath": "prefab/toggle.prefab"
+  },
+  "d1b8be49-b0a0-435c-83b7-552bed4bbe35": {
+    "asset": 1641825000000,
+    "meta": 1653984300695,
+    "relativePath": "prefab/toggleGroup.prefab"
+  },
+  "232d2782-c4bd-4bb4-9e01-909f03d6d3b9": {
+    "asset": 1641825000000,
+    "meta": 1653984300695,
+    "relativePath": "prefab/videoplayer.prefab"
+  },
+  "bf0a434c-84dd-4a8e-a08a-7a36f180cc75": {
+    "asset": 1641825000000,
+    "meta": 1653984300696,
+    "relativePath": "prefab/toggleContainer.prefab"
+  },
+  "8c5001fd-07ee-4a4b-a8a0-63e15195e94d": {
+    "asset": 1641825000000,
+    "meta": 1653984300696,
+    "relativePath": "prefab/webview.prefab"
+  },
+  "a87cc147-01b2-43f8-8e42-a7ca90b0c757": {
+    "asset": 1641824999000,
+    "meta": 1653984300697,
+    "relativePath": "model/prefab/box.prefab"
+  },
+  "fe1417b6-fe6b-46a4-ae7c-9fd331f33a2a": {
+    "asset": 1641824999000,
+    "meta": 1653984300697,
+    "relativePath": "model/prefab/capsule.prefab"
+  },
+  "b5fc2cf2-7942-483d-be1f-bbeadc4714ad": {
+    "asset": 1641824999000,
+    "meta": 1653984300698,
+    "relativePath": "model/prefab/cone.prefab"
+  },
+  "b2687ac4-099e-403c-a192-ff477686f4f5": {
+    "asset": 1641824999000,
+    "meta": 1653984300820,
+    "relativePath": "particle/atom.plist"
+  },
+  "1c5e4038-953a-44c2-b620-0bbfc6170477": {
+    "asset": 1641824999000,
+    "meta": 1653984300699,
+    "relativePath": "model/prefab/cylinder.prefab"
+  },
+  "6c9ef10d-b479-420b-bfe6-39cdda6a8ae0": {
+    "asset": 1641824999000,
+    "meta": 1653984300699,
+    "relativePath": "model/prefab/quad.prefab"
+  },
+  "2d9a4b85-b0ab-4c46-84c5-18f393ab2058": {
+    "asset": 1641824999000,
+    "meta": 1653984300700,
+    "relativePath": "model/prefab/sphere.prefab"
+  },
+  "30682f87-9f0d-4f17-8a44-72863791461b": {
+    "asset": 1641825000000,
+    "meta": 1653984300704,
+    "relativePath": "resources/effects/builtin-2d-graphics.effect"
+  },
+  "3f376125-a699-40ca-ad05-04d662eaa1f2": {
+    "asset": 1641824999000,
+    "meta": 1653984300705,
+    "relativePath": "model/prefab/plane.prefab"
+  },
+  "144c3297-af63-49e8-b8ef-1cfa29b3be28": {
+    "asset": 1641825000000,
+    "meta": 1653984300708,
+    "relativePath": "resources/effects/builtin-2d-gray-sprite.effect"
+  },
+  "f18742d7-56d2-4eb5-ae49-2d9d710b37c8": {
+    "asset": 1641825000000,
+    "meta": 1653984300714,
+    "relativePath": "resources/effects/builtin-2d-label.effect"
+  },
+  "0e93aeaa-0b53-4e40-b8e0-6268b4e07bd7": {
+    "asset": 1641825000000,
+    "meta": 1653984300718,
+    "relativePath": "resources/effects/builtin-2d-spine.effect"
+  },
+  "de510076-056b-484f-b94c-83bef217d0e1": {
+    "asset": 1641824999000,
+    "meta": 1653984300719,
+    "relativePath": "model/prefab/torus.prefab"
+  },
+  "2874f8dd-416c-4440-81b7-555975426e93": {
+    "asset": 1641825000000,
+    "meta": 1653984300722,
+    "relativePath": "resources/effects/builtin-2d-sprite.effect"
+  },
+  "829a282c-b049-4019-bd38-5ace8d8a6417": {
+    "asset": 1641825000000,
+    "meta": 1653984300764,
+    "relativePath": "resources/effects/builtin-3d-particle.effect"
+  },
+  "2a7c0036-e0b3-4fe1-8998-89a54b8a2bec": {
+    "asset": 1641825000000,
+    "meta": 1653984300772,
+    "relativePath": "resources/effects/builtin-3d-trail.effect"
+  },
+  "c0040c95-c57f-49cd-9cbc-12316b73d0d4": {
+    "asset": 1641825000000,
+    "meta": 1653984300776,
+    "relativePath": "resources/effects/builtin-clear-stencil.effect"
+  },
+  "61906da3-7003-4bda-9abc-5769c76faee4": {
+    "asset": 1641825000000,
+    "meta": 1653984300776,
+    "relativePath": "prefab/light/ambient.prefab"
+  },
+  "6d91e591-4ce0-465c-809f-610ec95019c6": {
+    "asset": 1641825000000,
+    "meta": 1653984300782,
+    "relativePath": "resources/effects/builtin-unlit.effect"
+  },
+  "ddb99b39-7004-47cd-9705-751905c43c46": {
+    "asset": 1641825000000,
+    "meta": 1653984300783,
+    "relativePath": "prefab/light/directional.prefab"
+  },
+  "0cf30284-9073-46bc-9eba-e62b69dbbff3": {
+    "asset": 1641825000000,
+    "meta": 1653984300786,
+    "relativePath": "prefab/light/point.prefab"
+  },
+  "f5331fd2-bf42-4ee3-a3fd-3e1657600eff": {
+    "asset": 1641825000000,
+    "meta": 1653984300786,
+    "relativePath": "prefab/light/spot.prefab"
+  },
+  "6f801092-0c37-4f30-89ef-c8d960825b36": {
+    "asset": 1641825000000,
+    "meta": 1653984300821,
+    "relativePath": "resources/materials/builtin-2d-base.mtl"
+  },
+  "a153945d-2511-4c14-be7b-05d242f47d57": {
+    "asset": 1641825000000,
+    "meta": 1653984300821,
+    "relativePath": "resources/materials/builtin-2d-graphics.mtl"
+  },
+  "e02d87d4-e599-4d16-8001-e14891ac6506": {
+    "asset": 1641825000000,
+    "meta": 1653984300822,
+    "relativePath": "resources/materials/builtin-2d-label.mtl"
+  },
+  "7afd064b-113f-480e-b793-8817d19f63c3": {
+    "asset": 1641825000000,
+    "meta": 1653984300822,
+    "relativePath": "resources/materials/builtin-2d-spine.mtl"
+  },
+  "3a7bb79f-32fd-422e-ada2-96f518fed422": {
+    "asset": 1641825000000,
+    "meta": 1653984300822,
+    "relativePath": "resources/materials/builtin-2d-gray-sprite.mtl"
+  },
+  "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432": {
+    "asset": 1641825000000,
+    "meta": 1653984300822,
+    "relativePath": "resources/materials/builtin-2d-sprite.mtl"
+  },
+  "432fa09c-cf03-4cff-a186-982604408a07": {
+    "asset": 1641825000000,
+    "meta": 1653984300822,
+    "relativePath": "resources/materials/builtin-3d-particle.mtl"
+  },
+  "cf7e0bb8-a81c-44a9-ad79-d28d43991032": {
+    "asset": 1641825000000,
+    "meta": 1653984300823,
+    "relativePath": "resources/materials/builtin-clear-stencil.mtl"
+  },
+  "466d4f9b-e5f4-4ea8-85d5-3c6e9a65658a": {
+    "asset": 1641825000000,
+    "meta": 1653984300823,
+    "relativePath": "resources/materials/builtin-3d-trail.mtl"
+  },
+  "2a296057-247c-4a1c-bbeb-0548b6c98650": {
+    "asset": 1641825000000,
+    "meta": 1653984300823,
+    "relativePath": "resources/materials/builtin-unlit.mtl"
+  },
+  "954fec8b-cd16-4bb9-a3b7-7719660e7558": {
+    "asset": 1641824999000,
+    "meta": 1653984302230,
+    "relativePath": "model/primitives.fbx"
+  },
+  "33684a52-5c54-4cd4-99f3-1559167834bc": {
+    "asset": 1653983971812,
+    "meta": 1653984302288,
+    "relativePath": "Animation"
+  },
+  "f08a28b6-0c09-452b-965c-82b61e62dfb7": {
+    "asset": 1653983971815,
+    "meta": 1653984302289,
+    "relativePath": "Assets"
+  },
+  "b98f3b73-d9e9-4426-b2ff-e04b13ddb21e": {
+    "asset": 1653983972036,
+    "meta": 1653984302289,
+    "relativePath": "Prefabs"
+  },
+  "6adf6d96-e71d-42d8-9067-6605a3d14580": {
+    "asset": 1653983972037,
+    "meta": 1653984302289,
+    "relativePath": "Scenes"
+  },
+  "b3e03bb7-9a70-456f-a9f0-323be8cd8a3c": {
+    "asset": 1653983972038,
+    "meta": 1653984302290,
+    "relativePath": "Scripts"
+  },
+  "a0f6db97-f472-46a2-91f6-48333c46c890": {
+    "asset": 1653983971807,
+    "meta": 1653984302291,
+    "relativePath": "Animation/playerAttackE.anim"
+  },
+  "f5c41c36-1661-48eb-9935-0d1ca3639ddc": {
+    "asset": 1653983971808,
+    "meta": 1653984302291,
+    "relativePath": "Animation/playerAttackNE.anim"
+  },
+  "1278c074-3962-4cfa-975c-64fc628ef639": {
+    "asset": 1653983971808,
+    "meta": 1653984302292,
+    "relativePath": "Animation/playerAttackN.anim"
+  },
+  "2013e37f-9844-449d-92ac-46dbbf49712c": {
+    "asset": 1653983971808,
+    "meta": 1653984302292,
+    "relativePath": "Animation/playerAttackS.anim"
+  },
+  "cf33c371-e803-4c6e-a239-ff7f4260a6de": {
+    "asset": 1653983971808,
+    "meta": 1653984302292,
+    "relativePath": "Animation/playerAttackNW.anim"
+  },
+  "e0c8de04-3dfc-4ac7-919b-e9371fd72c1e": {
+    "asset": 1653983971809,
+    "meta": 1653984302293,
+    "relativePath": "Animation/playerAttackSE.anim"
+  },
+  "59213363-a29b-488d-90b4-5ed74b0405f1": {
+    "asset": 1653983971809,
+    "meta": 1653984302293,
+    "relativePath": "Animation/playerAttackW.anim"
+  },
+  "7861ba91-f885-4fe1-ac58-89df225f2021": {
+    "asset": 1653983971809,
+    "meta": 1653984302293,
+    "relativePath": "Animation/playerAttackSW.anim"
+  },
+  "f0a03037-fe9f-42a6-bcfa-d68cfa2f0eaf": {
+    "asset": 1653983971809,
+    "meta": 1653984302294,
+    "relativePath": "Animation/playerWalkE.anim"
+  },
+  "1c76d93b-49f6-4c78-9a25-25b74c3086e4": {
+    "asset": 1653983971813,
+    "meta": 1653984302294,
+    "relativePath": "Assets/bg"
+  },
+  "68ce4d6a-cb9a-463e-8929-bdb16b3db677": {
+    "asset": 1653983971810,
+    "meta": 1653984302295,
+    "relativePath": "Animation/playerWalkN.anim"
+  },
+  "87572cb7-385c-4e71-89e7-e2b55965672f": {
+    "asset": 1653983971814,
+    "meta": 1653984302295,
+    "relativePath": "Assets/bullet"
+  },
+  "7c0083a8-1730-4bc2-8587-71c57b19b32f": {
+    "asset": 1653983971814,
+    "meta": 1653984302295,
+    "relativePath": "Assets/enemy"
+  },
+  "6ffcb6b2-170f-4919-b4e4-27d7b2e44fcc": {
+    "asset": 1653983971963,
+    "meta": 1653984302295,
+    "relativePath": "Assets/player"
+  },
+  "b69f9ae0-bce0-4db8-8478-9688e8c56182": {
+    "asset": 1653983971810,
+    "meta": 1653984302295,
+    "relativePath": "Animation/playerWalkNE.anim"
+  },
+  "696c4b28-036a-4bf6-8481-ba4842d785b5": {
+    "asset": 1653983971811,
+    "meta": 1653984302296,
+    "relativePath": "Animation/playerWalkS.anim"
+  },
+  "3fe60f3f-8577-4b17-8401-e7c9771d1246": {
+    "asset": 1653983971811,
+    "meta": 1653984302296,
+    "relativePath": "Animation/playerWalkSE.anim"
+  },
+  "a0c2928b-efe6-454a-be43-c106a67b61a5": {
+    "asset": 1653983971810,
+    "meta": 1653984302297,
+    "relativePath": "Animation/playerWalkNW.anim"
+  },
+  "69bfd2ef-a943-4619-8e93-e4c67ddb57bf": {
+    "asset": 1653983971812,
+    "meta": 1653984302297,
+    "relativePath": "Animation/playerWalkSW.anim"
+  },
+  "bec3e5ea-6529-4eeb-a3d4-c7d2811e4acb": {
+    "asset": 1653983972037,
+    "meta": 1653984302313,
+    "relativePath": "Scripts/bullet.ts"
+  },
+  "62f18812-60a1-46e3-8209-424546ed7cef": {
+    "asset": 1653983971812,
+    "meta": 1653984302314,
+    "relativePath": "Animation/playerWalkW.anim"
+  },
+  "21e925eb-411d-4a0b-96a6-e7eb939ea2ab": {
+    "asset": 1653983972037,
+    "meta": 1653984302335,
+    "relativePath": "Scripts/enemy.ts"
+  },
+  "9e7e1e1a-81df-4db8-b5b6-990540a90874": {
+    "asset": 1653983972038,
+    "meta": 1653984302359,
+    "relativePath": "Scripts/gamerManager.ts"
+  },
+  "734cfd77-832d-4b3f-b16f-b5f1c5afe6af": {
+    "asset": 1653983972038,
+    "meta": 1653984302398,
+    "relativePath": "Scripts/player.ts"
+  },
+  "778e5903-1be9-4295-93b9-25d03fff0c13": {
+    "asset": 1653983972018,
+    "meta": 1653984302401,
+    "relativePath": "Prefabs/bullet.prefab"
+  },
+  "20c14b61-328d-461e-80c0-1ef0d70f550c": {
+    "asset": 1653983971815,
+    "meta": 1653984302401,
+    "relativePath": "Assets/enemy/enemyWalkDown"
+  },
+  "c6e18b56-8077-410c-bd3f-4244074b3b3a": {
+    "asset": 1653983972018,
+    "meta": 1653984302402,
+    "relativePath": "Prefabs/enemy.prefab"
+  },
+  "78923398-cf8e-470d-a863-a0541e0abdcf": {
+    "asset": 1653984053009,
+    "meta": 1653984302402,
+    "relativePath": "Assets/player/attacking"
+  },
+  "f28841b2-6cea-43fb-9721-b18bb9b2563d": {
+    "asset": 1653983971813,
+    "meta": 1653984302744,
+    "relativePath": "Assets/bullet/bullet.plist"
+  },
+  "fb85ae42-c658-4c7e-83c9-06041dbc8016": {
+    "asset": 1653983972019,
+    "meta": 1653984302402,
+    "relativePath": "Prefabs/player.prefab"
+  },
+  "8f0d9b50-1120-4117-9cd1-5648752d0919": {
+    "asset": 1653984053009,
+    "meta": 1653984302403,
+    "relativePath": "Assets/player/walking"
+  },
+  "c7d2f15c-ca7b-4525-a757-555c2fe48c98": {
+    "asset": 1653983972036,
+    "meta": 1653984302404,
+    "relativePath": "Scenes/game.fire"
+  },
+  "a80f1dd4-8097-4a61-a46c-540378469d0c": {
+    "asset": 1653983972037,
+    "meta": 1653984302404,
+    "relativePath": "Scenes/shop.fire"
+  },
+  "1e80252b-22bb-4174-aa2f-2b8a4a753aea": {
+    "asset": 1653983972037,
+    "meta": 1653984302406,
+    "relativePath": "Scenes/signIn.fire"
+  },
+  "290828b6-7601-4a42-b766-9535b914fa1e": {
+    "asset": 1653983971813,
+    "meta": 1653984302409,
+    "relativePath": "Assets/bullet/bullet.png"
+  },
+  "931ba3cc-a917-4134-937b-8decc06814af": {
+    "asset": 1653983971839,
+    "meta": 1653984302409,
+    "relativePath": "Assets/player/attacking/E"
+  },
+  "c45ef17c-25c7-49a3-97b1-274e31d3b11f": {
+    "asset": 1653983971845,
+    "meta": 1653984302410,
+    "relativePath": "Assets/player/attacking/N"
+  },
+  "663a2d9e-03f5-4e53-8365-b8fadb6a7417": {
+    "asset": 1653983971849,
+    "meta": 1653984302411,
+    "relativePath": "Assets/player/attacking/NE"
+  },
+  "ea8fd875-b416-4a3e-814b-b369f5fd307b": {
+    "asset": 1653983971853,
+    "meta": 1653984302412,
+    "relativePath": "Assets/player/attacking/NW"
+  },
+  "1181e211-570b-4ed8-b466-4053cc7911bc": {
+    "asset": 1653983971912,
+    "meta": 1653984302412,
+    "relativePath": "Assets/player/attacking/S"
+  },
+  "4abfedf6-64bf-4288-ad4c-5ba135981b83": {
+    "asset": 1653983971952,
+    "meta": 1653984302413,
+    "relativePath": "Assets/player/attacking/SE"
+  },
+  "035c07cf-2945-4362-af86-7f48b6a42084": {
+    "asset": 1653983971957,
+    "meta": 1653984302413,
+    "relativePath": "Assets/player/attacking/SW"
+  },
+  "8fea1674-dbc7-42df-a0fd-fcca7372be30": {
+    "asset": 1653983971814,
+    "meta": 1653984302411,
+    "relativePath": "Assets/enemy/enemyWalkDown/tile000.png"
+  },
+  "2537d3e8-98d7-4376-8b6c-d368192bdf94": {
+    "asset": 1653983971963,
+    "meta": 1653984302413,
+    "relativePath": "Assets/player/attacking/W"
+  },
+  "1112b359-a400-4cd2-a75b-abf97d74fff1": {
+    "asset": 1653983971968,
+    "meta": 1653984302414,
+    "relativePath": "Assets/player/walking/E"
+  },
+  "d03e895f-d106-4c24-ace8-c2f30f3428da": {
+    "asset": 1653983971815,
+    "meta": 1653984302413,
+    "relativePath": "Assets/enemy/enemyWalkDown/tile002.png"
+  },
+  "3990d439-c472-40f7-bf6c-670818f0906c": {
+    "asset": 1653983971972,
+    "meta": 1653984302415,
+    "relativePath": "Assets/player/walking/N"
+  },
+  "139eb6e6-09eb-4866-a18a-65d4c37249bb": {
+    "asset": 1653983971977,
+    "meta": 1653984302415,
+    "relativePath": "Assets/player/walking/NE"
+  },
+  "9c11c734-8696-46c4-a14e-a4eeaf9e8b78": {
+    "asset": 1653983971981,
+    "meta": 1653984302415,
+    "relativePath": "Assets/player/walking/NW"
+  },
+  "a68e9f5c-b54a-44d5-a389-b7d4ed2d3545": {
+    "asset": 1653983971815,
+    "meta": 1653984302414,
+    "relativePath": "Assets/enemy/enemyWalkDown/tile004.png"
+  },
+  "9c323956-fec7-485e-a34a-85210e84743c": {
+    "asset": 1653983971988,
+    "meta": 1653984302415,
+    "relativePath": "Assets/player/walking/S"
+  },
+  "16bb96e4-bc5e-42bc-9728-d95b6ff0232e": {
+    "asset": 1653983971814,
+    "meta": 1653984302414,
+    "relativePath": "Assets/enemy/enemyWalkDown/tile001.png"
+  },
+  "6367aadc-bdd6-471d-a3bb-4acf5f0c266b": {
+    "asset": 1653983971992,
+    "meta": 1653984302416,
+    "relativePath": "Assets/player/walking/SE"
+  },
+  "58ca9c5c-152a-47bd-a498-96f91a153b47": {
+    "asset": 1653983971996,
+    "meta": 1653984302417,
+    "relativePath": "Assets/player/walking/SW"
+  },
+  "fee210b0-232e-496f-9902-b11da8dabf23": {
+    "asset": 1653983972017,
+    "meta": 1653984302417,
+    "relativePath": "Assets/player/walking/W"
+  },
+  "3d802a06-15ea-4e15-923a-46bdfee133b0": {
+    "asset": 1653983971815,
+    "meta": 1653984302416,
+    "relativePath": "Assets/enemy/enemyWalkDown/tile005.png"
+  },
+  "3518b85d-8ca7-419d-b4bf-042751e68969": {
+    "asset": 1653983971815,
+    "meta": 1653984302417,
+    "relativePath": "Assets/enemy/enemyWalkDown/tile003.png"
+  },
+  "83554bd1-c47a-4ccb-bf63-a0ddbe697d64": {
+    "asset": 1653983971817,
+    "meta": 1653984302424,
+    "relativePath": "Assets/player/attacking/E/OrcCrossbow_Attacking_E0006.png"
+  },
+  "54fd1494-6f4a-4f51-996e-933ea76822af": {
+    "asset": 1653983971816,
+    "meta": 1653984302425,
+    "relativePath": "Assets/player/attacking/E/OrcCrossbow_Attacking_E0000.png"
+  },
+  "a983faa3-afb9-40b5-9588-cab38da232d5": {
+    "asset": 1653983971816,
+    "meta": 1653984302425,
+    "relativePath": "Assets/player/attacking/E/OrcCrossbow_Attacking_E0004.png"
+  },
+  "66d97506-65cf-40fa-9f17-b5550b5fc8ba": {
+    "asset": 1653983971818,
+    "meta": 1653984302426,
+    "relativePath": "Assets/player/attacking/E/OrcCrossbow_Attacking_E0008.png"
+  },
+  "7405e642-779b-4b91-a691-6b874555acae": {
+    "asset": 1653983971816,
+    "meta": 1653984302427,
+    "relativePath": "Assets/player/attacking/E/OrcCrossbow_Attacking_E0002.png"
+  },
+  "75c34a8d-7606-4a02-90a7-b144ead68c40": {
+    "asset": 1653983971835,
+    "meta": 1653984302432,
+    "relativePath": "Assets/player/attacking/E/OrcCrossbow_Attacking_E0010.png"
+  },
+  "dca43b64-a88a-45ca-a7ca-9c7017bc70c9": {
+    "asset": 1653983971836,
+    "meta": 1653984302434,
+    "relativePath": "Assets/player/attacking/E/OrcCrossbow_Attacking_E0012.png"
+  },
+  "055c3354-5534-4b08-a0bb-460cda34581b": {
+    "asset": 1653983971836,
+    "meta": 1653984302436,
+    "relativePath": "Assets/player/attacking/E/OrcCrossbow_Attacking_E0014.png"
+  },
+  "d41569df-a145-46d9-87bb-581712395ab4": {
+    "asset": 1653983971837,
+    "meta": 1653984302439,
+    "relativePath": "Assets/player/attacking/E/OrcCrossbow_Attacking_E0016.png"
+  },
+  "6cef6a80-0c28-4ab3-8aad-c1af35538b46": {
+    "asset": 1653983971837,
+    "meta": 1653984302441,
+    "relativePath": "Assets/player/attacking/E/OrcCrossbow_Attacking_E0018.png"
+  },
+  "564d3ce6-e6c1-4793-b67b-384f3793709c": {
+    "asset": 1653983971838,
+    "meta": 1653984302447,
+    "relativePath": "Assets/player/attacking/E/OrcCrossbow_Attacking_E0020.png"
+  },
+  "2f28e874-ff7b-49e0-99ad-54be652c5c29": {
+    "asset": 1653983971813,
+    "meta": 1653984302448,
+    "relativePath": "Assets/bg/tmp_bg.jpg"
+  },
+  "b1d044ac-4e31-4845-b1a4-36b12f9a7aee": {
+    "asset": 1653983971838,
+    "meta": 1653984302449,
+    "relativePath": "Assets/player/attacking/E/OrcCrossbow_Attacking_E0022.png"
+  },
+  "a89ed2f3-7260-43f9-9e44-9941a950a272": {
+    "asset": 1653983971838,
+    "meta": 1653984302450,
+    "relativePath": "Assets/player/attacking/E/OrcCrossbow_Attacking_E0024.png"
+  },
+  "f331fd9a-dce2-40bd-a48e-7d95b281b3fe": {
+    "asset": 1653983971873,
+    "meta": 1653984302452,
+    "relativePath": "Assets/player/attacking/OrcCrossbow_Attacking.png"
+  },
+  "8cc62e17-d44e-490a-bc5d-7e3b19ad56be": {
+    "asset": 1653983971839,
+    "meta": 1653984302454,
+    "relativePath": "Assets/player/attacking/E/OrcCrossbow_Attacking_E0026.png"
+  },
+  "20b9f19b-2d65-4878-b892-abbea26a6efb": {
+    "asset": 1653983971839,
+    "meta": 1653984302455,
+    "relativePath": "Assets/player/attacking/E/OrcCrossbow_Attacking_E0028.png"
+  },
+  "3ce952a6-12de-492d-8259-a2c7abed3105": {
+    "asset": 1653983971985,
+    "meta": 1653984302456,
+    "relativePath": "Assets/player/walking/OrcCrossbow_Walking.png"
+  },
+  "6b59902b-37b8-4008-9de3-fe299e1bfbaf": {
+    "asset": 1653983971839,
+    "meta": 1653984302462,
+    "relativePath": "Assets/player/attacking/E/OrcCrossbow_Attacking_E0030.png"
+  },
+  "3d724935-525c-4748-8315-875e2454c2e6": {
+    "asset": 1653983971840,
+    "meta": 1653984302462,
+    "relativePath": "Assets/player/attacking/N/OrcCrossbow_Attacking_N0002.png"
+  },
+  "44edae28-f03d-4b3d-ac23-b9e7b198efdd": {
+    "asset": 1653983971840,
+    "meta": 1653984302464,
+    "relativePath": "Assets/player/attacking/N/OrcCrossbow_Attacking_N0000.png"
+  },
+  "77a679b6-1c98-4135-b4ea-6ca0865427fe": {
+    "asset": 1653983971841,
+    "meta": 1653984302465,
+    "relativePath": "Assets/player/attacking/N/OrcCrossbow_Attacking_N0006.png"
+  },
+  "5dcd88e9-3d53-4820-85de-b1e0431b45c2": {
+    "asset": 1653983971841,
+    "meta": 1653984302466,
+    "relativePath": "Assets/player/attacking/N/OrcCrossbow_Attacking_N0004.png"
+  },
+  "3d173a92-2104-4d07-a66b-fb4eb978b52e": {
+    "asset": 1653983971842,
+    "meta": 1653984302467,
+    "relativePath": "Assets/player/attacking/N/OrcCrossbow_Attacking_N0008.png"
+  },
+  "1c631fc7-4d40-4adc-a834-c325ebd4ec9a": {
+    "asset": 1653983971842,
+    "meta": 1653984302467,
+    "relativePath": "Assets/player/attacking/N/OrcCrossbow_Attacking_N0012.png"
+  },
+  "758f9cb8-8790-48aa-9946-c024114560e3": {
+    "asset": 1653983971842,
+    "meta": 1653984302468,
+    "relativePath": "Assets/player/attacking/N/OrcCrossbow_Attacking_N0010.png"
+  },
+  "56297992-f8c0-4073-bfef-c003da521bec": {
+    "asset": 1653983971843,
+    "meta": 1653984302474,
+    "relativePath": "Assets/player/attacking/N/OrcCrossbow_Attacking_N0018.png"
+  },
+  "c421ce99-4232-4dd7-b649-972838671365": {
+    "asset": 1653983971843,
+    "meta": 1653984302476,
+    "relativePath": "Assets/player/attacking/N/OrcCrossbow_Attacking_N0020.png"
+  },
+  "382aade5-b1ac-415a-8dcb-5c77bac2d70b": {
+    "asset": 1653983971842,
+    "meta": 1653984302476,
+    "relativePath": "Assets/player/attacking/N/OrcCrossbow_Attacking_N0014.png"
+  },
+  "f6991535-e4b6-4944-ba1b-934fb14ecbf9": {
+    "asset": 1653983971843,
+    "meta": 1653984302477,
+    "relativePath": "Assets/player/attacking/N/OrcCrossbow_Attacking_N0016.png"
+  },
+  "e3becd4b-de52-4f69-be58-eb181209ef8a": {
+    "asset": 1653983971843,
+    "meta": 1653984302478,
+    "relativePath": "Assets/player/attacking/N/OrcCrossbow_Attacking_N0022.png"
+  },
+  "a88509e1-d166-4998-9008-ca2f068891a3": {
+    "asset": 1653983971844,
+    "meta": 1653984302479,
+    "relativePath": "Assets/player/attacking/N/OrcCrossbow_Attacking_N0024.png"
+  },
+  "4fa9c830-7b70-4d40-935f-b567406dd4be": {
+    "asset": 1653983971844,
+    "meta": 1653984302480,
+    "relativePath": "Assets/player/attacking/N/OrcCrossbow_Attacking_N0026.png"
+  },
+  "478a7156-944b-4006-ac20-4add186aaa6a": {
+    "asset": 1653983971844,
+    "meta": 1653984302480,
+    "relativePath": "Assets/player/attacking/N/OrcCrossbow_Attacking_N0028.png"
+  },
+  "69a09eb6-3eaa-43c8-aceb-6cd822c4ced7": {
+    "asset": 1653983971845,
+    "meta": 1653984302485,
+    "relativePath": "Assets/player/attacking/N/OrcCrossbow_Attacking_N0030.png"
+  },
+  "2129632e-33f7-4730-ba66-b1133ed06db8": {
+    "asset": 1653983971845,
+    "meta": 1653984302486,
+    "relativePath": "Assets/player/attacking/NE/OrcCrossbow_Attacking_NE0000.png"
+  },
+  "5c2f42ff-0ad1-49e9-9194-765988fb0b07": {
+    "asset": 1653983971845,
+    "meta": 1653984302487,
+    "relativePath": "Assets/player/attacking/NE/OrcCrossbow_Attacking_NE0004.png"
+  },
+  "965fcda6-db1a-44b8-b912-2beb2a52d2cb": {
+    "asset": 1653983971845,
+    "meta": 1653984302488,
+    "relativePath": "Assets/player/attacking/NE/OrcCrossbow_Attacking_NE0002.png"
+  },
+  "78d2bba6-f301-4a80-ac87-249687d2dc7e": {
+    "asset": 1653983971846,
+    "meta": 1653984302493,
+    "relativePath": "Assets/player/attacking/NE/OrcCrossbow_Attacking_NE0006.png"
+  },
+  "7464542d-2d82-4b75-8947-d5f233312076": {
+    "asset": 1653983971846,
+    "meta": 1653984302493,
+    "relativePath": "Assets/player/attacking/NE/OrcCrossbow_Attacking_NE0008.png"
+  },
+  "d8ee78dc-6e7a-431d-ab2f-6c502173dbc4": {
+    "asset": 1653983971846,
+    "meta": 1653984302495,
+    "relativePath": "Assets/player/attacking/NE/OrcCrossbow_Attacking_NE0010.png"
+  },
+  "17231471-f2cd-4b7f-ab4d-f1c3418bd63b": {
+    "asset": 1653983971847,
+    "meta": 1653984302497,
+    "relativePath": "Assets/player/attacking/NE/OrcCrossbow_Attacking_NE0012.png"
+  },
+  "c9e52f6c-0085-4952-9579-94562ed6c2ad": {
+    "asset": 1653983971847,
+    "meta": 1653984302500,
+    "relativePath": "Assets/player/attacking/NE/OrcCrossbow_Attacking_NE0014.png"
+  },
+  "577c020b-239e-4a40-a6d8-1231dcef7bdc": {
+    "asset": 1653983971847,
+    "meta": 1653984302501,
+    "relativePath": "Assets/player/attacking/NE/OrcCrossbow_Attacking_NE0018.png"
+  },
+  "7aeb9419-d89b-431c-ad20-e3baff3461d0": {
+    "asset": 1653983971847,
+    "meta": 1653984302503,
+    "relativePath": "Assets/player/attacking/NE/OrcCrossbow_Attacking_NE0016.png"
+  },
+  "1e570352-25a8-4d53-ac2d-36f0a642702c": {
+    "asset": 1653983971848,
+    "meta": 1653984302504,
+    "relativePath": "Assets/player/attacking/NE/OrcCrossbow_Attacking_NE0022.png"
+  },
+  "f5ca9864-03d0-4f62-b103-a76fe67192b1": {
+    "asset": 1653983971848,
+    "meta": 1653984302504,
+    "relativePath": "Assets/player/attacking/NE/OrcCrossbow_Attacking_NE0024.png"
+  },
+  "802b8c58-8f69-41a7-afdf-12a814d44a38": {
+    "asset": 1653983971848,
+    "meta": 1653984302505,
+    "relativePath": "Assets/player/attacking/NE/OrcCrossbow_Attacking_NE0020.png"
+  },
+  "7a3b5d16-7d0b-42be-a534-980bead8bbba": {
+    "asset": 1653983971848,
+    "meta": 1653984302509,
+    "relativePath": "Assets/player/attacking/NE/OrcCrossbow_Attacking_NE0026.png"
+  },
+  "324404ed-0879-404f-8494-371bb45e7762": {
+    "asset": 1653983971849,
+    "meta": 1653984302511,
+    "relativePath": "Assets/player/attacking/NE/OrcCrossbow_Attacking_NE0028.png"
+  },
+  "83f78714-c959-4153-805c-1a7db8b086a5": {
+    "asset": 1653983971849,
+    "meta": 1653984302512,
+    "relativePath": "Assets/player/attacking/NW/OrcCrossbow_Attacking_NW0000.png"
+  },
+  "48b473a8-1eb7-4674-aa65-be6e028ba2e0": {
+    "asset": 1653983971849,
+    "meta": 1653984302513,
+    "relativePath": "Assets/player/attacking/NE/OrcCrossbow_Attacking_NE0030.png"
+  },
+  "239d748d-3b8d-4cdb-99db-760659b50613": {
+    "asset": 1653983971850,
+    "meta": 1653984302514,
+    "relativePath": "Assets/player/attacking/NW/OrcCrossbow_Attacking_NW0004.png"
+  },
+  "97f03ec9-65d8-42a8-a710-950885819457": {
+    "asset": 1653983971850,
+    "meta": 1653984302514,
+    "relativePath": "Assets/player/attacking/NW/OrcCrossbow_Attacking_NW0002.png"
+  },
+  "6ffbbf05-8447-44fd-961a-a4256f0e04af": {
+    "asset": 1653983971850,
+    "meta": 1653984302515,
+    "relativePath": "Assets/player/attacking/NW/OrcCrossbow_Attacking_NW0006.png"
+  },
+  "94500d96-850d-4fae-a38e-f5c1ea4aa3a5": {
+    "asset": 1653983971850,
+    "meta": 1653984302515,
+    "relativePath": "Assets/player/attacking/NW/OrcCrossbow_Attacking_NW0008.png"
+  },
+  "d1d0701a-ec84-406d-9969-684d9e2a6d88": {
+    "asset": 1653983971850,
+    "meta": 1653984302519,
+    "relativePath": "Assets/player/attacking/NW/OrcCrossbow_Attacking_NW0010.png"
+  },
+  "6bff33ab-1fee-4d07-8c24-59a5f9a681fe": {
+    "asset": 1653983971851,
+    "meta": 1653984302520,
+    "relativePath": "Assets/player/attacking/NW/OrcCrossbow_Attacking_NW0012.png"
+  },
+  "dc0131fe-e3c0-4ad5-8780-c73c5b4ce1fa": {
+    "asset": 1653983971851,
+    "meta": 1653984302520,
+    "relativePath": "Assets/player/attacking/NW/OrcCrossbow_Attacking_NW0016.png"
+  },
+  "d66522ce-3eba-4799-9b87-edeee941e839": {
+    "asset": 1653983971851,
+    "meta": 1653984302521,
+    "relativePath": "Assets/player/attacking/NW/OrcCrossbow_Attacking_NW0018.png"
+  },
+  "b8bd491f-a2ab-4770-b8ca-09642d53f1ca": {
+    "asset": 1653983971851,
+    "meta": 1653984302521,
+    "relativePath": "Assets/player/attacking/NW/OrcCrossbow_Attacking_NW0014.png"
+  },
+  "a2774b3a-1f09-4bea-9285-cd4df2aa4b20": {
+    "asset": 1653983971852,
+    "meta": 1653984302522,
+    "relativePath": "Assets/player/attacking/NW/OrcCrossbow_Attacking_NW0020.png"
+  },
+  "a5e6e70c-c069-42a0-ac03-416f6095c16a": {
+    "asset": 1653983971852,
+    "meta": 1653984302525,
+    "relativePath": "Assets/player/attacking/NW/OrcCrossbow_Attacking_NW0022.png"
+  },
+  "10a90cf7-72bb-4c04-bfc2-fdd28da50b3d": {
+    "asset": 1653983971852,
+    "meta": 1653984302525,
+    "relativePath": "Assets/player/attacking/NW/OrcCrossbow_Attacking_NW0024.png"
+  },
+  "c44c8c98-d178-430c-b9b2-e48a77341712": {
+    "asset": 1653983971852,
+    "meta": 1653984302527,
+    "relativePath": "Assets/player/attacking/NW/OrcCrossbow_Attacking_NW0026.png"
+  },
+  "8fe59532-a83a-4727-b498-cd13aaa41db3": {
+    "asset": 1653983971853,
+    "meta": 1653984302528,
+    "relativePath": "Assets/player/attacking/NW/OrcCrossbow_Attacking_NW0030.png"
+  },
+  "27b166f9-ddc1-411b-85ef-3f69bf2dacfa": {
+    "asset": 1653983971873,
+    "meta": 1653984302528,
+    "relativePath": "Assets/player/attacking/S/OrcCrossbow_Attacking_S0002.png"
+  },
+  "5c1a836f-8024-4883-b3cd-4d2a1186b808": {
+    "asset": 1653983971873,
+    "meta": 1653984302529,
+    "relativePath": "Assets/player/attacking/S/OrcCrossbow_Attacking_S0000.png"
+  },
+  "2b98bebf-2a41-4eef-94cb-1ecf0ebcfb6d": {
+    "asset": 1653983971852,
+    "meta": 1653984302529,
+    "relativePath": "Assets/player/attacking/NW/OrcCrossbow_Attacking_NW0028.png"
+  },
+  "2120ff8a-e8c2-4f03-afe6-93e679899fe5": {
+    "asset": 1653983971874,
+    "meta": 1653984302529,
+    "relativePath": "Assets/player/attacking/S/OrcCrossbow_Attacking_S0004.png"
+  },
+  "b4e3f289-faad-44f4-b4d8-703fa14fc92e": {
+    "asset": 1653983971874,
+    "meta": 1653984302533,
+    "relativePath": "Assets/player/attacking/S/OrcCrossbow_Attacking_S0006.png"
+  },
+  "34595eab-a75c-4468-b11c-371ac18ca59d": {
+    "asset": 1653983971874,
+    "meta": 1653984302534,
+    "relativePath": "Assets/player/attacking/S/OrcCrossbow_Attacking_S0008.png"
+  },
+  "ed062125-e4a6-4221-8934-94a2158f0469": {
+    "asset": 1653983971875,
+    "meta": 1653984302535,
+    "relativePath": "Assets/player/attacking/S/OrcCrossbow_Attacking_S0014.png"
+  },
+  "afb30da0-499d-4d10-bdb9-c9255053d394": {
+    "asset": 1653983971875,
+    "meta": 1653984302535,
+    "relativePath": "Assets/player/attacking/S/OrcCrossbow_Attacking_S0010.png"
+  },
+  "5bc27dcb-5812-44b0-b4c6-878bb78ae6b7": {
+    "asset": 1653983971875,
+    "meta": 1653984302536,
+    "relativePath": "Assets/player/attacking/S/OrcCrossbow_Attacking_S0012.png"
+  },
+  "ab51525d-dcba-491c-8f22-2384c021f450": {
+    "asset": 1653983971876,
+    "meta": 1653984302538,
+    "relativePath": "Assets/player/attacking/S/OrcCrossbow_Attacking_S0018.png"
+  },
+  "e5d22062-2bff-4184-aa17-475cd086f7cf": {
+    "asset": 1653983971876,
+    "meta": 1653984302539,
+    "relativePath": "Assets/player/attacking/S/OrcCrossbow_Attacking_S0016.png"
+  },
+  "608b7d81-a55b-4a41-bcc9-00a610ad71c4": {
+    "asset": 1653983971893,
+    "meta": 1653984302539,
+    "relativePath": "Assets/player/attacking/S/OrcCrossbow_Attacking_S0020.png"
+  },
+  "a939b646-232a-4a58-89f3-2b0c518be355": {
+    "asset": 1653983971911,
+    "meta": 1653984302542,
+    "relativePath": "Assets/player/attacking/S/OrcCrossbow_Attacking_S0026.png"
+  },
+  "2a69733d-1726-4aa5-9b59-7d3c3303a066": {
+    "asset": 1653983971912,
+    "meta": 1653984302542,
+    "relativePath": "Assets/player/attacking/S/OrcCrossbow_Attacking_S0028.png"
+  },
+  "3e792d23-9ee3-4362-a96c-2eaa0437770b": {
+    "asset": 1653983971893,
+    "meta": 1653984302543,
+    "relativePath": "Assets/player/attacking/S/OrcCrossbow_Attacking_S0022.png"
+  },
+  "96090963-a7d4-4358-ab42-c6832e6085c4": {
+    "asset": 1653983971911,
+    "meta": 1653984302543,
+    "relativePath": "Assets/player/attacking/S/OrcCrossbow_Attacking_S0024.png"
+  },
+  "09fee17b-c374-478a-bfe6-7c479177c371": {
+    "asset": 1653983971912,
+    "meta": 1653984302544,
+    "relativePath": "Assets/player/attacking/S/OrcCrossbow_Attacking_S0030.png"
+  },
+  "7c840ff8-61f4-4e6a-a331-821254c48126": {
+    "asset": 1653983971931,
+    "meta": 1653984302548,
+    "relativePath": "Assets/player/attacking/SE/OrcCrossbow_Attacking_SE0002.png"
+  },
+  "0ab917c2-20c5-4455-9b1c-83b699b049f9": {
+    "asset": 1653983971930,
+    "meta": 1653984302549,
+    "relativePath": "Assets/player/attacking/SE/OrcCrossbow_Attacking_SE0000.png"
+  },
+  "93488ea1-4640-4d11-bbca-a6e5b04d80b5": {
+    "asset": 1653983971931,
+    "meta": 1653984302550,
+    "relativePath": "Assets/player/attacking/SE/OrcCrossbow_Attacking_SE0004.png"
+  },
+  "47b7cb52-4619-4a1b-8f7b-f511af7d6f5e": {
+    "asset": 1653983971931,
+    "meta": 1653984302551,
+    "relativePath": "Assets/player/attacking/SE/OrcCrossbow_Attacking_SE0006.png"
+  },
+  "e0882335-ea53-4cbf-b563-51358d0c78c0": {
+    "asset": 1653983971932,
+    "meta": 1653984302553,
+    "relativePath": "Assets/player/attacking/SE/OrcCrossbow_Attacking_SE0010.png"
+  },
+  "c1064269-1891-4961-b7ab-af58ff5aab06": {
+    "asset": 1653983971932,
+    "meta": 1653984302554,
+    "relativePath": "Assets/player/attacking/SE/OrcCrossbow_Attacking_SE0008.png"
+  },
+  "f3dc4cbd-6cc1-4673-b113-798d43b501d3": {
+    "asset": 1653983971932,
+    "meta": 1653984302554,
+    "relativePath": "Assets/player/attacking/SE/OrcCrossbow_Attacking_SE0012.png"
+  },
+  "5a865d68-12a9-4c00-b56f-908edbb5aef3": {
+    "asset": 1653983971933,
+    "meta": 1653984302554,
+    "relativePath": "Assets/player/attacking/SE/OrcCrossbow_Attacking_SE0014.png"
+  },
+  "de142d3f-efb3-49ed-9752-68f3fe9a9de5": {
+    "asset": 1653983971934,
+    "meta": 1653984302558,
+    "relativePath": "Assets/player/attacking/SE/OrcCrossbow_Attacking_SE0018.png"
+  },
+  "d357c796-939f-4197-96f6-15197861de99": {
+    "asset": 1653983971933,
+    "meta": 1653984302559,
+    "relativePath": "Assets/player/attacking/SE/OrcCrossbow_Attacking_SE0016.png"
+  },
+  "ebcc442a-5aad-4bac-8092-3d6db94b086f": {
+    "asset": 1653983971951,
+    "meta": 1653984302560,
+    "relativePath": "Assets/player/attacking/SE/OrcCrossbow_Attacking_SE0024.png"
+  },
+  "ff085b09-29b5-449c-aa12-8b76195ba10e": {
+    "asset": 1653983971951,
+    "meta": 1653984302560,
+    "relativePath": "Assets/player/attacking/SE/OrcCrossbow_Attacking_SE0022.png"
+  },
+  "0e75e892-e861-4cc9-bc22-f1a6e1cca3b8": {
+    "asset": 1653983971950,
+    "meta": 1653984302561,
+    "relativePath": "Assets/player/attacking/SE/OrcCrossbow_Attacking_SE0020.png"
+  },
+  "9ec7a5f1-1759-4b61-afd5-7dbeb84c832e": {
+    "asset": 1653983971951,
+    "meta": 1653984302562,
+    "relativePath": "Assets/player/attacking/SE/OrcCrossbow_Attacking_SE0026.png"
+  },
+  "36946d1c-5fbe-4538-acdf-4d743e1a7284": {
+    "asset": 1653983971952,
+    "meta": 1653984302564,
+    "relativePath": "Assets/player/attacking/SE/OrcCrossbow_Attacking_SE0030.png"
+  },
+  "ce7807c8-0f48-4fbf-b9d4-e5746ebaa059": {
+    "asset": 1653983971952,
+    "meta": 1653984302565,
+    "relativePath": "Assets/player/attacking/SE/OrcCrossbow_Attacking_SE0028.png"
+  },
+  "a012cc66-9502-465b-a038-0b622d988a41": {
+    "asset": 1653983971953,
+    "meta": 1653984302567,
+    "relativePath": "Assets/player/attacking/SW/OrcCrossbow_Attacking_SW0000.png"
+  },
+  "723d74f3-be14-4dce-8827-0064212f08cb": {
+    "asset": 1653983971953,
+    "meta": 1653984302567,
+    "relativePath": "Assets/player/attacking/SW/OrcCrossbow_Attacking_SW0002.png"
+  },
+  "99a9e37d-ef45-4fe9-baa8-6520443eaaa0": {
+    "asset": 1653983971953,
+    "meta": 1653984302568,
+    "relativePath": "Assets/player/attacking/SW/OrcCrossbow_Attacking_SW0004.png"
+  },
+  "36a15308-f3a6-424b-94bf-95589863cb48": {
+    "asset": 1653983971954,
+    "meta": 1653984302568,
+    "relativePath": "Assets/player/attacking/SW/OrcCrossbow_Attacking_SW0006.png"
+  },
+  "b196080a-3964-440b-9573-1847937339ad": {
+    "asset": 1653983971954,
+    "meta": 1653984302570,
+    "relativePath": "Assets/player/attacking/SW/OrcCrossbow_Attacking_SW0008.png"
+  },
+  "0d1576fc-c902-48ca-884f-426b48c740b1": {
+    "asset": 1653983971954,
+    "meta": 1653984302574,
+    "relativePath": "Assets/player/attacking/SW/OrcCrossbow_Attacking_SW0010.png"
+  },
+  "7bfcc4eb-1a4e-499c-9c6b-08e85ce63731": {
+    "asset": 1653983971955,
+    "meta": 1653984302574,
+    "relativePath": "Assets/player/attacking/SW/OrcCrossbow_Attacking_SW0012.png"
+  },
+  "b80331e1-fac7-4233-8e9c-571618e1d727": {
+    "asset": 1653983971955,
+    "meta": 1653984302575,
+    "relativePath": "Assets/player/attacking/SW/OrcCrossbow_Attacking_SW0016.png"
+  },
+  "91f27d72-edef-4331-bfac-1619cc797bc1": {
+    "asset": 1653983971955,
+    "meta": 1653984302575,
+    "relativePath": "Assets/player/attacking/SW/OrcCrossbow_Attacking_SW0014.png"
+  },
+  "ddd2c584-d3ba-4f18-8195-d0a3cc434c76": {
+    "asset": 1653983971956,
+    "meta": 1653984302576,
+    "relativePath": "Assets/player/attacking/SW/OrcCrossbow_Attacking_SW0020.png"
+  },
+  "468624b4-b32d-4fae-a698-892b0300d8fb": {
+    "asset": 1653983971956,
+    "meta": 1653984302576,
+    "relativePath": "Assets/player/attacking/SW/OrcCrossbow_Attacking_SW0022.png"
+  },
+  "8da0387e-bf7c-4439-b500-f47507001783": {
+    "asset": 1653983971955,
+    "meta": 1653984302577,
+    "relativePath": "Assets/player/attacking/SW/OrcCrossbow_Attacking_SW0018.png"
+  },
+  "270c8d66-3784-4102-9252-281be16fe7d0": {
+    "asset": 1653983971956,
+    "meta": 1653984302580,
+    "relativePath": "Assets/player/attacking/SW/OrcCrossbow_Attacking_SW0024.png"
+  },
+  "ca5da55f-4afc-42c4-8be0-a3451481e819": {
+    "asset": 1653983971957,
+    "meta": 1653984302584,
+    "relativePath": "Assets/player/attacking/SW/OrcCrossbow_Attacking_SW0030.png"
+  },
+  "efc936f8-8f66-4025-b123-dc8d46f8533e": {
+    "asset": 1653983971957,
+    "meta": 1653984302584,
+    "relativePath": "Assets/player/attacking/SW/OrcCrossbow_Attacking_SW0028.png"
+  },
+  "e8d387e3-829a-4c66-ac11-c3e95c62a5b2": {
+    "asset": 1653983971958,
+    "meta": 1653984302585,
+    "relativePath": "Assets/player/attacking/W/OrcCrossbow_Attacking_W0002.png"
+  },
+  "fb0077c7-4360-48a4-b280-3801c7549d47": {
+    "asset": 1653983971957,
+    "meta": 1653984302585,
+    "relativePath": "Assets/player/attacking/SW/OrcCrossbow_Attacking_SW0026.png"
+  },
+  "987e89d0-afd2-459a-a705-6570d93c74ce": {
+    "asset": 1653983971959,
+    "meta": 1653984302586,
+    "relativePath": "Assets/player/attacking/W/OrcCrossbow_Attacking_W0004.png"
+  },
+  "246c51c7-61dd-4197-9ef4-b5b2ac596ea6": {
+    "asset": 1653983971958,
+    "meta": 1653984302587,
+    "relativePath": "Assets/player/attacking/W/OrcCrossbow_Attacking_W0000.png"
+  },
+  "ce39d2cd-4a79-43f1-9270-6e9cc166d97c": {
+    "asset": 1653983971959,
+    "meta": 1653984302587,
+    "relativePath": "Assets/player/attacking/W/OrcCrossbow_Attacking_W0006.png"
+  },
+  "afea474a-fbf4-416e-bc74-51a33f659188": {
+    "asset": 1653983971959,
+    "meta": 1653984302590,
+    "relativePath": "Assets/player/attacking/W/OrcCrossbow_Attacking_W0008.png"
+  },
+  "2a5f1854-8f35-4c6f-966f-ffc1deb8b376": {
+    "asset": 1653983971960,
+    "meta": 1653984302591,
+    "relativePath": "Assets/player/attacking/W/OrcCrossbow_Attacking_W0010.png"
+  },
+  "6310f485-7141-4b5a-bbf5-7c855e54baea": {
+    "asset": 1653983971960,
+    "meta": 1653984302592,
+    "relativePath": "Assets/player/attacking/W/OrcCrossbow_Attacking_W0016.png"
+  },
+  "076abcc8-6520-4480-bcdb-c2e932e7b849": {
+    "asset": 1653983971960,
+    "meta": 1653984302592,
+    "relativePath": "Assets/player/attacking/W/OrcCrossbow_Attacking_W0014.png"
+  },
+  "1a03dd37-94cf-4a2d-a086-8f2801075a59": {
+    "asset": 1653983971960,
+    "meta": 1653984302593,
+    "relativePath": "Assets/player/attacking/W/OrcCrossbow_Attacking_W0012.png"
+  },
+  "29bb2736-34aa-4c99-9685-8610d3fd5f20": {
+    "asset": 1653983971961,
+    "meta": 1653984302596,
+    "relativePath": "Assets/player/attacking/W/OrcCrossbow_Attacking_W0018.png"
+  },
+  "1ee060e5-18a4-4914-b9cd-11d502d8f96d": {
+    "asset": 1653983971961,
+    "meta": 1653984302597,
+    "relativePath": "Assets/player/attacking/W/OrcCrossbow_Attacking_W0020.png"
+  },
+  "79d9a9e7-c4c8-4ad3-8f8e-f901d2a5baf1": {
+    "asset": 1653983971961,
+    "meta": 1653984302597,
+    "relativePath": "Assets/player/attacking/W/OrcCrossbow_Attacking_W0022.png"
+  },
+  "abfd505c-ca7c-465f-927c-f6dbe4e150aa": {
+    "asset": 1653983971962,
+    "meta": 1653984302600,
+    "relativePath": "Assets/player/attacking/W/OrcCrossbow_Attacking_W0024.png"
+  },
+  "51436e7d-3f1b-4850-919e-bd2d1fccc6a7": {
+    "asset": 1653983971962,
+    "meta": 1653984302600,
+    "relativePath": "Assets/player/attacking/W/OrcCrossbow_Attacking_W0028.png"
+  },
+  "986efb42-a9d0-442f-a73e-4b0567e0ac7d": {
+    "asset": 1653983971963,
+    "meta": 1653984302601,
+    "relativePath": "Assets/player/walking/E/OrcCrossbow_Walking_E0000.png"
+  },
+  "df22f0e8-0130-48e1-9a9c-45e272255765": {
+    "asset": 1653983971962,
+    "meta": 1653984302603,
+    "relativePath": "Assets/player/attacking/W/OrcCrossbow_Attacking_W0026.png"
+  },
+  "ac77ea33-6869-4a02-831f-7c9c34389f93": {
+    "asset": 1653983971963,
+    "meta": 1653984302603,
+    "relativePath": "Assets/player/attacking/W/OrcCrossbow_Attacking_W0030.png"
+  },
+  "a425d44c-15c9-4845-b9c5-f8f668196124": {
+    "asset": 1653983971963,
+    "meta": 1653984302607,
+    "relativePath": "Assets/player/walking/E/OrcCrossbow_Walking_E0002.png"
+  },
+  "e34e4320-3a9b-457b-b105-64a0ca394731": {
+    "asset": 1653983971964,
+    "meta": 1653984302608,
+    "relativePath": "Assets/player/walking/E/OrcCrossbow_Walking_E0004.png"
+  },
+  "b6254752-41f8-44c2-944d-5fec91e34807": {
+    "asset": 1653983971964,
+    "meta": 1653984302608,
+    "relativePath": "Assets/player/walking/E/OrcCrossbow_Walking_E0006.png"
+  },
+  "7acd72df-0c9f-449c-9441-252780cfab70": {
+    "asset": 1653983971964,
+    "meta": 1653984302609,
+    "relativePath": "Assets/player/walking/E/OrcCrossbow_Walking_E0008.png"
+  },
+  "598d8215-ee60-44ef-89a7-be796b8147da": {
+    "asset": 1653983971965,
+    "meta": 1653984302609,
+    "relativePath": "Assets/player/walking/E/OrcCrossbow_Walking_E0010.png"
+  },
+  "623ecdf7-7a2f-4166-b30f-045c6d06712d": {
+    "asset": 1653983971965,
+    "meta": 1653984302612,
+    "relativePath": "Assets/player/walking/E/OrcCrossbow_Walking_E0012.png"
+  },
+  "31b7dabf-3c19-4c4f-a64f-795667c5213a": {
+    "asset": 1653983971965,
+    "meta": 1653984302613,
+    "relativePath": "Assets/player/walking/E/OrcCrossbow_Walking_E0014.png"
+  },
+  "a8ffe149-e681-4309-8398-35441427b7bb": {
+    "asset": 1653983971966,
+    "meta": 1653984302613,
+    "relativePath": "Assets/player/walking/E/OrcCrossbow_Walking_E0016.png"
+  },
+  "08f4f7cc-6eba-4e36-9a42-549be15d2dcc": {
+    "asset": 1653983971966,
+    "meta": 1653984302614,
+    "relativePath": "Assets/player/walking/E/OrcCrossbow_Walking_E0018.png"
+  },
+  "cd725848-8f4a-4aef-a451-85677cd03acf": {
+    "asset": 1653983971967,
+    "meta": 1653984302616,
+    "relativePath": "Assets/player/walking/E/OrcCrossbow_Walking_E0022.png"
+  },
+  "fdde563c-4ee1-474b-9f17-8615f5fb6ab4": {
+    "asset": 1653983971966,
+    "meta": 1653984302617,
+    "relativePath": "Assets/player/walking/E/OrcCrossbow_Walking_E0020.png"
+  },
+  "cde5fcc7-4dcc-48f9-b604-9b2675f1f25d": {
+    "asset": 1653983971967,
+    "meta": 1653984302617,
+    "relativePath": "Assets/player/walking/E/OrcCrossbow_Walking_E0024.png"
+  },
+  "e4806019-cc3d-4bed-8755-f856cf2bbf56": {
+    "asset": 1653983971967,
+    "meta": 1653984302618,
+    "relativePath": "Assets/player/walking/E/OrcCrossbow_Walking_E0026.png"
+  },
+  "d2c53e92-77c2-48f9-a393-b87c41aa4aac": {
+    "asset": 1653983971967,
+    "meta": 1653984302621,
+    "relativePath": "Assets/player/walking/E/OrcCrossbow_Walking_E0028.png"
+  },
+  "f35fdd8a-cc09-4dc4-a836-116c797c5d39": {
+    "asset": 1653983971968,
+    "meta": 1653984302622,
+    "relativePath": "Assets/player/walking/N/OrcCrossbow_Walking_N0000.png"
+  },
+  "c5cba8a6-c75f-4377-a4ca-8f103514947c": {
+    "asset": 1653983971968,
+    "meta": 1653984302622,
+    "relativePath": "Assets/player/walking/E/OrcCrossbow_Walking_E0030.png"
+  },
+  "7672103e-41c4-41c5-acc1-c1abfa344543": {
+    "asset": 1653983971968,
+    "meta": 1653984302623,
+    "relativePath": "Assets/player/walking/N/OrcCrossbow_Walking_N0002.png"
+  },
+  "831d04c6-ad9e-431e-b5e8-12fbc99243a8": {
+    "asset": 1653983971969,
+    "meta": 1653984302623,
+    "relativePath": "Assets/player/walking/N/OrcCrossbow_Walking_N0004.png"
+  },
+  "f28168d2-4d63-4650-be42-b29f622afd57": {
+    "asset": 1653983971969,
+    "meta": 1653984302626,
+    "relativePath": "Assets/player/walking/N/OrcCrossbow_Walking_N0006.png"
+  },
+  "c4e2f959-7157-4eb6-acee-4a40b95bc6fd": {
+    "asset": 1653983971969,
+    "meta": 1653984302627,
+    "relativePath": "Assets/player/walking/N/OrcCrossbow_Walking_N0010.png"
+  },
+  "90f659de-22c7-40ab-afc4-dc4e54597028": {
+    "asset": 1653983971969,
+    "meta": 1653984302628,
+    "relativePath": "Assets/player/walking/N/OrcCrossbow_Walking_N0008.png"
+  },
+  "773edc67-45e2-4837-949b-ba9443c15b8c": {
+    "asset": 1653983971970,
+    "meta": 1653984302629,
+    "relativePath": "Assets/player/walking/N/OrcCrossbow_Walking_N0012.png"
+  },
+  "ac0f71c5-7ef7-46f9-8526-7b52ca183214": {
+    "asset": 1653983971970,
+    "meta": 1653984302630,
+    "relativePath": "Assets/player/walking/N/OrcCrossbow_Walking_N0014.png"
+  },
+  "582fec46-de49-44b8-ac1a-6d9960411868": {
+    "asset": 1653983971970,
+    "meta": 1653984302631,
+    "relativePath": "Assets/player/walking/N/OrcCrossbow_Walking_N0016.png"
+  },
+  "d1e5c6dd-a271-47ff-b57a-4fcc4b71992f": {
+    "asset": 1653983971971,
+    "meta": 1653984302631,
+    "relativePath": "Assets/player/walking/N/OrcCrossbow_Walking_N0018.png"
+  },
+  "4f01e387-b1de-49df-90df-be428a99749a": {
+    "asset": 1653983971971,
+    "meta": 1653984302632,
+    "relativePath": "Assets/player/walking/N/OrcCrossbow_Walking_N0020.png"
+  },
+  "8e81caf0-7eb3-41cc-a720-a8600498fe25": {
+    "asset": 1653983971971,
+    "meta": 1653984302635,
+    "relativePath": "Assets/player/walking/N/OrcCrossbow_Walking_N0022.png"
+  },
+  "8dfe9b50-4075-4055-9e53-67318837b5e2": {
+    "asset": 1653983971971,
+    "meta": 1653984302636,
+    "relativePath": "Assets/player/walking/N/OrcCrossbow_Walking_N0024.png"
+  },
+  "eafde9ec-7601-4784-8062-479168d39ab2": {
+    "asset": 1653983971972,
+    "meta": 1653984302636,
+    "relativePath": "Assets/player/walking/N/OrcCrossbow_Walking_N0026.png"
+  },
+  "50f7958e-04b3-49a3-af14-211653cab092": {
+    "asset": 1653983971972,
+    "meta": 1653984302637,
+    "relativePath": "Assets/player/walking/N/OrcCrossbow_Walking_N0028.png"
+  },
+  "676e4b64-4f49-41ac-b913-9f661baf5542": {
+    "asset": 1653983971972,
+    "meta": 1653984302637,
+    "relativePath": "Assets/player/walking/NE/OrcCrossbow_Walking_NE0000.png"
+  },
+  "103f1948-6355-44a6-b222-6e0b2e87cf40": {
+    "asset": 1653983971973,
+    "meta": 1653984302638,
+    "relativePath": "Assets/player/walking/NE/OrcCrossbow_Walking_NE0004.png"
+  },
+  "0b601138-ab41-4fee-b092-725a3cc47cd1": {
+    "asset": 1653983971972,
+    "meta": 1653984302638,
+    "relativePath": "Assets/player/walking/N/OrcCrossbow_Walking_N0030.png"
+  },
+  "f8a9d544-6f9e-4726-a8af-c6b837d8232c": {
+    "asset": 1653983971973,
+    "meta": 1653984302639,
+    "relativePath": "Assets/player/walking/NE/OrcCrossbow_Walking_NE0002.png"
+  },
+  "30f9ce12-9feb-4131-87fb-3c0ea06129ad": {
+    "asset": 1653983971973,
+    "meta": 1653984302644,
+    "relativePath": "Assets/player/walking/NE/OrcCrossbow_Walking_NE0008.png"
+  },
+  "0fa8919a-76fe-42d1-87cf-7f53e10a5d5e": {
+    "asset": 1653983971973,
+    "meta": 1653984302645,
+    "relativePath": "Assets/player/walking/NE/OrcCrossbow_Walking_NE0006.png"
+  },
+  "85cef38b-7e30-4a75-acc7-d16e9cbd2d4d": {
+    "asset": 1653983971974,
+    "meta": 1653984302645,
+    "relativePath": "Assets/player/walking/NE/OrcCrossbow_Walking_NE0014.png"
+  },
+  "183f69af-6340-45da-9d60-6998498c6b40": {
+    "asset": 1653983971974,
+    "meta": 1653984302646,
+    "relativePath": "Assets/player/walking/NE/OrcCrossbow_Walking_NE0012.png"
+  },
+  "21170678-e718-457a-b769-ca851a9fe63c": {
+    "asset": 1653983971974,
+    "meta": 1653984302647,
+    "relativePath": "Assets/player/walking/NE/OrcCrossbow_Walking_NE0010.png"
+  },
+  "4c010014-d796-45fa-b22a-9920561aaf78": {
+    "asset": 1653983971975,
+    "meta": 1653984302648,
+    "relativePath": "Assets/player/walking/NE/OrcCrossbow_Walking_NE0018.png"
+  },
+  "e414d857-9402-477b-954c-3ead77066a27": {
+    "asset": 1653983971975,
+    "meta": 1653984302648,
+    "relativePath": "Assets/player/walking/NE/OrcCrossbow_Walking_NE0020.png"
+  },
+  "b957aa1c-4f18-4e48-b3e7-719c6aa82706": {
+    "asset": 1653983971975,
+    "meta": 1653984302649,
+    "relativePath": "Assets/player/walking/NE/OrcCrossbow_Walking_NE0016.png"
+  },
+  "4ea9d038-92bf-427d-96da-72ecfe2dd360": {
+    "asset": 1653983971975,
+    "meta": 1653984302653,
+    "relativePath": "Assets/player/walking/NE/OrcCrossbow_Walking_NE0022.png"
+  },
+  "2981cca2-9a81-435f-877f-74483c1e43a5": {
+    "asset": 1653983971976,
+    "meta": 1653984302653,
+    "relativePath": "Assets/player/walking/NE/OrcCrossbow_Walking_NE0024.png"
+  },
+  "d1f359f5-929a-43c5-ba24-480c8f4a2dd8": {
+    "asset": 1653983971977,
+    "meta": 1653984302654,
+    "relativePath": "Assets/player/walking/NE/OrcCrossbow_Walking_NE0030.png"
+  },
+  "e63bd5ad-4300-4c5c-bbf1-d9ca97679271": {
+    "asset": 1653983971976,
+    "meta": 1653984302654,
+    "relativePath": "Assets/player/walking/NE/OrcCrossbow_Walking_NE0026.png"
+  },
+  "8d18d896-0494-4e86-84e3-dab5fb4ff83a": {
+    "asset": 1653983971976,
+    "meta": 1653984302655,
+    "relativePath": "Assets/player/walking/NE/OrcCrossbow_Walking_NE0028.png"
+  },
+  "b642935c-627d-4674-b926-b3295906d716": {
+    "asset": 1653983971977,
+    "meta": 1653984302659,
+    "relativePath": "Assets/player/walking/NW/OrcCrossbow_Walking_NW0000.png"
+  },
+  "756214dd-0865-400f-a5dd-6a7a070a4027": {
+    "asset": 1653983971977,
+    "meta": 1653984302659,
+    "relativePath": "Assets/player/walking/NW/OrcCrossbow_Walking_NW0002.png"
+  },
+  "33e1b91f-eaa3-46ec-85ed-7f4204731937": {
+    "asset": 1653983971977,
+    "meta": 1653984302660,
+    "relativePath": "Assets/player/walking/NW/OrcCrossbow_Walking_NW0004.png"
+  },
+  "4fa67cdf-c5ab-4bef-a35a-d41798b00329": {
+    "asset": 1653983971978,
+    "meta": 1653984302660,
+    "relativePath": "Assets/player/walking/NW/OrcCrossbow_Walking_NW0006.png"
+  },
+  "f430bd64-afe1-4193-8afc-55c04b2e11cf": {
+    "asset": 1653983971978,
+    "meta": 1653984302661,
+    "relativePath": "Assets/player/walking/NW/OrcCrossbow_Walking_NW0008.png"
+  },
+  "70fad753-bbce-4d65-bb1b-293a2852446a": {
+    "asset": 1653983971979,
+    "meta": 1653984302662,
+    "relativePath": "Assets/player/walking/NW/OrcCrossbow_Walking_NW0014.png"
+  },
+  "873236d7-40bf-4b80-9886-04eabca5a476": {
+    "asset": 1653983971978,
+    "meta": 1653984302663,
+    "relativePath": "Assets/player/walking/NW/OrcCrossbow_Walking_NW0010.png"
+  },
+  "ad2156f7-e31e-4716-b18a-9f8878a4abad": {
+    "asset": 1653983971979,
+    "meta": 1653984302664,
+    "relativePath": "Assets/player/walking/NW/OrcCrossbow_Walking_NW0012.png"
+  },
+  "8ec99506-3948-4136-a1d8-27fb93820d2c": {
+    "asset": 1653983971979,
+    "meta": 1653984302667,
+    "relativePath": "Assets/player/walking/NW/OrcCrossbow_Walking_NW0016.png"
+  },
+  "a9016d12-d92b-4190-afff-d275c169850f": {
+    "asset": 1653983971979,
+    "meta": 1653984302667,
+    "relativePath": "Assets/player/walking/NW/OrcCrossbow_Walking_NW0018.png"
+  },
+  "9918779d-41ce-4802-9c87-568d51c06b67": {
+    "asset": 1653983971980,
+    "meta": 1653984302668,
+    "relativePath": "Assets/player/walking/NW/OrcCrossbow_Walking_NW0020.png"
+  },
+  "6958fa17-dcaa-4eb7-a56c-c6f85bc7ef10": {
+    "asset": 1653983971980,
+    "meta": 1653984302668,
+    "relativePath": "Assets/player/walking/NW/OrcCrossbow_Walking_NW0022.png"
+  },
+  "22b137a5-591a-424a-a9f9-7dc6d6004cff": {
+    "asset": 1653983971980,
+    "meta": 1653984302669,
+    "relativePath": "Assets/player/walking/NW/OrcCrossbow_Walking_NW0024.png"
+  },
+  "b846d522-9055-4c8b-b1a0-ff873b1ced76": {
+    "asset": 1653983971980,
+    "meta": 1653984302670,
+    "relativePath": "Assets/player/walking/NW/OrcCrossbow_Walking_NW0026.png"
+  },
+  "dc03079f-30c4-4736-9ae4-71c9a3d53d0a": {
+    "asset": 1653983971981,
+    "meta": 1653984302672,
+    "relativePath": "Assets/player/walking/NW/OrcCrossbow_Walking_NW0028.png"
+  },
+  "72503e65-1b9c-4758-9288-25b9d82c685a": {
+    "asset": 1653983971981,
+    "meta": 1653984302673,
+    "relativePath": "Assets/player/walking/NW/OrcCrossbow_Walking_NW0030.png"
+  },
+  "ae92c6bf-dda8-4b9e-a042-cbd047befdf4": {
+    "asset": 1653983971985,
+    "meta": 1653984302674,
+    "relativePath": "Assets/player/walking/S/OrcCrossbow_Walking_S0000.png"
+  },
+  "9d2c1c87-e756-4701-ab00-be8a0b72b8f1": {
+    "asset": 1653983971985,
+    "meta": 1653984302674,
+    "relativePath": "Assets/player/walking/S/OrcCrossbow_Walking_S0004.png"
+  },
+  "20114a79-a45d-437f-9bd7-596a6df72650": {
+    "asset": 1653983971986,
+    "meta": 1653984302675,
+    "relativePath": "Assets/player/walking/S/OrcCrossbow_Walking_S0006.png"
+  },
+  "a88dd500-0901-4497-bb96-5fa8b08129e8": {
+    "asset": 1653983971985,
+    "meta": 1653984302676,
+    "relativePath": "Assets/player/walking/S/OrcCrossbow_Walking_S0002.png"
+  },
+  "6c701c8e-80b9-4ab7-84ff-0414efb5dc27": {
+    "asset": 1653983971986,
+    "meta": 1653984302676,
+    "relativePath": "Assets/player/walking/S/OrcCrossbow_Walking_S0008.png"
+  },
+  "c612f924-5e49-45aa-840c-2d7cb94980f0": {
+    "asset": 1653983971986,
+    "meta": 1653984302679,
+    "relativePath": "Assets/player/walking/S/OrcCrossbow_Walking_S0010.png"
+  },
+  "d8d10fa3-fc8d-4a77-ab4b-969b7f58f10b": {
+    "asset": 1653983971986,
+    "meta": 1653984302681,
+    "relativePath": "Assets/player/walking/S/OrcCrossbow_Walking_S0014.png"
+  },
+  "2aa48cc8-32bb-4ec3-b387-f4aa9bdc3ecb": {
+    "asset": 1653983971986,
+    "meta": 1653984302681,
+    "relativePath": "Assets/player/walking/S/OrcCrossbow_Walking_S0012.png"
+  },
+  "af537044-7cc4-4a7b-9ab8-e064445bc566": {
+    "asset": 1653983971987,
+    "meta": 1653984302682,
+    "relativePath": "Assets/player/walking/S/OrcCrossbow_Walking_S0016.png"
+  },
+  "9f4342a0-5030-46d5-a600-e8ea73207916": {
+    "asset": 1653983971987,
+    "meta": 1653984302682,
+    "relativePath": "Assets/player/walking/S/OrcCrossbow_Walking_S0018.png"
+  },
+  "bfec4af2-7dd6-4b90-96a4-0534721feee1": {
+    "asset": 1653983971987,
+    "meta": 1653984302683,
+    "relativePath": "Assets/player/walking/S/OrcCrossbow_Walking_S0020.png"
+  },
+  "381c59bf-ba98-49c3-9124-1f4a357d3348": {
+    "asset": 1653983971987,
+    "meta": 1653984302684,
+    "relativePath": "Assets/player/walking/S/OrcCrossbow_Walking_S0022.png"
+  },
+  "bf8e96d1-eae4-4b19-9b0d-79c1e315e78c": {
+    "asset": 1653983971987,
+    "meta": 1653984302684,
+    "relativePath": "Assets/player/walking/S/OrcCrossbow_Walking_S0024.png"
+  },
+  "8c8b9e96-9ace-444a-8377-05cc5e68f0e0": {
+    "asset": 1653983971988,
+    "meta": 1653984302689,
+    "relativePath": "Assets/player/walking/S/OrcCrossbow_Walking_S0028.png"
+  },
+  "601a3e21-bb54-49c8-af55-a29137e10b60": {
+    "asset": 1653983971988,
+    "meta": 1653984302689,
+    "relativePath": "Assets/player/walking/S/OrcCrossbow_Walking_S0030.png"
+  },
+  "3d9048b8-bdf1-4ba8-98e6-f94b897ded16": {
+    "asset": 1653983971988,
+    "meta": 1653984302690,
+    "relativePath": "Assets/player/walking/SE/OrcCrossbow_Walking_SE0000.png"
+  },
+  "409eb353-2bd2-4f4a-ae5e-853b53aaa490": {
+    "asset": 1653983971988,
+    "meta": 1653984302690,
+    "relativePath": "Assets/player/walking/S/OrcCrossbow_Walking_S0026.png"
+  },
+  "e27870bd-8f08-4d5d-ac2e-7d70af31cce8": {
+    "asset": 1653983971989,
+    "meta": 1653984302691,
+    "relativePath": "Assets/player/walking/SE/OrcCrossbow_Walking_SE0002.png"
+  },
+  "2566b30b-15ac-42b0-9997-3e278e4ccc19": {
+    "asset": 1653983971989,
+    "meta": 1653984302692,
+    "relativePath": "Assets/player/walking/SE/OrcCrossbow_Walking_SE0004.png"
+  },
+  "733bf6c0-403f-4c2e-ad92-fcfde087fd20": {
+    "asset": 1653983971989,
+    "meta": 1653984302695,
+    "relativePath": "Assets/player/walking/SE/OrcCrossbow_Walking_SE0006.png"
+  },
+  "6ac7a823-7181-43f6-b353-5d0eb00bc26e": {
+    "asset": 1653983971989,
+    "meta": 1653984302696,
+    "relativePath": "Assets/player/walking/SE/OrcCrossbow_Walking_SE0008.png"
+  },
+  "40e93544-d0f6-4435-8aac-931af341bc0d": {
+    "asset": 1653983971990,
+    "meta": 1653984302697,
+    "relativePath": "Assets/player/walking/SE/OrcCrossbow_Walking_SE0010.png"
+  },
+  "57bf9ca8-8e97-437b-b80e-cc34a52f0a5a": {
+    "asset": 1653983971990,
+    "meta": 1653984302697,
+    "relativePath": "Assets/player/walking/SE/OrcCrossbow_Walking_SE0012.png"
+  },
+  "ee977078-cdb7-4f49-a6d3-27b2624943bd": {
+    "asset": 1653983971990,
+    "meta": 1653984302698,
+    "relativePath": "Assets/player/walking/SE/OrcCrossbow_Walking_SE0016.png"
+  },
+  "50c5aa0e-1ad4-4b2f-b742-a9d4c524000b": {
+    "asset": 1653983971990,
+    "meta": 1653984302698,
+    "relativePath": "Assets/player/walking/SE/OrcCrossbow_Walking_SE0018.png"
+  },
+  "33e153b9-7f59-47b3-8825-b298c87e576c": {
+    "asset": 1653983971990,
+    "meta": 1653984302699,
+    "relativePath": "Assets/player/walking/SE/OrcCrossbow_Walking_SE0014.png"
+  },
+  "ef95fda7-9354-4b8f-a33a-4a51a18a1a41": {
+    "asset": 1653983971991,
+    "meta": 1653984302701,
+    "relativePath": "Assets/player/walking/SE/OrcCrossbow_Walking_SE0020.png"
+  },
+  "0f5c051d-98f0-4f55-b822-f07b9c099dac": {
+    "asset": 1653983971991,
+    "meta": 1653984302702,
+    "relativePath": "Assets/player/walking/SE/OrcCrossbow_Walking_SE0022.png"
+  },
+  "d263e2b0-4988-46c7-96df-d55bd544f59a": {
+    "asset": 1653983971991,
+    "meta": 1653984302704,
+    "relativePath": "Assets/player/walking/SE/OrcCrossbow_Walking_SE0024.png"
+  },
+  "d289955b-2818-4eda-9d8d-bc56db2b533f": {
+    "asset": 1653983971992,
+    "meta": 1653984302705,
+    "relativePath": "Assets/player/walking/SW/OrcCrossbow_Walking_SW0000.png"
+  },
+  "29a759c4-aa9b-44bf-a1b6-0e30968455ba": {
+    "asset": 1653983971991,
+    "meta": 1653984302705,
+    "relativePath": "Assets/player/walking/SE/OrcCrossbow_Walking_SE0028.png"
+  },
+  "eeb1d986-3ed9-4fd7-90b5-d4c5fa412ae7": {
+    "asset": 1653983971992,
+    "meta": 1653984302705,
+    "relativePath": "Assets/player/walking/SE/OrcCrossbow_Walking_SE0030.png"
+  },
+  "5d0d9c34-b990-4479-9674-e66a98021181": {
+    "asset": 1653983971991,
+    "meta": 1653984302706,
+    "relativePath": "Assets/player/walking/SE/OrcCrossbow_Walking_SE0026.png"
+  },
+  "0d101ee9-1869-4369-b7b5-48ca54be0f26": {
+    "asset": 1653983971992,
+    "meta": 1653984302706,
+    "relativePath": "Assets/player/walking/SW/OrcCrossbow_Walking_SW0002.png"
+  },
+  "34efd322-0a2f-4327-b65a-196d6734abac": {
+    "asset": 1653983971992,
+    "meta": 1653984302710,
+    "relativePath": "Assets/player/walking/SW/OrcCrossbow_Walking_SW0004.png"
+  },
+  "3a623d72-1024-468b-bbe9-3fe4e70f56d3": {
+    "asset": 1653983971993,
+    "meta": 1653984302712,
+    "relativePath": "Assets/player/walking/SW/OrcCrossbow_Walking_SW0012.png"
+  },
+  "c73bd84d-5fa3-4401-a46b-2a7656ad3b03": {
+    "asset": 1653983971993,
+    "meta": 1653984302713,
+    "relativePath": "Assets/player/walking/SW/OrcCrossbow_Walking_SW0006.png"
+  },
+  "ea824cd5-b762-4247-ba72-6e50d13ed881": {
+    "asset": 1653983971993,
+    "meta": 1653984302713,
+    "relativePath": "Assets/player/walking/SW/OrcCrossbow_Walking_SW0010.png"
+  },
+  "fbe54e95-6436-4653-b4bc-4f66586e6ebf": {
+    "asset": 1653983971993,
+    "meta": 1653984302714,
+    "relativePath": "Assets/player/walking/SW/OrcCrossbow_Walking_SW0008.png"
+  },
+  "1ff733e2-0cf0-479b-9ef5-db0ef401403c": {
+    "asset": 1653983971993,
+    "meta": 1653984302714,
+    "relativePath": "Assets/player/walking/SW/OrcCrossbow_Walking_SW0014.png"
+  },
+  "3d5396da-d176-44a8-9687-78662f6976ac": {
+    "asset": 1653983971994,
+    "meta": 1653984302715,
+    "relativePath": "Assets/player/walking/SW/OrcCrossbow_Walking_SW0016.png"
+  },
+  "95398bb9-6377-4ffb-964b-cd56a2725b41": {
+    "asset": 1653983971994,
+    "meta": 1653984302716,
+    "relativePath": "Assets/player/walking/SW/OrcCrossbow_Walking_SW0018.png"
+  },
+  "2dc9ab1b-3ee7-4a4e-b3da-a88200e83941": {
+    "asset": 1653983971994,
+    "meta": 1653984302719,
+    "relativePath": "Assets/player/walking/SW/OrcCrossbow_Walking_SW0020.png"
+  },
+  "b6f7fa3b-5ab3-45b4-871e-7735ae441222": {
+    "asset": 1653983971994,
+    "meta": 1653984302720,
+    "relativePath": "Assets/player/walking/SW/OrcCrossbow_Walking_SW0022.png"
+  },
+  "bfa80940-736b-439d-bc8f-cbaceb433cda": {
+    "asset": 1653983971994,
+    "meta": 1653984302720,
+    "relativePath": "Assets/player/walking/SW/OrcCrossbow_Walking_SW0024.png"
+  },
+  "1f1154cd-5294-4510-873d-227f9a747ec5": {
+    "asset": 1653983971995,
+    "meta": 1653984302721,
+    "relativePath": "Assets/player/walking/SW/OrcCrossbow_Walking_SW0026.png"
+  },
+  "de0b5af3-b5de-4fb7-8996-807bf968339c": {
+    "asset": 1653983971995,
+    "meta": 1653984302721,
+    "relativePath": "Assets/player/walking/SW/OrcCrossbow_Walking_SW0028.png"
+  },
+  "130647ba-aef8-439e-b4db-e13d5882d307": {
+    "asset": 1653983971996,
+    "meta": 1653984302721,
+    "relativePath": "Assets/player/walking/SW/OrcCrossbow_Walking_SW0030.png"
+  },
+  "b9b887df-9f2f-4b0b-8ebb-31811070dd2b": {
+    "asset": 1653983972014,
+    "meta": 1653984302725,
+    "relativePath": "Assets/player/walking/W/OrcCrossbow_Walking_W0000.png"
+  },
+  "a4fb471d-efaf-41be-8c28-0460121bd8f6": {
+    "asset": 1653983972014,
+    "meta": 1653984302725,
+    "relativePath": "Assets/player/walking/W/OrcCrossbow_Walking_W0002.png"
+  },
+  "d8c58439-65e3-4428-ba49-7c4891f20707": {
+    "asset": 1653983972015,
+    "meta": 1653984302728,
+    "relativePath": "Assets/player/walking/W/OrcCrossbow_Walking_W0004.png"
+  },
+  "734eb61b-95ad-4c8d-a745-1333e25db4bc": {
+    "asset": 1653983972015,
+    "meta": 1653984302728,
+    "relativePath": "Assets/player/walking/W/OrcCrossbow_Walking_W0006.png"
+  },
+  "7d23945a-a2da-4603-8147-c5eae10ec205": {
+    "asset": 1653983972015,
+    "meta": 1653984302729,
+    "relativePath": "Assets/player/walking/W/OrcCrossbow_Walking_W0010.png"
+  },
+  "9f3f9c2d-57a2-4cc1-a058-128b0da92f4b": {
+    "asset": 1653983972016,
+    "meta": 1653984302730,
+    "relativePath": "Assets/player/walking/W/OrcCrossbow_Walking_W0014.png"
+  },
+  "6f92f8d7-af62-44fb-8c0c-19106868c97f": {
+    "asset": 1653983972015,
+    "meta": 1653984302730,
+    "relativePath": "Assets/player/walking/W/OrcCrossbow_Walking_W0008.png"
+  },
+  "b1f0acf6-8e77-42bb-ab74-00565589bb28": {
+    "asset": 1653983972016,
+    "meta": 1653984302731,
+    "relativePath": "Assets/player/walking/W/OrcCrossbow_Walking_W0012.png"
+  },
+  "dc60662f-8016-4124-a5ab-1edb09f05406": {
+    "asset": 1653983972016,
+    "meta": 1653984302735,
+    "relativePath": "Assets/player/walking/W/OrcCrossbow_Walking_W0018.png"
+  },
+  "54d35384-8c0b-4ea1-8a1f-bf808ff4cd12": {
+    "asset": 1653983972016,
+    "meta": 1653984302736,
+    "relativePath": "Assets/player/walking/W/OrcCrossbow_Walking_W0020.png"
+  },
+  "2acc0fc1-6648-47ef-a200-2be09c533380": {
+    "asset": 1653983972017,
+    "meta": 1653984302736,
+    "relativePath": "Assets/player/walking/W/OrcCrossbow_Walking_W0022.png"
+  },
+  "2553915a-b5cb-4a1d-bc5d-b82279fbeeb7": {
+    "asset": 1653983972017,
+    "meta": 1653984302737,
+    "relativePath": "Assets/player/walking/W/OrcCrossbow_Walking_W0024.png"
+  },
+  "aa5acbdc-a747-4abc-aade-48fbfc196855": {
+    "asset": 1653983972016,
+    "meta": 1653984302737,
+    "relativePath": "Assets/player/walking/W/OrcCrossbow_Walking_W0016.png"
+  },
+  "e9713e98-3f32-4e69-a12c-f358d359fb7d": {
+    "asset": 1653983972017,
+    "meta": 1653984302739,
+    "relativePath": "Assets/player/walking/W/OrcCrossbow_Walking_W0028.png"
+  },
+  "a849f989-2671-49e9-9a09-defe543e203b": {
+    "asset": 1653983972017,
+    "meta": 1653984302739,
+    "relativePath": "Assets/player/walking/W/OrcCrossbow_Walking_W0030.png"
+  },
+  "ca87af52-6225-4cab-b4a2-ad7ba8392106": {
+    "asset": 1653983972017,
+    "meta": 1653984302740,
+    "relativePath": "Assets/player/walking/W/OrcCrossbow_Walking_W0026.png"
+  },
+  "88b1a42e-6904-451e-a201-f2c8149620e6": {
+    "asset": 1653984457901,
+    "meta": 1653984459384,
+    "relativePath": "Scenes/text.fire"
+  }
+}

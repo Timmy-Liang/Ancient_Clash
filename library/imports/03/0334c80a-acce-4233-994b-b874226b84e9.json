@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "OrcCrossbow_Walking_S0030",
+    "texture": "601a3e21-bb54-49c8-af55-a29137e10b60",
+    "atlas": "",
+    "rect": [
+      42,
+      43,
+      61,
+      62
+    ],
+    "offset": [
+      8.5,
+      -10
+    ],
+    "originalSize": [
+      128,
+      128
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
