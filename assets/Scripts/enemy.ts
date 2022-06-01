@@ -23,8 +23,10 @@ export default class enemy extends cc.Component {
   private waitRandomFactor = 0.1;
 
   private life = 5;
-
-  onLoad() {}
+ 
+  onLoad() {
+    
+  }
 
   start() {}
 
@@ -72,14 +74,6 @@ export default class enemy extends cc.Component {
     }
 
     return 0;
-  }
-
-
-  Hurt() {
-    if (this.life > 0) this.life--;
-    if (this.life == 0) {
-      //enemy die
-    }
   }
 
   update(dt) {

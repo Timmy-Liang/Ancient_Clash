@@ -3,7 +3,9 @@
   "group-list": [
     "default",
     "wall",
-    "player"
+    "player",
+    "mapLeft",
+    "mapRight"
   ],
   "collision-matrix": [
     [
@@ -17,6 +19,19 @@
     [
       false,
       true,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
       false
     ]
   ],

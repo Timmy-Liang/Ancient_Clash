@@ -19,8 +19,10 @@ export default class gameManager extends cc.Component {
   player2: player = null;
 
   @property(cc.TiledMap)
-  map1: cc.TiledMap = null;
+  mapLeft: cc.TiledMap = null;
   // set map anchor (0, 0)
+  @property(cc.TiledMap)
+  mapRight: cc.TiledMap = null;
 
   private pause: boolean = false;
 
@@ -38,31 +40,47 @@ export default class gameManager extends cc.Component {
     cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
     cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP, this.onKeyUp, this);
 
-    let tiledSize = this.map1.getTileSize();
-    let layer = this.map1.getLayer("wall");
+    let tiledSize = this.mapLeft.getTileSize();
+    let layer = this.mapLeft.getLayer("wall");
     let layerSize = layer.getLayerSize();
-
-    //check 60*60 tiled
+     //check each tiled
     let count = 0;
     for (let i = 0; i < layerSize.width; i++) {
       for (let j = 0; j < layerSize.height; j++) {
         let tiled = layer.getTiledTileAt(i, j, true);
-        console.log("checking " + i + " " + j );
+        //console.log("checking " + i + " " + j );
         if (tiled.gid != 0) {
           tiled.node.group = "wall";
-          console.log("find " + i + " " + j);
           let body = tiled.node.addComponent(cc.RigidBody);
           body.type = cc.RigidBodyType.Static;
           let collider = tiled.node.addComponent(cc.PhysicsBoxCollider);
           collider.offset = cc.v2(tiledSize.width / 2, tiledSize.height / 2);
           collider.size = tiledSize;
           collider.apply();
-          console.log(count);
-          count++;
         }
       }
     }
+    tiledSize = this.mapRight.getTileSize();
+    layer = this.mapRight.getLayer("wall");
+    layerSize = layer.getLayerSize();
+     //check each tiled
+     for (let i = 0; i < layerSize.width; i++) {
+       for (let j = 0; j < layerSize.height; j++) {
+         let tiled = layer.getTiledTileAt(i, j, true);
+         //console.log("checking " + i + " " + j );
+         if (tiled.gid != 0) {
+           tiled.node.group = "wall";
+           let body = tiled.node.addComponent(cc.RigidBody);
+           body.type = cc.RigidBodyType.Static;
+           let collider = tiled.node.addComponent(cc.PhysicsBoxCollider);
+           collider.offset = cc.v2(tiledSize.width / 2, tiledSize.height / 2);
+           collider.size = tiledSize;
+           collider.apply();
+         }
+       }
+     }
   }
+
 
   onKeyDown(event) {
     keyboardInput[event.keyCode] = 1;

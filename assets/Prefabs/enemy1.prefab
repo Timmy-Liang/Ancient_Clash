@@ -13,7 +13,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "enemy",
+    "_name": "enemy1",
     "_objFlags": 0,
     "_parent": null,
     "_children": [],
@@ -24,10 +24,13 @@
       },
       {
         "__id__": 3
+      },
+      {
+        "__id__": 4
       }
     ],
     "_prefab": {
-      "__id__": 4
+      "__id__": 5
     },
     "_opacity": 255,
     "_color": {
@@ -118,6 +121,44 @@
     "_enabled": true,
     "player1": null,
     "player2": null,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.Animation",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "_defaultClip": null,
+    "_clips": [
+      {
+        "__uuid__": "8ea91f63-cb9d-4e20-96ac-4be3e7219b1f"
+      },
+      {
+        "__uuid__": "5f7905a0-e5e8-45a5-8ef9-64ff0c655f6e"
+      },
+      {
+        "__uuid__": "58e8589d-226f-4e88-98c8-ad0f11a3d54e"
+      },
+      {
+        "__uuid__": "5fe0f578-a4bb-4362-baa0-6a3e21d42116"
+      },
+      {
+        "__uuid__": "770085dd-72ca-4779-a64d-c977c6c0874b"
+      },
+      {
+        "__uuid__": "4b5f6145-7bf2-4c3d-b659-566d93d93ff4"
+      },
+      {
+        "__uuid__": "bc54d1ff-a2f5-4e06-9aca-b64cc111d247"
+      },
+      {
+        "__uuid__": "24e26be0-1164-4842-9ef0-0cc509125738"
+      }
+    ],
+    "playOnLoad": false,
     "_id": ""
   },
   {

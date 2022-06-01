@@ -1,0 +1,73 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "deathRight",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.9,
+  "sample": 10,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "77f12591-46d7-4a06-acda-bc68411ffd94"
+            }
+          },
+          {
+            "frame": 0.1,
+            "value": {
+              "__uuid__": "f7721657-805f-423b-9f07-62f0b441089e"
+            }
+          },
+          {
+            "frame": 0.2,
+            "value": {
+              "__uuid__": "ba1c6ad4-c603-4672-afc1-c3175a376c33"
+            }
+          },
+          {
+            "frame": 0.3,
+            "value": {
+              "__uuid__": "790b33f9-42ae-4ce6-a9bc-ad6e0415ec6f"
+            }
+          },
+          {
+            "frame": 0.4,
+            "value": {
+              "__uuid__": "7595bca8-5286-40fb-b1fd-8764b1356a5a"
+            }
+          },
+          {
+            "frame": 0.5,
+            "value": {
+              "__uuid__": "094f4509-766a-4a4b-ad3d-5502004546f1"
+            }
+          },
+          {
+            "frame": 0.6,
+            "value": {
+              "__uuid__": "2c295124-5f4d-4f14-b679-51fb482aecc8"
+            }
+          },
+          {
+            "frame": 0.7,
+            "value": {
+              "__uuid__": "11620ba9-caf6-4cbd-acbf-d948e4452788"
+            }
+          },
+          {
+            "frame": 0.8,
+            "value": {
+              "__uuid__": "8e11503d-d810-42e3-91bc-38822fdfdab1"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}
