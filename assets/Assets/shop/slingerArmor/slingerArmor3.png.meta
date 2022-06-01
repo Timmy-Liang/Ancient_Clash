@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "88f1019a-e2f9-42d1-9bb4-6caa8813eae2",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 32,
+  "height": 32,
+  "platformSettings": {},
+  "subMetas": {
+    "slingerArmor3": {
+      "ver": "1.0.6",
+      "uuid": "fad9eb39-269d-48c7-b9b8-54aab76d3f84",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "88f1019a-e2f9-42d1-9bb4-6caa8813eae2",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -0.5,
+      "offsetY": 0,
+      "trimX": 2,
+      "trimY": 3,
+      "width": 27,
+      "height": 26,
+      "rawWidth": 32,
+      "rawHeight": 32,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
