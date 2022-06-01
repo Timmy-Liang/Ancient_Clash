@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "f73ee09b-45af-4f97-ad74-97a20040ea55",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 32,
+  "height": 32,
+  "platformSettings": {},
+  "subMetas": {
+    "archerArmor4": {
+      "ver": "1.0.6",
+      "uuid": "49e5d38f-770f-424d-bb41-1510f7ff8db3",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "f73ee09b-45af-4f97-ad74-97a20040ea55",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -0.5,
+      "offsetY": 0.5,
+      "trimX": 2,
+      "trimY": 3,
+      "width": 27,
+      "height": 25,
+      "rawWidth": 32,
+      "rawHeight": 32,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
