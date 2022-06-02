@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "cf3791b5-c73e-4ffd-aacc-bc52dd21513f",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 180,
+  "height": 180,
+  "platformSettings": {},
+  "subMetas": {
+    "OrcSlinger_Dying_E0004": {
+      "ver": "1.0.6",
+      "uuid": "40544a53-8802-4482-bee4-b52b8e8bddc5",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "cf3791b5-c73e-4ffd-aacc-bc52dd21513f",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 7,
+      "offsetY": -19.5,
+      "trimX": 69,
+      "trimY": 83,
+      "width": 56,
+      "height": 53,
+      "rawWidth": 180,
+      "rawHeight": 180,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

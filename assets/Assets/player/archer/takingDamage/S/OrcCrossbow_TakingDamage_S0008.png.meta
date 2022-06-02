@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "61d68c98-06d2-4be4-885d-c5472bd9f94f",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 128,
+  "height": 128,
+  "platformSettings": {},
+  "subMetas": {
+    "OrcCrossbow_TakingDamage_S0008": {
+      "ver": "1.0.6",
+      "uuid": "b1c2bc21-3406-4f17-a6a1-080196071722",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "61d68c98-06d2-4be4-885d-c5472bd9f94f",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 5.5,
+      "offsetY": -3,
+      "trimX": 30,
+      "trimY": 35,
+      "width": 79,
+      "height": 64,
+      "rawWidth": 128,
+      "rawHeight": 128,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
