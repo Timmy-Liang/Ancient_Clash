@@ -47,18 +47,18 @@ export default class gameManager extends cc.Component {
     for (let i = 0; i < layerSize.width; i++) {
       for (let j = 0; j < layerSize.height; j++) {
         let tiled = layer.getTiledTileAt(i, j, true);
-        console.log("checking " + i + " " + j );
+        //console.log("checking " + i + " " + j );
         if (tiled.gid != 0) {
           tiled.node.group = "wall";
-          console.log("find " + i + " " + j);
+          //console.log("find " + i + " " + j);
           let body = tiled.node.addComponent(cc.RigidBody);
           body.type = cc.RigidBodyType.Static;
           let collider = tiled.node.addComponent(cc.PhysicsBoxCollider);
           collider.offset = cc.v2(tiledSize.width / 2, tiledSize.height / 2);
           collider.size = tiledSize;
           collider.apply();
-          console.log(count);
-          count++;
+          //console.log(count);
+          //count++;
         }
       }
     }
