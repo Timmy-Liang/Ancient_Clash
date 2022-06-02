@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "1d078a9b-6aaf-49f2-bbd0-f58908fe9fdb",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 180,
+  "height": 180,
+  "platformSettings": {},
+  "subMetas": {
+    "Orc_Walking_S0026": {
+      "ver": "1.0.6",
+      "uuid": "6ca4ac01-7cfe-4d67-9462-1d84fe33a33b",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "1d078a9b-6aaf-49f2-bbd0-f58908fe9fdb",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 13,
+      "offsetY": -25,
+      "trimX": 73,
+      "trimY": 84,
+      "width": 60,
+      "height": 62,
+      "rawWidth": 180,
+      "rawHeight": 180,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

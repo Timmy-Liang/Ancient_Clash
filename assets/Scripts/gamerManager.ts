@@ -33,7 +33,7 @@ export default class gameManager extends cc.Component {
   onLoad() {
     this.physicManager = cc.director.getPhysicsManager();
     this.physicManager.enabled = true;
-    cc.director.getPhysicsManager().debugDrawFlags = 1;
+    //cc.director.getPhysicsManager().debugDrawFlags = 1;
   }
 
   start() {
