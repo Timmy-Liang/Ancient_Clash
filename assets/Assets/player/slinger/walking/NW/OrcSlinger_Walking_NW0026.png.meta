@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "b54df8e0-0be0-4a07-a0b6-e5b1518079ff",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 180,
+  "height": 180,
+  "platformSettings": {},
+  "subMetas": {
+    "OrcSlinger_Walking_NW0026": {
+      "ver": "1.0.6",
+      "uuid": "ea277442-2b64-428c-a73f-43f3efd312e7",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "b54df8e0-0be0-4a07-a0b6-e5b1518079ff",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 7.5,
+      "offsetY": -19.5,
+      "trimX": 70,
+      "trimY": 83,
+      "width": 55,
+      "height": 53,
+      "rawWidth": 180,
+      "rawHeight": 180,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

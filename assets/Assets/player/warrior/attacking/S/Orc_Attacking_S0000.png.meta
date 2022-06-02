@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "1052d555-be49-4c85-95d3-25a8731713d4",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 180,
+  "height": 180,
+  "platformSettings": {},
+  "subMetas": {
+    "Orc_Attacking_S0000": {
+      "ver": "1.0.6",
+      "uuid": "66fe51b8-b6cb-4cf1-84d6-554534d0dfd8",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "1052d555-be49-4c85-95d3-25a8731713d4",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 12,
+      "offsetY": -20,
+      "trimX": 68,
+      "trimY": 69,
+      "width": 68,
+      "height": 82,
+      "rawWidth": 180,
+      "rawHeight": 180,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
