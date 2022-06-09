@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "3f67adff-8906-40d1-9b81-c1887873b48c",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1024,
+  "height": 2048,
+  "platformSettings": {},
+  "subMetas": {
+    "warrior_silhouette_woman": {
+      "ver": "1.0.6",
+      "uuid": "3dd8e7c4-a000-41ec-800a-d2f303148bae",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "3f67adff-8906-40d1-9b81-c1887873b48c",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 19,
+      "offsetY": 0,
+      "trimX": 154,
+      "trimY": 49,
+      "width": 754,
+      "height": 1950,
+      "rawWidth": 1024,
+      "rawHeight": 2048,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

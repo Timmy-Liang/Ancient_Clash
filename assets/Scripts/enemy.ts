@@ -9,6 +9,7 @@ export default class enemy extends cc.Component {
   @property(player)
   player2: player = null;
 
+
   private detectRange: number = 100;
   private attackRange: number = 5;
   private attackCooldown: number = 1;
@@ -28,7 +29,8 @@ export default class enemy extends cc.Component {
     
   }
 
-  start() {}
+  start() {
+  }
 
   wandering(dt: number) {
     let currentTime = cc.director.getTotalTime() / 1000.0;
@@ -75,7 +77,8 @@ export default class enemy extends cc.Component {
 
     return 0;
   }
-
+  
+ 
   update(dt) {
     if (!this.tracingPlayer) {
       this.wandering(dt);
