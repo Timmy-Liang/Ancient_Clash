@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "d12a3cd8-a95f-46a4-99b8-e240d9a30d9c",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 128,
+  "height": 128,
+  "platformSettings": {},
+  "subMetas": {
+    "OrcCrossbow_Dying_N0024": {
+      "ver": "1.0.6",
+      "uuid": "f0a055f0-8b5d-4148-9746-0f155a3cbc87",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "d12a3cd8-a95f-46a4-99b8-e240d9a30d9c",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 10,
+      "offsetY": -23,
+      "trimX": 36,
+      "trimY": 58,
+      "width": 76,
+      "height": 58,
+      "rawWidth": 128,
+      "rawHeight": 128,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "deathDown",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.9,
+  "sample": 10,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "b4e27fdf-f3f9-45e7-981f-d179cd260754"
+            }
+          },
+          {
+            "frame": 0.1,
+            "value": {
+              "__uuid__": "f9eb398d-7f50-4dd4-bedf-c061dadeb80c"
+            }
+          },
+          {
+            "frame": 0.2,
+            "value": {
+              "__uuid__": "aa4e38f0-5939-451d-a979-b11782d41dda"
+            }
+          },
+          {
+            "frame": 0.3,
+            "value": {
+              "__uuid__": "cca7d950-bc12-454b-b69c-a342befed9c9"
+            }
+          },
+          {
+            "frame": 0.4,
+            "value": {
+              "__uuid__": "b9a53579-868a-49ad-9932-e22dce85635c"
+            }
+          },
+          {
+            "frame": 0.5,
+            "value": {
+              "__uuid__": "65977142-b36f-4e5e-9cdd-4917e936d529"
+            }
+          },
+          {
+            "frame": 0.6,
+            "value": {
+              "__uuid__": "980b8539-c4a0-4b60-8bd4-469c43213af7"
+            }
+          },
+          {
+            "frame": 0.7,
+            "value": {
+              "__uuid__": "394142e6-3f64-4712-a28c-7260efee8d09"
+            }
+          },
+          {
+            "frame": 0.8,
+            "value": {
+              "__uuid__": "7903e139-71c8-44a4-88e1-bf4b637fefc6"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

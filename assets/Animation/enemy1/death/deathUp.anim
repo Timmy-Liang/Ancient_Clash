@@ -1,0 +1,73 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "deathUp",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.9,
+  "sample": 10,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "89607452-2c97-499f-a58e-02d1743820b9"
+            }
+          },
+          {
+            "frame": 0.1,
+            "value": {
+              "__uuid__": "b047c6b8-4b28-440b-a837-42ab1e959bfa"
+            }
+          },
+          {
+            "frame": 0.2,
+            "value": {
+              "__uuid__": "06cb7a67-4243-4bd9-ad27-bbfa9714c979"
+            }
+          },
+          {
+            "frame": 0.3,
+            "value": {
+              "__uuid__": "2f0acb9e-389c-4ecb-a579-c062944b47a2"
+            }
+          },
+          {
+            "frame": 0.4,
+            "value": {
+              "__uuid__": "f22ca24a-00a2-4e42-afcf-64ea97070851"
+            }
+          },
+          {
+            "frame": 0.5,
+            "value": {
+              "__uuid__": "3ecdefcf-85bf-4ea6-b03a-34136fbfd752"
+            }
+          },
+          {
+            "frame": 0.6,
+            "value": {
+              "__uuid__": "8e9a4cce-0819-4767-a06b-b11c487a9c74"
+            }
+          },
+          {
+            "frame": 0.7,
+            "value": {
+              "__uuid__": "e71923fd-c458-4196-b802-62517c57d279"
+            }
+          },
+          {
+            "frame": 0.8,
+            "value": {
+              "__uuid__": "6e16e7cc-cb06-4f41-bd9d-4c982c8042fa"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

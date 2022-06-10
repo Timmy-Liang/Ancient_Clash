@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "8f42b406-b59b-493b-a694-78da6721888a",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 180,
+  "height": 180,
+  "platformSettings": {},
+  "subMetas": {
+    "Orc_Dying_S0014": {
+      "ver": "1.0.6",
+      "uuid": "5a168d32-71d7-4655-9436-de67f97cf6db",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "8f42b406-b59b-493b-a694-78da6721888a",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 10,
+      "offsetY": -11,
+      "trimX": 61,
+      "trimY": 67,
+      "width": 78,
+      "height": 68,
+      "rawWidth": 180,
+      "rawHeight": 180,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

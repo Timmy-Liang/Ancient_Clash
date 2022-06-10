@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "d0c1a933-0694-41c8-aba0-c92f7876e53b",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 512,
+  "height": 512,
+  "platformSettings": {},
+  "subMetas": {
+    "TX Tileset Wall": {
+      "ver": "1.0.6",
+      "uuid": "8fac2dcd-99a9-4f64-9153-a3d1e310387a",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "d0c1a933-0694-41c8-aba0-c92f7876e53b",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 64,
+      "trimX": 32,
+      "trimY": 32,
+      "width": 448,
+      "height": 320,
+      "rawWidth": 512,
+      "rawHeight": 512,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

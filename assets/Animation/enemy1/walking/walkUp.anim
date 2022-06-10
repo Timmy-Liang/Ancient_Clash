@@ -1,0 +1,55 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "walkUp",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.6,
+  "sample": 10,
+  "speed": 1,
+  "wrapMode": 2,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "5335b6bf-13a8-46f7-bf1e-0fd9d00ea2be"
+            }
+          },
+          {
+            "frame": 0.1,
+            "value": {
+              "__uuid__": "7fb53f01-57ba-4f72-ae14-5372ecd37b94"
+            }
+          },
+          {
+            "frame": 0.2,
+            "value": {
+              "__uuid__": "7cbbb672-de7c-4450-8d35-ef5ab163f6ed"
+            }
+          },
+          {
+            "frame": 0.3,
+            "value": {
+              "__uuid__": "51b36c7f-98c1-4908-b1d2-ea7ffc31bb4a"
+            }
+          },
+          {
+            "frame": 0.4,
+            "value": {
+              "__uuid__": "4c178e76-6749-4180-875f-d896153dc168"
+            }
+          },
+          {
+            "frame": 0.5,
+            "value": {
+              "__uuid__": "ee57bdea-0acf-4a01-9945-4bd3eefc135e"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}
