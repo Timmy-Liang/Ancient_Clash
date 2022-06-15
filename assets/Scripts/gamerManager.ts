@@ -33,7 +33,6 @@ export default class gameManager extends cc.Component {
   onLoad() {
     this.physicManager = cc.director.getPhysicsManager();
     this.physicManager.enabled = true;
-    cc.director.getPhysicsManager().debugDrawFlags = 1;
   }
 
   start() {
@@ -58,8 +57,6 @@ export default class gameManager extends cc.Component {
           collider.offset = cc.v2(tiledSize.width / 2, tiledSize.height / 2);
           collider.size = tiledSize;
           collider.apply();
-
-
         }
       }
     }

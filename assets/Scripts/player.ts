@@ -205,10 +205,12 @@ export default class player extends cc.Component {
             let nextTargetDistance = 9007199254740992; // INT_MAX
             let nextTargetPosition = cc.v2(0, 0);
             for(let i = 0; i < this.enemyCount; i++){
-                let currentDistance = this.node.position.sub(this.enemys.children[i].position).mag()
+                let enemyPos = this.enemys.children[i].convertToWorldSpaceAR(cc.v3(0, 0, 0));
+                let currentPos = this.node.convertToWorldSpaceAR(cc.v3(0, 0, 0));
+                let currentDistance = currentPos.sub(enemyPos).mag();
                 if(currentDistance < nextTargetDistance) {
                     nextTargetDistance = currentDistance;
-                    nextTargetPosition = cc.v2(this.enemys.children[i].position.x, this.enemys.children[i].position.y);
+                    nextTargetPosition = cc.v2(enemyPos.x, enemyPos.y);
                 }
             }
             this.targetPosition = nextTargetPosition;
