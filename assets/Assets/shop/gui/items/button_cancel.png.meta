@@ -1,10 +1,6 @@
 {
   "ver": "2.3.7",
-<<<<<<< HEAD
   "uuid": "58c2cb80-e34c-4f6d-8742-9816d4f5db09",
-=======
-  "uuid": "f6227678-95bf-4ce8-88d3-048e467c5cbd",
->>>>>>> 1467b4841c5f395d62a2eacd886609d5ce709b00
   "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -18,15 +14,9 @@
   "subMetas": {
     "button_cancel": {
       "ver": "1.0.6",
-<<<<<<< HEAD
-      "uuid": "d4bb4705-9722-47dd-909a-da9f7e3f5ab1",
+      "uuid": "688a08a1-5629-4fd7-9ada-7826cb75f2b4",
       "importer": "sprite-frame",
       "rawTextureUuid": "58c2cb80-e34c-4f6d-8742-9816d4f5db09",
-=======
-      "uuid": "a9204954-a156-4c7a-b099-6751f38f0ca1",
-      "importer": "sprite-frame",
-      "rawTextureUuid": "f6227678-95bf-4ce8-88d3-048e467c5cbd",
->>>>>>> 1467b4841c5f395d62a2eacd886609d5ce709b00
       "trimType": "auto",
       "trimThreshold": 1,
       "rotated": false,

@@ -1,10 +1,6 @@
 {
   "ver": "2.3.7",
-<<<<<<< HEAD
   "uuid": "fe6ada0c-05b3-4ffd-b530-13ed2aed8c91",
-=======
-  "uuid": "bb8300a9-69aa-4b51-aa0e-9af6a4201e0b",
->>>>>>> 1467b4841c5f395d62a2eacd886609d5ce709b00
   "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -18,15 +14,9 @@
   "subMetas": {
     "skill_icon_04_nobg": {
       "ver": "1.0.6",
-<<<<<<< HEAD
-      "uuid": "4191376a-a3f8-402c-8b3c-b07a21c63ec8",
+      "uuid": "3ec6e80d-896a-4e44-802d-16e000c7152f",
       "importer": "sprite-frame",
       "rawTextureUuid": "fe6ada0c-05b3-4ffd-b530-13ed2aed8c91",
-=======
-      "uuid": "9fd27067-7f73-4574-8216-e0ef094b7aac",
-      "importer": "sprite-frame",
-      "rawTextureUuid": "bb8300a9-69aa-4b51-aa0e-9af6a4201e0b",
->>>>>>> 1467b4841c5f395d62a2eacd886609d5ce709b00
       "trimType": "auto",
       "trimThreshold": 1,
       "rotated": false,
