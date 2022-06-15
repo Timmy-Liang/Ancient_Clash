@@ -1,6 +1,6 @@
 {
   "ver": "2.3.7",
-  "uuid": "4e7ea360-733e-464b-9cd1-9c85d1f9569e",
+  "uuid": "bcd040de-d96b-462e-b6f1-6f28cace44cb",
   "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -14,9 +14,9 @@
   "subMetas": {
     "stoune_icon": {
       "ver": "1.0.6",
-      "uuid": "95c5c188-d963-4d27-bed7-6fea4a08eaa0",
+      "uuid": "540cf4b9-d844-4c49-890b-d7594f9aa52e",
       "importer": "sprite-frame",
-      "rawTextureUuid": "4e7ea360-733e-464b-9cd1-9c85d1f9569e",
+      "rawTextureUuid": "bcd040de-d96b-462e-b6f1-6f28cace44cb",
       "trimType": "auto",
       "trimThreshold": 1,
       "rotated": false,
