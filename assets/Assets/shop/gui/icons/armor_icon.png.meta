@@ -1,6 +1,10 @@
 {
   "ver": "2.3.7",
+<<<<<<< HEAD
   "uuid": "3ebc9a8d-f638-47c8-bb1d-7167339cdac9",
+=======
+  "uuid": "13e61f60-3114-44cc-879d-7ab36dcae1d5",
+>>>>>>> 1467b4841c5f395d62a2eacd886609d5ce709b00
   "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -14,9 +18,15 @@
   "subMetas": {
     "armor_icon": {
       "ver": "1.0.6",
+<<<<<<< HEAD
       "uuid": "3a3fda99-1da9-4787-89bd-e240dd5f5272",
       "importer": "sprite-frame",
       "rawTextureUuid": "3ebc9a8d-f638-47c8-bb1d-7167339cdac9",
+=======
+      "uuid": "e1319ce8-df7c-46f5-adab-2c58749e1692",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "13e61f60-3114-44cc-879d-7ab36dcae1d5",
+>>>>>>> 1467b4841c5f395d62a2eacd886609d5ce709b00
       "trimType": "auto",
       "trimThreshold": 1,
       "rotated": false,
