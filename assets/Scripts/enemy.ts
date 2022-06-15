@@ -114,6 +114,7 @@ export default class enemy extends cc.Component {
             if (currentTime >= this.nextMoveTime) {
                 this.nextMoveTime = currentTime + 0.5;
                 this.tracing(dt);
+                console.log('tracing');
             }
         }
 
