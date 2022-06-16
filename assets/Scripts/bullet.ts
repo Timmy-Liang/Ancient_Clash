@@ -4,7 +4,7 @@
 //  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
-//try
+
 const { ccclass, property } = cc._decorator;
 
 @ccclass
@@ -33,17 +33,17 @@ export default class bullet extends cc.Component {
     //this function sets the bullet's initial position when it is reused.
     setInitPos(node: cc.Node, targetDirection: string) {
         this.node.parent = node.parent; // don't mount under the player, otherwise it will change direction when player move
-        
         this.node.setPosition(cc.v2(0, 0));
+        //this.node.setPosition(cc.v2(128, 70));
         this.node.position = this.node.position.addSelf(node.position);
     }
 
     //make the bullet move from current position
     bulletMove() {
 
-        let moveDir = cc.moveTo(0.2, this.targetPosition);
-
-        // move bullet to 500 far from current position in 0.8s
+        let currentPos = this.node.convertToWorldSpaceAR(cc.v2(0, 0));
+        let moveDir = cc.moveBy(0.2, this.targetPosition.sub(currentPos));
+        // move bullet to 500 far from current  position in 0.8s
 
         let finished = cc.callFunc(() => {
             this.bulletManager.put(this.node);

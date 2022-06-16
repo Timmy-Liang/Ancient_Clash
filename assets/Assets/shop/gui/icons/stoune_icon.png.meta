@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "b58640f0-7fb0-44d8-8dae-44f2124d096f",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 256,
+  "height": 256,
+  "platformSettings": {},
+  "subMetas": {
+    "stoune_icon": {
+      "ver": "1.0.6",
+      "uuid": "191916db-7b85-4ba6-8e57-20da3c0c3135",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "b58640f0-7fb0-44d8-8dae-44f2124d096f",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -0.5,
+      "offsetY": -3.5,
+      "trimX": 19,
+      "trimY": 43,
+      "width": 217,
+      "height": 177,
+      "rawWidth": 256,
+      "rawHeight": 256,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
