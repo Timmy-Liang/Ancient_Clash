@@ -5,35 +5,14 @@
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
 
-import enemy from './enemy'
-
 cc.Class({
     extends: cc.Component,
 
     properties: {
-        player: {
-            //     // ATTRIBUTES:
-            default: null,        // The default value will be used only when the component attaching
-            //                           // to a node for the first time
-            type: cc.Node, // optional, default is typeof default
-            //     serializable: true,   // optional, default is true
-        },
-        tiledMap: {
-            default: null,
-            type: cc.TiledMap,
-        },
         mapNode: {
             default: null,
             type: cc.Node,
-        }
-        // bar: {
-        //     get () {
-        //         return this._bar;
-        //     },
-        //     set (value) {
-        //         this._bar = value;
-        //     }
-        // },
+        },
     },
 
     initialNodeArray: null,
@@ -53,6 +32,7 @@ cc.Class({
 
     onLoad() {
         this.path = new Array(cc.v2);
+        this.tiledMap = this.mapNode.getComponent(cc.TiledMap);
         this.tiledSize = this.tiledMap.getTileSize();
         this.layer = this.tiledMap.getLayer('wall');
         this.layerSize = this.layer.getLayerSize();
