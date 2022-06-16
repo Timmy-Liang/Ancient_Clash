@@ -28,6 +28,8 @@ export default class meleeEnemy extends cc.Component {
     private nextMoveTime = 0;
     private waitRandomFactor = 0.1;
 
+    private enemyHP = 5;
+
     onLoad() {
 
     }
@@ -74,7 +76,6 @@ export default class meleeEnemy extends cc.Component {
         }
     }
 
-
     detectRangePlayer() {
         //console.log(this.node.position.sub(this.player1.node.position).mag())
         if (this.node.convertToWorldSpaceAR(cc.v2(0, 0)).sub(this.target.convertToWorldSpaceAR(cc.v2(0, 0))).mag() < this.detectRange) {
@@ -85,9 +86,6 @@ export default class meleeEnemy extends cc.Component {
 
         return 0;
     }
-
-
-
 
     update(dt) {
         let currentTime = cc.director.getTotalTime() / 1000.0;
@@ -104,10 +102,22 @@ export default class meleeEnemy extends cc.Component {
         }
 
     }
+
+    onBeginContact(contact, self, other){
+        if(other.node.name == 'player') {
+        }
+        else if (other.node.name == 'bullet') {
+            this.enemyHP--;
+            if(this.enemyHP <= 0) {
+                this.node.active = false;
+                this.node.destroy();
+            }
+        }
+    }
 }
 
 
 function randomPointOnUnitCircle() {
     let angle = Math.random() * Math.PI * 2;
     return new cc.Vec2(Math.cos(angle), Math.sin(angle));
-}
+};
