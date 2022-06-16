@@ -17,7 +17,7 @@
         "__id__": 2
       },
       {
-        "__id__": 35
+        "__id__": 33
       }
     ],
     "_active": false,
@@ -90,22 +90,19 @@
         "__id__": 28
       },
       {
+        "__id__": 29
+      },
+      {
         "__id__": 30
-      },
-      {
-        "__id__": 31
-      },
-      {
-        "__id__": 32
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 33
+        "__id__": 31
       },
       {
-        "__id__": 34
+        "__id__": 32
       }
     ],
     "_prefab": null,
@@ -1148,84 +1145,6 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "wizard",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 2
-    },
-    "_children": [],
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 29
-      }
-    ],
-    "_prefab": null,
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 0,
-      "height": 0
-    },
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_trs": {
-      "__type__": "TypedArray",
-      "ctor": "Float64Array",
-      "array": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        1
-      ]
-    },
-    "_eulerAngles": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_is3DNode": false,
-    "_groupIndex": 0,
-    "groupIndex": 0,
-    "_id": "deloo6VFtOII7udvTVmo4i"
-  },
-  {
-    "__type__": "52521w6jFZNFaTdVDTHmbfa",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 28
-    },
-    "_enabled": true,
-    "targetRegion": {
-      "__uuid__": "c716c769-ffa2-4bac-9a03-d75afa54f5ed"
-    },
-    "fire": {
-      "__uuid__": "e98ba8f8-e9fd-437c-9434-0d1b55bef850"
-    },
-    "_id": "44rzBdqb9D3La59sDMjUOo"
-  },
-  {
-    "__type__": "cc.Node",
     "_name": "player1",
     "_objFlags": 0,
     "_parent": {
@@ -1453,10 +1372,10 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 36
+        "__id__": 34
       },
       {
-        "__id__": 37
+        "__id__": 35
       }
     ],
     "_prefab": null,
@@ -1512,7 +1431,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 35
+      "__id__": 33
     },
     "_enabled": true,
     "_id": "cdYpQebGlOoJt+D/ZsI3Ds"
@@ -1522,7 +1441,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 35
+      "__id__": 33
     },
     "_enabled": true,
     "_defaultClip": null,
