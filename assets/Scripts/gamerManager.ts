@@ -84,6 +84,16 @@ export default class gameManager extends cc.Component {
 
   onKeyDown(event) {
     keyboardInput[event.keyCode] = 1;
+    //this simulates the player got hurt"
+    if (keyboardInput[cc.macro.KEY.v]) {
+      this.player1.lifeDamage(2);
+      console.log("v");
+    }
+    if (keyboardInput[cc.macro.KEY.n]) {
+      this.player2.lifeDamage(2);
+      console.log("n");
+    }
+    ///
   }
 
   onKeyUp(event) {

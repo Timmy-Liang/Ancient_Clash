@@ -1,11 +1,3 @@
-// Learn TypeScript:
-//  - https://docs.cocos.com/creator/manual/en/scripting/typescript.html
-// Learn Attribute:
-//  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
-
-
 const { ccclass, property } = cc._decorator;
 
 @ccclass
@@ -48,10 +40,17 @@ export default class player extends cc.Component {
 
     private traceCooldown: number = 0.5;
 
+    private life: number = 10;
+
+    private lifeMax: number = 10;
+
+    private lifeprogress: cc.Node = null;
+
 
     onLoad () {
         this.bulletPool = new cc.NodePool('bullet');
         this.anim = this.getComponent(cc.Animation);
+        this.lifeprogress = this.node.getChildByName('lifeBar');
         this.enemys = cc.find("Canvas/enemy");
         this.enemyCount = this.enemys.childrenCount;
     }
@@ -61,7 +60,8 @@ export default class player extends cc.Component {
             let bullet = cc.instantiate(this.bulletPrefab);
             this.bulletPool.put(bullet);
         }
-
+        if (this.lifeprogress == null) cc.log("fail");
+        else this.lifeprogress.getComponent(cc.ProgressBar).progress = 1;
     }
 
     playerMoveDir(dir: string) {
@@ -217,10 +217,15 @@ export default class player extends cc.Component {
         }
     }
 
+    lifeDamage(damage: number) {
+        if (this.life > 0) this.life -= damage;
+    }
+
     update(dt) {
         this.playerMove(dt);
         this.playerWalkAnimation();
         this.traceEnemy();
+        this.lifeprogress.getComponent(cc.ProgressBar).progress = this.life/this.lifeMax;
     }
 }
 
