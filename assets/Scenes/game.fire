@@ -2052,8 +2052,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -36.226,
-        96.688,
+        -457.262,
+        29.323,
         0,
         0,
         0,
@@ -2123,7 +2123,9 @@
     "player2": {
       "__id__": 20
     },
-    "mapNode": null,
+    "mapNode": {
+      "__id__": 36
+    },
     "_id": "f9NLsq3lJLEaRp3y4qeoSQ"
   },
   {
