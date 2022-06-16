@@ -22,16 +22,20 @@ export default class meleeEnemy extends cc.Component {
     public tracingPlayer: boolean = false;
 
     private moveDir: cc.Vec2 = cc.Vec2.ZERO;
-    private moveDuration = 2.0;
-    private waitDuration = 2;
-    private nextWaitTime = 0;
-    private nextMoveTime = 0;
-    private waitRandomFactor = 0.1;
+    private moveDuration: number = 2.0;
+    private waitDuration: number = 2;
+    private nextWaitTime: number = 0;
+    private nextMoveTime: number = 0;
+    private waitRandomFactor: number = 0.1;
 
-    private enemyHP = 5;
+    private enemyLife: number = 5;
+
+    private enemyMaxLife: number = 5;
+
+    private enemyLifeProgress: cc.Node = null;
 
     onLoad() {
-
+        this.enemyLifeProgress = this.node.getChildByName('lifeBar');
     }
 
     start() {
@@ -105,10 +109,12 @@ export default class meleeEnemy extends cc.Component {
 
     onBeginContact(contact, self, other){
         if(other.node.name == 'player') {
+            other.node.getComponent(player).lifeDamage(1);
         }
         else if (other.node.name == 'bullet') {
-            this.enemyHP--;
-            if(this.enemyHP <= 0) {
+            this.enemyLife--;
+            this.enemyLifeProgress.getComponent(cc.ProgressBar).progress = this.enemyLife / this.enemyMaxLife;
+            if(this.enemyLife <= 0) {
                 this.node.active = false;
                 this.node.destroy();
             }

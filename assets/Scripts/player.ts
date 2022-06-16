@@ -204,6 +204,7 @@ export default class player extends cc.Component {
             this.nextTraceTime = currentTime + this.traceCooldown;
             let nextTargetDistance = 9007199254740992; // INT_MAX
             let nextTargetPosition = cc.v2(0, 0);
+            this.enemyCount = this.enemys.childrenCount;
             for(let i = 0; i < this.enemyCount; i++){
                 let enemyPos = this.enemys.children[i].convertToWorldSpaceAR(cc.v3(0, 0, 0));
                 let currentPos = this.node.convertToWorldSpaceAR(cc.v3(0, 0, 0));
