@@ -10,22 +10,16 @@ import pathFinding from './pathFinding'
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class enemy extends cc.Component {
-
-    @property(player)
-    player1: player = null;
-
-    @property(player)
-    player2: player = null;
+export default class meleeEnemy extends cc.Component {
 
     @property(cc.Node)
-    mapNode: cc.Node = null
+    target: cc.Node = null;
 
     private detectRange: number = 200;
     private attackRange: number = 5;
     private attackCooldown: number = 1;
     private moveSpeed: number = 40;
-    public tracingPlayer: number = 0;
+    public tracingPlayer: boolean = false;
 
     private moveDir: cc.Vec2 = cc.Vec2.ZERO;
     private moveDuration = 2.0;
@@ -33,8 +27,6 @@ export default class enemy extends cc.Component {
     private nextWaitTime = 0;
     private nextMoveTime = 0;
     private waitRandomFactor = 0.1;
-
-    private path: Array<cc.Vec2> = null;
 
     onLoad() {
 
@@ -58,13 +50,11 @@ export default class enemy extends cc.Component {
     }
 
     tracing(dt: number) {
-        this.path = [];
         let tmp = [];
         let targetPos: cc.Vec2 = cc.v2(0, 0)
-        if (this.tracingPlayer == 1)
-            targetPos = this.player1.node.convertToWorldSpaceAR(cc.v2(0, 0));
-        else
-            targetPos = this.player2.node.convertToWorldSpaceAR(cc.v2(0, 0));
+        if(this.tracingPlayer) {
+            targetPos = this.target.convertToWorldSpaceAR(cc.v2(0, 0));
+        }
         let nodePath = this.node.getComponent('pathFinding').pathFindingAlgo(targetPos);
         if (nodePath.length >= 6) {
             for (let i = 1; i <= 5; i++) {
@@ -87,13 +77,9 @@ export default class enemy extends cc.Component {
 
     detectRangePlayer() {
         //console.log(this.node.position.sub(this.player1.node.position).mag())
-        if (this.node.convertToWorldSpaceAR(cc.v2(0, 0)).sub(this.player1.node.convertToWorldSpaceAR(cc.v2(0, 0))).mag() < this.detectRange) {
+        if (this.node.convertToWorldSpaceAR(cc.v2(0, 0)).sub(this.target.convertToWorldSpaceAR(cc.v2(0, 0))).mag() < this.detectRange) {
             this.moveSpeed = 200;
-            this.tracingPlayer = 1;
-        }
-        if (this.node.convertToWorldSpaceAR(cc.v2(0, 0)).sub(this.player2.node.convertToWorldSpaceAR(cc.v2(0, 0))).mag() < this.detectRange) {
-            this.tracingPlayer = 2;
-            this.moveSpeed = 200;
+            this.tracingPlayer = true;
         }
 
 
@@ -114,7 +100,6 @@ export default class enemy extends cc.Component {
             if (currentTime >= this.nextMoveTime) {
                 this.nextMoveTime = currentTime + 0.5;
                 this.tracing(dt);
-                console.log('tracing');
             }
         }
 
