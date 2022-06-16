@@ -1,6 +1,6 @@
 {
   "ver": "2.3.7",
-  "uuid": "40c9028b-48dd-414e-b70a-350ef9fd43b9",
+  "uuid": "80896822-36cf-4e8c-8fb7-8f6f65e80be7",
   "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -14,9 +14,9 @@
   "subMetas": {
     "warrior_silhouette_woman": {
       "ver": "1.0.6",
-      "uuid": "adcbf428-e603-42cf-8595-01bef1a626e7",
+      "uuid": "66de6be7-9ad4-4470-803b-e6b6d8f76381",
       "importer": "sprite-frame",
-      "rawTextureUuid": "40c9028b-48dd-414e-b70a-350ef9fd43b9",
+      "rawTextureUuid": "80896822-36cf-4e8c-8fb7-8f6f65e80be7",
       "trimType": "auto",
       "trimThreshold": 1,
       "rotated": false,

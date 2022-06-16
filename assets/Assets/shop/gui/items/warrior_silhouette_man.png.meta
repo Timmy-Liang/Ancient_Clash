@@ -1,6 +1,6 @@
 {
   "ver": "2.3.7",
-  "uuid": "5514657b-42ff-4503-8a1b-842bdac99f95",
+  "uuid": "c0f1df1f-5dc6-4ebf-b3b8-d6f7333ac75b",
   "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -14,9 +14,9 @@
   "subMetas": {
     "warrior_silhouette_man": {
       "ver": "1.0.6",
-      "uuid": "e7925ea2-cfd5-41c9-956a-8a336467385d",
+      "uuid": "b2ea8f32-d579-46b8-81fb-1ed191eaf527",
       "importer": "sprite-frame",
-      "rawTextureUuid": "5514657b-42ff-4503-8a1b-842bdac99f95",
+      "rawTextureUuid": "c0f1df1f-5dc6-4ebf-b3b8-d6f7333ac75b",
       "trimType": "auto",
       "trimThreshold": 1,
       "rotated": false,
