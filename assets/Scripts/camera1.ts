@@ -1,12 +1,15 @@
-
+import player from './player'
 const {ccclass, property} = cc._decorator;
 
 @ccclass
 export default class camera1 extends cc.Component {
     //default: player()
     
-    @property(cc.Node)
     private player1: cc.Node = null;
+
+    onLoad() {
+        this.player1 = cc.find("Canvas/player1/player");
+    }
 
     update () {
         let new_x = this.player1.x - 960;
