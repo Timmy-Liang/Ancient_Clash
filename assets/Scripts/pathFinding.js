@@ -5,37 +5,9 @@
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
 
-import enemy from './enemy'
-
 cc.Class({
     extends: cc.Component,
-
-    properties: {
-        player: {
-            //     // ATTRIBUTES:
-            default: null,        // The default value will be used only when the component attaching
-            //                           // to a node for the first time
-            type: cc.Node, // optional, default is typeof default
-            //     serializable: true,   // optional, default is true
-        },
-        tiledMap: {
-            default: null,
-            type: cc.TiledMap,
-        },
-        mapNode: {
-            default: null,
-            type: cc.Node,
-        }
-        // bar: {
-        //     get () {
-        //         return this._bar;
-        //     },
-        //     set (value) {
-        //         this._bar = value;
-        //     }
-        // },
-    },
-
+    mapNode: null,
     initialNodeArray: null,
     tiledSize: 0,
     layer: null,
@@ -52,7 +24,10 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
+        let index = this.node.parent.name.slice(-1);
+        this.mapNode = cc.find("Canvas/map1_" + index);
         this.path = new Array(cc.v2);
+        this.tiledMap = this.mapNode.getComponent(cc.TiledMap);
         this.tiledSize = this.tiledMap.getTileSize();
         this.layer = this.tiledMap.getLayer('wall');
         this.layerSize = this.layer.getLayerSize();
@@ -239,6 +214,34 @@ cc.Class({
                 var curr = currentNode;
                 var ret = [];
                 while (curr.parent) {
+                    /*
+                    let offsetX = curr.x - curr.parent.x;
+                    let offsetY = curr.y - curr.parent.y;
+                    if(offsetX > 0 && offsetY > 0){
+                        ret.push('NE');
+                    }
+                    else if(offsetX > 0 && offsetY < 0) {
+                        ret.push('NW');
+                    }
+                    else if(offsetX < 0 && offsetY > 0) {
+                        ret.push("SE");
+                    }
+                    else if(offsetX < 0 && offsetY < 0) {
+                        ret.push('SW') 
+                    }
+                    else if(offsetX > 0) {
+                        ret.push('E')
+                    }
+                    else if(offsetX < 0) {
+                        ret.push('W')
+                    }
+                    else if(offsetY > 0) {
+                        ret.push('N')
+                    }
+                    else if(offsetY < 0) {
+                        ret.push('S')
+                    }
+                    */
                     ret.push([curr.x - curr.parent.x, curr.y - curr.parent.y]);
                     curr = curr.parent;
                 }

@@ -9,15 +9,17 @@
   ],
   "collision-matrix": [
     [
+      true,
+      true,
       true
     ],
     [
-      false,
+      true,
       false,
       true
     ],
     [
-      false,
+      true,
       true,
       false
     ],
@@ -60,5 +62,6 @@
     "audience": {
       "enable": false
     }
-  }
+  },
+  "start-scene": "current"
 }

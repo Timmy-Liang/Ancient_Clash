@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "feef795e-5b6a-4f59-af8c-b4dd09de6ba7",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 128,
+  "height": 128,
+  "platformSettings": {},
+  "subMetas": {
+    "OrcCrossbow_Standing_S0008": {
+      "ver": "1.0.6",
+      "uuid": "6aaae25e-061f-4107-af47-47e2dc059aef",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "feef795e-5b6a-4f59-af8c-b4dd09de6ba7",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 2,
+      "offsetY": -6,
+      "trimX": 31,
+      "trimY": 40,
+      "width": 70,
+      "height": 60,
+      "rawWidth": 128,
+      "rawHeight": 128,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
