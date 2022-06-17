@@ -7,6 +7,8 @@ export default class wizard extends cc.Component {
   targetRegion: cc.Prefab = null;
   @property(cc.Prefab)
   fire: cc.Prefab = null;
+  @property(cc.Node)
+  gameManager: cc.Node = null;
 
 
   private player: cc.Node = null;
@@ -30,6 +32,7 @@ export default class wizard extends cc.Component {
   private damage: number = 5;
   
   onLoad() {
+    this.gameManager=cc.find("gameManager");
     let index = this.node.parent.name.slice(-1);
     this.player = cc.find("Canvas/player" + index + "/player");
     this.map = cc.find("Canvas/map1_" + index);
@@ -110,6 +113,7 @@ export default class wizard extends cc.Component {
       this.wizardLifeProgress.getComponent(cc.ProgressBar).progress =
         this.wizardLife / this.wizardMaxLife;
       if (this.wizardLife <= 0) {
+        this.gameManager.getComponent("gamerManager").enemyReduce(this.node.x);
         this.node.active = false;
         this.node.destroy();
       }

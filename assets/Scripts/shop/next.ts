@@ -9,14 +9,13 @@ export default class next extends cc.Component {
     confirmPrefabs: cc.Prefab = null;
 
     onLoad () {
-        cc.log("load next")
         this.shopManager=cc.find("Canvas/shopManager");
         let nextBTN = new cc.Component.EventHandler();
         nextBTN.target = this.node;
         nextBTN.component = "next";
         nextBTN.handler = "BTN_Click";
         this.node.getComponent(cc.Button).interactable=false;
-        //cc.find("Canvas/Next").getComponent(cc.Button).clickEvents.push(nextBTN);
+        cc.find("Canvas/next").getComponent(cc.Button).clickEvents.push(nextBTN);
     }
 
     start(){
@@ -32,10 +31,13 @@ export default class next extends cc.Component {
     }
 
     BTN_Click(){
+        cc.log("hello");
+        
         if(!this.shopManager.getComponent("shopManager").check_buttonshow()){
             let confirm= cc.instantiate(this.confirmPrefabs);
             confirm.getComponent("confirm").init(this.node, 3);
-            this.shopManager.getComponent("shopManager").ready_next();
+            this.shopManager.getComponent("shopManager").readyNext();
         }
+        
     }
 }

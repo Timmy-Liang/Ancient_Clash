@@ -6,18 +6,16 @@ export default class cancel extends cc.Component {
     shopManager: cc.Node = null;
 
     onLoad () {
-        
         this.shopManager=cc.find("Canvas/shopManager");
         let cancelBTN = new cc.Component.EventHandler();
         cancelBTN.target = this.node;
         cancelBTN.component = "cancel";
         cancelBTN.handler = "reply";
         cc.find("Canvas/confirm/cancel").getComponent(cc.Button).clickEvents.push(cancelBTN);
-        
     }
 
     reply(){
-        this.shopManager.getComponent("shopManager").equip_clean();
+        this.shopManager.getComponent("shopManager").equipClean();
         this.node.parent.destroy();
     }
 }

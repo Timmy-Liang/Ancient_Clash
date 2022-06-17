@@ -217,21 +217,17 @@ export default class shopManager extends cc.Component {
         this.equipName=equipName;
     }
     
-    /*
-    equip_clean(){
-        cc.log("clean~")
+    readyNext(){
+        this.BothReady=true;
+        this.ButtonShow=true;
+    }
+
+    equipClean(){
         this.Buy=false;
         this.Sell=false;
         this.BothReady=false;
         this.ButtonShow=false;
-        this.Type="";
-        this.Price=0;
-        this.Atk=0;
-        this.Def=0;
-        this.Hp=0;
-        this.Tag=0;
     }
-    */
    
     OK(){
         if(this.Buy){
@@ -287,20 +283,10 @@ export default class shopManager extends cc.Component {
 
         else if(this.BothReady){
             this.BothReady=false;
-            cc.log("next~!")
+            cc.director.loadScene("game");
         }
         this.ButtonShow=false;
     }
-    /*
-    player_update(){
-
-    }
-
-    ready_next(){
-        this.BothReady=true;
-        this.ButtonShow=true;
-    }
-    */
    
     check_buttonshow(){
         return this.ButtonShow;
