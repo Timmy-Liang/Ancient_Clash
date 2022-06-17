@@ -1,3 +1,4 @@
+import player from './player'
 const { ccclass, property } = cc._decorator;
 
 @ccclass
@@ -7,69 +8,123 @@ export default class wizard extends cc.Component {
   @property(cc.Prefab)
   fire: cc.Prefab = null;
 
-  private wizardLeft;
-  private wizardRight;
 
-  coolTime: number = 10;
-  range: number = 3; //recommand: 1 <= range <= 6
-  die1: boolean = false;
-  die2: boolean = false;
+  private player: cc.Node = null;
+  private map: cc.Node = null;
+  private moveSpeed: number = 40;
+  public tracingPlayer: boolean = false;
 
-  // onLoad () {}
+  private moveDir: cc.Vec2 = cc.Vec2.ZERO;
+  private moveDuration: number = 2.0;
+  private waitDuration: number = 2;
+  private nextWaitTime: number = 0;
+  private nextMoveTime: number = 0;
+  private waitRandomFactor: number = 0.1;
 
+  private wizardLife: number = 10;
+  private wizardMaxLife: number = 5;
+  private wizardLifeProgress: cc.Node = null;
+
+  private targetRange: number = 5;
+  private targetGenerate;
+  private damage: number = 5;
+  
+  onLoad() {
+    let index = this.node.parent.name.slice(-1);
+    this.player = cc.find("Canvas/player" + index + "/player");
+    this.map = cc.find("Canvas/map1_" + index);
+    this.wizardLifeProgress = this.node.getChildByName("lifeBar");
+  }
   start() {
-    this.wizardLeft = () => {
-      this.generateTargetRegion(false);
-    };
-    this.wizardRight = () => {
-      this.generateTargetRegion(true);
+    this.targetGenerate = () => {
+      this.generateTargetRegion();
     };
 
-    this.schedule(this.wizardLeft, 10);
-    this.schedule(this.wizardRight, 10);
+    this.schedule(this.targetGenerate, 10);
   }
 
-  generateTargetRegion(dir: boolean) {
-    let targetL = cc.instantiate(this.targetRegion);
+  generateTargetRegion() {
+    let target = cc.instantiate(this.targetRegion);
     let pos;
-    targetL.scale = this.range;
-    if (dir == false) {
-      targetL.parent = cc.find("Canvas/map1_1");
-    } else {
-      targetL.parent = cc.find("Canvas/map1_2");
-    }
-    let choosenX = 1655 - (this.range - 1) * 224;
-    let choosenY = 1775 - (this.range - 1) * 160;
+    target.scale = this.targetRange;
+    target.parent = this.map;
+
+    let choosenX = 1700 - (this.targetRange - 1) * 190;
+    let choosenY = 1700 - (this.targetRange - 1) * 190;
     pos = cc.v2(
-      130 + (this.range - 1) * 112 + Math.floor(Math.random() * choosenX),
-      60 + (this.range - 1) * 80 + Math.floor(Math.random() * choosenY)
+      100 + (this.targetRange - 1) * 95 + Math.floor(Math.random() * choosenX),
+      100 + (this.targetRange - 1) * 95 + Math.floor(Math.random() * choosenY)
     );
-    targetL.setPosition(pos);
+    target.setPosition(pos);
 
     this.scheduleOnce(() => {
-      this.explosion(dir, pos);
-      targetL.destroy();
-    }, 4.8);
+      if (this.isInCycle(target)) {
+        //console.log("yes");
+        this.player.getComponent("player").lifeDamage(this.damage);
+        this.explosion(pos);
+      }
+      target.destroy();
+    }, 4);
   }
-  explosion(mapIndex: boolean, pos: number) {
+  explosion(pos: number) {
     let fire = cc.instantiate(this.fire);
-    fire.scale = this.range;
-    if (mapIndex == false) {
-      fire.parent = cc.find("Canvas/map1_1");
-    } else {
-      fire.parent = cc.find("Canvas/map1_2");
-    }
+    fire.scale = this.targetRange;
+    fire.parent = this.map;
+
     fire.setPosition(pos);
     this.scheduleOnce(() => {
       fire.destroy();
-    }, 3.2);
+    }, 1.1);
   }
+
+  isInCycle(target: cc.Node) {
+    let radius = 75 * this.targetRange;
+    //(px-tx)^2 + (py-ty)^2 <= r^2
+    let targetPos = target.convertToWorldSpaceAR(cc.v2(0, 0));
+    let playerPos = this.player.convertToWorldSpaceAR(cc.v2(0, 0));
+    let w = playerPos.x - targetPos.x;
+    let h = playerPos.y - targetPos.y;
+    if (w * w + h * h <= radius * radius) return true;
+    else return false;
+  }
+
+  wandering(dt: number) {
+    let currentTime = cc.director.getTotalTime() / 1000.0;
+    if (currentTime >= this.nextMoveTime) {
+      this.nextWaitTime = currentTime + this.moveDuration;
+      this.nextMoveTime =
+        this.nextWaitTime +
+        this.waitDuration *
+          (1.0 + this.waitRandomFactor * (Math.random() * 2.0 - 1.0));
+      this.moveDir = randomPointOnUnitCircle();
+    }
+    if (currentTime < this.nextWaitTime) {
+      this.node.x += this.moveDir.x * this.moveSpeed * dt;
+      this.node.y += this.moveDir.y * this.moveSpeed * dt;
+    }
+  }
+
+  onBeginContact(contact, self, other) {
+    if (other.node.name == "bullet") {
+      this.wizardLife--;
+      this.wizardLifeProgress.getComponent(cc.ProgressBar).progress =
+        this.wizardLife / this.wizardMaxLife;
+      if (this.wizardLife <= 0) {
+        this.node.active = false;
+        this.node.destroy();
+      }
+    }
+  }
+
   update(dt) {
-    if (this.die1) {
-      this.unschedule(this.wizardLeft);
+    if (this.wizardLife <= 0) {
+      this.unschedule(this.targetGenerate);
     }
-    if (this.die2) {
-      this.unschedule(this.wizardRight);
-    }
+    this.wandering(dt);
   }
 }
+
+function randomPointOnUnitCircle() {
+    let angle = Math.random() * Math.PI * 2;
+    return new cc.Vec2(Math.cos(angle), Math.sin(angle));
+};

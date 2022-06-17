@@ -7,14 +7,7 @@
 
 cc.Class({
     extends: cc.Component,
-
-    properties: {
-        mapNode: {
-            default: null,
-            type: cc.Node,
-        },
-    },
-
+    mapNode: null,
     initialNodeArray: null,
     tiledSize: 0,
     layer: null,
@@ -31,6 +24,8 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
+        let index = this.node.parent.name.slice(-1);
+        this.mapNode = cc.find("Canvas/map1_" + index);
         this.path = new Array(cc.v2);
         this.tiledMap = this.mapNode.getComponent(cc.TiledMap);
         this.tiledSize = this.tiledMap.getTileSize();

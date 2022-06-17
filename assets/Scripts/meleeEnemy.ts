@@ -12,8 +12,7 @@ const { ccclass, property } = cc._decorator;
 @ccclass
 export default class meleeEnemy extends cc.Component {
 
-    @property(cc.Node)
-    target: cc.Node = null;
+    private target: cc.Node = null;
 
     private detectRange: number = 200;
     private attackRange: number = 5;
@@ -35,6 +34,8 @@ export default class meleeEnemy extends cc.Component {
     private enemyLifeProgress: cc.Node = null;
 
     onLoad() {
+        let index = this.node.parent.name.slice(-1);
+        this.target = cc.find("Canvas/player" + index + "/player");
         this.enemyLifeProgress = this.node.getChildByName('lifeBar');
     }
 
