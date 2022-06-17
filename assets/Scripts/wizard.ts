@@ -26,6 +26,7 @@ export default class wizard extends cc.Component {
   private wizardLife: number = 10;
   private wizardMaxLife: number = 5;
   private wizardLifeProgress: cc.Node = null;
+  private target: cc.Node = null;
 
   private targetRange: number = 5;
   private targetGenerate;
@@ -47,10 +48,10 @@ export default class wizard extends cc.Component {
   }
 
   generateTargetRegion() {
-    let target = cc.instantiate(this.targetRegion);
+    this.target = cc.instantiate(this.targetRegion);
     let pos;
-    target.scale = this.targetRange;
-    target.parent = this.map;
+    this.target.scale = this.targetRange;
+    this.target.parent = this.map;
 
     let choosenX = 1700 - (this.targetRange - 1) * 190;
     let choosenY = 1700 - (this.targetRange - 1) * 190;
@@ -58,15 +59,15 @@ export default class wizard extends cc.Component {
       100 + (this.targetRange - 1) * 95 + Math.floor(Math.random() * choosenX),
       100 + (this.targetRange - 1) * 95 + Math.floor(Math.random() * choosenY)
     );
-    target.setPosition(pos);
+    this.target.setPosition(pos);
 
     this.scheduleOnce(() => {
-      if (this.isInCycle(target)) {
+      if (this.isInCycle(this.target)) {
         //console.log("yes");
         this.player.getComponent("player").lifeDamage(this.damage);
         this.explosion(pos);
       }
-      target.destroy();
+      this.target.destroy();
     }, 4);
   }
   explosion(pos: number) {
@@ -115,6 +116,7 @@ export default class wizard extends cc.Component {
       if (this.wizardLife <= 0) {
         this.gameManager.getComponent("gamerManager").enemyReduce(this.node.x);
         this.node.active = false;
+        if (this.target != null) this.target.destroy();
         this.node.destroy();
       }
     }
