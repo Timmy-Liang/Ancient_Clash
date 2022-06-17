@@ -6,47 +6,44 @@ export default class player extends cc.Component {
     @property(cc.Prefab)
     private bulletPrefab: cc.Prefab = null;
 
-    private moveDir: string = 'S';
+    @property(cc.SpriteFrame)
+    private archerFrame: cc.SpriteFrame = null;
 
+    @property(cc.SpriteFrame)
+    private warriorFrame: cc.SpriteFrame = null;
+
+    private moveDir: string = 'S';
     private speed: number = 250;
 
     private anim: cc.Animation = null;
-
     private animateState = null;
 
     private maxBullet: number = 5;
-
     private bulletPool: cc.NodePool = null;
-
     private nextAttackTime: number = 0;
-
     private nextReloadTime: number = 0;
-
     private attackCooldown: number = 0.2;
-
     private reloadCooldown: number = 5;
 
     private attacking: boolean = false;
 
     private enemys: cc.Node = null;
-
     private enemyCount: number = 0;
-
     private targetPosition: cc.Vec2 = cc.v2(0, 0);
-
     private targetDirection: string = '';
-
     private targetAngle: number = 0;
 
     private nextTraceTime: number = 0;
-
     private traceCooldown: number = 0.5;
 
     private life: number = 10;
-
     private lifeMax: number = 10;
-
     private lifeprogress: cc.Node = null;
+
+    private characterName: string = 'archer';
+    private characterTag: number = 0;
+    private characterChangeCooldown: number = 2;
+    private characterValidChangeTime: number = 0;
 
 
     onLoad() {
@@ -111,36 +108,36 @@ export default class player extends cc.Component {
 
         switch (this.moveDir) {
             case 'N':
-                if (this.animateState == null || this.animateState.name != 'playerWalkN')
-                    this.animateState = this.anim.play('playerWalkN');
+                if (this.animateState == null || this.animateState.name != this.characterName + 'WalkN')
+                    this.animateState = this.anim.play(this.characterName + 'WalkN');
                 break;
             case 'S':
-                if (this.animateState == null || this.animateState.name != 'playerWalkS')
-                    this.animateState = this.anim.play('playerWalkS');
+                if (this.animateState == null || this.animateState.name != this.characterName + 'WalkS')
+                    this.animateState = this.anim.play(this.characterName + 'WalkS');
                 break;
             case 'E':
-                if (this.animateState == null || this.animateState.name != 'playerWalkE')
-                    this.animateState = this.anim.play('playerWalkE');
+                if (this.animateState == null || this.animateState.name != this.characterName + 'WalkE')
+                    this.animateState = this.anim.play(this.characterName + 'WalkE');
                 break;
             case 'W':
-                if (this.animateState == null || this.animateState.name != 'playerWalkW')
-                    this.animateState = this.anim.play('playerWalkW');
+                if (this.animateState == null || this.animateState.name != this.characterName + 'WalkW')
+                    this.animateState = this.anim.play(this.characterName + 'WalkW');
                 break;
             case 'NE':
-                if (this.animateState == null || this.animateState.name != 'playerWalkNE')
-                    this.animateState = this.anim.play('playerWalkNE');
+                if (this.animateState == null || this.animateState.name != this.characterName + 'WalkNE')
+                    this.animateState = this.anim.play(this.characterName + 'WalkNE');
                 break;
             case 'NW':
-                if (this.animateState == null || this.animateState.name != 'playerWalkNW')
-                    this.animateState = this.anim.play('playerWalkNW');
+                if (this.animateState == null || this.animateState.name != this.characterName + 'WalkNW')
+                    this.animateState = this.anim.play(this.characterName + 'WalkNW');
                 break;
             case 'SW':
-                if (this.animateState == null || this.animateState.name != 'playerWalkSW')
-                    this.animateState = this.anim.play('playerWalkSW');
+                if (this.animateState == null || this.animateState.name != this.characterName + 'WalkSW')
+                    this.animateState = this.anim.play(this.characterName + 'WalkSW');
                 break;
             case 'SE':
-                if (this.animateState == null || this.animateState.name != 'playerWalkSE')
-                    this.animateState = this.anim.play('playerWalkSE');
+                if (this.animateState == null || this.animateState.name != this.characterName + 'WalkSE')
+                    this.animateState = this.anim.play(this.characterName + 'WalkSE');
                 break;
             default:
                 this.animateState = null
@@ -152,7 +149,7 @@ export default class player extends cc.Component {
     playerAttackAnimation() {
         this.anim.stop();
         this.attacking = true;
-        this.animateState = this.anim.play('playerAttack' + this.targetDirection);
+        this.animateState = this.anim.play(this.characterName + 'Attack' + this.targetDirection);
         this.anim.on('finished', (e) => {
             this.attacking = false;
         })
@@ -217,6 +214,23 @@ export default class player extends cc.Component {
         }
         else {
             this.targetDirection = 'W';
+        }
+    }
+
+    characterChange() { 
+        let currentTime = cc.director.getTotalTime() / 1000.0;
+        if(currentTime < this.characterValidChangeTime)
+            return;
+        this.characterValidChangeTime = currentTime + this.characterChangeCooldown;
+        if(this.characterTag == 0){
+            this.characterTag = 1   
+            this.characterName = 'warrior';
+            this.getComponent(cc.Sprite).spriteFrame = this.warriorFrame;
+        }
+        else {
+            this.characterTag = 0;
+            this.characterName = 'archer';
+            this.getComponent(cc.Sprite).spriteFrame = this.archerFrame;
         }
     }
 
