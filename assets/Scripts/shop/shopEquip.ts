@@ -30,7 +30,7 @@ export default class shopEquip extends cc.Component {
     }
 
     start(){
-        this.tag=this.node.parent.getComponent("shop").getTag();
+        this.tag=this.node.parent.parent.getComponent("shop").getTag();
 
         var dataBox;
         this.node.on(cc.Node.EventType.MOUSE_MOVE, (event)=>{
@@ -64,7 +64,7 @@ export default class shopEquip extends cc.Component {
             this.shopManager.getComponent("shopManager").equipBuy(this.tag, this.type, this.equipName);
             let confirm= cc.instantiate(this.confirmPrefabs);
             cc.log(this.tag, confirm)
-            confirm.getComponent("confirm").init(this.node.parent, this.tag);
+            confirm.getComponent("confirm").init(this.node.parent.parent, this.tag);
         }
     }
 }

@@ -4,11 +4,14 @@ const {ccclass, property} = cc._decorator;
 export default class shop extends cc.Component {
     private tag: number=0;
 
-    init(node: cc.Node, tag, x, y){
+    init(node: cc.Node, tag){
         this.node.parent=node.parent;
         this.tag=tag;
-        if(this.tag==1) this.node.position=cc.v3(-400, 0);
-        else this.node.position=cc.v3(400, 0)
+        if(this.tag==1) this.node.position=cc.v3(-400, 200);
+        else {
+            this.node.position=cc.v3(360, 200);
+            this.node.getChildByName("equipTable").x+=500;
+        }
         cc.log("shop tag: ", this.tag)
 
     }

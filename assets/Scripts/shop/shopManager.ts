@@ -171,8 +171,8 @@ export default class shopManager extends cc.Component {
 
         if(this.p1.job=="archer"){
             let p1_Shop=cc.instantiate(this.archerShop);
-            cc.log("text: ", p1_Shop)
-            p1_Shop.getComponent("shop").init(this.node, 1, 0, 0);
+            cc.log("debug: p1_shop")
+            p1_Shop.getComponent("shop").init(this.node, 1);
         }
 
         this.p1_Icon=cc.instantiate(this.playerShopping);
@@ -189,7 +189,7 @@ export default class shopManager extends cc.Component {
 
         if(this.p2.job=="archer"){
             let p2_Shop=cc.instantiate(this.archerShop);
-            p2_Shop.getComponent("shop").init(this.node, 2, 0, 0);
+            p2_Shop.getComponent("shop").init(this.node, 2);
         }
 
         this.p2_Icon=cc.instantiate(this.playerShopping);
@@ -353,7 +353,7 @@ export default class shopManager extends cc.Component {
             var self=this;
             cc.loader.loadRes("equipPrefabs/"+weapon, function (err, prefab) {
                 self.p1_Weapon = cc.instantiate(prefab);
-                self.p1_Weapon.getComponent("playerEquip").init(self.node, 1, "weapon", weapon, -600, 200);
+                self.p1_Weapon.getComponent("playerEquip").init(self.node, 1, "weapon", weapon, -350, -270);
             });
             this.labelUpdate(tag);
         }
@@ -363,7 +363,7 @@ export default class shopManager extends cc.Component {
             var self=this;
             cc.loader.loadRes("equipPrefabs/"+weapon, function (err, prefab) {
                 self.p2_Weapon = cc.instantiate(prefab);
-                self.p2_Weapon.getComponent("playerEquip").init(self.node, 2, "weapon", weapon, 600, 200);
+                self.p2_Weapon.getComponent("playerEquip").init(self.node, 2, "weapon", weapon, 330, -270);
             });
             this.labelUpdate(tag);
         }
@@ -392,7 +392,7 @@ export default class shopManager extends cc.Component {
             var self=this;
             cc.loader.loadRes("equipPrefabs/"+armor, function (err, prefab) {
                 self.p1_Armor = cc.instantiate(prefab);
-                self.p1_Armor.getComponent("playerEquip").init(self.node, 1, "armor", armor, -600, 0);
+                self.p1_Armor.getComponent("playerEquip").init(self.node, 1, "armor", armor, -560, -245);
             });
             this.labelUpdate(tag);
         }
@@ -402,7 +402,7 @@ export default class shopManager extends cc.Component {
             var self=this;
             cc.loader.loadRes("equipPrefabs/"+armor, function (err, prefab) {
                 self.p2_Armor = cc.instantiate(prefab);
-                self.p2_Armor.getComponent("playerEquip").init(self.node, 2, "armor", armor, 600, 0);
+                self.p2_Armor.getComponent("playerEquip").init(self.node, 2, "armor", armor, 545, -245);
             });
             this.labelUpdate(tag);
         }
@@ -431,7 +431,7 @@ export default class shopManager extends cc.Component {
             var self=this;
             cc.loader.loadRes("equipPrefabs/"+boots, function (err, prefab) {
                 self.p1_Boots = cc.instantiate(prefab);
-                self.p1_Boots.getComponent("playerEquip").init(self.node, 1, "boots", boots, -600, -200);
+                self.p1_Boots.getComponent("playerEquip").init(self.node, 1, "boots", boots, -520, -370);
             });
             this.labelUpdate(tag);
         }
@@ -441,7 +441,7 @@ export default class shopManager extends cc.Component {
             var self=this;
             cc.loader.loadRes("equipPrefabs/"+boots, function (err, prefab) {
                 self.p2_Boots = cc.instantiate(prefab);
-                self.p2_Boots.getComponent("playerEquip").init(self.node, 2, "boots", boots, 600, -200);
+                self.p2_Boots.getComponent("playerEquip").init(self.node, 2, "boots", boots, 480, -370);
             });
             this.labelUpdate(tag);
         }
