@@ -11,6 +11,8 @@ const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class meleeEnemy extends cc.Component {
+    @property(cc.Node)
+    gameManager: cc.Node = null;
 
     private target: cc.Node = null;
 
@@ -47,6 +49,7 @@ export default class meleeEnemy extends cc.Component {
     private attacking = null
 
     onLoad() {
+        this.gameManager=cc.find("gameManager");
         let index = this.node.parent.name.slice(-1);
         this.target = cc.find("Canvas/player" + index + "/player");
         this.enemyLifeProgress = this.node.getChildByName('lifeBar');
@@ -170,7 +173,8 @@ export default class meleeEnemy extends cc.Component {
         else if (other.node.name == 'bullet') {
             this.enemyLife--;
             this.enemyLifeProgress.getComponent(cc.ProgressBar).progress = this.enemyLife / this.enemyMaxLife;
-            if (this.enemyLife <= 0) {
+            if(this.enemyLife <= 0) {
+                this.gameManager.getComponent("gamerManager").enemyReduce(this.node.x);
                 this.node.active = false;
                 this.node.destroy();
             }

@@ -29,6 +29,9 @@ export default class gameManager extends cc.Component {
   private meleeEnemyCount: number = 2;
   private wizardCount: number = 1;
 
+  private player1_restEnemy: number=0;
+  private player2_restEnemy: number=0;
+
   // LIFE-CYCLE CALLBACKS:
 
   onLoad() {
@@ -48,6 +51,8 @@ export default class gameManager extends cc.Component {
     this.initWall(this.mapLeft);
     this.initWall(this.mapRight);
     
+    this.player1_restEnemy=this.meleeEnemyCount+ this.wizardCount;
+    this.player2_restEnemy=this.meleeEnemyCount+ this.wizardCount;
     //i=1 for player1, i=2 for player2
     for (let i=1; i<3; i++) {
       this.initEnemies(i, this.meleeEnemyCount, this.wizardCount);
@@ -166,5 +171,20 @@ export default class gameManager extends cc.Component {
 
   update(dt) {
     this.keyboardUpdate();
+  }
+
+  enemyReduce(x){
+    if(x>0){
+      this.player2_restEnemy-=1;
+      if(this.player2_restEnemy==0){
+  
+      }
+    }
+    else{
+      this.player1_restEnemy-=1;
+      if(this.player1_restEnemy==0){
+        cc.director.loadScene("shop");
+      }
+    }
   }
 }
