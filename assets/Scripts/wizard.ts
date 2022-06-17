@@ -7,11 +7,10 @@ export default class wizard extends cc.Component {
   targetRegion: cc.Prefab = null;
   @property(cc.Prefab)
   fire: cc.Prefab = null;
-  @property(cc.Node)
-  player: cc.Node = null;
-  @property(cc.Node)
-  map: cc.Node = null;
 
+
+  private player: cc.Node = null;
+  private map: cc.Node = null;
   private moveSpeed: number = 40;
   public tracingPlayer: boolean = false;
 
@@ -31,6 +30,9 @@ export default class wizard extends cc.Component {
   private damage: number = 5;
   
   onLoad() {
+    let index = this.node.parent.name.slice(-1);
+    this.player = cc.find("Canvas/player" + index + "/player");
+    this.map = cc.find("Canvas/map1_" + index);
     this.wizardLifeProgress = this.node.getChildByName("lifeBar");
   }
   start() {

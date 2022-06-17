@@ -53,7 +53,8 @@ export default class player extends cc.Component {
         this.bulletPool = new cc.NodePool('bullet');
         this.anim = this.getComponent(cc.Animation);
         this.lifeprogress = this.node.getChildByName('lifeBar');
-        this.enemys = cc.find("Canvas/enemy");
+        let index = this.node.parent.name.slice(-1);
+        this.enemys = cc.find("Canvas/enemy" + index);
         this.enemyCount = this.enemys.childrenCount;
     }
 
