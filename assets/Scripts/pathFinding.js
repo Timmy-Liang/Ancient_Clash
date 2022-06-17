@@ -214,6 +214,34 @@ cc.Class({
                 var curr = currentNode;
                 var ret = [];
                 while (curr.parent) {
+                    /*
+                    let offsetX = curr.x - curr.parent.x;
+                    let offsetY = curr.y - curr.parent.y;
+                    if(offsetX > 0 && offsetY > 0){
+                        ret.push('NE');
+                    }
+                    else if(offsetX > 0 && offsetY < 0) {
+                        ret.push('NW');
+                    }
+                    else if(offsetX < 0 && offsetY > 0) {
+                        ret.push("SE");
+                    }
+                    else if(offsetX < 0 && offsetY < 0) {
+                        ret.push('SW') 
+                    }
+                    else if(offsetX > 0) {
+                        ret.push('E')
+                    }
+                    else if(offsetX < 0) {
+                        ret.push('W')
+                    }
+                    else if(offsetY > 0) {
+                        ret.push('N')
+                    }
+                    else if(offsetY < 0) {
+                        ret.push('S')
+                    }
+                    */
                     ret.push([curr.x - curr.parent.x, curr.y - curr.parent.y]);
                     curr = curr.parent;
                 }

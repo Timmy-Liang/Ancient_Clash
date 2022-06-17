@@ -1,0 +1,55 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "walkDown",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.6,
+  "sample": 10,
+  "speed": 1,
+  "wrapMode": 2,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "c2576ba6-3ab5-4e90-a916-198fc0720426"
+            }
+          },
+          {
+            "frame": 0.1,
+            "value": {
+              "__uuid__": "b4df79fb-4873-48c7-b331-ed1ba81ac422"
+            }
+          },
+          {
+            "frame": 0.2,
+            "value": {
+              "__uuid__": "f724d6e6-3aa0-4267-82e8-ec4bc09d881c"
+            }
+          },
+          {
+            "frame": 0.3,
+            "value": {
+              "__uuid__": "ebaf95c8-7ae8-4330-8459-65d83f1b4aad"
+            }
+          },
+          {
+            "frame": 0.4,
+            "value": {
+              "__uuid__": "a9bb712d-7153-48f8-8590-985f1bfab0f6"
+            }
+          },
+          {
+            "frame": 0.5,
+            "value": {
+              "__uuid__": "46601f22-2743-4843-b5d0-6ec058a7f1f5"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

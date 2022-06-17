@@ -373,28 +373,28 @@
     "_defaultClip": null,
     "_clips": [
       {
-        "__uuid__": "8ea91f63-cb9d-4e20-96ac-4be3e7219b1f"
+        "__uuid__": "da7fb8bc-bbab-417b-a835-f3bd5b7cd613"
       },
       {
-        "__uuid__": "5f7905a0-e5e8-45a5-8ef9-64ff0c655f6e"
+        "__uuid__": "7ddb384d-58fd-4aaa-a565-be71ad99748a"
       },
       {
-        "__uuid__": "58e8589d-226f-4e88-98c8-ad0f11a3d54e"
+        "__uuid__": "97ae589c-1919-42eb-8855-fff25808dcd3"
       },
       {
-        "__uuid__": "5fe0f578-a4bb-4362-baa0-6a3e21d42116"
+        "__uuid__": "f6f59efd-a68c-4a6f-aa66-f505a1e6defd"
       },
       {
-        "__uuid__": "770085dd-72ca-4779-a64d-c977c6c0874b"
+        "__uuid__": "51753d5b-0154-44db-957e-480c8ce7d867"
       },
       {
-        "__uuid__": "4b5f6145-7bf2-4c3d-b659-566d93d93ff4"
+        "__uuid__": "59319f59-9d83-4184-924a-e2fa607bf7d2"
       },
       {
-        "__uuid__": "bc54d1ff-a2f5-4e06-9aca-b64cc111d247"
+        "__uuid__": "26f18087-aa0a-4908-ac59-6e80048b32d6"
       },
       {
-        "__uuid__": "24e26be0-1164-4842-9ef0-0cc509125738"
+        "__uuid__": "54aca805-51bc-4bfc-91b3-d2608610cc83"
       }
     ],
     "playOnLoad": false,
@@ -408,7 +408,6 @@
       "__id__": 1
     },
     "_enabled": true,
-    "target": null,
     "_id": ""
   },
   {
@@ -419,7 +418,6 @@
       "__id__": 1
     },
     "_enabled": true,
-    "mapNode": null,
     "_id": ""
   },
   {

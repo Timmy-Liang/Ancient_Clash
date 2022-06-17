@@ -20,11 +20,18 @@ export default class meleeEnemy extends cc.Component {
     private moveSpeed: number = 40;
     public tracingPlayer: boolean = false;
 
+    private setPathCooldown: number = 0.5;
+    private traceCooldown: number = 0.1;
+    private traceSpeed: number = 160;
+    private traceDifficulty: number = 1;
+    private tracePath: Array<Array<number>> = [];
+
     private moveDir: cc.Vec2 = cc.Vec2.ZERO;
     private moveDuration: number = 2.0;
     private waitDuration: number = 2;
     private nextWaitTime: number = 0;
     private nextMoveTime: number = 0;
+    private nextTraceTime: number = 0;
     private waitRandomFactor: number = 0.1;
 
     private enemyLife: number = 5;
@@ -33,10 +40,17 @@ export default class meleeEnemy extends cc.Component {
 
     private enemyLifeProgress: cc.Node = null;
 
+    private anim: cc.Animation = null;
+
+    private animateState = null;
+
+    private attacking = null
+
     onLoad() {
         let index = this.node.parent.name.slice(-1);
         this.target = cc.find("Canvas/player" + index + "/player");
         this.enemyLifeProgress = this.node.getChildByName('lifeBar');
+        this.anim = this.getComponent(cc.Animation);
     }
 
     start() {
@@ -56,29 +70,14 @@ export default class meleeEnemy extends cc.Component {
         }
     }
 
-    tracing(dt: number) {
+    setPath() {
         let tmp = [];
         let targetPos: cc.Vec2 = cc.v2(0, 0)
-        if(this.tracingPlayer) {
+        if (this.tracingPlayer) {
             targetPos = this.target.convertToWorldSpaceAR(cc.v2(0, 0));
         }
-        let nodePath = this.node.getComponent('pathFinding').pathFindingAlgo(targetPos);
-        if (nodePath.length >= 6) {
-            for (let i = 1; i <= 5; i++) {
-                tmp.push(cc.moveBy(0.1, nodePath[i][0] * 16, nodePath[i][1] * 16 * -1));
-            }
-        }
-        else {
-            for (let i = 1; i < nodePath.length; i++) {
-                tmp.push(cc.moveBy(0.1, nodePath[i][0] * 16, nodePath[i][1] * 16 * -1));
+        this.tracePath = this.node.getComponent('pathFinding').pathFindingAlgo(targetPos);
 
-            }
-        }
-
-        if (tmp) {
-            if(tmp.length >= 2)
-                this.node.runAction(cc.sequence(tmp));
-        }
     }
 
     detectRangePlayer() {
@@ -87,9 +86,53 @@ export default class meleeEnemy extends cc.Component {
             this.moveSpeed = 200;
             this.tracingPlayer = true;
         }
-
-
         return 0;
+    }
+
+    enemyWalkAnimation() {
+        if (this.attacking)
+            return;
+        if (this.moveDir.x > 0) {
+            if (this.animateState == null || this.animateState.name != 'walkRight')
+                this.animateState = this.anim.play('walkRight');
+        }
+        else if (this.moveDir.x < 0) {
+            if (this.animateState == null || this.animateState.name != 'walkLeft')
+                this.animateState = this.anim.play('walkLeft');
+        }
+        else if (this.moveDir.y > 0) {
+            if (this.animateState == null || this.animateState.name != 'walkUp')
+                this.animateState = this.anim.play('walkUp');
+        }
+        else if (this.moveDir.y < 0) {
+            if (this.animateState == null || this.animateState.name != 'walkDown')
+                this.animateState = this.anim.play('walkDown');
+        }
+        else {
+            this.animateState = null
+            this.anim.stop();
+        }
+
+    }
+
+    enemyAttackAnimation() {
+        this.anim.stop();
+        this.attacking = true;
+        if (this.moveDir.x > 0) {
+            this.animateState = this.anim.play('attackRight');
+        }
+        else if (this.moveDir.x < 0) {
+            this.animateState = this.anim.play('attackLeft');
+        }
+        else if (this.moveDir.y > 0) {
+            this.animateState = this.anim.play('attackUp');
+        }
+        else if (this.moveDir.y < 0) {
+            this.animateState = this.anim.play('attackDown');
+        }
+        this.anim.on('finished', (e) => {
+            this.attacking = false;
+        })
     }
 
     update(dt) {
@@ -100,22 +143,34 @@ export default class meleeEnemy extends cc.Component {
             this.detectRangePlayer();
         }
         else {
-            if (currentTime >= this.nextMoveTime) {
-                this.nextMoveTime = currentTime + 0.5;
-                this.tracing(dt);
+            if (currentTime >= this.nextTraceTime) {
+                this.nextTraceTime = currentTime + this.setPathCooldown;
+                this.setPath();
+                this.nextMoveTime = currentTime;
             }
-        }
+            if (currentTime >= this.nextMoveTime) {
+                if (this.tracePath.length > 0) {
+                    let nextStep = this.tracePath.pop();
+                    this.moveDir = cc.v2(nextStep[0], nextStep[1] * -1)
+                    this.nextMoveTime = currentTime + this.traceCooldown;
+                }
+            }
 
+            this.node.x += this.moveDir.x * this.traceSpeed * dt;
+            this.node.y += this.moveDir.y * this.traceSpeed * dt;
+        }
+        this.enemyWalkAnimation();
     }
 
-    onBeginContact(contact, self, other){
-        if(other.node.name == 'player') {
+    onBeginContact(contact, self, other) {
+        if (other.node.name == 'player') {
+            this.enemyAttackAnimation();
             other.node.getComponent(player).lifeDamage(1);
         }
         else if (other.node.name == 'bullet') {
             this.enemyLife--;
             this.enemyLifeProgress.getComponent(cc.ProgressBar).progress = this.enemyLife / this.enemyMaxLife;
-            if(this.enemyLife <= 0) {
+            if (this.enemyLife <= 0) {
                 this.node.active = false;
                 this.node.destroy();
             }
