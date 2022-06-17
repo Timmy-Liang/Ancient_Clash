@@ -371,7 +371,9 @@
       "__uuid__": "17405811-1dfa-44e3-9208-b7bbda662acb"
     },
     "player": null,
-    "map": null,
+    "map": {
+      "__uuid__": "4aa38299-d6ca-4288-9279-5f2ccf53300a"
+    },
     "_id": ""
   },
   {
