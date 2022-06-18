@@ -56,7 +56,7 @@ export default class wizard extends cc.Component {
 
         this.schedule(this.targetGenerate, 10);
     }
-
+  
     generateTargetRegion() {
         this.target = cc.instantiate(this.targetRegion);
         let pos;
@@ -118,19 +118,23 @@ export default class wizard extends cc.Component {
         }
     }
 
+    
     onBeginContact(contact, self, other) {
         if (other.node.name == "bullet") {
-            this.wizardLife--;
-            this.wizardLifeProgress.getComponent(cc.ProgressBar).progress =
-                this.wizardLife / this.wizardMaxLife;
-            if (this.wizardLife <= 0) {
-                this.gameManager.getComponent("gamerManager").enemyReduce(this.node.x);
-                this.node.active = false;
-                if (this.target != null) this.target.destroy();
-                this.node.destroy();
-            }
+          this.wizardLife--;
+          this.wizardLifeProgress.getComponent(cc.ProgressBar).progress =
+            this.wizardLife / this.wizardMaxLife;
+          if (this.wizardLife <= 0) {
+            this.gameManager.getComponent("gamerManager").enemyReduce(this.node.x);
+            this.node.active = false;
+            if (this.target != null) this.target.destroy();
+    
+            if(this.node.parent.name=="enemy1")this.gameManager.getComponent("gamerManager").addcoin(1,25);
+            else if(this.node.parent.name=="enemy2")this.gameManager.getComponent("gamerManager").addcoin(2,25);
+            this.node.destroy();
+          }
         }
-    }
+      }
 
     update(dt) {
         if (this.wizardLife <= 0) {
