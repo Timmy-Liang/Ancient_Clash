@@ -13,7 +13,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "bullet",
+    "_name": "bulletArcher",
     "_objFlags": 0,
     "_parent": null,
     "_children": [
@@ -52,8 +52,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 54,
-      "height": 34
+      "width": 79,
+      "height": 79
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -283,7 +283,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "19adbf34-4889-4347-a2dc-4e611302e0db"
+      "__uuid__": "184e5ad3-cde4-4d0a-83da-8f809f3fc4a8"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -296,9 +296,7 @@
     "_fillStart": 0,
     "_fillRange": 0,
     "_isTrimmedMode": true,
-    "_atlas": {
-      "__uuid__": "f28841b2-6cea-43fb-9721-b18bb9b2563d"
-    },
+    "_atlas": null,
     "_id": ""
   },
   {
@@ -370,9 +368,15 @@
       "__id__": 1
     },
     "_enabled": true,
-    "_defaultClip": null,
-    "_clips": [],
-    "playOnLoad": false,
+    "_defaultClip": {
+      "__uuid__": "6f72e841-6d41-4b72-ae2d-c576f9d896be"
+    },
+    "_clips": [
+      {
+        "__uuid__": "6f72e841-6d41-4b72-ae2d-c576f9d896be"
+      }
+    ],
+    "playOnLoad": true,
     "_id": ""
   },
   {
