@@ -10,7 +10,6 @@ export default class playerShopping extends cc.Component {
         this.tag=tag;
 
         this.anim = this.getComponent(cc.Animation);
-        cc.log("job is: ",job)
         if(job=="archer") this.anim.play('archerStanding');
         else if(job=="knight") this.anim.play('knightStanding');
         else if(job=="slinger") this.anim.play('slingerStanding');

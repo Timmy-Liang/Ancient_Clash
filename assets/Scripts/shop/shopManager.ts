@@ -42,6 +42,8 @@ export default class shopManager extends cc.Component {
     private p2_Armor;
     private p2_Label;
 
+    private equipBg;
+
     //-------------------------texting data-------------------------//
     //---player data
     p1_Data= {
@@ -397,6 +399,23 @@ export default class shopManager extends cc.Component {
         cc.sys.localStorage.setItem('sling3', JSON.stringify(this.sling3));
         cc.sys.localStorage.setItem('sling4', JSON.stringify(this.sling4));
 
+        
+        var sth=this;
+        cc.loader.loadRes("equipPrefabs/equipBg", function (err, prefab) {
+            sth.equipBg = cc.instantiate(prefab);
+            sth.equipBg.getComponent("equipBg").init(sth.node, -350, -270);
+            sth.equipBg = cc.instantiate(prefab);
+            sth.equipBg.getComponent("equipBg").init(sth.node, 330, -270);
+            sth.equipBg = cc.instantiate(prefab);
+            sth.equipBg.getComponent("equipBg").init(sth.node, -560, -245);
+            sth.equipBg = cc.instantiate(prefab);
+            sth.equipBg.getComponent("equipBg").init(sth.node, 545, -245);
+            sth.equipBg = cc.instantiate(prefab);
+            sth.equipBg.getComponent("equipBg").init(sth.node, -520, -370);
+            sth.equipBg = cc.instantiate(prefab);
+            sth.equipBg.getComponent("equipBg").init(sth.node, 480, -370);
+        });
+
         //-----------------p1 initialize---------------//
         this.p1=JSON.parse(cc.sys.localStorage.getItem("p1"));
         this.p1_Label=cc.find("Canvas/p1_Label").getComponent(cc.Label);
@@ -495,15 +514,15 @@ export default class shopManager extends cc.Component {
                 cc.sys.localStorage.setItem('p1', JSON.stringify(this.p1));
 
                 if(this.type=="weapon") {
-                    this.weaponSell(this.tag, this.p1.weapon);
+                    if(this.p1.weapon!="") this.weaponSell(this.tag, this.p1.weapon);
                     this.weaponGenerate(this.tag, this.equipName);
                 }
                 else if(this.type=="armor") {
-                    this.armorSell(this.tag, this.p1.armor);
+                    if(this.p1.armor!="")this.armorSell(this.tag, this.p1.armor);
                     this.armorGenerate(this.tag, this.equipName);
                 }
                 else if(this.type=="boots") {
-                    this.bootsSell(this.tag, this.p1.boots);
+                    if(this.p1.boots!="")this.bootsSell(this.tag, this.p1.boots);
                     this.bootsGenerate(this.tag, this.equipName);
                 }
                 this.labelUpdate(this.tag);
@@ -513,15 +532,15 @@ export default class shopManager extends cc.Component {
                 cc.sys.localStorage.setItem('p2', JSON.stringify(this.p2));
 
                 if(this.type=="weapon") {
-                    this.weaponSell(this.tag, this.p2.weapon);
+                    if(this.p2.weapon!="") this.weaponSell(this.tag, this.p2.weapon);
                     this.weaponGenerate(this.tag, this.equipName);
                 }
                 else if(this.type=="armor") {
-                    this.armorSell(this.tag, this.p2.armor);
+                    if(this.p2.armor!="") this.armorSell(this.tag, this.p2.armor);
                     this.armorGenerate(this.tag, this.equipName);
                 }
                 else if(this.type=="boots") {
-                    this.bootsSell(this.tag, this.p2.boots);
+                    if(this.p2.boots!="") this.bootsSell(this.tag, this.p2.boots);
                     this.bootsGenerate(this.tag, this.equipName);
                 }
                 this.labelUpdate(this.tag);

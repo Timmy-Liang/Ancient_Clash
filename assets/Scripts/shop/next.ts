@@ -30,12 +30,10 @@ export default class next extends cc.Component {
         }, this)
     }
 
-    BTN_Click(){
-        cc.log("hello");
-        
+    BTN_Click(){ 
         if(!this.shopManager.getComponent("shopManager").check_buttonshow()){
             let confirm= cc.instantiate(this.confirmPrefabs);
-            confirm.getComponent("confirm").init(this.node, 3);
+            confirm.getComponent("confirm").init(this.node, "", 3, "");
             this.shopManager.getComponent("shopManager").readyNext();
         }
         

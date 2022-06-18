@@ -56,6 +56,7 @@ export default class gameManager extends cc.Component {
         this.mapLeft = cc.find("Canvas/map1_1").getComponent(cc.TiledMap);
         this.mapRight = cc.find("Canvas/map1_2").getComponent(cc.TiledMap);
         this.enemy = cc.find("Canvas/enemy");
+        //cc.director.getPhysicsManager().debugDrawFlags = 1;
     }
 
     start() {
@@ -205,6 +206,8 @@ export default class gameManager extends cc.Component {
                 this.player1.playerMoveDir("N");
             }
         }
+        if(keyboardInput[cc.macro.KEY.m]) this.player1.playerPower();
+
 
         if (keyboardInput[cc.macro.KEY.down] && keyboardInput[cc.macro.KEY.right]) {
             this.player2.playerMoveDir("SE");
