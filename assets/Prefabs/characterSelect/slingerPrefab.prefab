@@ -13,7 +13,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "knightPrefab",
+    "_name": "slingerPrefab",
     "_objFlags": 0,
     "_parent": null,
     "_children": [],
@@ -89,7 +89,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "9f717a8f-b6c3-4f1a-9937-ca9f147945d1"
+      "__uuid__": "692b6bdf-0cbc-43f6-a1c0-7540c8f85314"
     },
     "_type": 0,
     "_sizeMode": 0,
