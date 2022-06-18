@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "f2d1dbad-4686-4101-acc1-3f4929037dbc",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 32,
+  "height": 32,
+  "platformSettings": {},
+  "subMetas": {
+    "knightArmor2": {
+      "ver": "1.0.6",
+      "uuid": "15824a1b-d570-440b-897d-e618d5bb6166",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "f2d1dbad-4686-4101-acc1-3f4929037dbc",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0.5,
+      "trimX": 1,
+      "trimY": 2,
+      "width": 30,
+      "height": 27,
+      "rawWidth": 32,
+      "rawHeight": 32,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

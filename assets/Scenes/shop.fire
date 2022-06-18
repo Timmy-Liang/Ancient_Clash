@@ -1765,7 +1765,15 @@
     "archerShop": {
       "__uuid__": "613210b1-2edf-4d6b-a129-f96556976788"
     },
-    "slingerShop": null,
+    "knightShop": {
+      "__uuid__": "03d4fa7d-efd1-4d49-8090-a6ff37d74633"
+    },
+    "slingerShop": {
+      "__uuid__": "37be50d7-fbb9-4d94-a93c-a570ae888db7"
+    },
+    "warriorShop": {
+      "__uuid__": "593d1f8d-4f31-4afa-ab29-4518355b959d"
+    },
     "playerShopping": {
       "__uuid__": "70f8bd2e-43f4-40ca-a484-65e2e3b6eddc"
     },

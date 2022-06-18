@@ -5,9 +5,12 @@ export default class shopManager extends cc.Component {
     
     @property(cc.Prefab)
     archerShop: cc.Prefab = null;
-
+    @property(cc.Prefab)
+    knightShop: cc.Prefab = null;
     @property(cc.Prefab)
     slingerShop: cc.Prefab = null;
+    @property(cc.Prefab)
+    warriorShop: cc.Prefab = null;
 
     @property(cc.Prefab)
     playerShopping: cc.Prefab = null;
@@ -40,30 +43,31 @@ export default class shopManager extends cc.Component {
     private p2_Label;
 
     //-------------------------texting data-------------------------//
+    //---player data
     p1_Data= {
-        job: "archer",
+        job: "slinger",
         atk: 10,
         def: 10,
         hp: 10,
         spd: 10,
         money: 1000,
-        armor: "archerArmor1",
+        armor: "slingerArmor1",
         boots: "boots1",
-        weapon: "crossBow1"
+        weapon: "sling1"
     }
-
     p2_Data={
-        job: "archer",
+        job: "warrior",
         atk: 10,
         def: 10,
         hp: 10,
         spd: 10,
         money: 1000,
-        armor: "archerArmor1",
+        armor: "warriorArmor1",
         boots: "boots1",
-        weapon: "crossBow1"
+        weapon: "sword1"
     }
 
+    //---armor data
     archerArmor1={
         atk: 0,
         def: 1,
@@ -92,7 +96,92 @@ export default class shopManager extends cc.Component {
         spd: 5,
         price: 50
     }
+    knightArmor1={
+        atk: 0,
+        def: 1,
+        hp: 1,
+        spd: 1,
+        price: 10
+    }
+    knightArmor2={
+        atk: 0,
+        def: 2,
+        hp: 2,
+        spd: 2,
+        price: 20
+    }
+    knightArmor3={
+        atk: 0,
+        def: 3,
+        hp: 3,
+        spd: 3,
+        price: 30
+    }
+    knightArmor4={
+        atk: 0,
+        def: 4,
+        hp: 4,
+        spd: 4,
+        price: 40
+    }
+    slingerArmor1={
+        atk: 0,
+        def: 1,
+        hp: 1,
+        spd: 1,
+        price: 10
+    }
+    slingerArmor2={
+        atk: 0,
+        def: 2,
+        hp: 2,
+        spd: 2,
+        price: 20
+    }
+    slingerArmor3={
+        atk: 0,
+        def: 3,
+        hp: 3,
+        spd: 3,
+        price: 30
+    }
+    slingerArmor4={
+        atk: 0,
+        def: 4,
+        hp: 4,
+        spd: 4,
+        price: 40
+    }
+    warriorArmor1={
+        atk: 0,
+        def: 1,
+        hp: 1,
+        spd: 1,
+        price: 10
+    }
+    warriorArmor2={
+        atk: 0,
+        def: 2,
+        hp: 2,
+        spd: 2,
+        price: 20
+    }
+    warriorArmor3={
+        atk: 0,
+        def: 3,
+        hp: 3,
+        spd: 3,
+        price: 30
+    }
+    warriorArmor4={
+        atk: 0,
+        def: 4,
+        hp: 4,
+        spd: 4,
+        price: 40
+    }
 
+    //---boots data
     boots1={
         atk: 0,
         def: 1,
@@ -114,7 +203,43 @@ export default class shopManager extends cc.Component {
         spd: 3,
         price: 30
     }
+    boots4={
+        atk: 0,
+        def: 4,
+        hp: 4,
+        spd: 4,
+        price: 40
+    }
+    boots5={
+        atk: 0,
+        def: 5,
+        hp: 5,
+        spd: 5,
+        price: 50
+    }
+    boots6={
+        atk: 0,
+        def: 6,
+        hp: 6,
+        spd: 6,
+        price: 60
+    }
+    boots7={
+        atk: 0,
+        def: 7,
+        hp: 7,
+        spd: 7,
+        price: 70
+    }
+    boots8={
+        atk: 0,
+        def: 8,
+        hp: 8,
+        spd: 8,
+        price: 80
+    }
 
+    //---weapon data
     crossBow1={
         atk: 10,
         def: 0,
@@ -143,6 +268,85 @@ export default class shopManager extends cc.Component {
         spd: 0,
         price: 50
     }
+    sword1={
+        atk: 10,
+        def: 0,
+        hp: 0,
+        spd: 0,
+        price: 10
+    }
+    sword2={
+        atk: 20,
+        def: 0,
+        hp: 0,
+        spd: 0,
+        price: 20
+    }
+    sword3={
+        atk: 30,
+        def: 0,
+        hp: 0,
+        spd: 0,
+        price: 30
+    }
+    sword4={
+        atk: 40,
+        def: 0,
+        hp: 0,
+        spd: 0,
+        price: 40
+    }
+    sword5={
+        atk: 50,
+        def: 0,
+        hp: 0,
+        spd: 0,
+        price: 50
+    }
+    sword6={
+        atk: 60,
+        def: 0,
+        hp: 0,
+        spd: 0,
+        price: 60
+    }
+    sword7={
+        atk: 70,
+        def: 0,
+        hp: 0,
+        spd: 0,
+        price: 70
+    }
+    sling1={
+        atk: 10,
+        def: 0,
+        hp: 0,
+        spd: 0,
+        price: 10
+    }
+    sling2={
+        atk: 20,
+        def: 0,
+        hp: 0,
+        spd: 0,
+        price: 20
+    }
+    sling3={
+        atk: 30,
+        def: 0,
+        hp: 0,
+        spd: 0,
+        price: 30
+    }
+    sling4={
+        atk: 40,
+        def: 0,
+        hp: 0,
+        spd: 0,
+        price: 40
+    }
+
+
     
     //-------------------------texting data-------------------------//
 
@@ -150,28 +354,68 @@ export default class shopManager extends cc.Component {
     onLoad(){
         cc.sys.localStorage.setItem('p1', JSON.stringify(this.p1_Data));
         cc.sys.localStorage.setItem('p2', JSON.stringify(this.p2_Data));
+
         cc.sys.localStorage.setItem('archerArmor1', JSON.stringify(this.archerArmor1));
         cc.sys.localStorage.setItem('archerArmor3', JSON.stringify(this.archerArmor3));
         cc.sys.localStorage.setItem('archerArmor4', JSON.stringify(this.archerArmor4));
         cc.sys.localStorage.setItem('archerArmor5', JSON.stringify(this.archerArmor5));
+        cc.sys.localStorage.setItem('knightArmor1', JSON.stringify(this.knightArmor1));
+        cc.sys.localStorage.setItem('knightArmor2', JSON.stringify(this.knightArmor2));
+        cc.sys.localStorage.setItem('knightArmor3', JSON.stringify(this.knightArmor3));
+        cc.sys.localStorage.setItem('knightArmor4', JSON.stringify(this.knightArmor4));
+        cc.sys.localStorage.setItem('slingerArmor1', JSON.stringify(this.slingerArmor1));
+        cc.sys.localStorage.setItem('slingerArmor2', JSON.stringify(this.slingerArmor2));
+        cc.sys.localStorage.setItem('slingerArmor3', JSON.stringify(this.slingerArmor3));
+        cc.sys.localStorage.setItem('slingerArmor4', JSON.stringify(this.slingerArmor4));
+        cc.sys.localStorage.setItem('warriorArmor1', JSON.stringify(this.warriorArmor1));
+        cc.sys.localStorage.setItem('warriorArmor2', JSON.stringify(this.warriorArmor2));
+        cc.sys.localStorage.setItem('warriorArmor3', JSON.stringify(this.warriorArmor3));
+        cc.sys.localStorage.setItem('warriorArmor4', JSON.stringify(this.warriorArmor4));
+        
         cc.sys.localStorage.setItem('boots1', JSON.stringify(this.boots1));
         cc.sys.localStorage.setItem('boots2', JSON.stringify(this.boots2));
         cc.sys.localStorage.setItem('boots3', JSON.stringify(this.boots3));
+        cc.sys.localStorage.setItem('boots4', JSON.stringify(this.boots4));
+        cc.sys.localStorage.setItem('boots5', JSON.stringify(this.boots5));
+        cc.sys.localStorage.setItem('boots6', JSON.stringify(this.boots6));
+        cc.sys.localStorage.setItem('boots7', JSON.stringify(this.boots7));
+        cc.sys.localStorage.setItem('boots8', JSON.stringify(this.boots8));
+
         cc.sys.localStorage.setItem('crossBow1', JSON.stringify(this.crossBow1));
         cc.sys.localStorage.setItem('crossBow2', JSON.stringify(this.crossBow2));
         cc.sys.localStorage.setItem('crossBow3', JSON.stringify(this.crossBow3));
         cc.sys.localStorage.setItem('crossBow5', JSON.stringify(this.crossBow5));
-        
+        cc.sys.localStorage.setItem('sword1', JSON.stringify(this.sword1));
+        cc.sys.localStorage.setItem('sword2', JSON.stringify(this.sword2));
+        cc.sys.localStorage.setItem('sword3', JSON.stringify(this.sword3));
+        cc.sys.localStorage.setItem('sword4', JSON.stringify(this.sword4));
+        cc.sys.localStorage.setItem('sword5', JSON.stringify(this.sword5));
+        cc.sys.localStorage.setItem('sword6', JSON.stringify(this.sword6));
+        cc.sys.localStorage.setItem('sword7', JSON.stringify(this.sword7));
+        cc.sys.localStorage.setItem('sling1', JSON.stringify(this.sling1));
+        cc.sys.localStorage.setItem('sling2', JSON.stringify(this.sling2));
+        cc.sys.localStorage.setItem('sling3', JSON.stringify(this.sling3));
+        cc.sys.localStorage.setItem('sling4', JSON.stringify(this.sling4));
 
         //-----------------p1 initialize---------------//
-        
         this.p1=JSON.parse(cc.sys.localStorage.getItem("p1"));
         this.p1_Label=cc.find("Canvas/p1_Label").getComponent(cc.Label);
         this.labelUpdate(1);
 
         if(this.p1.job=="archer"){
             let p1_Shop=cc.instantiate(this.archerShop);
-            cc.log("debug: p1_shop")
+            p1_Shop.getComponent("shop").init(this.node, 1);
+        }
+        else if(this.p1.job=="knight"){
+            let p1_Shop=cc.instantiate(this.knightShop);
+            p1_Shop.getComponent("shop").init(this.node, 1);
+        }
+        else if(this.p1.job=="slinger"){
+            let p1_Shop=cc.instantiate(this.slingerShop);
+            p1_Shop.getComponent("shop").init(this.node, 1);
+        }
+        else if(this.p1.job=="warrior"){
+            let p1_Shop=cc.instantiate(this.warriorShop);
             p1_Shop.getComponent("shop").init(this.node, 1);
         }
 
@@ -189,6 +433,18 @@ export default class shopManager extends cc.Component {
 
         if(this.p2.job=="archer"){
             let p2_Shop=cc.instantiate(this.archerShop);
+            p2_Shop.getComponent("shop").init(this.node, 2);
+        }
+        else if(this.p2.job=="knight"){
+            let p2_Shop=cc.instantiate(this.knightShop);
+            p2_Shop.getComponent("shop").init(this.node, 2);
+        }
+        else if(this.p2.job=="slinger"){
+            let p2_Shop=cc.instantiate(this.slingerShop);
+            p2_Shop.getComponent("shop").init(this.node, 2);
+        }
+        else if(this.p2.job=="warrior"){
+            let p2_Shop=cc.instantiate(this.warriorShop);
             p2_Shop.getComponent("shop").init(this.node, 2);
         }
 

@@ -123,6 +123,15 @@
     "_clips": [
       {
         "__uuid__": "ef00eaf6-6639-4ea3-b87b-8477116fb98a"
+      },
+      {
+        "__uuid__": "513b755a-e4ec-4090-a035-1fffa5a6470f"
+      },
+      {
+        "__uuid__": "dc402c87-fb89-4e93-b98a-aba28c05213c"
+      },
+      {
+        "__uuid__": "8c82a667-038a-4b7f-936b-942d44e969cd"
       }
     ],
     "playOnLoad": true,
