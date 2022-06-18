@@ -102,6 +102,18 @@ export default class wizard extends cc.Component {
         else return false;
     }
 
+    enemyHurt(hp: number) {
+        this.wizardLife -= hp;
+        this.wizardLifeProgress.getComponent(cc.ProgressBar).progress = this.wizardLife / this.wizardMaxLife;
+        if (this.wizardLife <= 0) {
+            this.gameManager.getComponent("gamerManager").enemyReduce(this.node.x);
+            this.node.active = false;
+                        if(this.node.parent.name=="enemy1")this.gameManager.getComponent("gamerManager").addcoin(1,25);
+            else if(this.node.parent.name=="enemy2")this.gameManager.getComponent("gamerManager").addcoin(2,25);
+            this.node.destroy();
+        }
+    }
+
     wandering(dt: number) {
         let currentTime = cc.director.getTotalTime() / 1000.0;
         if (currentTime >= this.nextMoveTime) {
@@ -121,18 +133,12 @@ export default class wizard extends cc.Component {
     
     onBeginContact(contact, self, other) {
         if (other.node.name == "bullet") {
-          this.wizardLife--;
-          this.wizardLifeProgress.getComponent(cc.ProgressBar).progress =
-            this.wizardLife / this.wizardMaxLife;
-          if (this.wizardLife <= 0) {
-            this.gameManager.getComponent("gamerManager").enemyReduce(this.node.x);
-            this.node.active = false;
-            if (this.target != null) this.target.destroy();
-    
-            if(this.node.parent.name=="enemy1")this.gameManager.getComponent("gamerManager").addcoin(1,25);
-            else if(this.node.parent.name=="enemy2")this.gameManager.getComponent("gamerManager").addcoin(2,25);
-            this.node.destroy();
-          }
+            this.wizardLife--;
+            this.wizardLifeProgress.getComponent(cc.ProgressBar).progress =
+                this.wizardLife / this.wizardMaxLife;
+            if (this.wizardLife <= 0) {
+                this.enemyHurt(1)
+            }
         }
       }
 

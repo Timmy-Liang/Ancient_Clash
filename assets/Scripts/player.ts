@@ -7,6 +7,7 @@ export default class player extends cc.Component {
     private bulletPrefab: cc.Prefab = null;
 
     private moveDir: string = 'S';
+    private aimDir: cc.Vec2 = cc.v2(0, 0);
     private speed: number = 250;
 
     private anim: cc.Animation = null;
@@ -18,10 +19,11 @@ export default class player extends cc.Component {
     private nextReloadTime: number = 0;
     private attackCooldown: number = 0.5;
     private reloadCooldown: number = 5;
+    private attackRange: number = 300;
+    private attacking: boolean = false;
+    private rangeTarget: object = {};
 
     private powerCooldown: boolean = false;
-
-    private attacking: boolean = false;
 
     private enemys: cc.Node = null;
     private enemyCount: number = 0;
@@ -34,6 +36,7 @@ export default class player extends cc.Component {
     private lifeprogress: cc.Node = null;
 
     private characterName: string = 'archer';
+    private characterTag: number = 0;
 
 
     onLoad() {
@@ -45,14 +48,23 @@ export default class player extends cc.Component {
         this.enemyCount = this.enemys.childrenCount;
         try {
             let currentCharacter = JSON.parse(cc.sys.localStorage.getItem("p" + index)).job;
-            if(currentCharacter){
+            if (currentCharacter) {
                 this.characterName = currentCharacter;
+                switch (currentCharacter) {
+                    case 'archer':
+                        this.characterTag = 0;
+                    case 'slinger':
+                        this.characterTag = 1;
+                    case 'warrior':
+                        this.characterTag = 2;
+                    case 'knight':
+                        this.characterTag = 3;
+                }
             }
         }
         catch {
 
-        }
-        console.log("Player " + this.characterName)
+        };
     }
 
     start() {
@@ -71,30 +83,38 @@ export default class player extends cc.Component {
     playerMove(dt: number) {
         switch (this.moveDir) {
             case 'N':
+                this.aimDir = cc.v2(0, 1)
                 this.node.y += this.speed * dt;
                 break;
             case 'S':
+                this.aimDir = cc.v2(0, -1)
                 this.node.y -= this.speed * dt;
                 break;
             case 'E':
+                this.aimDir = cc.v2(1, 0)
                 this.node.x += this.speed * dt;
                 break;
             case 'W':
+                this.aimDir = cc.v2(-1, 0)
                 this.node.x -= this.speed * dt;
                 break;
             case 'NE':
+                this.aimDir = cc.v2(1, 1)
                 this.node.x += this.speed * dt;
                 this.node.y += this.speed * dt;
                 break;
             case 'NW':
+                this.aimDir = cc.v2(-1, 1)
                 this.node.x -= this.speed * dt;
                 this.node.y += this.speed * dt;
                 break;
             case 'SW':
+                this.aimDir = cc.v2(-1, -1)
                 this.node.x -= this.speed * dt;
                 this.node.y -= this.speed * dt;
                 break;
             case 'SE':
+                this.aimDir = cc.v2(1, -1)
                 this.node.x += this.speed * dt;
                 this.node.y -= this.speed * dt;
                 break;
@@ -160,27 +180,32 @@ export default class player extends cc.Component {
         let currentTime = cc.director.getTotalTime() / 1000.0;
         if (currentTime >= this.nextAttackTime) {
             this.nextAttackTime = currentTime + this.attackCooldown;
-            this.createBullet();
+            if(this.characterTag == 0 || this.characterTag == 1){
+                this.createBullet();
+            }
+            else{ 
+                this.meleeAttack();
+            }
             this.playerAttackAnimation();
         }
     }
 
-    playerPower(){
-        if(!this.powerCooldown){
-            this.powerCooldown=true;
-            this.schedule(()=>{
+    playerPower() {
+        if (!this.powerCooldown) {
+            this.powerCooldown = true;
+            this.schedule(() => {
                 this.traceEnemy();
                 this.createBullet();
                 this.playerAttackAnimation();
             }, 0.2, 10)
-            this.scheduleOnce(()=>{
+            this.scheduleOnce(() => {
                 this.setPowerCooldown(0);
             }, 5)
-        }        
+        }
     }
 
-    setPowerCooldown(num){
-        if(!num) this.powerCooldown=false;
+    setPowerCooldown(num) {
+        if (!num) this.powerCooldown = false;
     }
 
     createBullet() {
@@ -191,6 +216,20 @@ export default class player extends cc.Component {
 
         if (bullet != null)
             bullet.getComponent('bullet').init(this.node, this.targetDirection, this.targetAngle);
+    }
+
+    meleeAttack() {
+        for(var prop in this.rangeTarget) {
+            let currentPosition = this.node.convertToWorldSpaceAR(cc.v2(0, 0))
+            let enemyPosition = this.rangeTarget[prop];
+            let nextTargetAngle = calcAngleDegrees(enemyPosition.x - currentPosition.x, enemyPosition.y - currentPosition.y)
+            if(nextTargetAngle < this.targetAngle + 22.5 && nextTargetAngle > (this.targetAngle - 22.5) % 360){ // ERROR 
+                let currentEnemy = this.enemys.children[prop]
+                console.log(currentEnemy.name);
+                currentEnemy.getComponent(currentEnemy.name).enemyHurt(1);
+            }
+                
+        }
     }
 
     traceEnemy() {
@@ -205,9 +244,17 @@ export default class player extends cc.Component {
                 nextTargetDistance = currentDistance;
                 nextTargetPosition = cc.v2(enemyPos.x, enemyPos.y);
             }
+            if (currentDistance <= this.attackRange) {
+                this.rangeTarget[i] = cc.v2(enemyPos.x, enemyPos.y)
+            }
         }
-        this.targetPosition = nextTargetPosition;
 
+        let diff = cc.v2(nextTargetPosition.x - currentPos.x, nextTargetPosition.y - currentPos.y)
+        if (diff.mag() > this.attackRange)
+            this.targetPosition = cc.v2(currentPos.x + this.aimDir.x * this.attackRange, currentPos.y + this.aimDir.y * this.attackRange);
+        else 
+            this.targetPosition = nextTargetPosition;
+        
         this.targetAngle = calcAngleDegrees(this.targetPosition.x - currentPos.x, this.targetPosition.y - currentPos.y);
         if (this.targetAngle < 157.5 && this.targetAngle >= 112.5) {
             this.targetDirection = 'NW';

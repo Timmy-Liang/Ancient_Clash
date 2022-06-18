@@ -136,6 +136,16 @@ export default class archerEnemy extends cc.Component {
         })
     }
 
+    enemyHurt(hp: number) {
+        this.enemyLife -= hp;
+        this.enemyLifeProgress.getComponent(cc.ProgressBar).progress = this.enemyLife / this.enemyMaxLife;
+        if (this.enemyLife <= 0) {
+            this.gameManager.getComponent("gamerManager").enemyReduce(this.node.x);
+            this.node.active = false;
+            this.node.destroy();
+        }
+    }
+
     createBullet () {
         let bullet = cc.instantiate(this.bulletPrefab);
         let currentPos = this.node.convertToWorldSpaceAR(cc.v2(0, 0));
@@ -178,13 +188,7 @@ export default class archerEnemy extends cc.Component {
             other.node.getComponent(player).lifeDamage(1);
         }
         else if (other.node.name == 'bullet') {
-            this.enemyLife--;
-            this.enemyLifeProgress.getComponent(cc.ProgressBar).progress = this.enemyLife / this.enemyMaxLife;
-            if(this.enemyLife <= 0) {
-                this.gameManager.getComponent("gamerManager").enemyReduce(this.node.x);
-                this.node.active = false;
-                this.node.destroy();
-            }
+            this.enemyHurt(1) ;
         }
     }
 }
