@@ -56,6 +56,7 @@ export default class gameManager extends cc.Component {
         this.mapLeft = cc.find("Canvas/map1_1").getComponent(cc.TiledMap);
         this.mapRight = cc.find("Canvas/map1_2").getComponent(cc.TiledMap);
         this.enemy = cc.find("Canvas/enemy");
+        
     }
 
     start() {

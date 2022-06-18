@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "eee3a8bc-2595-4338-b63a-ffad02808a56",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 125,
+  "height": 107,
+  "platformSettings": {},
+  "subMetas": {
+    "Arcane_Effect_6": {
+      "ver": "1.0.6",
+      "uuid": "b07c3834-3edd-4be7-9d36-730c34008951",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "eee3a8bc-2595-4338-b63a-ffad02808a56",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 1.5,
+      "offsetY": 3.5,
+      "trimX": 3,
+      "trimY": 0,
+      "width": 122,
+      "height": 100,
+      "rawWidth": 125,
+      "rawHeight": 107,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
