@@ -55,8 +55,9 @@ export default class meleeEnemy extends cc.Component {
         let index = this.node.parent.name.slice(-1);
         try {
             let job = JSON.parse(cc.sys.localStorage.getItem("p" + index)).job;
-            if(job)
-                this.target = cc.find("Canvas/player/" + index).getChildByName(job);
+            if(job){
+                this.target = cc.find("Canvas/player" + index).getChildByName(job);  
+            }
         }
         catch {
 

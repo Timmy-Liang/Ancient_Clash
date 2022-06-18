@@ -14,7 +14,7 @@ export default class camera2 extends cc.Component {
         try {
             let job = JSON.parse(cc.sys.localStorage.getItem("p2")).job;
             if (job)
-                this.player2 = cc.find("Canvas/player1/" + job);
+                this.player2 = cc.find("Canvas/player2/" + job);
         }
         catch {
 

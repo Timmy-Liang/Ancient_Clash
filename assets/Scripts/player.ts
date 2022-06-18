@@ -52,6 +52,7 @@ export default class player extends cc.Component {
         catch {
 
         }
+        console.log("Player " + this.characterName)
     }
 
     start() {

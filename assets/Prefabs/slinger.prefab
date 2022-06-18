@@ -370,12 +370,6 @@
     "bulletPrefab": {
       "__uuid__": "778e5903-1be9-4295-93b9-25d03fff0c13"
     },
-    "archerFrame": {
-      "__uuid__": "b4efa2cf-cc60-41e0-b390-0624ba02c404"
-    },
-    "warriorFrame": {
-      "__uuid__": "9b89abd6-77c7-4937-bc58-6c62af1fffbd"
-    },
     "_id": ""
   },
   {
@@ -555,15 +549,6 @@
       },
       {
         "__uuid__": "896c4245-862e-4f6d-be97-195a5d7daa38"
-      },
-      {
-        "__uuid__": "fe3d2943-5646-4e94-b2d0-c7a55926388b"
-      },
-      {
-        "__uuid__": "53074249-0026-40ea-b49b-685bf39b54b5"
-      },
-      {
-        "__uuid__": "3248c3e8-cfb2-4504-9be1-3c911ff2d06c"
       }
     ],
     "playOnLoad": false,

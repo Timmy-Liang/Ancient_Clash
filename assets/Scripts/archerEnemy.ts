@@ -56,8 +56,9 @@ export default class archerEnemy extends cc.Component {
         let index = this.node.parent.name.slice(-1);
         try {
             let job = JSON.parse(cc.sys.localStorage.getItem("p" + index)).job;
+            console.log("JOB " + job)
             if(job)
-                this.target = cc.find("Canvas/player/" + index).getChildByName(job);
+                this.target = cc.find("Canvas/player" + index).getChildByName(job);  
         }
         catch {
 
