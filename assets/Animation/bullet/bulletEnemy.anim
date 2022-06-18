@@ -1,0 +1,61 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "bulletEnemy",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.3333333333333333,
+  "sample": 30,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "2334288e-26fc-4511-8d48-c26c2ec64d8e"
+            }
+          },
+          {
+            "frame": 0.03333333333333333,
+            "value": {
+              "__uuid__": "c0bebbdc-2796-41e1-b54e-d80ba840b757"
+            }
+          },
+          {
+            "frame": 0.1,
+            "value": {
+              "__uuid__": "ebf0512d-70a1-43cf-b03e-c23f7582ec11"
+            }
+          },
+          {
+            "frame": 0.13333333333333333,
+            "value": {
+              "__uuid__": "21c274df-9b6a-4061-b773-dcc93f6814a4"
+            }
+          },
+          {
+            "frame": 0.2,
+            "value": {
+              "__uuid__": "2edd08d8-7857-48a2-adb9-99789b488030"
+            }
+          },
+          {
+            "frame": 0.23333333333333334,
+            "value": {
+              "__uuid__": "4eac451b-4038-489b-90af-10f3e3d87cff"
+            }
+          },
+          {
+            "frame": 0.3,
+            "value": {
+              "__uuid__": "2334288e-26fc-4511-8d48-c26c2ec64d8e"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}
