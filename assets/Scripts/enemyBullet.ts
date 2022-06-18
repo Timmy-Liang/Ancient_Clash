@@ -30,7 +30,7 @@ export default class enemyBullet extends cc.Component {
 
     //this function sets the bullet's initial position when it is reused.
     setInitPos(node: cc.Node, targetDirection: string) {
-        this.node.parent = node.parent;
+        this.node.parent = node.parent.parent;
         switch (targetDirection) {
             case 'N':
                 this.node.setPosition(cc.v2(0, this.initPosOffset));

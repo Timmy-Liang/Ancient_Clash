@@ -102,6 +102,16 @@ export default class wizard extends cc.Component {
         else return false;
     }
 
+    enemyHurt(hp: number) {
+        this.wizardLife -= hp;
+        this.wizardLifeProgress.getComponent(cc.ProgressBar).progress = this.wizardLife / this.wizardMaxLife;
+        if (this.wizardLife <= 0) {
+            this.gameManager.getComponent("gamerManager").enemyReduce(this.node.x);
+            this.node.active = false;
+            this.node.destroy();
+        }
+    }
+
     wandering(dt: number) {
         let currentTime = cc.director.getTotalTime() / 1000.0;
         if (currentTime >= this.nextMoveTime) {
@@ -124,10 +134,7 @@ export default class wizard extends cc.Component {
             this.wizardLifeProgress.getComponent(cc.ProgressBar).progress =
                 this.wizardLife / this.wizardMaxLife;
             if (this.wizardLife <= 0) {
-                this.gameManager.getComponent("gamerManager").enemyReduce(this.node.x);
-                this.node.active = false;
-                if (this.target != null) this.target.destroy();
-                this.node.destroy();
+                this.enemyHurt(1)
             }
         }
     }

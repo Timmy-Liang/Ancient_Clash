@@ -55,14 +55,14 @@ export default class meleeEnemy extends cc.Component {
         let index = this.node.parent.name.slice(-1);
         try {
             let job = JSON.parse(cc.sys.localStorage.getItem("p" + index)).job;
-            if(job){
-                this.target = cc.find("Canvas/player" + index).getChildByName(job);  
+            if (job) {
+                this.target = cc.find("Canvas/player" + index).getChildByName(job);
             }
         }
         catch {
 
         }
-        
+
         this.enemyLifeProgress = this.node.getChildByName('lifeBar');
         this.anim = this.getComponent(cc.Animation);
     }
@@ -145,6 +145,16 @@ export default class meleeEnemy extends cc.Component {
         })
     }
 
+    enemyHurt(hp: number) {
+        this.enemyLife -= hp;
+        this.enemyLifeProgress.getComponent(cc.ProgressBar).progress = this.enemyLife / this.enemyMaxLife;
+        if (this.enemyLife <= 0) {
+            this.gameManager.getComponent("gamerManager").enemyReduce(this.node.x);
+            this.node.active = false;
+            this.node.destroy();
+        }
+    }
+
     update(dt) {
         let currentTime = cc.director.getTotalTime() / 1000.0;
 
@@ -178,20 +188,14 @@ export default class meleeEnemy extends cc.Component {
             other.node.getComponent(player).lifeDamage(1);
         }
         else if (other.node.name == 'bullet') {
-            this.enemyLife--;
-            this.enemyLifeProgress.getComponent(cc.ProgressBar).progress = this.enemyLife / this.enemyMaxLife;
-            if(this.enemyLife <= 0) {
-                this.gameManager.getComponent("gamerManager").enemyReduce(this.node.x);
-                this.node.active = false;
-                this.node.destroy();
-            }
+            this.enemyHurt(1);
         }
     }
 
     onPreSolve(contact, self, other) {
-        if(this.attacking)
+        if (this.attacking)
             return;
-        if(other.node.name == 'player'){
+        if (other.node.name == 'player') {
             this.enemyAttackAnimation();
             other.node.getComponent(player).lifeDamage(1);
         }
