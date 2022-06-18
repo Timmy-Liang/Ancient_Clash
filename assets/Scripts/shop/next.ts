@@ -2,11 +2,11 @@ const {ccclass, property} = cc._decorator;
 
 @ccclass
 export default class next extends cc.Component {
-    @property(cc.Node)
-    shopManager: cc.Node = null;
-
+    
     @property(cc.Prefab)
     confirmPrefabs: cc.Prefab = null;
+
+    private shopManager: cc.Node = null;
 
     onLoad () {
         this.shopManager=cc.find("Canvas/shopManager");

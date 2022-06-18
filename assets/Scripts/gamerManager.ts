@@ -37,9 +37,9 @@ export default class gameManager extends cc.Component {
     private pause: boolean = false;
     private physicManager: cc.PhysicsManager = null;
 
-    private meleeEnemyCount: number = 2;
-    private archerEnemyCount: number = 1;
-    private wizardCount: number = 1;
+    private meleeEnemyCount: number = 1;
+    private archerEnemyCount: number = 0;
+    private wizardCount: number = 0;
 
     private player1_restEnemy: number = 0;
     private player2_restEnemy: number = 0;
@@ -206,6 +206,7 @@ export default class gameManager extends cc.Component {
                 this.player1.playerMoveDir("N");
             }
         }
+        if (keyboardInput[cc.macro.KEY.forwardslash]) this.player2.playerAttack();
 
         if (keyboardInput[cc.macro.KEY.down] && keyboardInput[cc.macro.KEY.right]) {
             this.player2.playerMoveDir("SE");
@@ -245,7 +246,7 @@ export default class gameManager extends cc.Component {
         if (x > 0) {
             this.player2_restEnemy -= 1;
             if (this.player2_restEnemy == 0) {
-
+                cc.director.loadScene("shop");
             }
         }
         else {

@@ -2643,7 +2643,6 @@
       "__id__": 47
     },
     "_enabled": true,
-    "shopManager": null,
     "confirmPrefabs": {
       "__uuid__": "d36d6b28-03f8-469f-9554-804375ff16aa"
     },
