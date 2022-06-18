@@ -1498,11 +1498,23 @@
     "meleeEnemy": {
       "__uuid__": "4e477e74-1922-44a5-9593-84b52fa7bd43"
     },
+    "archerEnemy": {
+      "__uuid__": "b37dbe62-9bcc-46b4-8bc7-138fe324ec80"
+    },
     "wizard": {
       "__uuid__": "8ee996cf-af01-4525-bebf-926686577344"
     },
     "archer": {
-      "__uuid__": "b37dbe62-9bcc-46b4-8bc7-138fe324ec80"
+      "__uuid__": "717ef750-901c-4cd8-bfb5-f63850fa161c"
+    },
+    "warrior": {
+      "__uuid__": "ade3bf37-ebaf-44ed-9d64-2f59de9e1867"
+    },
+    "knight": {
+      "__uuid__": "792eac73-af6e-46ca-b9ba-d138a4b8a4d7"
+    },
+    "slinger": {
+      "__uuid__": "9b5a42c1-5dce-4a9b-a59c-13dbf6a66a1b"
     },
     "_id": "cdYpQebGlOoJt+D/ZsI3Ds"
   },

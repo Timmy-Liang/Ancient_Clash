@@ -7,6 +7,10 @@ export default class camera2 extends cc.Component {
   private player2: cc.Node = null;
 
   onLoad() {
+      
+  }
+
+  start () {
       //let job = JSON.parse(cc.sys.localStorage.getItem("p2")).job;
       //if (!job) job = "archer";
       let job = "archer";

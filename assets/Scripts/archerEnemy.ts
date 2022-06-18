@@ -48,6 +48,10 @@ export default class archerEnemy extends cc.Component {
     
 
     onLoad() {
+        
+    }
+
+    start() {
         this.gameManager=cc.find("gameManager");
         let index = this.node.parent.name.slice(-1);
         //let job = JSON.parse(cc.sys.localStorage.getItem("p" + index)).job;
@@ -56,10 +60,6 @@ export default class archerEnemy extends cc.Component {
         this.target = cc.find("Canvas/player" + index).getChildByName(job);
         this.enemyLifeProgress = this.node.getChildByName('lifeBar');
         this.anim = this.getComponent(cc.Animation);
-    }
-
-    start() {
-
     }
 
     wandering(dt: number) {

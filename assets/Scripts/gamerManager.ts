@@ -14,9 +14,18 @@ export default class gameManager extends cc.Component {
     @property(cc.Prefab)
     meleeEnemy: cc.Prefab = null;
     @property(cc.Prefab)
+    archerEnemy: cc.Prefab = null;
+    @property(cc.Prefab)
     wizard: cc.Prefab = null;
+    
     @property(cc.Prefab)
     archer: cc.Prefab = null;
+    @property(cc.Prefab)
+    warrior: cc.Prefab = null;
+    @property(cc.Prefab)
+    knight: cc.Prefab = null;
+    @property(cc.Prefab)
+    slinger: cc.Prefab = null;
 
     private enemy: cc.Node = null;
     private player1: player = null;
@@ -31,19 +40,15 @@ export default class gameManager extends cc.Component {
     private meleeEnemyCount: number = 2;
     private archerEnemyCount: number = 1;
     private wizardCount: number = 1;
-    
+
 
     private player1_restEnemy: number = 0;
     private player2_restEnemy: number = 0;
 
-    private player1Character: string = 'archer';
-    private player2Character: string = 'archer'
-
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
-        this.player1 = cc.find("Canvas/player1/" + this.player1Character).getComponent(player);
-        this.player2 = cc.find("Canvas/player2/" + this.player2Character).getComponent(player);
+        this.initPlayer();
         this.physicManager = cc.director.getPhysicsManager();
         this.physicManager.enabled = true;
         this.mapLeft = cc.find("Canvas/map1_1").getComponent(cc.TiledMap);
@@ -52,6 +57,7 @@ export default class gameManager extends cc.Component {
     }
 
     start() {
+        
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP, this.onKeyUp, this);
 
@@ -64,6 +70,47 @@ export default class gameManager extends cc.Component {
         for (let i = 1; i < 3; i++) {
             this.initEnemies(i, this.meleeEnemyCount, this.wizardCount, this.archerEnemyCount);
         }
+    }
+    initPlayer() {
+        let p1Info = JSON.parse(cc.sys.localStorage.getItem("p1"))
+        var p1: cc.Node, p2: cc.Node;
+        switch (p1Info.job) {
+            case ('archer'):
+                p1 = cc.instantiate(this.archer);
+                break;
+            case ('warrior'):
+                p1 = cc.instantiate(this.warrior);
+                break;
+            case ('slinger'):
+                p1 = cc.instantiate(this.slinger);
+                break;
+            case ('knight'):
+                p1 = cc.instantiate(this.knight);
+                break;
+        
+        }
+        p1.parent = cc.find('Canvas/player1');
+        p1.setPosition(cc.v2(335, -55))
+
+        let p2Info = JSON.parse(cc.sys.localStorage.getItem("p2"))
+        switch (p2Info.job) {
+            case ('archer'):
+                p2 = cc.instantiate(this.archer);
+                break;
+            case ('warrior'):
+                p2 = cc.instantiate(this.warrior);
+                break;
+            case ('slinger'):
+                p2 = cc.instantiate(this.slinger);
+                break;
+            case ('knight'):
+                p2 = cc.instantiate(this.knight);
+                break;
+        }
+        p2.parent = cc.find('Canvas/player2');
+        p2.setPosition(cc.v2(335, -55))
+        this.player1 = p1.getComponent(player);
+        this.player2 = p2.getComponent(player);
     }
 
     initWall(map: cc.TiledMap) {
@@ -88,14 +135,14 @@ export default class gameManager extends cc.Component {
         }
     }
 
-    initEnemies(index: number, meleeCount: number, wizardCount: number, archerEnemy: number) {
+    initEnemies(index: number, meleeCount: number, wizardCount: number, archerCount: number) {
         for (let i = 0; i < meleeCount; i++) {
             this.initMelee(index);
         }
         for (let i = 0; i < wizardCount; i++) {
             this.initWizard(index);
         }
-        for (let i = 0; i < archerEnemy; i++) {
+        for (let i = 0; i < archerCount; i++) {
             this.initArcher(index);
         }
     }
@@ -117,11 +164,11 @@ export default class gameManager extends cc.Component {
     }
 
     initArcher(index: number) {
-        let archer = cc.instantiate(this.archer);
-        archer.parent = cc.find("Canvas/enemy" + index);
+        let archerEnemy = cc.instantiate(this.archerEnemy);
+        archerEnemy.parent = cc.find("Canvas/enemy" + index);
         let pos;
         pos = cc.v2(-1820 + 1920 * (index - 1) + Math.floor(Math.random() * 1750), -875 + Math.floor(Math.random() * 1740));
-        archer.setPosition(pos);
+        archerEnemy.setPosition(pos);
     }
 
     onKeyDown(event) {

@@ -41,8 +41,16 @@ export default class player extends cc.Component {
         let index = this.node.parent.name.slice(-1);
         this.enemys = cc.find("Canvas/enemy" + index);
         this.enemyCount = this.enemys.childrenCount;
-        
-        
+        try {
+            let currentCharacter = JSON.parse(cc.sys.localStorage.getItem("p" + index)).job;
+            if(currentCharacter){
+                console.log("current Character " + currentCharacter)
+                this.characterName = currentCharacter;
+            }
+        }
+        catch {
+
+        }
     }
 
     start() {
