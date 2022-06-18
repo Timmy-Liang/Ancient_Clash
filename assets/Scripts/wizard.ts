@@ -108,6 +108,7 @@ export default class wizard extends cc.Component {
         if (this.wizardLife <= 0) {
             this.gameManager.getComponent("gamerManager").enemyReduce(this.node.x);
             this.node.active = false;
+            if (this.target != null) this.target.destroy();
             this.node.destroy();
         }
     }
