@@ -22,8 +22,10 @@ export default class player extends cc.Component {
     private bulletPool: cc.NodePool = null;
     private nextAttackTime: number = 0;
     private nextReloadTime: number = 0;
-    private attackCooldown: number = 0.2;
+    private attackCooldown: number = 0.5;
     private reloadCooldown: number = 5;
+
+    private powerCooldown: boolean = false;
 
     private attacking: boolean = false;
 
@@ -163,6 +165,24 @@ export default class player extends cc.Component {
             this.createBullet();
             this.playerAttackAnimation();
         }
+    }
+
+    playerPower(){
+        if(!this.powerCooldown){
+            this.powerCooldown=true;
+            this.schedule(()=>{
+                this.traceEnemy();
+                this.createBullet();
+                this.playerAttackAnimation();
+            }, 0.2, 10)
+            this.scheduleOnce(()=>{
+                this.setPowerCooldown(0);
+            }, 5)
+        }        
+    }
+
+    setPowerCooldown(num){
+        if(!num) this.powerCooldown=false;
     }
 
     createBullet() {

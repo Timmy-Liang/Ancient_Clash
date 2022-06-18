@@ -14,7 +14,7 @@ export default class bullet extends cc.Component {
 
     private bulletManager = null;
 
-    private bulletSpeed: number = 50;
+    private bulletSpeed: number = 15;
 
     private initPosOffset: number = 32;
 
