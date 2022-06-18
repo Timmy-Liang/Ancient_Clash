@@ -50,9 +50,9 @@ export default class gameManager extends cc.Component {
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
-        this.initPlayer();
         this.physicManager = cc.director.getPhysicsManager();
         this.physicManager.enabled = true;
+        this.initPlayer();
         this.mapLeft = cc.find("Canvas/map1_1").getComponent(cc.TiledMap);
         this.mapRight = cc.find("Canvas/map1_2").getComponent(cc.TiledMap);
         this.enemy = cc.find("Canvas/enemy");

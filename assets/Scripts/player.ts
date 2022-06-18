@@ -53,12 +53,16 @@ export default class player extends cc.Component {
                 switch (currentCharacter) {
                     case 'archer':
                         this.characterTag = 0;
+                        break;
                     case 'slinger':
                         this.characterTag = 1;
+                        break;
                     case 'warrior':
                         this.characterTag = 2;
+                        break;
                     case 'knight':
                         this.characterTag = 3;
+                        break;
                 }
             }
         }
@@ -211,6 +215,7 @@ export default class player extends cc.Component {
     createBullet() {
         let bullet = null;
         if (this.bulletPool.size() > 0) {
+            console.log("HERE")
             bullet = this.bulletPool.get(this.bulletPool);
         }
 
