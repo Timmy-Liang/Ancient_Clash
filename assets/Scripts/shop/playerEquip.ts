@@ -36,7 +36,7 @@ export default class playerEquip extends cc.Component {
                 this.dataShow=true;
                 let tem=JSON.parse(cc.sys.localStorage.getItem(this.node.name));
                 dataBox= cc.instantiate(this.dataBoxPrefabs);
-                dataBox.getComponent("dataBox").init(this.node, tem.atk, tem.def, tem.hp, tem.spd);
+                dataBox.getComponent("dataBox").init(this.node, this.tag, "player", tem.atk, tem.def, tem.hp, tem.spd);
             }
         }, this)
 

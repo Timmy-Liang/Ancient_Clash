@@ -12,12 +12,10 @@ export default class shop extends cc.Component {
             this.node.position=cc.v3(360, 200);
             this.node.getChildByName("equipTable").x+=600;
         }
-        cc.log("shop tag: ", this.tag)
-
     }
-
     getTag(){
         return this.tag;
     }
 }
+
  
