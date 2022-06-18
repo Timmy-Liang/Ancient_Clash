@@ -54,7 +54,7 @@ export default class playerEquip extends cc.Component {
         if(!this.shopManager.getComponent("shopManager").check_buttonshow()){
             this.shopManager.getComponent("shopManager").equipSell(this.tag, this.type, this.equipName);
             let confirm= cc.instantiate(this.confirmPrefabs);
-            confirm.getComponent("confirm").init(this.node, this.tag);
+            confirm.getComponent("confirm").init(this.node, this.equipName, this.tag, "sell");
         }
     }
 

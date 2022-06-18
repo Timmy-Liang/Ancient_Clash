@@ -11,7 +11,10 @@ export default class playerShopping extends cc.Component {
 
         this.anim = this.getComponent(cc.Animation);
         cc.log("job is: ",job)
-        if(job=="archer") this.anim.play('archerStanding')
+        if(job=="archer") this.anim.play('archerStanding');
+        else if(job=="knight") this.anim.play('knightStanding');
+        else if(job=="slinger") this.anim.play('slingerStanding');
+        else if(job=="warrior") this.anim.play('warriorStanding');
 
         if(this.tag==1) this.node.position=cc.v3(-450, -280);
         else this.node.position=cc.v3(450, -280);

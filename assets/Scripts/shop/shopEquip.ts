@@ -31,6 +31,8 @@ export default class shopEquip extends cc.Component {
 
     start(){
         this.tag=this.node.parent.parent.getComponent("shop").getTag();
+        let price=JSON.parse(cc.sys.localStorage.getItem(this.equipName)).price;
+        this.node.getChildByName("Background").getChildByName("Label").getComponent(cc.Label).string=price;
 
         var dataBox;
         this.node.on(cc.Node.EventType.MOUSE_MOVE, (event)=>{
@@ -43,9 +45,6 @@ export default class shopEquip extends cc.Component {
                 let tem=JSON.parse(cc.sys.localStorage.getItem(this.node.name));
                 dataBox= cc.instantiate(this.dataBoxPrefabs);
                 dataBox.getComponent("dataBox").init(this.node, tem.atk, tem.def, tem.hp, tem.spd);
-
-                //dataBox= cc.instantiate(this.dataBoxPrefabs);
-                //dataBox.getComponent("dataBox").init(this.node, 1,1,1,1);
             }
         }, this)
 
@@ -64,7 +63,7 @@ export default class shopEquip extends cc.Component {
             this.shopManager.getComponent("shopManager").equipBuy(this.tag, this.type, this.equipName);
             let confirm= cc.instantiate(this.confirmPrefabs);
             cc.log(this.tag, confirm)
-            confirm.getComponent("confirm").init(this.node.parent.parent, this.tag);
+            confirm.getComponent("confirm").init(this.node.parent.parent, this.equipName, this.tag, "buy");
         }
     }
 }

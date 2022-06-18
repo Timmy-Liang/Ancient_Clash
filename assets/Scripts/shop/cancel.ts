@@ -15,6 +15,7 @@ export default class cancel extends cc.Component {
     }
 
     reply(){
+        this.node.parent.getComponent("confirm").equipClean();
         this.shopManager.getComponent("shopManager").equipClean();
         this.node.parent.destroy();
     }

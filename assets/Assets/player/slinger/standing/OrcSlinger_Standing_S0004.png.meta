@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "78aa61f6-2965-4347-a3d6-ea23c448f49e",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 180,
+  "height": 180,
+  "platformSettings": {},
+  "subMetas": {
+    "OrcSlinger_Standing_S0004": {
+      "ver": "1.0.6",
+      "uuid": "3cc55776-d39c-4275-bfd2-f363c7e86a53",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "78aa61f6-2965-4347-a3d6-ea23c448f49e",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 10,
+      "offsetY": -18,
+      "trimX": 70,
+      "trimY": 81,
+      "width": 60,
+      "height": 54,
+      "rawWidth": 180,
+      "rawHeight": 180,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
