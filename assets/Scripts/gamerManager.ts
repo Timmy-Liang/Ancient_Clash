@@ -32,6 +32,15 @@ export default class gameManager extends cc.Component {
     private player1_restEnemy: number = 0;
     private player2_restEnemy: number = 0;
 
+    private timer1:cc.Label=null;
+    private timer2:cc.Label=null;
+    private timeCounting;
+    private timer:number=0;
+    private isTiming:boolean=false;
+    private coin1:number=null;
+    private coin2:number=null;
+    private coin1label:cc.Label=null;
+    private coin2label:cc.Label=null;
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
@@ -42,6 +51,10 @@ export default class gameManager extends cc.Component {
         this.mapLeft = cc.find("Canvas/map1_1").getComponent(cc.TiledMap);
         this.mapRight = cc.find("Canvas/map1_2").getComponent(cc.TiledMap);
         this.enemy = cc.find("Canvas/enemy");
+        this.timer1= cc.find("Canvas/camera1/bar1/Timer").getComponent(cc.Label);
+        this.timer2= cc.find("Canvas/camera2/bar2/Timer").getComponent(cc.Label);
+        this.coin1label= cc.find("Canvas/camera1/bar1/coin").getComponent(cc.Label);
+        this.coin2label= cc.find("Canvas/camera2/bar2/coin").getComponent(cc.Label);
     }
 
     start() {
@@ -57,8 +70,32 @@ export default class gameManager extends cc.Component {
         for (let i = 1; i < 3; i++) {
             this.initEnemies(i, this.meleeEnemyCount, this.wizardCount);
         }
+        this.timeCounting = () => {
+            let t=this.timer+1;
+            this.updateTime(t);
+        }
+        if(this.isTiming==false){
+            this.isTiming=true;
+            this.schedule(this.timeCounting, 1);
+        }
     }
+    updateTime(t){
+        this.timer=t;
+        this.timer1.string=this.timer.toString();
+        this.timer2.string=this.timer.toString();
+    }
+    addcoin(playernum,addnum){
+        cc.log("addcoin");
+        if(playernum==1){
+            this.coin1+=addnum;
+            this.coin1label.string=this.coin1.toString();
+        }
+        else{
+            this.coin2+=addnum;
+            this.coin2label.string=this.coin2.toString();
+        }
 
+    }
     initWall(map: cc.TiledMap) {
         let tiledSize = map.getTileSize();
         let layer = map.getLayer("wall");
