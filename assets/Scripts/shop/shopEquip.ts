@@ -44,7 +44,7 @@ export default class shopEquip extends cc.Component {
 
                 let tem=JSON.parse(cc.sys.localStorage.getItem(this.node.name));
                 dataBox= cc.instantiate(this.dataBoxPrefabs);
-                dataBox.getComponent("dataBox").init(this.node, tem.atk, tem.def, tem.hp, tem.spd);
+                dataBox.getComponent("dataBox").init(this.node, this.tag, "shop", tem.atk, tem.def, tem.hp, tem.spd);
             }
         }, this)
 
@@ -62,7 +62,6 @@ export default class shopEquip extends cc.Component {
         if(!this.shopManager.getComponent("shopManager").check_buttonshow()){
             this.shopManager.getComponent("shopManager").equipBuy(this.tag, this.type, this.equipName);
             let confirm= cc.instantiate(this.confirmPrefabs);
-            cc.log(this.tag, confirm)
             confirm.getComponent("confirm").init(this.node.parent.parent, this.equipName, this.tag, "buy");
         }
     }
