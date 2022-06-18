@@ -89,6 +89,7 @@ export default class start extends cc.Component {
         }
         cc.sys.localStorage.setItem('p1', JSON.stringify(p1_Data));
         cc.sys.localStorage.setItem('p2', JSON.stringify(p2_Data));
+        cc.sys.localStorage.setItem('level', "1");
         cc.director.loadScene("game");
     }
 
