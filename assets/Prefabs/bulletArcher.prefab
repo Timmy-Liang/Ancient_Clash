@@ -376,7 +376,7 @@
         "__uuid__": "6f72e841-6d41-4b72-ae2d-c576f9d896be"
       }
     ],
-    "playOnLoad": true,
+    "playOnLoad": false,
     "_id": ""
   },
   {
