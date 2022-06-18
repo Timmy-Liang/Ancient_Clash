@@ -32,11 +32,14 @@ export default class gameManager extends cc.Component {
     private player1_restEnemy: number = 0;
     private player2_restEnemy: number = 0;
 
+    private player1Character: string = 'archer';
+    private player2Character: string = 'archer'
+
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
-        this.player1 = cc.find("Canvas/player1/player").getComponent(player);
-        this.player2 = cc.find("Canvas/player2/player").getComponent(player);
+        this.player1 = cc.find("Canvas/player1/" + this.player1Character).getComponent(player);
+        this.player2 = cc.find("Canvas/player2/" + this.player2Character).getComponent(player);
         this.physicManager = cc.director.getPhysicsManager();
         this.physicManager.enabled = true;
         this.mapLeft = cc.find("Canvas/map1_1").getComponent(cc.TiledMap);
@@ -119,7 +122,6 @@ export default class gameManager extends cc.Component {
         this.player1.playerMoveDir("IDLE");
         this.player2.playerMoveDir("IDLE");
         if (keyboardInput[cc.macro.KEY.space]) this.player1.playerAttack();
-        if (keyboardInput[cc.macro.KEY.x]) this.player1.characterChange();
         if (keyboardInput[cc.macro.KEY.s] && keyboardInput[cc.macro.KEY.d]) {
             this.player1.playerMoveDir("SE");
         } else if (keyboardInput[cc.macro.KEY.d] && keyboardInput[cc.macro.KEY.w]) {

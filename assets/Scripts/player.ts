@@ -6,12 +6,6 @@ export default class player extends cc.Component {
     @property(cc.Prefab)
     private bulletPrefab: cc.Prefab = null;
 
-    @property(cc.SpriteFrame)
-    private archerFrame: cc.SpriteFrame = null;
-
-    @property(cc.SpriteFrame)
-    private warriorFrame: cc.SpriteFrame = null;
-
     private moveDir: string = 'S';
     private speed: number = 250;
 
@@ -33,17 +27,11 @@ export default class player extends cc.Component {
     private targetDirection: string = '';
     private targetAngle: number = 0;
 
-    private nextTraceTime: number = 0;
-    private traceCooldown: number = 0.5;
-
     private life: number = 10;
     private lifeMax: number = 10;
     private lifeprogress: cc.Node = null;
 
     private characterName: string = 'archer';
-    private characterTag: number = 0;
-    private characterChangeCooldown: number = 2;
-    private characterValidChangeTime: number = 0;
 
 
     onLoad() {
@@ -53,6 +41,10 @@ export default class player extends cc.Component {
         let index = this.node.parent.name.slice(-1);
         this.enemys = cc.find("Canvas/enemy" + index);
         this.enemyCount = this.enemys.childrenCount;
+        //let currentCharacter = JSON.parse(cc.sys.localStorage.getItem("p" + index)).job;
+        //if(currentCharacter)
+        //    this.characterName = currentCharacter
+        
     }
 
     start() {
@@ -214,23 +206,6 @@ export default class player extends cc.Component {
         }
         else {
             this.targetDirection = 'W';
-        }
-    }
-
-    characterChange() { 
-        let currentTime = cc.director.getTotalTime() / 1000.0;
-        if(currentTime < this.characterValidChangeTime)
-            return;
-        this.characterValidChangeTime = currentTime + this.characterChangeCooldown;
-        if(this.characterTag == 0){
-            this.characterTag = 1   
-            this.characterName = 'warrior';
-            this.getComponent(cc.Sprite).spriteFrame = this.warriorFrame;
-        }
-        else {
-            this.characterTag = 0;
-            this.characterName = 'archer';
-            this.getComponent(cc.Sprite).spriteFrame = this.archerFrame;
         }
     }
 
