@@ -168,7 +168,7 @@ export default class player extends cc.Component {
         }
 
         if (bullet != null)
-            bullet.getComponent('bullet').init(this.node, this.targetPosition, this.targetDirection, this.targetAngle);
+            bullet.getComponent('bullet').init(this.node, this.targetDirection, this.targetAngle);
     }
 
     traceEnemy() {

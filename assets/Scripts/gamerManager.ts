@@ -15,6 +15,8 @@ export default class gameManager extends cc.Component {
     meleeEnemy: cc.Prefab = null;
     @property(cc.Prefab)
     wizard: cc.Prefab = null;
+    @property(cc.Prefab)
+    archer: cc.Prefab = null;
 
     private enemy: cc.Node = null;
     private player1: player = null;
@@ -27,7 +29,9 @@ export default class gameManager extends cc.Component {
     private physicManager: cc.PhysicsManager = null;
 
     private meleeEnemyCount: number = 2;
+    private archerEnemyCount: number = 1;
     private wizardCount: number = 1;
+    
 
     private player1_restEnemy: number = 0;
     private player2_restEnemy: number = 0;
@@ -58,7 +62,7 @@ export default class gameManager extends cc.Component {
         this.player2_restEnemy = this.meleeEnemyCount + this.wizardCount;
         //i=1 for player1, i=2 for player2
         for (let i = 1; i < 3; i++) {
-            this.initEnemies(i, this.meleeEnemyCount, this.wizardCount);
+            this.initEnemies(i, this.meleeEnemyCount, this.wizardCount, this.archerEnemyCount);
         }
     }
 
@@ -84,12 +88,15 @@ export default class gameManager extends cc.Component {
         }
     }
 
-    initEnemies(index: number, meleeCount: number, wizardCount) {
+    initEnemies(index: number, meleeCount: number, wizardCount: number, archerEnemy: number) {
         for (let i = 0; i < meleeCount; i++) {
             this.initMelee(index);
         }
         for (let i = 0; i < wizardCount; i++) {
             this.initWizard(index);
+        }
+        for (let i = 0; i < archerEnemy; i++) {
+            this.initArcher(index);
         }
     }
 
@@ -107,6 +114,14 @@ export default class gameManager extends cc.Component {
         let pos;
         pos = cc.v2(-1650 + 1920 * (index - 1) + Math.floor(Math.random() * 1570), -850 + Math.floor(Math.random() * 1700));
         wizard.setPosition(pos);
+    }
+
+    initArcher(index: number) {
+        let archer = cc.instantiate(this.archer);
+        archer.parent = cc.find("Canvas/enemy" + index);
+        let pos;
+        pos = cc.v2(-1820 + 1920 * (index - 1) + Math.floor(Math.random() * 1750), -875 + Math.floor(Math.random() * 1740));
+        archer.setPosition(pos);
     }
 
     onKeyDown(event) {

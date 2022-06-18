@@ -11,8 +11,7 @@ const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class meleeEnemy extends cc.Component {
-    @property(cc.Node)
-    gameManager: cc.Node = null;
+    private gameManager: cc.Node = null;
 
     private target: cc.Node = null;
 
@@ -49,7 +48,7 @@ export default class meleeEnemy extends cc.Component {
     private attacking = null
 
     onLoad() {
-        this.gameManager=cc.find("gameManager");
+        this.gameManager = cc.find("gameManager");
         let index = this.node.parent.name.slice(-1);
         //let job = JSON.parse(cc.sys.localStorage.getItem("p" + index)).job;
         //if (!job) job = "archer";

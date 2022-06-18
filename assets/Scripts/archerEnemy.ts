@@ -6,19 +6,22 @@
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
 
 import player from './player'
+import enemyBullet from './enemyBullet'
 const {ccclass, property} = cc._decorator;
 
 @ccclass
 export default class archerEnemy extends cc.Component {
 
-    @property(cc.Node)
-    gameManager: cc.Node = null;
+    @property(cc.Prefab)
+    bulletPrefab: cc.Prefab = null;
+
+    private gameManager: cc.Node = null;
 
     private target: cc.Node = null;
 
     private detectRange: number = 200;
     private attackRange: number = 5;
-    private attackCooldown: number = 1;
+    private attackCooldown: number = 2;
     private nextAttackTime: number = 0;
     
     private moveSpeed: number = 70;
@@ -31,17 +34,18 @@ export default class archerEnemy extends cc.Component {
     private waitRandomFactor: number = 0.1;
 
     private enemyLife: number = 5;
-
     private enemyMaxLife: number = 5;
-
     private enemyLifeProgress: cc.Node = null;
 
     private anim: cc.Animation = null;
-
     private animateState = null;
 
     private attacking: boolean = false
     private aiming: boolean = false;
+    private targetDirection: string = '';
+    private targetAngle: number = 0;
+    private targetPosition: cc.Vec2 = cc.v2(0, 0);
+    
 
     onLoad() {
         this.gameManager=cc.find("gameManager");
@@ -63,6 +67,7 @@ export default class archerEnemy extends cc.Component {
         if (currentTime >= this.nextMoveTime) {
             this.nextWaitTime = currentTime + this.moveDuration;
             this.nextMoveTime = this.nextWaitTime + this.waitDuration * (1.0 + this.waitRandomFactor * (Math.random() * 2.0 - 1.0));
+            this.moveDir = randomPointOnUnitCircle();
         }
         if (currentTime < this.nextWaitTime) {
             this.node.x += this.moveDir.x * this.moveSpeed * dt;
@@ -81,7 +86,7 @@ export default class archerEnemy extends cc.Component {
     }
 
     enemyWalkAnimation() {
-        if (this.attacking)
+        if (this.attacking || this.aiming)
             return;
         if (this.moveDir.x > 0) {
             if (this.animateState == null || this.animateState.name != 'walkRight')
@@ -109,16 +114,16 @@ export default class archerEnemy extends cc.Component {
     enemyAttackAnimation() {
         this.anim.stop();
         this.attacking = true;
-        if (this.moveDir.x > 0) {
+        if (this.targetDirection == 'E') {
             this.animateState = this.anim.play('attackRight');
         }
-        else if (this.moveDir.x < 0) {
+        else if (this.targetDirection == 'W') {
             this.animateState = this.anim.play('attackLeft');
         }
-        else if (this.moveDir.y > 0) {
+        else if (this.targetDirection == 'N') {
             this.animateState = this.anim.play('attackUp');
         }
-        else if (this.moveDir.y < 0) {
+        else if (this.targetDirection == 'S') {
             this.animateState = this.anim.play('attackDown');
         }
         this.anim.on('finished', (e) => {
@@ -127,15 +132,31 @@ export default class archerEnemy extends cc.Component {
     }
 
     createBullet () {
+        let bullet = cc.instantiate(this.bulletPrefab);
+        let currentPos = this.node.convertToWorldSpaceAR(cc.v2(0, 0));
+        this.targetPosition = this.target.convertToWorldSpaceAR(cc.v2(0, 0))
+        this.targetAngle = calcAngleDegrees(this.targetPosition.x - currentPos.x, this.targetPosition.y - currentPos.y);
+        if (this.targetAngle < 45 && this.targetAngle >= -45) {
+            this.targetDirection = 'E';
+        }
+        else if (this.targetAngle < 135 && this.targetAngle >= 45) {
+            this.targetDirection = 'N'
+        }
+        else if (this.targetAngle < 225 && this.targetAngle >= 135) {
+            this.targetDirection = 'W';
+        }
+        else{
+            this.targetDirection = 'S';
+        }
+        bullet.getComponent('enemyBullet').init(this.node, this.targetDirection, this.targetAngle);
 
     }
 
     update(dt) {
         let currentTime = cc.director.getTotalTime() / 1000.0;
-
+        this.detectRangePlayer();
         if (!this.aiming) {
             this.wandering(dt);
-            this.detectRangePlayer();
         }
         else {
             if(currentTime >= this.nextAttackTime) {
@@ -148,8 +169,7 @@ export default class archerEnemy extends cc.Component {
     }
 
     onBeginContact(contact, self, other) {
-        if (other.node.name == 'player') {
-            this.enemyAttackAnimation();
+        if (other.tag == 1) {
             other.node.getComponent(player).lifeDamage(1);
         }
         else if (other.node.name == 'bullet') {
@@ -163,3 +183,14 @@ export default class archerEnemy extends cc.Component {
         }
     }
 }
+
+
+function calcAngleDegrees(x, y) {
+    return Math.atan2(y, x) * 180 / Math.PI;
+}
+
+
+function randomPointOnUnitCircle() {
+    let angle = Math.random() * Math.PI * 2;
+    return new cc.Vec2(Math.cos(angle), Math.sin(angle));
+};
