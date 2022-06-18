@@ -12,10 +12,14 @@ export default class camera1 extends cc.Component {
     }
 
     start () {
-        //let job = JSON.parse(cc.sys.localStorage.getItem("p1")).job;
-        //if (!job) job = "archer";
-        let job = "archer";
-        this.player1 = cc.find("Canvas/player1/" + job);
+        try {
+            let job = JSON.parse(cc.sys.localStorage.getItem("p1")).job;
+            if(job)
+                this.player1 = cc.find("Canvas/player1/" + job);
+        }
+        catch {
+
+        }
     }
 
     update () {

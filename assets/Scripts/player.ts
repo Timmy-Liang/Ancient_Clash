@@ -44,7 +44,6 @@ export default class player extends cc.Component {
         try {
             let currentCharacter = JSON.parse(cc.sys.localStorage.getItem("p" + index)).job;
             if(currentCharacter){
-                console.log("current Character " + currentCharacter)
                 this.characterName = currentCharacter;
             }
         }

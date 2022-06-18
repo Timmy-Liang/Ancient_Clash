@@ -53,10 +53,15 @@ export default class meleeEnemy extends cc.Component {
     start() {
         this.gameManager = cc.find("gameManager");
         let index = this.node.parent.name.slice(-1);
-        //let job = JSON.parse(cc.sys.localStorage.getItem("p" + index)).job;
-        //if (!job) job = "archer";
-        let job = "archer";
-        this.target = cc.find("Canvas/player" + index).getChildByName(job);
+        try {
+            let job = JSON.parse(cc.sys.localStorage.getItem("p" + index)).job;
+            if(job)
+                this.target = cc.find("Canvas/player/" + index).getChildByName(job);
+        }
+        catch {
+
+        }
+        
         this.enemyLifeProgress = this.node.getChildByName('lifeBar');
         this.anim = this.getComponent(cc.Animation);
     }

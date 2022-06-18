@@ -41,9 +41,11 @@ export default class gameManager extends cc.Component {
     private archerEnemyCount: number = 1;
     private wizardCount: number = 1;
 
-
     private player1_restEnemy: number = 0;
     private player2_restEnemy: number = 0;
+
+    private player1Job: string = 'archer';
+    private player2Job: string = 'archer';
 
     // LIFE-CYCLE CALLBACKS:
 
