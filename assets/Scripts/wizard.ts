@@ -35,7 +35,10 @@ export default class wizard extends cc.Component {
   onLoad() {
     this.gameManager=cc.find("gameManager");
     let index = this.node.parent.name.slice(-1);
-    this.player = cc.find("Canvas/player" + index + "/player");
+    //let job = JSON.parse(cc.sys.localStorage.getItem("p" + index)).job;
+    //if (!job) job = "archer";
+    let job = "archer";
+    this.player = cc.find("Canvas/player" + index).getChildByName(job);
     this.map = cc.find("Canvas/map1_" + index);
     this.wizardLifeProgress = this.node.getChildByName("lifeBar");
   }
