@@ -10,7 +10,7 @@ export default class shop extends cc.Component {
         if(this.tag==1) this.node.position=cc.v3(-400, 200);
         else {
             this.node.position=cc.v3(360, 200);
-            this.node.getChildByName("equipTable").x+=500;
+            this.node.getChildByName("equipTable").x+=600;
         }
         cc.log("shop tag: ", this.tag)
 

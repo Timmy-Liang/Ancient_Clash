@@ -15,6 +15,7 @@ export default class ok extends cc.Component {
     }
 
     reply(){
+        this.node.parent.getComponent("confirm").equipClean();
         this.shopManager.getComponent("shopManager").OK();
         this.node.parent.destroy();
     }
