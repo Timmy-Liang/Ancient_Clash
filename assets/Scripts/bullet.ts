@@ -79,22 +79,6 @@ export default class bullet extends cc.Component {
     }
 
     //make the bullet move from current position
-    bulletMove() {
-
-        let currentPos = this.node.convertToWorldSpaceAR(cc.v2(0, 0));
-        
-        let moveDir = cc.moveBy(0.2, this.targetPosition.sub(currentPos));
-        // move bullet to 500 far from current  position in 0.8s
-
-        let finished = cc.callFunc(() => {
-            this.bulletManager.put(this.node);
-        });
-
-        // after playing animation, the bullet move 0.8s and destroy itself(put back to the bullet manager)
-        this.scheduleOnce(() => {
-            this.node.runAction(cc.sequence(moveDir, finished));
-        });
-    }
 
     update (dt) {
         this.node.x += this.bulletSpeed * this.speedX;

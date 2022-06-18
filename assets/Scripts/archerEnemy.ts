@@ -5,6 +5,7 @@
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
 
+import player from './player'
 const {ccclass, property} = cc._decorator;
 
 @ccclass
@@ -18,7 +19,7 @@ export default class archerEnemy extends cc.Component {
     private detectRange: number = 200;
     private attackRange: number = 5;
     private attackCooldown: number = 1;
-    private aiming: boolean = false;
+    private nextAttackTime: number = 0;
     
     private moveSpeed: number = 70;
     private moveDir: cc.Vec2 = cc.Vec2.ZERO;
@@ -39,12 +40,16 @@ export default class archerEnemy extends cc.Component {
 
     private animateState = null;
 
-    private attacking = null
+    private attacking: boolean = false
+    private aiming: boolean = false;
 
     onLoad() {
         this.gameManager=cc.find("gameManager");
         let index = this.node.parent.name.slice(-1);
-        this.target = cc.find("Canvas/player" + index + "/player");
+        //let job = JSON.parse(cc.sys.localStorage.getItem("p" + index)).job;
+        //if (!job) job = "archer";
+        let job = "archer";
+        this.target = cc.find("Canvas/player" + index).getChildByName(job);
         this.enemyLifeProgress = this.node.getChildByName('lifeBar');
         this.anim = this.getComponent(cc.Animation);
     }
@@ -67,7 +72,10 @@ export default class archerEnemy extends cc.Component {
 
     detectRangePlayer() {
         if (this.node.convertToWorldSpaceAR(cc.v2(0, 0)).sub(this.target.convertToWorldSpaceAR(cc.v2(0, 0))).mag() < this.detectRange) {
-            this.tracingPlayer = true;
+            this.aiming = true;
+        }
+        else {
+            this.aiming = false;
         }
         return 0;
     }
@@ -118,29 +126,23 @@ export default class archerEnemy extends cc.Component {
         })
     }
 
+    createBullet () {
+
+    }
+
     update(dt) {
         let currentTime = cc.director.getTotalTime() / 1000.0;
 
-        if (!this.tracingPlayer) {
+        if (!this.aiming) {
             this.wandering(dt);
             this.detectRangePlayer();
         }
         else {
-            if (currentTime >= this.nextTraceTime) {
-                this.nextTraceTime = currentTime + this.setPathCooldown;
-                this.setPath();
-                this.nextMoveTime = currentTime;
+            if(currentTime >= this.nextAttackTime) {
+                this.nextAttackTime = currentTime + this.attackCooldown;
+                this.createBullet();
+                this.enemyAttackAnimation();
             }
-            if (currentTime >= this.nextMoveTime) {
-                if (this.tracePath.length > 0) {
-                    let nextStep = this.tracePath.pop();
-                    this.moveDir = cc.v2(nextStep[0], nextStep[1] * -1)
-                    this.nextMoveTime = currentTime + this.traceCooldown;
-                }
-            }
-
-            this.node.x += this.moveDir.x * this.traceSpeed * dt;
-            this.node.y += this.moveDir.y * this.traceSpeed * dt;
         }
         this.enemyWalkAnimation();
     }
