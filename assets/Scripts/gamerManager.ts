@@ -42,9 +42,9 @@ export default class gameManager extends cc.Component {
     private pause: boolean = false;
     private physicManager: cc.PhysicsManager = null;
 
-    private meleeEnemyCount: number = 1;
-    private archerEnemyCount: number = 0;
-    private wizardCount: number = 0;
+    private meleeEnemyCount: number = 4;
+    private archerEnemyCount: number = 4;
+    private wizardCount: number = 4;
 
     private player1_restEnemy: number = 0;
     private player2_restEnemy: number = 0;
@@ -97,8 +97,8 @@ export default class gameManager extends cc.Component {
         this.initWall(this.mapLeft);
         this.initWall(this.mapRight);
 
-        this.player1_restEnemy = this.meleeEnemyCount + this.wizardCount;
-        this.player2_restEnemy = this.meleeEnemyCount + this.wizardCount;
+        this.player1_restEnemy = this.meleeEnemyCount + this.wizardCount+ this.archerEnemyCount;
+        this.player2_restEnemy = this.meleeEnemyCount + this.wizardCount+ this.archerEnemyCount;
         //i=1 for player1, i=2 for player2
         for (let i = 1; i < 3; i++) {
             this.initEnemies(i, this.meleeEnemyCount, this.wizardCount, this.archerEnemyCount);
@@ -317,6 +317,7 @@ export default class gameManager extends cc.Component {
 
     enemyReduce(x) {
         if (x > 0) {
+            console.log("p2-1, rest: ", this.player2_restEnemy);
             this.player2_restEnemy -= 1;
             if (this.player2_restEnemy == 0) {
                 if (this.passControl == 0) {
@@ -328,6 +329,7 @@ export default class gameManager extends cc.Component {
         }
         else {
             this.player1_restEnemy -= 1;
+            console.log("p1-1, rest: ", this.player1_restEnemy);
             if (this.player1_restEnemy == 0) {
                 if (this.passControl == 0) {
                     this.passControl = 1;
