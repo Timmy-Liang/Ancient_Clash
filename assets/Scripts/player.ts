@@ -71,7 +71,6 @@ export default class player extends cc.Component {
         catch {
 
         };
-        console.log("Player " + index + " Name " + this.characterName + " tag " + this.characterTag)
     }
 
     start() {
@@ -231,8 +230,7 @@ export default class player extends cc.Component {
             let enemyPosition = this.rangeTarget[prop];
             let nextTargetAngle = calcAngleDegrees(enemyPosition.x - currentPosition.x, enemyPosition.y - currentPosition.y)
             if(nextTargetAngle < this.targetAngle + 22.5 && nextTargetAngle > (this.targetAngle - 22.5) % 360){ // ERROR 
-                let currentEnemy = this.enemys.children[prop]
-                console.log(currentEnemy.name);
+                let currentEnemy = this.enemys.children[prop];
                 currentEnemy.getComponent(currentEnemy.name).enemyHurt(1);
             }
                 

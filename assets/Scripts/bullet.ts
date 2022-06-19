@@ -16,6 +16,8 @@ export default class bullet extends cc.Component {
 
     private initPosOffset: number = 32;
 
+    private damage: number = 1;
+
     private speedX: number = 0;
     private speedY: number = 0;
 
@@ -84,10 +86,13 @@ export default class bullet extends cc.Component {
 
     //detect collision with enemies
     onBeginContact(contact, self, other) {
-        if(other.tag == 1){
+        if(other.tag == 1){ // hit player
             contact.disabled = true;
             return;
         }
+        else if(other.tag == 2) { // hit enemy
+            other.getComponent(other.node.name).enemyHurt(this.damage);
+        }   
         this.node.stopAllActions();
 
         this.unscheduleAllCallbacks();
