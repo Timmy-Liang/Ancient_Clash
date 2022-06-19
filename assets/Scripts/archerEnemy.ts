@@ -14,7 +14,10 @@ export default class archerEnemy extends cc.Component {
 
     @property(cc.Prefab)
     bulletPrefab: cc.Prefab = null;
-
+    @property(cc.AudioClip)
+    attackSound: cc.AudioClip = null;
+    @property({type:cc.AudioClip})
+    killedSound: cc.AudioClip = null;
     private gameManager: cc.Node = null;
 
     private target: cc.Node = null;
@@ -121,6 +124,7 @@ export default class archerEnemy extends cc.Component {
     enemyAttackAnimation() {
         this.anim.stop();
         this.attacking = true;
+        cc.audioEngine.playEffect(this.attackSound,false);
         if (this.targetDirection == 'E') {
             this.animateState = this.anim.play('attackRight');
         }
@@ -142,6 +146,7 @@ export default class archerEnemy extends cc.Component {
         this.enemyLife -= hp;
         this.enemyLifeProgress.getComponent(cc.ProgressBar).progress = this.enemyLife / this.enemyMaxLife;
         if (this.enemyLife <= 0) {
+            cc.audioEngine.playEffect(this.killedSound,false);
             this.gameManager.getComponent("gamerManager").enemyReduce(this.node.x);
             this.node.active = false;
             if(this.node.parent.name=="enemy1")this.gameManager.getComponent("gamerManager").addcoin(1,15);

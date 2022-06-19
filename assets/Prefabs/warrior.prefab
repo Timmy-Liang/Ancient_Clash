@@ -612,6 +612,9 @@
       "__uuid__": "778e5903-1be9-4295-93b9-25d03fff0c13"
     },
     "powerBulletprefab": null,
+    "attackSound": {
+      "__uuid__": "e49fb877-335b-4a56-9cec-fc84c175d2ea"
+    },
     "_id": ""
   },
   {

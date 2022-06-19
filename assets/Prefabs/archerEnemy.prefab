@@ -459,6 +459,12 @@
     "bulletPrefab": {
       "__uuid__": "38a1c184-a8ce-4334-9763-259070f2da3c"
     },
+    "attackSound": {
+      "__uuid__": "9ad2b6a5-cac4-4ccf-8815-c11f19c7d1bd"
+    },
+    "killedSound": {
+      "__uuid__": "0fb3914b-1737-43bd-937c-1fe629568060"
+    },
     "_id": ""
   },
   {

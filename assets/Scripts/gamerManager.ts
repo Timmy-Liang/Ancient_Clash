@@ -28,8 +28,7 @@ export default class gameManager extends cc.Component {
     slinger: cc.Prefab = null;
     @property(cc.AudioClip)
     bgm: cc.AudioClip = null;
-    @property(cc.AudioClip)
-    windcutSound: cc.AudioClip = null;
+   
     @property(cc.AudioClip)
     walkSound: cc.AudioClip = null;
     private enemy: cc.Node = null;
@@ -80,6 +79,7 @@ export default class gameManager extends cc.Component {
         this.mapRight = cc.find("Canvas/map" + level + "_2").getComponent(cc.TiledMap);
         this.enemy = cc.find("Canvas/enemy");
         
+        this.timer=120;
         this.timer1= cc.find("Canvas/camera1/bar1/Timer").getComponent(cc.Label);
         this.timer2= cc.find("Canvas/camera2/bar2/Timer").getComponent(cc.Label);
         this.coin1label= cc.find("Canvas/camera1/bar1/coin").getComponent(cc.Label);
@@ -87,6 +87,7 @@ export default class gameManager extends cc.Component {
 
         this.camera1 = cc.find("Canvas/camera1");
         this.camera2 = cc.find("Canvas/camera2");
+
     }
 
     start() {
@@ -104,7 +105,7 @@ export default class gameManager extends cc.Component {
             this.initEnemies(i, this.meleeEnemyCount, this.wizardCount, this.archerEnemyCount);
         }
         this.timeCounting = () => {
-            let t=this.timer+1;
+            let t=this.timer-1;
             this.updateTime(t);
         }
         if(this.isTiming==false){

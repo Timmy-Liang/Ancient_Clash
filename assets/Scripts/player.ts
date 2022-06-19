@@ -9,7 +9,8 @@ export default class player extends cc.Component {
 
     @property(cc.Prefab)
     private powerBulletprefab: cc.Prefab = null;
-
+    @property(cc.AudioClip)
+    attackSound: cc.AudioClip = null;
     private moveDir: string = "S";
     private aimDir: cc.Vec2 = cc.v2(0, 0);
     private speed: number = 250;
@@ -229,6 +230,7 @@ export default class player extends cc.Component {
         let currentTime = cc.director.getTotalTime() / 1000.0;
         if (currentTime >= this.nextAttackTime) {
             this.nextAttackTime = currentTime + this.attackCooldown;
+            cc.audioEngine.playEffect(this.attackSound,false);
             if (this.characterTag == 0 || this.characterTag == 1) {
                 this.createBullet();
             } else {

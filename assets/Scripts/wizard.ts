@@ -9,8 +9,11 @@ export default class wizard extends cc.Component {
     fire: cc.Prefab = null;
     @property(cc.Node)
     gameManager: cc.Node = null;
-
-
+    @property({type:cc.AudioClip})
+    killedSound: cc.AudioClip = null;
+    @property({type:cc.AudioClip})
+    bombSound: cc.AudioClip = null;
+    
     private player: cc.Node = null;
     private map: cc.Node = null;
     private moveSpeed: number = 40;
