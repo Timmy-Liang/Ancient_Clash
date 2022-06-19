@@ -163,7 +163,7 @@ export default class start extends cc.Component {
             weapon: ""
         }
         if(name=="archer"){
-            data.atk=10;
+            data.atk=8;
             data.def=2;
             data.hp=30;
             data.spd=4;
@@ -174,7 +174,7 @@ export default class start extends cc.Component {
             data.atk=15;
             data.def=4;
             data.hp=30;
-            data.spd=2;
+            data.spd=2.5;
             data.weapon="sling1";
             data.armor="slingerArmor1";
         }
@@ -182,7 +182,7 @@ export default class start extends cc.Component {
             data.atk=7;
             data.def=10;
             data.hp=50;
-            data.spd=2;
+            data.spd=2.5;
             data.weapon="sword1";
             data.armor="knightArmor1";
         }
