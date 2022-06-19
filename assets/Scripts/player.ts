@@ -296,7 +296,6 @@ export default class player extends cc.Component {
     createBullet() {
         let bullet = null;
         if (this.bulletPool.size() > 0) {
-            console.log("HERE");
             bullet = this.bulletPool.get(this.bulletPool);
         }
 
@@ -325,7 +324,7 @@ export default class player extends cc.Component {
             ) {
                 // ERROR
                 let currentEnemy = this.enemys.children[prop];
-                console.log(currentEnemy.name);
+                //console.log(currentEnemy.name);
                 currentEnemy
                     .getComponent(currentEnemy.name)
                     .enemyHurt(this.playerData.atk);
@@ -387,12 +386,9 @@ export default class player extends cc.Component {
     }
 
     lifeDamage(damage: number) {
-        console.log("get hurt", damage);
         if (this.playerData.hp > 0) {
-            console.log("before hurt", this.playerData.hp);
             this.playerData.hp -=
                 damage * (1 - this.playerData.def / (this.playerData.def + 10));
-            console.log("after hurt", this.playerData.hp);
         }
         /*
             if (this.life <= 0) {

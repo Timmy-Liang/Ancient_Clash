@@ -137,7 +137,7 @@ export default class wizard extends cc.Component {
         }
     }
 
-    
+    /*
     onBeginContact(contact, self, other) {
         if (other.node.name == "bullet") {
             this.wizardLife--;
@@ -148,6 +148,7 @@ export default class wizard extends cc.Component {
             }
         }
       }
+      */
 
     update(dt) {
         if (this.wizardLife <= 0) {

@@ -200,18 +200,18 @@ export default class gameManager extends cc.Component {
 
     initEnemies(index: number, meleeCount: number, wizardCount: number, archerCount: number) {
         for (let i = 0; i < meleeCount; i++) {
-            if(index==1) this.player1_restEnemy++;
-            else if(index==2) this.player2_restEnemy++;
+            if(index==1) this.player1_restEnemy++, console.log("now p1_enemy: ", this.player1_restEnemy);
+            else if(index==2) this.player2_restEnemy++, console.log("now p2_enemy: ", this.player2_restEnemy);
             this.initMelee(index);
         }
         for (let i = 0; i < wizardCount; i++) {
-            if(index==1) this.player1_restEnemy++;
-            else if(index==2) this.player2_restEnemy++;
+            if(index==1) this.player1_restEnemy++, console.log("now p1_enemy: ", this.player1_restEnemy);
+            else if(index==2) this.player2_restEnemy++, console.log("now p2_enemy: ", this.player2_restEnemy);
             this.initWizard(index);
         }
         for (let i = 0; i < archerCount; i++) {
-            if(index==1) this.player1_restEnemy++;
-            else if(index==2) this.player2_restEnemy++;
+            if(index==1) this.player1_restEnemy++, console.log("now p1_enemy: ", this.player1_restEnemy);
+            else if(index==2) this.player2_restEnemy++, console.log("now p2_enemy: ", this.player2_restEnemy);
             this.initArcher(index);
         }
     }
@@ -274,7 +274,7 @@ export default class gameManager extends cc.Component {
             }
         }
         if (keyboardInput[cc.macro.KEY.forwardslash]) this.player2.playerAttack();
-
+        if (keyboardInput[cc.macro.KEY.period]) this.player2.playerPower();
         if (keyboardInput[cc.macro.KEY.down] && keyboardInput[cc.macro.KEY.right]) {
             this.player2.playerMoveDir("SE");
         } else if (
@@ -319,30 +319,38 @@ export default class gameManager extends cc.Component {
     }
 
     enemyReduce(x) {
-        console.log("enemyreduce")
         if (x > 0) {
             this.player2_restEnemy -= 1;
+            console.log("now p2_enemy: ", this.player2_restEnemy);
             if (this.player2_restEnemy == 0) {
                 console.log("player2 clean");
                 if (this.passControl == 0) {
                     this.passControl = 2;
-                    //this.initEnemies(1, 1, 1, 1);
+                    this.initEnemies(1, 1, 1, 1);
                 }
                 else if (this.passControl == 1) this.passControl = 3;
             }
         }
         else {
             this.player1_restEnemy -= 1;
+            console.log("now p1_enemy: ", this.player1_restEnemy);
             if (this.player1_restEnemy == 0) {
                 console.log("player1 clean")
                 if (this.passControl == 0) {
                     this.passControl = 1;
-                    //this.initEnemies(2, 1, 1, 1);
+                    this.initEnemies(2, 1, 1, 1);
                 }
                 else if (this.passControl == 2) this.passControl = 3;
             }
         }
           if (this.passControl == 3) {
+            let sth=JSON.parse(cc.sys.localStorage.getItem("p1"));
+            sth.money+=this.coin1;
+            cc.sys.localStorage.setItem('p1', JSON.stringify(sth));
+
+            sth=JSON.parse(cc.sys.localStorage.getItem("p2"));
+            sth.money+=this.coin2;
+            cc.sys.localStorage.setItem('p2', JSON.stringify(sth));
             //console.log("enter shop");
             this.camera1.active = false;
             this.camera2.active = false;
