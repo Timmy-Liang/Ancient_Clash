@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "b2d5b693-e3c8-44a3-83b3-fde7ec0234ab",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1152,
+  "height": 448,
+  "platformSettings": {},
+  "subMetas": {
+    "Tileset-Terrain2": {
+      "ver": "1.0.6",
+      "uuid": "11c83413-a48e-471a-bbe6-a1f4f94c2378",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "b2d5b693-e3c8-44a3-83b3-fde7ec0234ab",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -16,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 1120,
+      "height": 448,
+      "rawWidth": 1152,
+      "rawHeight": 448,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
