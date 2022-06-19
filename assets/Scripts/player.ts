@@ -292,7 +292,7 @@ export default class player extends cc.Component {
             }
             this.scheduleOnce(() => {
                 this.setPowerCooldown(0);
-                //this.colorOfpower.color = new cc.Color(255, 255, 255);
+                this.colorOfpower.color = new cc.Color(0, 255, 10);
             }, this.powerCooltime);
         }
     }

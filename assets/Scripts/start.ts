@@ -372,28 +372,28 @@ export default class start extends cc.Component {
 
         //---weapon data
         let crossBow1={
-            atk: 8,
+            atk: 4,
             def: 0,
             hp: 0,
             spd: 0,
             price: 10
         }
         let crossBow2={
-            atk: 12,
+            atk: 7,
             def: 0,
             hp: 0,
             spd: 0,
             price: 20
         }
         let crossBow3={
-            atk: 16,
+            atk: 10,
             def: 0,
             hp: 0,
             spd: 0,
             price: 30
         }
         let crossBow5={
-            atk: 22,
+            atk: 12,
             def: 0,
             hp: 0,
             spd: 0,
