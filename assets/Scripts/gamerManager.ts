@@ -251,6 +251,7 @@ export default class gameManager extends cc.Component {
         this.player1.playerMoveDir("IDLE");
         this.player2.playerMoveDir("IDLE");
         if (keyboardInput[cc.macro.KEY.space]) this.player1.playerAttack();
+        if (keyboardInput[cc.macro.KEY.m]) this.player1.playerPower();
         if (keyboardInput[cc.macro.KEY.s] && keyboardInput[cc.macro.KEY.d]) {
             this.player1.playerMoveDir("SE");
         } else if (keyboardInput[cc.macro.KEY.d] && keyboardInput[cc.macro.KEY.w]) {

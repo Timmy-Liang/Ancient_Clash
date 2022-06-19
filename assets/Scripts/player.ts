@@ -1,5 +1,3 @@
-import gameManager from "./gamerManager";
-
 const { ccclass, property } = cc._decorator;
 
 @ccclass
@@ -7,6 +5,9 @@ export default class player extends cc.Component {
 
     @property(cc.Prefab)
     private bulletPrefab: cc.Prefab = null;
+
+    @property(cc.Prefab)
+    private powerBulletprefab: cc.Prefab = null;
 
     private moveDir: string = 'S';
     private aimDir: cc.Vec2 = cc.v2(0, 0);
@@ -17,9 +18,11 @@ export default class player extends cc.Component {
 
     private maxBullet: number = 5;
     private bulletPool: cc.NodePool = null;
+    private powerBulletpool: cc.NodePool = null;
     private nextAttackTime: number = 0;
     private nextReloadTime: number = 0;
     private attackCooldown: number = 0.5;
+    private powerCooltime: number= 5;
     private reloadCooldown: number = 5;
     private attackRange: number = 300;
     private attacking: boolean = false;
@@ -36,17 +39,20 @@ export default class player extends cc.Component {
     private life: number = 10;
     private lifeMax: number = 10;
     private lifeprogress: cc.Node = null;
+    private powerprogress: cc.Node = null;
+    private colorOfpower: cc.Node= null;
 
     private characterName: string = 'archer';
     private characterTag: number = 0;
-    @property({type:cc.AudioClip})
-    attackSound: cc.AudioClip = null;
-    
+
 
     onLoad() {
         this.bulletPool = new cc.NodePool('bullet');
+        this.powerBulletpool= new cc.NodePool('powerBullet');
         this.anim = this.getComponent(cc.Animation);
         this.lifeprogress = this.node.getChildByName('lifeBar');
+        this.powerprogress = this.node.getChildByName('powerBar');
+        this.colorOfpower= this.powerprogress.getChildByName('bar');
         let index = this.node.parent.name.slice(-1);
         this.enemys = cc.find("Canvas/enemy" + index);
         this.enemyCount = this.enemys.childrenCount;
@@ -80,8 +86,13 @@ export default class player extends cc.Component {
             let bullet = cc.instantiate(this.bulletPrefab);
             this.bulletPool.put(bullet);
         }
+        let powerBullet= cc.instantiate(this.powerBulletprefab);
+        this.powerBulletpool.put(powerBullet);
+
         if (this.lifeprogress == null) cc.log("fail");
         else this.lifeprogress.getComponent(cc.ProgressBar).progress = 1;
+        this.powerprogress.getComponent(cc.ProgressBar).progress = 1;
+        this.colorOfpower.color=new cc.Color(0, 255, 80);
     }
 
     playerMoveDir(dir: string) {
@@ -129,13 +140,11 @@ export default class player extends cc.Component {
 
         }
     }
-    playerAttackSound(){
-        cc.audioEngine.play(this.attackSound, false,1);
-    }
+
     playerWalkAnimation() {
         if (this.attacking)
             return;
-        //cc.audioEngine.playEffect(this.walkSound, false);
+
         switch (this.moveDir) {
             case 'N':
                 if (this.animateState == null || this.animateState.name != this.characterName + 'WalkN')
@@ -189,7 +198,6 @@ export default class player extends cc.Component {
         this.traceEnemy();
         let currentTime = cc.director.getTotalTime() / 1000.0;
         if (currentTime >= this.nextAttackTime) {
-            this.playerAttackSound();
             this.nextAttackTime = currentTime + this.attackCooldown;
             if(this.characterTag == 0 || this.characterTag == 1){
                 this.createBullet();
@@ -204,14 +212,43 @@ export default class player extends cc.Component {
     playerPower() {
         if (!this.powerCooldown) {
             this.powerCooldown = true;
-            this.schedule(() => {
+            this.powerprogress.getComponent(cc.ProgressBar).progress=0;
+            this.colorOfpower.color=new cc.Color(25, 95, 25);
+            if(this.characterTag==0){
+                this.schedule(() => {
+                    this.traceEnemy();
+                    this.createBullet();
+                    this.playerAttackAnimation();
+                }, 0.2, 4)
+            }
+            else if(this.characterTag==1){
                 this.traceEnemy();
-                this.createBullet();
+                let powerBullet=null;
+                if(this.powerBulletpool.size()>0) powerBullet=this.powerBulletpool.get(this.powerBulletpool); 
+                if(powerBullet != null) powerBullet.getComponent('powerBullet').init(this.node, this.targetDirection, this.targetAngle);
+
                 this.playerAttackAnimation();
-            }, 0.2, 10)
+            }
+
+            else if(this.characterTag==2){
+                this.attackCooldown=0.25;
+                this.node.color=new cc.Color(248, 86, 86);
+                this.scheduleOnce(() => {
+                    this.attackCooldown=0.5;
+                    this.node.color=new cc.Color(255, 255, 255);
+                }, 2.5)
+            }
+
+            else if(this.characterTag==3){
+                this.node.color=new cc.Color(134, 250, 255);
+                this.scheduleOnce(() => {
+                    this.node.color=new cc.Color(255, 255, 255);
+                }, 2.5)
+            }
             this.scheduleOnce(() => {
                 this.setPowerCooldown(0);
-            }, 5)
+                this.colorOfpower.color=new cc.Color(0, 255, 80);
+            }, this.powerCooltime)
         }
     }
 
@@ -222,6 +259,7 @@ export default class player extends cc.Component {
     createBullet() {
         let bullet = null;
         if (this.bulletPool.size() > 0) {
+            console.log("HERE")
             bullet = this.bulletPool.get(this.bulletPool);
         }
 
@@ -235,7 +273,8 @@ export default class player extends cc.Component {
             let enemyPosition = this.rangeTarget[prop];
             let nextTargetAngle = calcAngleDegrees(enemyPosition.x - currentPosition.x, enemyPosition.y - currentPosition.y)
             if(nextTargetAngle < this.targetAngle + 22.5 && nextTargetAngle > (this.targetAngle - 22.5) % 360){ // ERROR 
-                let currentEnemy = this.enemys.children[prop];
+                let currentEnemy = this.enemys.children[prop]
+                console.log(currentEnemy.name);
                 currentEnemy.getComponent(currentEnemy.name).enemyHurt(1);
             }
                 
@@ -294,15 +333,13 @@ export default class player extends cc.Component {
 
     lifeDamage(damage: number) {
         if (this.life > 0) this.life -= damage;
-        if (this.life <= 0) {
-            cc.find("gameManager").getComponent(gameManager).gameOver();
-        }
     }
 
     update(dt) {
         this.playerMove(dt);
         this.playerWalkAnimation();
         this.lifeprogress.getComponent(cc.ProgressBar).progress = this.life / this.lifeMax;
+        if(this.powerCooldown) this.powerprogress.getComponent(cc.ProgressBar).progress+=dt/this.powerCooltime;
     }
 }
 
