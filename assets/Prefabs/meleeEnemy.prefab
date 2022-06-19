@@ -408,15 +408,12 @@
       "__id__": 1
     },
     "_enabled": true,
-<<<<<<< HEAD
-=======
     "knifeSound": {
       "__uuid__": "e49fb877-335b-4a56-9cec-fc84c175d2ea"
     },
     "killedSound": {
       "__uuid__": "0fb3914b-1737-43bd-937c-1fe629568060"
     },
->>>>>>> Timothy
     "_id": ""
   },
   {
