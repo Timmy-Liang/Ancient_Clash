@@ -53,7 +53,6 @@ export default class money extends cc.Component {
         }
 
         else {
-            cc.log("debug?")
             this.node.position=cc.v3(0, 0);
             label.y-=50;
             label.getComponent(cc.Label).string="Are you both ready?";
