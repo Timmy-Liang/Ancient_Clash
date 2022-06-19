@@ -447,6 +447,7 @@ export default class shopManager extends cc.Component {
         else {
             cc.find("tmp_bg").active = true;
            cc.sys.localStorage.setItem("level", nextLevel.toString());
+           
            this.scheduleOnce(()=>{
             cc.director.loadScene("level" + nextLevel.toString());
            }, 0.2);

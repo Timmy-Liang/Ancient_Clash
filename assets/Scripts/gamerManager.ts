@@ -38,8 +38,8 @@ export default class gameManager extends cc.Component {
   private pause: boolean = false;
   private physicManager: cc.PhysicsManager = null;
 
-  private meleeEnemyCount: number = 1;
-  private archerEnemyCount: number = 0;
+  private meleeEnemyCount: number = 0;
+  private archerEnemyCount: number = 1;
   private wizardCount: number = 0;
 
   private player1_restEnemy: number = 0;
@@ -179,8 +179,8 @@ export default class gameManager extends cc.Component {
   }
   updateTime(t) {
     this.timer = t;
-    this.timer1.string = this.timer.toString();
-    this.timer2.string = this.timer.toString();
+    if (this.passControl != 1) this.timer1.string = this.timer.toString();
+    if (this.passControl != 2) this.timer2.string = this.timer.toString();
   }
   addcoin(playernum, addnum) {
     //cc.log("addcoin");
@@ -401,7 +401,7 @@ export default class gameManager extends cc.Component {
           cc.find("Canvas/camera2/Clean").active = true;
           if (this.passControl == 0) {
             this.passControl = 2;
-            //this.initEnemies(1, 1, 1, 1);
+            //this.initEnemies(1, 1, 0, 0);
           }
         }
       }
@@ -413,7 +413,7 @@ export default class gameManager extends cc.Component {
           cc.find("Canvas/camera1/Clean").active = true;
           if (this.passControl == 0) {
             this.passControl = 1;
-            //this.initEnemies(2, 1, 1, 1);
+            //this.initEnemies(2, 1, 0, 0);
           }
         }
       }
