@@ -64,9 +64,6 @@ export default class gameManager extends cc.Component {
     private passControl: number = 0;
     private camera1: cc.Node = null;
     private camera2: cc.Node = null;
-    //1: player1 pass first
-    //2: player2 pass first
-    //3: both player pass
 
     // LIFE-CYCLE CALLBACKS:
 
