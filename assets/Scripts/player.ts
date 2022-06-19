@@ -1,3 +1,5 @@
+import gameManager from "./gamerManager";
+
 const { ccclass, property } = cc._decorator;
 
 @ccclass
@@ -37,7 +39,9 @@ export default class player extends cc.Component {
 
     private characterName: string = 'archer';
     private characterTag: number = 0;
-
+    @property({type:cc.AudioClip})
+    windcutSound: cc.AudioClip = null;
+    
 
     onLoad() {
         this.bulletPool = new cc.NodePool('bullet');
@@ -126,11 +130,13 @@ export default class player extends cc.Component {
 
         }
     }
-
+    playerAttackSound(){
+        cc.audioEngine.play(this.windcutSound, false,1);
+    }
     playerWalkAnimation() {
         if (this.attacking)
             return;
-
+        //cc.audioEngine.playEffect(this.walkSound, false);
         switch (this.moveDir) {
             case 'N':
                 if (this.animateState == null || this.animateState.name != this.characterName + 'WalkN')
@@ -184,6 +190,7 @@ export default class player extends cc.Component {
         this.traceEnemy();
         let currentTime = cc.director.getTotalTime() / 1000.0;
         if (currentTime >= this.nextAttackTime) {
+            this.playerAttackSound();
             this.nextAttackTime = currentTime + this.attackCooldown;
             if(this.characterTag == 0 || this.characterTag == 1){
                 this.createBullet();
@@ -289,6 +296,9 @@ export default class player extends cc.Component {
 
     lifeDamage(damage: number) {
         if (this.life > 0) this.life -= damage;
+        if (this.life <= 0) {
+            cc.find("gameManager").getComponent(gameManager).gameOver();
+        }
     }
 
     update(dt) {

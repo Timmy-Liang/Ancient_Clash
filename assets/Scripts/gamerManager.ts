@@ -28,7 +28,10 @@ export default class gameManager extends cc.Component {
     slinger: cc.Prefab = null;
     @property(cc.AudioClip)
     bgm: cc.AudioClip = null;
-    
+    @property(cc.AudioClip)
+    windcutSound: cc.AudioClip = null;
+    @property(cc.AudioClip)
+    walkSound: cc.AudioClip = null;
     private enemy: cc.Node = null;
     private player1: player = null;
     private player2: player = null;
@@ -49,23 +52,30 @@ export default class gameManager extends cc.Component {
     private player1Job: string = 'archer';
     private player2Job: string = 'archer';
 
-    private timer1:cc.Label=null;
-    private timer2:cc.Label=null;
+    private timer1: cc.Label = null;
+    private timer2: cc.Label = null;
     private timeCounting;
-    private timer:number=0;
-    private isTiming:boolean=false;
-    private coin1:number=null;
-    private coin2:number=null;
-    private coin1label:cc.Label=null;
-    private coin2label:cc.Label=null;
+    private timer: number = 0;
+    private isTiming: boolean = false;
+    private coin1: number = null;
+    private coin2: number = null;
+    private coin1label: cc.Label = null;
+    private coin2label: cc.Label = null;
+
+    private passControl: number = 0;
+    //1: player1 pass first
+    //2: player2 pass first
+    //3: both player pass
+
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
         this.physicManager = cc.director.getPhysicsManager();
         this.physicManager.enabled = true;
         this.initPlayer();
-        this.mapLeft = cc.find("Canvas/map1_1").getComponent(cc.TiledMap);
-        this.mapRight = cc.find("Canvas/map1_2").getComponent(cc.TiledMap);
+        let level = cc.sys.localStorage.getItem("level");
+        this.mapLeft = cc.find("Canvas/map" + level + "_1").getComponent(cc.TiledMap);
+        this.mapRight = cc.find("Canvas/map" + level + "_2").getComponent(cc.TiledMap);
         this.enemy = cc.find("Canvas/enemy");
         
         this.timer1= cc.find("Canvas/camera1/bar1/Timer").getComponent(cc.Label);
@@ -75,7 +85,7 @@ export default class gameManager extends cc.Component {
     }
 
     start() {
-        
+        //this.playBGM();
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP, this.onKeyUp, this);
 
@@ -96,12 +106,16 @@ export default class gameManager extends cc.Component {
             this.isTiming=true;
             this.schedule(this.timeCounting, 1);
         }
-        //this.playBGM();
+        
         
         
     }
     playBGM(){
-        cc.audioEngine.playMusic(this.bgm, true);
+        cc.audioEngine.play(this.bgm, true, 0.5);
+    }
+    playeffect(effect){
+        if(effect=="windcut")cc.audioEngine.play(this.windcutSound, false, 1);
+        //else if(effect=="knife");
     }
     initPlayer() {
         let p1Info = JSON.parse(cc.sys.localStorage.getItem("p1"))
@@ -150,7 +164,7 @@ export default class gameManager extends cc.Component {
         this.timer2.string=this.timer.toString();
     }
     addcoin(playernum,addnum){
-        cc.log("addcoin");
+        //cc.log("addcoin");
         if(playernum==1){
             this.coin1+=addnum;
             this.coin1label.string=this.coin1.toString();
@@ -283,6 +297,10 @@ export default class gameManager extends cc.Component {
         }
     }
 
+    gameOver() {
+        cc.director.loadScene("start");
+    }
+
     update(dt) {
         this.keyboardUpdate();
     }
@@ -291,14 +309,25 @@ export default class gameManager extends cc.Component {
         if (x > 0) {
             this.player2_restEnemy -= 1;
             if (this.player2_restEnemy == 0) {
-                cc.director.loadScene("shop");
+                if (this.passControl == 0) {
+                    this.passControl = 2;
+                    //this.initEnemies(1, 1, 1, 1);
+                }
+                else if (this.passControl == 1) this.passControl = 3;
             }
         }
         else {
             this.player1_restEnemy -= 1;
             if (this.player1_restEnemy == 0) {
-                cc.director.loadScene("shop");
+                if (this.passControl == 0) {
+                    this.passControl = 1;
+                    //this.initEnemies(2, 1, 1, 1);
+                }
+                else if (this.passControl == 2) this.passControl = 3;
             }
         }
+          if (this.passControl == 3) {
+            cc.director.loadScene("shop");
+          }
     }
 }

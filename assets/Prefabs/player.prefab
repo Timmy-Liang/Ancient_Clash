@@ -370,11 +370,8 @@
     "bulletPrefab": {
       "__uuid__": "778e5903-1be9-4295-93b9-25d03fff0c13"
     },
-    "archerFrame": {
-      "__uuid__": "b4efa2cf-cc60-41e0-b390-0624ba02c404"
-    },
-    "warriorFrame": {
-      "__uuid__": "9b89abd6-77c7-4937-bc58-6c62af1fffbd"
+    "windcutSound": {
+      "__uuid__": "9ad2b6a5-cac4-4ccf-8815-c11f19c7d1bd"
     },
     "_id": ""
   },

@@ -737,4 +737,17 @@ export default class shopManager extends cc.Component {
             this.labelUpdate(tag);
         }
     }
+    nextLevel() {
+        let level = parseInt(cc.sys.localStorage.getItem("level"));
+        let nextLevel = level + 1;
+        if (nextLevel == 2) {
+            //over all level
+            //enter player flighting mode
+            cc.director.loadScene("start");
+        } 
+        else {
+           cc.sys.localStorage.setItem("level", nextLevel.toString());
+           cc.director.loadScene("level" + nextLevel.toString()); 
+        }
+    }
 }
