@@ -19,12 +19,12 @@ export default class meleeEnemy extends cc.Component {
     private attackCooldown: number = 2;
     private nextAttackTime: number = 0;
     private moveSpeed: number = 40;
+    private attackDir: cc.Vec2 = cc.v2(0, 0)
     public tracingPlayer: boolean = false;
 
     private setPathCooldown: number = 0.5;
     private traceCooldown: number = 0.1;
     private traceSpeed: number = 160;
-    private traceDifficulty: number = 1;
     private tracePath: Array<Array<number>> = [];
 
     private moveDir: cc.Vec2 = cc.Vec2.ZERO;
@@ -46,6 +46,8 @@ export default class meleeEnemy extends cc.Component {
     private animateState = null;
 
     private attacking = null
+
+    private lastPosition : cc.Vec2 = cc.v2(0, 0)
 
     onLoad() {
     }
@@ -81,12 +83,50 @@ export default class meleeEnemy extends cc.Component {
     }
 
     setPath() {
-        let tmp = [];
         let targetPos: cc.Vec2 = cc.v2(0, 0)
         if (this.tracingPlayer) {
             targetPos = this.target.convertToWorldSpaceAR(cc.v2(0, 0));
         }
         this.tracePath = this.node.getComponent('pathFinding').pathFindingAlgo(targetPos);
+        let len = this.tracePath.length;
+        let actions = [];
+        for(let i = 0; i < Math.min(len, 10); i++ ) {
+            actions.push(cc.moveBy(0.05, this.tracePath[i][0] * 16, this.tracePath[i][1] * -16));
+        }
+        if(actions.length > 0) {
+            let seq = cc.sequence(actions)
+            this.node.runAction(seq);
+        }
+        // console.log("START")
+        // for(let i = 0; i < len ; i++) {
+        //     let x = this.tracePath[i][0], y = this.tracePath[i][1];
+        //     if(x > 0 && y > 0) {
+        //         console.log("Right Up");
+        //     }
+        //     else if(x > 0 && y < 0) {
+        //         console.log("Right Down")
+        //     }
+        //     else if(x < 0 && y < 0) {
+        //         console.log("Left Down")
+        //     }
+        //     else if(x < 0 && y > 0) {
+        //         console.log("Left Up")
+        //     }
+        //     else if(y > 0) {
+        //         console.log("Up")
+        //     }
+        //     else if(y < 0) {
+        //         console.log("Down")
+        //     }
+        //     else if(x < 0) {
+        //         console.log("Left")
+        //     }
+        //     else if(x > 0) {
+        //         console.log("Right")
+        //     }
+        //     //console.log(this.tracePath[i][0] + " " + this.tracePath[i][1])
+        // }
+        // console.log("END");
 
     }
 
@@ -128,16 +168,16 @@ export default class meleeEnemy extends cc.Component {
     enemyAttackAnimation() {
         this.anim.stop();
         this.attacking = true;
-        if (this.moveDir.x > 0) {
+        if (this.attackDir.x > 0) {
             this.animateState = this.anim.play('attackRight');
         }
-        else if (this.moveDir.x < 0) {
+        else if (this.attackDir.x < 0) {
             this.animateState = this.anim.play('attackLeft');
         }
-        else if (this.moveDir.y > 0) {
+        else if (this.attackDir.y > 0) {
             this.animateState = this.anim.play('attackUp');
         }
-        else if (this.moveDir.y < 0) {
+        else if (this.attackDir.y < 0) {
             this.animateState = this.anim.play('attackDown');
         }
         this.anim.on('finished', (e) => {
@@ -168,16 +208,31 @@ export default class meleeEnemy extends cc.Component {
                 this.setPath();
                 this.nextMoveTime = currentTime;
             }
-            if (currentTime >= this.nextMoveTime) {
-                if (this.tracePath.length > 0) {
-                    let nextStep = this.tracePath.pop();
-                    this.moveDir = cc.v2(nextStep[0], nextStep[1] * -1)
-                    this.nextMoveTime = currentTime + this.traceCooldown;
-                }
-            }
+            let offsetX = this.node.position.x - this.lastPosition.x;
+            let offsetY = this.node.position.y - this.lastPosition.y;
+            if(offsetX > 0) 
+                this.moveDir.x = 1;
+            else if(offsetX < 0)
+                this.moveDir.x = -1;
+            else 
+                this.moveDir.x = 0;
+            if(offsetY > 0) 
+                this.moveDir.y = 1;
+            else if(offsetY < 0)
+                this.moveDir.y = -1;
+            else 
+                this.moveDir.y = 0;
+            this.lastPosition = cc.v2(this.node.position.x, this.node.position.y)
+            // if (currentTime >= this.nextMoveTime) {
+            //     if (this.tracePath.length > 0) {
+            //         let nextStep = this.tracePath.pop();
+            //         this.moveDir = cc.v2(nextStep[0], nextStep[1] * -1)
+            //         this.nextMoveTime = currentTime + this.traceCooldown;
+            //     }
+            // }
 
-            this.node.x += this.moveDir.x * this.traceSpeed * dt;
-            this.node.y += this.moveDir.y * this.traceSpeed * dt;
+            // this.node.x += this.moveDir.x * this.traceSpeed * dt;
+            // this.node.y += this.moveDir.y * this.traceSpeed * dt;
         }
         this.enemyWalkAnimation();
     }
@@ -186,6 +241,7 @@ export default class meleeEnemy extends cc.Component {
         if (other.tag == 1) {
             let currentTime = cc.director.getTotalTime() / 1000.0;
             if (currentTime >= this.nextAttackTime) {
+                this.attackDir = contact.getWorldManifold().normal;
                 this.nextAttackTime = currentTime + this.attackCooldown
                 this.enemyAttackAnimation();
                 other.node.getComponent(player).lifeDamage(1);
@@ -199,6 +255,7 @@ export default class meleeEnemy extends cc.Component {
         if (other.tag == 1) {
             let currentTime = cc.director.getTotalTime() / 1000.0;
             if (currentTime >= this.nextAttackTime) {
+                this.attackDir = contact.getWorldManifold().normal;
                 this.nextAttackTime = currentTime + this.attackCooldown
                 this.enemyAttackAnimation();
                 other.node.getComponent(player).lifeDamage(1);
