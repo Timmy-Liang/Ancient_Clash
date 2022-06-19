@@ -99,7 +99,7 @@ export default class meleeEnemy extends cc.Component {
         for(let i = 0; i < Math.min(len, 10); i++ ) {
             actions.push(cc.moveBy(0.05, this.tracePath[i][0] * 16, this.tracePath[i][1] * -16));
         }
-        if(actions.length > 0) {
+        if(actions.length > 1) {
             let seq = cc.sequence(actions)
             this.node.runAction(seq);
         }
