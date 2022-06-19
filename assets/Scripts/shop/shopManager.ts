@@ -44,11 +44,8 @@ export default class shopManager extends cc.Component {
 
     private equipBg;
 
-    //-------------------------texting data-------------------------//
-    //---player data
     p1_Data= {
-        //job: "slinger",
-        job: "archer",
+        job: "slinger",
         atk: 10,
         def: 10,
         hp: 10,
@@ -59,8 +56,7 @@ export default class shopManager extends cc.Component {
         weapon: "sling1"
     }
     p2_Data={
-        //job: "warrior",
-        job: "archer",
+        job: "warrior",
         atk: 10,
         def: 10,
         hp: 10,
@@ -71,337 +67,13 @@ export default class shopManager extends cc.Component {
         weapon: "sword1"
     }
 
-    //---armor data
-    archerArmor1={
-        atk: 0,
-        def: 1,
-        hp: 1,
-        spd: 1,
-        price: 10
-    }
-    archerArmor3={
-        atk: 0,
-        def: 3,
-        hp: 3,
-        spd: 3,
-        price: 30
-    }
-    archerArmor4={
-        atk: 0,
-        def: 4,
-        hp: 4,
-        spd: 4,
-        price: 40
-    }
-    archerArmor5={
-        atk: 0,
-        def: 5,
-        hp: 5,
-        spd: 5,
-        price: 50
-    }
-    knightArmor1={
-        atk: 0,
-        def: 1,
-        hp: 1,
-        spd: 1,
-        price: 10
-    }
-    knightArmor2={
-        atk: 0,
-        def: 2,
-        hp: 2,
-        spd: 2,
-        price: 20
-    }
-    knightArmor3={
-        atk: 0,
-        def: 3,
-        hp: 3,
-        spd: 3,
-        price: 30
-    }
-    knightArmor4={
-        atk: 0,
-        def: 4,
-        hp: 4,
-        spd: 4,
-        price: 40
-    }
-    slingerArmor1={
-        atk: 0,
-        def: 1,
-        hp: 1,
-        spd: 1,
-        price: 10
-    }
-    slingerArmor2={
-        atk: 0,
-        def: 2,
-        hp: 2,
-        spd: 2,
-        price: 20
-    }
-    slingerArmor3={
-        atk: 0,
-        def: 3,
-        hp: 3,
-        spd: 3,
-        price: 30
-    }
-    slingerArmor4={
-        atk: 0,
-        def: 4,
-        hp: 4,
-        spd: 4,
-        price: 40
-    }
-    warriorArmor1={
-        atk: 0,
-        def: 1,
-        hp: 1,
-        spd: 1,
-        price: 10
-    }
-    warriorArmor2={
-        atk: 0,
-        def: 2,
-        hp: 2,
-        spd: 2,
-        price: 20
-    }
-    warriorArmor3={
-        atk: 0,
-        def: 3,
-        hp: 3,
-        spd: 3,
-        price: 30
-    }
-    warriorArmor4={
-        atk: 0,
-        def: 4,
-        hp: 4,
-        spd: 4,
-        price: 40
-    }
-
-    //---boots data
-    boots1={
-        atk: 0,
-        def: 1,
-        hp: 1,
-        spd: 1,
-        price: 10
-    }
-    boots2={
-        atk: 0,
-        def: 2,
-        hp: 2,
-        spd: 2,
-        price: 20
-    }
-    boots3={
-        atk: 0,
-        def: 3,
-        hp: 3,
-        spd: 3,
-        price: 30
-    }
-    boots4={
-        atk: 0,
-        def: 4,
-        hp: 4,
-        spd: 4,
-        price: 40
-    }
-    boots5={
-        atk: 0,
-        def: 5,
-        hp: 5,
-        spd: 5,
-        price: 50
-    }
-    boots6={
-        atk: 0,
-        def: 6,
-        hp: 6,
-        spd: 6,
-        price: 60
-    }
-    boots7={
-        atk: 0,
-        def: 7,
-        hp: 7,
-        spd: 7,
-        price: 70
-    }
-    boots8={
-        atk: 0,
-        def: 8,
-        hp: 8,
-        spd: 8,
-        price: 80
-    }
-
-    //---weapon data
-    crossBow1={
-        atk: 10,
-        def: 0,
-        hp: 0,
-        spd: 0,
-        price: 10
-    }
-    crossBow2={
-        atk: 20,
-        def: 0,
-        hp: 0,
-        spd: 0,
-        price: 20
-    }
-    crossBow3={
-        atk: 30,
-        def: 0,
-        hp: 0,
-        spd: 0,
-        price: 30
-    }
-    crossBow5={
-        atk: 50,
-        def: 0,
-        hp: 0,
-        spd: 0,
-        price: 50
-    }
-    sword1={
-        atk: 10,
-        def: 0,
-        hp: 0,
-        spd: 0,
-        price: 10
-    }
-    sword2={
-        atk: 20,
-        def: 0,
-        hp: 0,
-        spd: 0,
-        price: 20
-    }
-    sword3={
-        atk: 30,
-        def: 0,
-        hp: 0,
-        spd: 0,
-        price: 30
-    }
-    sword4={
-        atk: 40,
-        def: 0,
-        hp: 0,
-        spd: 0,
-        price: 40
-    }
-    sword5={
-        atk: 50,
-        def: 0,
-        hp: 0,
-        spd: 0,
-        price: 50
-    }
-    sword6={
-        atk: 60,
-        def: 0,
-        hp: 0,
-        spd: 0,
-        price: 60
-    }
-    sword7={
-        atk: 70,
-        def: 0,
-        hp: 0,
-        spd: 0,
-        price: 70
-    }
-    sling1={
-        atk: 10,
-        def: 0,
-        hp: 0,
-        spd: 0,
-        price: 10
-    }
-    sling2={
-        atk: 20,
-        def: 0,
-        hp: 0,
-        spd: 0,
-        price: 20
-    }
-    sling3={
-        atk: 30,
-        def: 0,
-        hp: 0,
-        spd: 0,
-        price: 30
-    }
-    sling4={
-        atk: 40,
-        def: 0,
-        hp: 0,
-        spd: 0,
-        price: 40
-    }
-
-
-    
-    //-------------------------texting data-------------------------//
-
-
     onLoad(){
         cc.sys.localStorage.setItem('p1', JSON.stringify(this.p1_Data));
         cc.sys.localStorage.setItem('p2', JSON.stringify(this.p2_Data));
 
-        cc.sys.localStorage.setItem('archerArmor1', JSON.stringify(this.archerArmor1));
-        cc.sys.localStorage.setItem('archerArmor3', JSON.stringify(this.archerArmor3));
-        cc.sys.localStorage.setItem('archerArmor4', JSON.stringify(this.archerArmor4));
-        cc.sys.localStorage.setItem('archerArmor5', JSON.stringify(this.archerArmor5));
-        cc.sys.localStorage.setItem('knightArmor1', JSON.stringify(this.knightArmor1));
-        cc.sys.localStorage.setItem('knightArmor2', JSON.stringify(this.knightArmor2));
-        cc.sys.localStorage.setItem('knightArmor3', JSON.stringify(this.knightArmor3));
-        cc.sys.localStorage.setItem('knightArmor4', JSON.stringify(this.knightArmor4));
-        cc.sys.localStorage.setItem('slingerArmor1', JSON.stringify(this.slingerArmor1));
-        cc.sys.localStorage.setItem('slingerArmor2', JSON.stringify(this.slingerArmor2));
-        cc.sys.localStorage.setItem('slingerArmor3', JSON.stringify(this.slingerArmor3));
-        cc.sys.localStorage.setItem('slingerArmor4', JSON.stringify(this.slingerArmor4));
-        cc.sys.localStorage.setItem('warriorArmor1', JSON.stringify(this.warriorArmor1));
-        cc.sys.localStorage.setItem('warriorArmor2', JSON.stringify(this.warriorArmor2));
-        cc.sys.localStorage.setItem('warriorArmor3', JSON.stringify(this.warriorArmor3));
-        cc.sys.localStorage.setItem('warriorArmor4', JSON.stringify(this.warriorArmor4));
-        
-        cc.sys.localStorage.setItem('boots1', JSON.stringify(this.boots1));
-        cc.sys.localStorage.setItem('boots2', JSON.stringify(this.boots2));
-        cc.sys.localStorage.setItem('boots3', JSON.stringify(this.boots3));
-        cc.sys.localStorage.setItem('boots4', JSON.stringify(this.boots4));
-        cc.sys.localStorage.setItem('boots5', JSON.stringify(this.boots5));
-        cc.sys.localStorage.setItem('boots6', JSON.stringify(this.boots6));
-        cc.sys.localStorage.setItem('boots7', JSON.stringify(this.boots7));
-        cc.sys.localStorage.setItem('boots8', JSON.stringify(this.boots8));
+        let equipText=JSON.parse(cc.sys.localStorage.getItem("equipInit"));
+        if(!equipText) this.equipInit();
 
-        cc.sys.localStorage.setItem('crossBow1', JSON.stringify(this.crossBow1));
-        cc.sys.localStorage.setItem('crossBow2', JSON.stringify(this.crossBow2));
-        cc.sys.localStorage.setItem('crossBow3', JSON.stringify(this.crossBow3));
-        cc.sys.localStorage.setItem('crossBow5', JSON.stringify(this.crossBow5));
-        cc.sys.localStorage.setItem('sword1', JSON.stringify(this.sword1));
-        cc.sys.localStorage.setItem('sword2', JSON.stringify(this.sword2));
-        cc.sys.localStorage.setItem('sword3', JSON.stringify(this.sword3));
-        cc.sys.localStorage.setItem('sword4', JSON.stringify(this.sword4));
-        cc.sys.localStorage.setItem('sword5', JSON.stringify(this.sword5));
-        cc.sys.localStorage.setItem('sword6', JSON.stringify(this.sword6));
-        cc.sys.localStorage.setItem('sword7', JSON.stringify(this.sword7));
-        cc.sys.localStorage.setItem('sling1', JSON.stringify(this.sling1));
-        cc.sys.localStorage.setItem('sling2', JSON.stringify(this.sling2));
-        cc.sys.localStorage.setItem('sling3', JSON.stringify(this.sling3));
-        cc.sys.localStorage.setItem('sling4', JSON.stringify(this.sling4));
-
-        
         var sth=this;
         cc.loader.loadRes("equipPrefabs/equipBg", function (err, prefab) {
             sth.equipBg = cc.instantiate(prefab);
@@ -560,7 +232,8 @@ export default class shopManager extends cc.Component {
 
         else if(this.BothReady){
             this.BothReady=false;
-            cc.director.loadScene("game");
+            console.log("update data");
+            //cc.director.loadScene("game");
         }
         this.ButtonShow=false;
     }
@@ -739,15 +412,340 @@ export default class shopManager extends cc.Component {
             this.labelUpdate(tag);
         }
     }
-    nextLevel() {
+
+    equipInit(){
+        //---armor data
+        let archerArmor1={
+            atk: 0,
+            def: 1,
+            hp: 1,
+            spd: 1,
+            price: 10
+        }
+        let archerArmor3={
+            atk: 0,
+            def: 3,
+            hp: 3,
+            spd: 3,
+            price: 30
+        }
+        let archerArmor4={
+            atk: 0,
+            def: 4,
+            hp: 4,
+            spd: 4,
+            price: 40
+        }
+        let archerArmor5={
+            atk: 0,
+            def: 5,
+            hp: 5,
+            spd: 5,
+            price: 50
+        }
+        let knightArmor1={
+            atk: 0,
+            def: 1,
+            hp: 1,
+            spd: 1,
+            price: 10
+        }
+        let knightArmor2={
+            atk: 0,
+            def: 2,
+            hp: 2,
+            spd: 2,
+            price: 20
+        }
+        let knightArmor3={
+            atk: 0,
+            def: 3,
+            hp: 3,
+            spd: 3,
+            price: 30
+        }
+        let knightArmor4={
+            atk: 0,
+            def: 4,
+            hp: 4,
+            spd: 4,
+            price: 40
+        }
+        let slingerArmor1={
+            atk: 0,
+            def: 1,
+            hp: 1,
+            spd: 1,
+            price: 10
+        }
+        let slingerArmor2={
+            atk: 0,
+            def: 2,
+            hp: 2,
+            spd: 2,
+            price: 20
+        }
+        let slingerArmor3={
+            atk: 0,
+            def: 3,
+            hp: 3,
+            spd: 3,
+            price: 30
+        }
+        let slingerArmor4={
+            atk: 0,
+            def: 4,
+            hp: 4,
+            spd: 4,
+            price: 40
+        }
+        let warriorArmor1={
+            atk: 0,
+            def: 1,
+            hp: 1,
+            spd: 1,
+            price: 10
+        }
+        let warriorArmor2={
+            atk: 0,
+            def: 2,
+            hp: 2,
+            spd: 2,
+            price: 20
+        }
+        let warriorArmor3={
+            atk: 0,
+            def: 3,
+            hp: 3,
+            spd: 3,
+            price: 30
+        }
+        let warriorArmor4={
+            atk: 0,
+            def: 4,
+            hp: 4,
+            spd: 4,
+            price: 40
+        }
+
+        //---boots data
+        let boots1={
+            atk: 0,
+            def: 1,
+            hp: 1,
+            spd: 1,
+            price: 10
+        }
+        let boots2={
+            atk: 0,
+            def: 2,
+            hp: 2,
+            spd: 2,
+            price: 20
+        }
+        let boots3={
+            atk: 0,
+            def: 3,
+            hp: 3,
+            spd: 3,
+            price: 30
+        }
+        let boots4={
+            atk: 0,
+            def: 4,
+            hp: 4,
+            spd: 4,
+            price: 40
+        }
+        let boots5={
+            atk: 0,
+            def: 5,
+            hp: 5,
+            spd: 5,
+            price: 50
+        }
+        let boots6={
+            atk: 0,
+            def: 6,
+            hp: 6,
+            spd: 6,
+            price: 60
+        }
+        let boots7={
+            atk: 0,
+            def: 7,
+            hp: 7,
+            spd: 7,
+            price: 70
+        }
+        let boots8={
+            atk: 0,
+            def: 8,
+            hp: 8,
+            spd: 8,
+            price: 80
+        }
+
+        //---weapon data
+        let crossBow1={
+            atk: 10,
+            def: 0,
+            hp: 0,
+            spd: 0,
+            price: 10
+        }
+        let crossBow2={
+            atk: 20,
+            def: 0,
+            hp: 0,
+            spd: 0,
+            price: 20
+        }
+        let crossBow3={
+            atk: 30,
+            def: 0,
+            hp: 0,
+            spd: 0,
+            price: 30
+        }
+        let crossBow5={
+            atk: 50,
+            def: 0,
+            hp: 0,
+            spd: 0,
+            price: 50
+        }
+        let sword1={
+            atk: 10,
+            def: 0,
+            hp: 0,
+            spd: 0,
+            price: 10
+        }
+        let sword2={
+            atk: 20,
+            def: 0,
+            hp: 0,
+            spd: 0,
+            price: 20
+        }
+        let sword3={
+            atk: 30,
+            def: 0,
+            hp: 0,
+            spd: 0,
+            price: 30
+        }
+        let sword4={
+            atk: 40,
+            def: 0,
+            hp: 0,
+            spd: 0,
+            price: 40
+        }
+        let sword5={
+            atk: 50,
+            def: 0,
+            hp: 0,
+            spd: 0,
+            price: 50
+        }
+        let sword6={
+            atk: 60,
+            def: 0,
+            hp: 0,
+            spd: 0,
+            price: 60
+        }
+        let sword7={
+            atk: 70,
+            def: 0,
+            hp: 0,
+            spd: 0,
+            price: 70
+        }
+        let sling1={
+            atk: 10,
+            def: 0,
+            hp: 0,
+            spd: 0,
+            price: 10
+        }
+        let sling2={
+            atk: 20,
+            def: 0,
+            hp: 0,
+            spd: 0,
+            price: 20
+        }
+        let sling3={
+            atk: 30,
+            def: 0,
+            hp: 0,
+            spd: 0,
+            price: 30
+        }
+        let sling4={
+            atk: 40,
+            def: 0,
+            hp: 0,
+            spd: 0,
+            price: 40
+        }
+
+        cc.sys.localStorage.setItem('archerArmor1', JSON.stringify(archerArmor1));
+        cc.sys.localStorage.setItem('archerArmor3', JSON.stringify(archerArmor3));
+        cc.sys.localStorage.setItem('archerArmor4', JSON.stringify(archerArmor4));
+        cc.sys.localStorage.setItem('archerArmor5', JSON.stringify(archerArmor5));
+        cc.sys.localStorage.setItem('knightArmor1', JSON.stringify(knightArmor1));
+        cc.sys.localStorage.setItem('knightArmor2', JSON.stringify(knightArmor2));
+        cc.sys.localStorage.setItem('knightArmor3', JSON.stringify(knightArmor3));
+        cc.sys.localStorage.setItem('knightArmor4', JSON.stringify(knightArmor4));
+        cc.sys.localStorage.setItem('slingerArmor1', JSON.stringify(slingerArmor1));
+        cc.sys.localStorage.setItem('slingerArmor2', JSON.stringify(slingerArmor2));
+        cc.sys.localStorage.setItem('slingerArmor3', JSON.stringify(slingerArmor3));
+        cc.sys.localStorage.setItem('slingerArmor4', JSON.stringify(slingerArmor4));
+        cc.sys.localStorage.setItem('warriorArmor1', JSON.stringify(warriorArmor1));
+        cc.sys.localStorage.setItem('warriorArmor2', JSON.stringify(warriorArmor2));
+        cc.sys.localStorage.setItem('warriorArmor3', JSON.stringify(warriorArmor3));
+        cc.sys.localStorage.setItem('warriorArmor4', JSON.stringify(warriorArmor4));
+        
+        cc.sys.localStorage.setItem('boots1', JSON.stringify(boots1));
+        cc.sys.localStorage.setItem('boots2', JSON.stringify(boots2));
+        cc.sys.localStorage.setItem('boots3', JSON.stringify(boots3));
+        cc.sys.localStorage.setItem('boots4', JSON.stringify(boots4));
+        cc.sys.localStorage.setItem('boots5', JSON.stringify(boots5));
+        cc.sys.localStorage.setItem('boots6', JSON.stringify(boots6));
+        cc.sys.localStorage.setItem('boots7', JSON.stringify(boots7));
+        cc.sys.localStorage.setItem('boots8', JSON.stringify(boots8));
+
+        cc.sys.localStorage.setItem('crossBow1', JSON.stringify(crossBow1));
+        cc.sys.localStorage.setItem('crossBow2', JSON.stringify(crossBow2));
+        cc.sys.localStorage.setItem('crossBow3', JSON.stringify(crossBow3));
+        cc.sys.localStorage.setItem('crossBow5', JSON.stringify(crossBow5));
+        cc.sys.localStorage.setItem('sword1', JSON.stringify(sword1));
+        cc.sys.localStorage.setItem('sword2', JSON.stringify(sword2));
+        cc.sys.localStorage.setItem('sword3', JSON.stringify(sword3));
+        cc.sys.localStorage.setItem('sword4', JSON.stringify(sword4));
+        cc.sys.localStorage.setItem('sword5', JSON.stringify(sword5));
+        cc.sys.localStorage.setItem('sword6', JSON.stringify(sword6));
+        cc.sys.localStorage.setItem('sword7', JSON.stringify(sword7));
+        cc.sys.localStorage.setItem('sling1', JSON.stringify(sling1));
+        cc.sys.localStorage.setItem('sling2', JSON.stringify(sling2));
+        cc.sys.localStorage.setItem('sling3', JSON.stringify(sling3));
+        cc.sys.localStorage.setItem('sling4', JSON.stringify(sling4));
+        let tem=true;
+        cc.sys.localStorage.setItem('equipInit', JSON.stringify(tem));
+    }
+      nextLevel() {
         let level = parseInt(cc.sys.localStorage.getItem("level"));
         let nextLevel = level + 1;
-        if (nextLevel == 4) {
+        if (nextLevel == 5) {
             //over all level
             //enter player flighting mode
             cc.find("tmp_bg").active = true;
             this.scheduleOnce(()=>{
-                cc.director.loadScene("start");
+                cc.director.loadScene("pk");
             }, 0.2);
         } 
         else {
@@ -757,5 +755,5 @@ export default class shopManager extends cc.Component {
             cc.director.loadScene("level" + nextLevel.toString());
            }, 0.2);
         }
-    }
+      }
 }
