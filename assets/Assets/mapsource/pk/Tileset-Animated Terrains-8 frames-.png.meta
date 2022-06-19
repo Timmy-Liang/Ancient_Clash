@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "973ade4d-b971-4c1d-ae5e-3d8178b3c907",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 928,
+  "height": 288,
+  "platformSettings": {},
+  "subMetas": {
+    "Tileset-Animated Terrains-8 frames-": {
+      "ver": "1.0.6",
+      "uuid": "5541bb96-9679-4832-8433-371221830e4f",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "973ade4d-b971-4c1d-ae5e-3d8178b3c907",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -16,
+      "offsetY": 11,
+      "trimX": 0,
+      "trimY": 10,
+      "width": 896,
+      "height": 246,
+      "rawWidth": 928,
+      "rawHeight": 288,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
