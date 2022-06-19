@@ -15,7 +15,7 @@ export default class meleeEnemy extends cc.Component {
 
     private target: cc.Node = null;
 
-    private detectRange: number = 200;
+    private detectRange: number = 300;
     private attackCooldown: number = 2;
     private nextAttackTime: number = 0;
     private moveSpeed: number = 40;
@@ -35,9 +35,9 @@ export default class meleeEnemy extends cc.Component {
     private nextTraceTime: number = 0;
     private waitRandomFactor: number = 0.1;
 
-    private enemyLife: number = 5;
+    private enemyLife: number = 150;
 
-    private enemyMaxLife: number = 5;
+    private enemyMaxLife: number = 150;
 
     private enemyLifeProgress: cc.Node = null;
 
@@ -48,6 +48,7 @@ export default class meleeEnemy extends cc.Component {
     private attacking = null
 
     private lastPosition : cc.Vec2 = cc.v2(0, 0)
+    private damage: number = 7;
 
     onLoad() {
     }
@@ -244,7 +245,7 @@ export default class meleeEnemy extends cc.Component {
                 this.attackDir = contact.getWorldManifold().normal;
                 this.nextAttackTime = currentTime + this.attackCooldown
                 this.enemyAttackAnimation();
-                other.node.getComponent(player).lifeDamage(1);
+                other.node.getComponent(player).lifeDamage(this.damage);
             }
         }
     }
@@ -258,7 +259,7 @@ export default class meleeEnemy extends cc.Component {
                 this.attackDir = contact.getWorldManifold().normal;
                 this.nextAttackTime = currentTime + this.attackCooldown
                 this.enemyAttackAnimation();
-                other.node.getComponent(player).lifeDamage(1);
+                other.node.getComponent(player).lifeDamage(this.damage);
             }
             
         }

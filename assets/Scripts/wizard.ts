@@ -23,14 +23,16 @@ export default class wizard extends cc.Component {
     private nextMoveTime: number = 0;
     private waitRandomFactor: number = 0.1;
 
-    private wizardLife: number = 10;
-    private wizardMaxLife: number = 5;
+    private wizardLife: number = 300;
+    private wizardMaxLife: number = 200;
     private wizardLifeProgress: cc.Node = null;
     private target: cc.Node = null;
 
     private targetRange: number = 5;
     private targetGenerate;
-    private damage: number = 5;
+    private damage: number = 15;
+
+
 
     onLoad() {
         this.gameManager = cc.find("gameManager");
