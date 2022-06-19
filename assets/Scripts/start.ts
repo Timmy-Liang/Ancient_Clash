@@ -58,8 +58,7 @@ export default class start extends cc.Component {
         this.p2.position = cc.v3(0, 0);
         this.p1charaname="archer";
         this.p2charaname="archer";
-        let equipText=JSON.parse(cc.sys.localStorage.getItem("equipInit"));
-        if(!equipText) this.equipInit();
+        this.equipInit();
 
         this.user1name="Danny";
         this.user2name="Daniel";
@@ -582,6 +581,7 @@ export default class start extends cc.Component {
         cc.sys.localStorage.setItem('sling4', JSON.stringify(sling4));
         let tem=true;
         cc.sys.localStorage.setItem('equipInit', JSON.stringify(tem));
+        console.log("equip init!")
     }
     closeCharSel(){
         this.twoplayBtn.active=true;
