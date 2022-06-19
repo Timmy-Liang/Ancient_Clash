@@ -295,7 +295,6 @@ export default class player extends cc.Component {
     createBullet() {
         let bullet = null;
         if (this.bulletPool.size() > 0) {
-            console.log("HERE");
             bullet = this.bulletPool.get(this.bulletPool);
         }
 
