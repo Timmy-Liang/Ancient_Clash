@@ -29,8 +29,6 @@ export default class gameManager extends cc.Component {
   @property(cc.AudioClip)
   bgm: cc.AudioClip = null;
 
-  @property(cc.AudioClip)
-  walkSound: cc.AudioClip = null;
   private enemy: cc.Node = null;
   private player1: player = null;
   private player2: player = null;
