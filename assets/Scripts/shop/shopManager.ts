@@ -235,7 +235,7 @@ export default class shopManager extends cc.Component {
             this.BothReady=false;
             cc.sys.localStorage.setItem('p1', JSON.stringify(this.p1));
             cc.sys.localStorage.setItem('p2', JSON.stringify(this.p2));
-            //cc.director.loadScene("game");
+            this.nextLevel();
         }
         this.ButtonShow=false;
     }
