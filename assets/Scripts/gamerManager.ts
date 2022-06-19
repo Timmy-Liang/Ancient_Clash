@@ -82,8 +82,13 @@ export default class gameManager extends cc.Component {
         this.timer=120;
         this.timer1= cc.find("Canvas/camera1/bar1/Timer").getComponent(cc.Label);
         this.timer2= cc.find("Canvas/camera2/bar2/Timer").getComponent(cc.Label);
+
         this.coin1label= cc.find("Canvas/camera1/bar1/coin").getComponent(cc.Label);
         this.coin2label= cc.find("Canvas/camera2/bar2/coin").getComponent(cc.Label);
+        this.coin1=JSON.parse(cc.sys.localStorage.getItem("p1")).money;
+        this.coin2=JSON.parse(cc.sys.localStorage.getItem("p2")).money;
+        this.coin1label.string=this.coin1.toString();
+        this.coin2label.string=this.coin2.toString();
 
         this.camera1 = cc.find("Canvas/camera1");
         this.camera2 = cc.find("Canvas/camera2");
