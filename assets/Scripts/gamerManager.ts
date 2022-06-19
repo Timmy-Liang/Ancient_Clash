@@ -42,9 +42,9 @@ export default class gameManager extends cc.Component {
     private pause: boolean = false;
     private physicManager: cc.PhysicsManager = null;
 
-    private meleeEnemyCount: number = 4;
-    private archerEnemyCount: number = 4;
-    private wizardCount: number = 4;
+    private meleeEnemyCount: number = 0;
+    private archerEnemyCount: number = 1;
+    private wizardCount: number = 0;
 
     private player1_restEnemy: number = 0;
     private player2_restEnemy: number = 0;
@@ -87,6 +87,8 @@ export default class gameManager extends cc.Component {
 
         this.camera1 = cc.find("Canvas/camera1");
         this.camera2 = cc.find("Canvas/camera2");
+
+        //cc.director.getPhysicsManager().debugDrawFlags = 1;
     }
 
     start() {
