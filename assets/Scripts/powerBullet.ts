@@ -12,7 +12,7 @@ export default class bullet extends cc.Component {
 
     private bulletManager = null;
 
-    private bulletSpeed: number = 15;
+    private bulletSpeed: number = 10;
 
     private initPosOffset: number = 32;
 
@@ -24,17 +24,16 @@ export default class bullet extends cc.Component {
     public isTriggered = false; // I add this to make the bullet kill one enemy at a time.
 
     // when created, the bullet need to be placed at correct position and play animation.
-    public init(node: cc.Node, targetDirection: string, targetAngle: number, atk: number) {
+    public init(node: cc.Node, targetDirection: string, targetAngle: number) {
         this.setInitPos(node, targetDirection);
         //this.bulletMove()
         this.speedX = Math.cos(targetAngle * Math.PI / 180);
         this.speedY = Math.sin(targetAngle * Math.PI / 180);
-        this.damage=atk;
 
         this.scheduleOnce(() => {
             this.bulletManager.put(this.node);
-        }, 1);
-        
+            console.log("after put, powerpool size: ", this.bulletManager.size())
+        }, 1.5);
     }
 
     // this function is called when the bullet manager calls "get" API.
@@ -94,12 +93,21 @@ export default class bullet extends cc.Component {
         else if(other.tag == 2) { // hit enemy
             other.getComponent(other.node.name).enemyHurt(this.damage);
         }   
-        this.node.stopAllActions();
+        
+        else {
+            this.node.stopAllActions();
+            this.unscheduleAllCallbacks();
+            this.scheduleOnce(() => {
+                this.bulletManager.put(this.node);
+            }, 0.03);
+        }
+        //this.node.stopAllActions();
 
-        this.unscheduleAllCallbacks();
-
+        //this.unscheduleAllCallbacks();
+        /*
         this.scheduleOnce(() => {
             this.bulletManager.put(this.node);
-        }, 0.03); // for better animation effect, I delay 0.1s when bullet hits the enemy
+        }, 0.1); // for better animation effect, I delay 0.1s when bullet hits the enemy
+        */
     }
 }

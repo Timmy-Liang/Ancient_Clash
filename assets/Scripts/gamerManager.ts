@@ -42,9 +42,9 @@ export default class gameManager extends cc.Component {
     private pause: boolean = false;
     private physicManager: cc.PhysicsManager = null;
 
-    private meleeEnemyCount: number = 3;
-    private archerEnemyCount: number = 3;
-    private wizardCount: number = 0;
+    private meleeEnemyCount: number = 4;
+    private archerEnemyCount: number = 4;
+    private wizardCount: number = 4;
 
     private player1_restEnemy: number = 0;
     private player2_restEnemy: number = 0;
@@ -63,6 +63,8 @@ export default class gameManager extends cc.Component {
     private coin2label: cc.Label = null;
 
     private passControl: number = 0;
+    private camera1: cc.Node = null;
+    private camera2: cc.Node = null;
     //1: player1 pass first
     //2: player2 pass first
     //3: both player pass
@@ -82,6 +84,9 @@ export default class gameManager extends cc.Component {
         this.timer2= cc.find("Canvas/camera2/bar2/Timer").getComponent(cc.Label);
         this.coin1label= cc.find("Canvas/camera1/bar1/coin").getComponent(cc.Label);
         this.coin2label= cc.find("Canvas/camera2/bar2/coin").getComponent(cc.Label);
+
+        this.camera1 = cc.find("Canvas/camera1");
+        this.camera2 = cc.find("Canvas/camera2");
     }
 
     start() {
@@ -92,8 +97,8 @@ export default class gameManager extends cc.Component {
         this.initWall(this.mapLeft);
         this.initWall(this.mapRight);
 
-        this.player1_restEnemy = this.meleeEnemyCount + this.wizardCount;
-        this.player2_restEnemy = this.meleeEnemyCount + this.wizardCount;
+        this.player1_restEnemy = this.meleeEnemyCount + this.wizardCount+ this.archerEnemyCount;
+        this.player2_restEnemy = this.meleeEnemyCount + this.wizardCount+ this.archerEnemyCount;
         //i=1 for player1, i=2 for player2
         for (let i = 1; i < 3; i++) {
             this.initEnemies(i, this.meleeEnemyCount, this.wizardCount, this.archerEnemyCount);
@@ -246,6 +251,7 @@ export default class gameManager extends cc.Component {
         this.player1.playerMoveDir("IDLE");
         this.player2.playerMoveDir("IDLE");
         if (keyboardInput[cc.macro.KEY.space]) this.player1.playerAttack();
+        if (keyboardInput[cc.macro.KEY.m]) this.player1.playerPower();
         if (keyboardInput[cc.macro.KEY.s] && keyboardInput[cc.macro.KEY.d]) {
             this.player1.playerMoveDir("SE");
         } else if (keyboardInput[cc.macro.KEY.d] && keyboardInput[cc.macro.KEY.w]) {
@@ -298,6 +304,10 @@ export default class gameManager extends cc.Component {
     }
 
     gameOver() {
+        this.camera1.active = false;
+        this.camera2.active = false;
+        cc.find("Canvas/loadingCamera").active = true;
+        cc.find("Canvas/tmp_bg").active = true;
         cc.director.loadScene("start");
     }
 
@@ -307,6 +317,7 @@ export default class gameManager extends cc.Component {
 
     enemyReduce(x) {
         if (x > 0) {
+            console.log("p2-1, rest: ", this.player2_restEnemy);
             this.player2_restEnemy -= 1;
             if (this.player2_restEnemy == 0) {
                 if (this.passControl == 0) {
@@ -318,6 +329,7 @@ export default class gameManager extends cc.Component {
         }
         else {
             this.player1_restEnemy -= 1;
+            console.log("p1-1, rest: ", this.player1_restEnemy);
             if (this.player1_restEnemy == 0) {
                 if (this.passControl == 0) {
                     this.passControl = 1;
@@ -328,8 +340,8 @@ export default class gameManager extends cc.Component {
         }
           if (this.passControl == 3) {
             //console.log("enter shop");
-            cc.find("Canvas/camera1").active = false;
-            cc.find("Canvas/camera2").active = false;
+            this.camera1.active = false;
+            this.camera2.active = false;
             cc.find("Canvas/loadingCamera").active = true;
             cc.find("Canvas/tmp_bg").active = true;
             cc.director.loadScene("shop");

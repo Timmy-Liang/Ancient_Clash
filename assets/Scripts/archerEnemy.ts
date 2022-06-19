@@ -19,7 +19,7 @@ export default class archerEnemy extends cc.Component {
 
     private target: cc.Node = null;
 
-    private detectRange: number = 200;
+    private detectRange: number = 300;
     private attackRange: number = 5;
     private attackCooldown: number = 2;
     private nextAttackTime: number = 0;
@@ -33,8 +33,8 @@ export default class archerEnemy extends cc.Component {
     private nextTraceTime: number = 0;
     private waitRandomFactor: number = 0.1;
 
-    private enemyLife: number = 5;
-    private enemyMaxLife: number = 5;
+    private enemyLife: number = 85;
+    private enemyMaxLife: number = 85;
     private enemyLifeProgress: cc.Node = null;
 
     private anim: cc.Animation = null;
@@ -45,6 +45,8 @@ export default class archerEnemy extends cc.Component {
     private targetDirection: string = '';
     private targetAngle: number = 0;
     private targetPosition: cc.Vec2 = cc.v2(0, 0);
+
+    private damage: number = 10;
     
 
     onLoad() {
@@ -185,7 +187,7 @@ export default class archerEnemy extends cc.Component {
 
     onBeginContact(contact, self, other) {
         if (other.tag == 1) {
-            other.node.getComponent(player).lifeDamage(1);
+            other.node.getComponent(player).lifeDamage(this.damage);
         }
         else if (other.node.name == 'bullet') {
             this.enemyHurt(1) ;
