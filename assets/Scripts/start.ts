@@ -163,10 +163,10 @@ export default class start extends cc.Component {
             weapon: ""
         }
         if(name=="archer"){
-            data.atk=10;
+            data.atk=8;
             data.def=2;
             data.hp=30;
-            data.spd=5;
+            data.spd=4;
             data.weapon="crossBow1";
             data.armor="archerArmor1";
         }
@@ -174,7 +174,7 @@ export default class start extends cc.Component {
             data.atk=15;
             data.def=4;
             data.hp=30;
-            data.spd=3;
+            data.spd=2.5;
             data.weapon="sling1";
             data.armor="slingerArmor1";
         }
@@ -182,7 +182,7 @@ export default class start extends cc.Component {
             data.atk=7;
             data.def=10;
             data.hp=50;
-            data.spd=4;
+            data.spd=2.5;
             data.weapon="sword1";
             data.armor="knightArmor1";
         }
@@ -190,7 +190,7 @@ export default class start extends cc.Component {
             data.atk=12;
             data.def=2;
             data.hp=30;
-            data.spd=4;
+            data.spd=3;
             data.weapon="sword1";
             data.armor="warriorArmor1";
         }
@@ -201,114 +201,114 @@ export default class start extends cc.Component {
         //---armor data
         let archerArmor1={
             atk: 0,
-            def: 1,
-            hp: 1,
-            spd: 1,
+            def: 3,
+            hp: 10,
+            spd: 0,
             price: 10
         }
         let archerArmor3={
             atk: 0,
-            def: 3,
-            hp: 3,
-            spd: 3,
-            price: 30
+            def: 5,
+            hp: 18,
+            spd: 0,
+            price: 20
         }
         let archerArmor4={
             atk: 0,
-            def: 4,
-            hp: 4,
-            spd: 4,
-            price: 40
+            def: 7,
+            hp: 22,
+            spd: 0,
+            price: 30
         }
         let archerArmor5={
             atk: 0,
-            def: 5,
-            hp: 5,
-            spd: 5,
-            price: 50
+            def: 10,
+            hp: 25,
+            spd: 1,
+            price: 40
         }
         let knightArmor1={
             atk: 0,
-            def: 1,
-            hp: 1,
-            spd: 1,
+            def: 5,
+            hp: 15,
+            spd: 0,
             price: 10
         }
         let knightArmor2={
             atk: 0,
-            def: 2,
-            hp: 2,
-            spd: 2,
+            def: 8,
+            hp: 25,
+            spd: 0,
             price: 20
         }
         let knightArmor3={
             atk: 0,
-            def: 3,
-            hp: 3,
-            spd: 3,
+            def: 12,
+            hp: 30,
+            spd: 0,
             price: 30
         }
         let knightArmor4={
             atk: 0,
-            def: 4,
-            hp: 4,
-            spd: 4,
+            def: 16,
+            hp: 40,
+            spd: 0,
             price: 40
         }
         let slingerArmor1={
             atk: 0,
-            def: 1,
-            hp: 1,
-            spd: 1,
+            def: 3,
+            hp: 10,
+            spd: 0,
             price: 10
         }
         let slingerArmor2={
             atk: 0,
-            def: 2,
-            hp: 2,
-            spd: 2,
+            def: 4,
+            hp: 22,
+            spd: 0,
             price: 20
         }
         let slingerArmor3={
             atk: 0,
-            def: 3,
-            hp: 3,
-            spd: 3,
+            def: 5,
+            hp: 28,
+            spd: 0,
             price: 30
         }
         let slingerArmor4={
             atk: 0,
-            def: 4,
-            hp: 4,
-            spd: 4,
+            def: 8,
+            hp: 35,
+            spd: 1,
             price: 40
         }
         let warriorArmor1={
             atk: 0,
-            def: 1,
-            hp: 1,
-            spd: 1,
+            def: 3,
+            hp: 10,
+            spd: 0,
             price: 10
         }
         let warriorArmor2={
             atk: 0,
-            def: 2,
-            hp: 2,
-            spd: 2,
+            def: 5,
+            hp: 15,
+            spd: 0,
             price: 20
         }
         let warriorArmor3={
             atk: 0,
-            def: 3,
-            hp: 3,
-            spd: 3,
+            def: 10,
+            hp: 25,
+            spd: 0,
             price: 30
         }
         let warriorArmor4={
             atk: 0,
-            def: 4,
-            hp: 4,
-            spd: 4,
+            def: 16,
+            hp: 35,
+            spd: 1,
             price: 40
         }
 
@@ -316,161 +316,161 @@ export default class start extends cc.Component {
         let boots1={
             atk: 0,
             def: 1,
-            hp: 1,
+            hp: 0,
             spd: 1,
             price: 10
         }
         let boots2={
             atk: 0,
-            def: 2,
-            hp: 2,
-            spd: 2,
+            def: 3,
+            hp: 5,
+            spd: 1,
             price: 20
         }
         let boots3={
             atk: 0,
-            def: 3,
-            hp: 3,
-            spd: 3,
+            def: 5,
+            hp: 10,
+            spd: 2,
             price: 30
         }
         let boots4={
             atk: 0,
             def: 4,
-            hp: 4,
-            spd: 4,
+            hp: 15,
+            spd: 2,
             price: 40
         }
         let boots5={
             atk: 0,
             def: 5,
             hp: 5,
-            spd: 5,
-            price: 50
+            spd: 1,
+            price: 25
         }
         let boots6={
             atk: 0,
-            def: 6,
-            hp: 6,
-            spd: 6,
-            price: 60
+            def: 10,
+            hp: 10,
+            spd: 2,
+            price: 40
         }
         let boots7={
             atk: 0,
-            def: 7,
-            hp: 7,
-            spd: 7,
-            price: 70
+            def: 2,
+            hp: 15,
+            spd: 1,
+            price: 20
         }
         let boots8={
             atk: 0,
-            def: 8,
-            hp: 8,
-            spd: 8,
-            price: 80
+            def: 7,
+            hp: 25,
+            spd: 2,
+            price: 35
         }
 
         //---weapon data
         let crossBow1={
-            atk: 10,
+            atk: 4,
             def: 0,
             hp: 0,
             spd: 0,
             price: 10
         }
         let crossBow2={
-            atk: 20,
+            atk: 7,
             def: 0,
             hp: 0,
             spd: 0,
             price: 20
         }
         let crossBow3={
-            atk: 30,
+            atk: 10,
             def: 0,
             hp: 0,
             spd: 0,
             price: 30
         }
         let crossBow5={
-            atk: 50,
+            atk: 12,
             def: 0,
             hp: 0,
             spd: 0,
-            price: 50
+            price: 40
         }
         let sword1={
-            atk: 10,
+            atk: 6,
             def: 0,
             hp: 0,
             spd: 0,
             price: 10
         }
         let sword2={
-            atk: 20,
+            atk: 12,
             def: 0,
             hp: 0,
             spd: 0,
             price: 20
         }
         let sword3={
-            atk: 30,
+            atk: 18,
             def: 0,
             hp: 0,
             spd: 0,
             price: 30
         }
         let sword4={
-            atk: 40,
+            atk: 24,
             def: 0,
             hp: 0,
             spd: 0,
             price: 40
         }
         let sword5={
-            atk: 50,
+            atk: 10,
             def: 0,
             hp: 0,
             spd: 0,
-            price: 50
+            price: 20
         }
         let sword6={
-            atk: 60,
+            atk: 15,
             def: 0,
             hp: 0,
             spd: 0,
-            price: 60
+            price: 30
         }
         let sword7={
-            atk: 70,
+            atk: 19,
             def: 0,
             hp: 0,
             spd: 0,
-            price: 70
+            price: 40
         }
         let sling1={
-            atk: 10,
+            atk: 7,
             def: 0,
             hp: 0,
             spd: 0,
             price: 10
         }
         let sling2={
-            atk: 20,
+            atk: 14,
             def: 0,
             hp: 0,
             spd: 0,
             price: 20
         }
         let sling3={
-            atk: 30,
+            atk: 21,
             def: 0,
             hp: 0,
             spd: 0,
             price: 30
         }
         let sling4={
-            atk: 40,
+            atk: 28,
             def: 0,
             hp: 0,
             spd: 0,

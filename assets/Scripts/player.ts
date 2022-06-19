@@ -61,8 +61,11 @@ export default class player extends cc.Component {
         this.enemyCount = this.enemys.childrenCount;
 
         this.playerData = JSON.parse(cc.sys.localStorage.getItem("p" + index));
+        this.speed=this.playerData.spd*75;
         this.playerData = this.dataUpdata(this.playerData);
         this.lifeMax = this.playerData.hp;
+
+        cc.log("player Data: ", this.playerData);
 
         try {
             let currentCharacter = JSON.parse(
@@ -274,7 +277,9 @@ export default class player extends cc.Component {
                     0.1,
                     4
                 );
-            } else if (this.characterTag == 1) {
+            } 
+            
+            else if (this.characterTag == 1) {
                 this.traceEnemy();
                 let powerBullet = null;
                 if (this.powerBulletpool.size() > 0)
@@ -285,24 +290,28 @@ export default class player extends cc.Component {
                         .init(this.node, this.targetDirection, this.targetAngle);
 
                 this.playerAttackAnimation();
-            } else if (this.characterTag == 2) {
+            }
+            
+            else if (this.characterTag == 2) {
                 this.attackCooldown = 0.25;
                 this.node.color = new cc.Color(248, 86, 86);
                 this.scheduleOnce(() => {
                     this.attackCooldown = 0.5;
                     this.node.color = new cc.Color(255, 255, 255);
                 }, 2.5);
-            } else if (this.characterTag == 3) {
+            }
+            
+            else if (this.characterTag == 3) {
                 this.node.color = new cc.Color(134, 250, 255);
+                this.playerData.def = this.playerData.def * 2 + 20;
                 this.scheduleOnce(() => {
+                    this.playerData.def = (this.playerData.def - 20 ) /2;
                     this.node.color = new cc.Color(255, 255, 255);
                 }, 2.5);
             }
             this.scheduleOnce(() => {
                 this.setPowerCooldown(0);
-                this.playerData.def =
-                    this.playerData.def + this.playerData.def * 1.5 + 10;
-                this.colorOfpower.color = new cc.Color(0, 255, 80);
+                this.colorOfpower.color = new cc.Color(0, 255, 10);
             }, this.powerCooltime);
         }
     }
@@ -403,13 +412,11 @@ export default class player extends cc.Component {
     }
 
     lifeDamage(damage: number) {
-        console.log("get hurt", damage);
         if (this.playerData.hp > 0) {
             this.playerHurtAnimation();
             console.log("before hurt", this.playerData.hp);
             this.playerData.hp -=
                 damage * (1 - this.playerData.def / (this.playerData.def + 10));
-            console.log("after hurt", this.playerData.hp);
         }
         if (this.playerData.hp <= 0) {
             this.playerDieAnimation();

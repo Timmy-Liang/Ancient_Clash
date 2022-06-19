@@ -147,10 +147,10 @@ export default class archerEnemy extends cc.Component {
         this.enemyLifeProgress.getComponent(cc.ProgressBar).progress = this.enemyLife / this.enemyMaxLife;
         if (this.enemyLife <= 0) {
             cc.audioEngine.playEffect(this.killedSound,false);
-            this.gameManager.getComponent("gamerManager").enemyReduce(this.node.x);
             this.node.active = false;
             if(this.node.parent.name=="enemy1")this.gameManager.getComponent("gamerManager").addcoin(1,15);
             else if(this.node.parent.name=="enemy2")this.gameManager.getComponent("gamerManager").addcoin(2,15);
+            this.gameManager.getComponent("gamerManager").enemyReduce(this.node.x);
             this.node.destroy();
         }
     }

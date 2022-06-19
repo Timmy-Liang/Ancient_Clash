@@ -43,7 +43,7 @@ export default class shopManager extends cc.Component {
     private p2_Label;
 
     private equipBg;
-
+    /*
     p1_Data= {
         job: "slinger",
         atk: 10,
@@ -66,10 +66,11 @@ export default class shopManager extends cc.Component {
         boots: "boots1",
         weapon: "sword1"
     }
+    */
 
     onLoad(){
-        cc.sys.localStorage.setItem('p1', JSON.stringify(this.p1_Data));
-        cc.sys.localStorage.setItem('p2', JSON.stringify(this.p2_Data));
+        //cc.sys.localStorage.setItem('p1', JSON.stringify(this.p1_Data));
+        //cc.sys.localStorage.setItem('p2', JSON.stringify(this.p2_Data));
 
         let equipText=JSON.parse(cc.sys.localStorage.getItem("equipInit"));
         if(!equipText) this.equipInit();
@@ -92,6 +93,7 @@ export default class shopManager extends cc.Component {
 
         //-----------------p1 initialize---------------//
         this.p1=JSON.parse(cc.sys.localStorage.getItem("p1"));
+        console.log("shop p1: ", this.p1);
         this.p1_Label=cc.find("Canvas/p1_Label").getComponent(cc.Label);
         this.labelUpdate(1);
 
@@ -121,6 +123,7 @@ export default class shopManager extends cc.Component {
         
         //-----------------p2 initialize---------------//
         this.p2=JSON.parse(cc.sys.localStorage.getItem("p2"));
+        console.log("shop p1: ", this.p1);
         this.p2_Label=cc.find("Canvas/p2_Label").getComponent(cc.Label);
         this.labelUpdate(2);
 
@@ -232,8 +235,9 @@ export default class shopManager extends cc.Component {
 
         else if(this.BothReady){
             this.BothReady=false;
-            console.log("update data");
-            //cc.director.loadScene("game");
+            cc.sys.localStorage.setItem('p1', JSON.stringify(this.p1));
+            cc.sys.localStorage.setItem('p2', JSON.stringify(this.p2));
+            this.nextLevel();
         }
         this.ButtonShow=false;
     }
@@ -266,7 +270,7 @@ export default class shopManager extends cc.Component {
             "ATK: "+tem.atk+"\n"
             +"DEF: "+tem.def+"\n"
             +"HP: " + tem.hp+"\n"
-            +"SPD: "+ tem.hp+"\n"
+            +"SPD: "+ tem.spd+"\n"
             +"Money: "+tem.money;
         }
         else if(tag==2){
