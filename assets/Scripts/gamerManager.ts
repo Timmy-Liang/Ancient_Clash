@@ -37,8 +37,8 @@ export default class gameManager extends cc.Component {
     private pause: boolean = false;
     private physicManager: cc.PhysicsManager = null;
 
-    private meleeEnemyCount: number = 3;
-    private archerEnemyCount: number = 3;
+    private meleeEnemyCount: number = 1;
+    private archerEnemyCount: number = 0;
     private wizardCount: number = 0;
 
     private player1_restEnemy: number = 0;
@@ -58,6 +58,8 @@ export default class gameManager extends cc.Component {
     private coin2label: cc.Label = null;
 
     private passControl: number = 0;
+    private camera1: cc.Node = null;
+    private camera2: cc.Node = null;
     //1: player1 pass first
     //2: player2 pass first
     //3: both player pass
@@ -77,6 +79,9 @@ export default class gameManager extends cc.Component {
         this.timer2= cc.find("Canvas/camera2/bar2/Timer").getComponent(cc.Label);
         this.coin1label= cc.find("Canvas/camera1/bar1/coin").getComponent(cc.Label);
         this.coin2label= cc.find("Canvas/camera2/bar2/coin").getComponent(cc.Label);
+
+        this.camera1 = cc.find("Canvas/camera1");
+        this.camera2 = cc.find("Canvas/camera2");
     }
 
     start() {
@@ -283,6 +288,10 @@ export default class gameManager extends cc.Component {
     }
 
     gameOver() {
+        this.camera1.active = false;
+        this.camera2.active = false;
+        cc.find("Canvas/loadingCamera").active = true;
+        cc.find("Canvas/tmp_bg").active = true;
         cc.director.loadScene("start");
     }
 
@@ -313,8 +322,8 @@ export default class gameManager extends cc.Component {
         }
           if (this.passControl == 3) {
             //console.log("enter shop");
-            cc.find("Canvas/camera1").active = false;
-            cc.find("Canvas/camera2").active = false;
+            this.camera1.active = false;
+            this.camera2.active = false;
             cc.find("Canvas/loadingCamera").active = true;
             cc.find("Canvas/tmp_bg").active = true;
             cc.director.loadScene("shop");
