@@ -47,7 +47,8 @@ export default class shopManager extends cc.Component {
     //-------------------------texting data-------------------------//
     //---player data
     p1_Data= {
-        job: "slinger",
+        //job: "slinger",
+        job: "archer",
         atk: 10,
         def: 10,
         hp: 10,
@@ -58,7 +59,8 @@ export default class shopManager extends cc.Component {
         weapon: "sling1"
     }
     p2_Data={
-        job: "warrior",
+        //job: "warrior",
+        job: "archer",
         atk: 10,
         def: 10,
         hp: 10,
@@ -740,7 +742,7 @@ export default class shopManager extends cc.Component {
     nextLevel() {
         let level = parseInt(cc.sys.localStorage.getItem("level"));
         let nextLevel = level + 1;
-        if (nextLevel == 3) {
+        if (nextLevel == 4) {
             //over all level
             //enter player flighting mode
             cc.find("tmp_bg").active = true;
