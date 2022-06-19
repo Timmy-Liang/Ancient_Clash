@@ -191,9 +191,6 @@ export default class archerEnemy extends cc.Component {
         if (other.tag == 1) {
             other.node.getComponent(player).lifeDamage(this.damage);
         }
-        else if (other.node.name == 'bullet') {
-            this.enemyHurt(1) ;
-        }
     }
 }
 
