@@ -43,7 +43,7 @@ export default class shopManager extends cc.Component {
     private p2_Label;
 
     private equipBg;
-
+    /*
     p1_Data= {
         job: "slinger",
         atk: 10,
@@ -66,10 +66,11 @@ export default class shopManager extends cc.Component {
         boots: "boots1",
         weapon: "sword1"
     }
+    */
 
     onLoad(){
-        cc.sys.localStorage.setItem('p1', JSON.stringify(this.p1_Data));
-        cc.sys.localStorage.setItem('p2', JSON.stringify(this.p2_Data));
+        //cc.sys.localStorage.setItem('p1', JSON.stringify(this.p1_Data));
+        //cc.sys.localStorage.setItem('p2', JSON.stringify(this.p2_Data));
 
         let equipText=JSON.parse(cc.sys.localStorage.getItem("equipInit"));
         if(!equipText) this.equipInit();
@@ -232,7 +233,8 @@ export default class shopManager extends cc.Component {
 
         else if(this.BothReady){
             this.BothReady=false;
-            console.log("update data");
+            cc.sys.localStorage.setItem('p1', JSON.stringify(this.p1));
+            cc.sys.localStorage.setItem('p2', JSON.stringify(this.p2));
             //cc.director.loadScene("game");
         }
         this.ButtonShow=false;
