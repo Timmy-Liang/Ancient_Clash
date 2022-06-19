@@ -33,6 +33,9 @@ export default class fightBullet extends cc.Component {
         this.scheduleOnce(() => {
             this.bulletManager.put(this.node);
         }, 1);
+        if(node.name == 'archer'){
+            this.node.angle =  targetAngle + 135
+        }
         
     }
 
