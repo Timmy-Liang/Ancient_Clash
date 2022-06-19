@@ -65,8 +65,6 @@ export default class player extends cc.Component {
         this.playerData = this.dataUpdata(this.playerData);
         this.lifeMax = this.playerData.hp;
 
-        cc.log("player Data: ", this.playerData);
-
         try {
             let currentCharacter = JSON.parse(
                 cc.sys.localStorage.getItem("p" + index)

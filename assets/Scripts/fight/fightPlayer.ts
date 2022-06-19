@@ -1,13 +1,15 @@
 const { ccclass, property } = cc._decorator;
 
+
+
 @ccclass
 export default class fightPlayer extends cc.Component {
-
     @property(cc.Prefab)
     private bulletPrefab: cc.Prefab = null;
 
     @property(cc.Prefab)
     private powerBulletprefab: cc.Prefab = null;
+
 
     private moveDir: string = 'S';
     private aimDir: cc.Vec2 = cc.v2(0, 0);
@@ -89,6 +91,7 @@ export default class fightPlayer extends cc.Component {
         catch {
 
         };
+
     }
 
     start() {
@@ -342,7 +345,7 @@ export default class fightPlayer extends cc.Component {
     update(dt) {
         this.playerMove(dt);
         this.playerWalkAnimation();
-        this.lifeprogress.getComponent(cc.ProgressBar).progress = this.life / this.lifeMax;
+        this.lifeprogress.getComponent(cc.ProgressBar).progress = this.playerData.hp / this.lifeMax;
         if(this.powerCooldown) this.powerprogress.getComponent(cc.ProgressBar).progress+=dt/this.powerCooltime;
     }
 
