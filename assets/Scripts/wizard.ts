@@ -112,10 +112,10 @@ export default class wizard extends cc.Component {
         this.wizardLife -= hp;
         this.wizardLifeProgress.getComponent(cc.ProgressBar).progress = this.wizardLife / this.wizardMaxLife;
         if (this.wizardLife <= 0) {
-            this.gameManager.getComponent("gamerManager").enemyReduce(this.node.x);
             this.node.active = false;
             if(this.node.parent.name=="enemy1")this.gameManager.getComponent("gamerManager").addcoin(1,25);
             else if(this.node.parent.name=="enemy2")this.gameManager.getComponent("gamerManager").addcoin(2,25);
+            this.gameManager.getComponent("gamerManager").enemyReduce(this.node.x);
             if (this.target != null) this.target.destroy();
             this.node.destroy();
         }
@@ -137,7 +137,7 @@ export default class wizard extends cc.Component {
         }
     }
 
-    
+    /*
     onBeginContact(contact, self, other) {
         if (other.node.name == "bullet") {
             this.wizardLife--;
@@ -148,6 +148,7 @@ export default class wizard extends cc.Component {
             }
         }
       }
+      */
 
     update(dt) {
         if (this.wizardLife <= 0) {

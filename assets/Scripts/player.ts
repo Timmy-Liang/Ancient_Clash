@@ -35,7 +35,7 @@ export default class player extends cc.Component {
     private enemys: cc.Node = null;
     private enemyCount: number = 0;
     private targetPosition: cc.Vec2 = cc.v2(0, 0);
-    private targetDirection: string = "";
+    private targetDirection: string = "S";
     private targetAngle: number = 0;
 
     private life: number = 10;
@@ -61,8 +61,11 @@ export default class player extends cc.Component {
         this.enemyCount = this.enemys.childrenCount;
 
         this.playerData = JSON.parse(cc.sys.localStorage.getItem("p" + index));
+        this.speed=this.playerData.spd*75;
         this.playerData = this.dataUpdata(this.playerData);
         this.lifeMax = this.playerData.hp;
+
+        cc.log("player Data: ", this.playerData);
 
         try {
             let currentCharacter = JSON.parse(
@@ -224,6 +227,25 @@ export default class player extends cc.Component {
             this.attacking = false;
         });
     }
+    
+    playerDieAnimation () {
+        this.anim.stop();
+        this.attacking = true;
+        this.animateState = this.anim.play(
+            this.characterName + "Dying" + this.targetDirection
+        );
+    }
+
+    playerHurtAnimation () {
+        this.anim.stop();
+        this.attacking = true;
+        this.animateState = this.anim.play(
+            this.characterName + "Hurt" + this.targetDirection
+        );
+        this.anim.on("finished", (e) => {
+            this.attacking = false;
+        });
+    }
 
     playerAttack() {
         this.traceEnemy();
@@ -255,7 +277,9 @@ export default class player extends cc.Component {
                     0.1,
                     4
                 );
-            } else if (this.characterTag == 1) {
+            } 
+            
+            else if (this.characterTag == 1) {
                 this.traceEnemy();
                 let powerBullet = null;
                 if (this.powerBulletpool.size() > 0)
@@ -266,24 +290,28 @@ export default class player extends cc.Component {
                         .init(this.node, this.targetDirection, this.targetAngle);
 
                 this.playerAttackAnimation();
-            } else if (this.characterTag == 2) {
+            }
+            
+            else if (this.characterTag == 2) {
                 this.attackCooldown = 0.25;
                 this.node.color = new cc.Color(248, 86, 86);
                 this.scheduleOnce(() => {
                     this.attackCooldown = 0.5;
                     this.node.color = new cc.Color(255, 255, 255);
                 }, 2.5);
-            } else if (this.characterTag == 3) {
+            }
+            
+            else if (this.characterTag == 3) {
                 this.node.color = new cc.Color(134, 250, 255);
+                this.playerData.def = this.playerData.def * 2 + 20;
                 this.scheduleOnce(() => {
+                    this.playerData.def = (this.playerData.def - 20 ) /2;
                     this.node.color = new cc.Color(255, 255, 255);
                 }, 2.5);
             }
             this.scheduleOnce(() => {
                 this.setPowerCooldown(0);
-                this.playerData.def =
-                    this.playerData.def + this.playerData.def * 1.5 + 10;
-                this.colorOfpower.color = new cc.Color(0, 255, 80);
+                this.colorOfpower.color = new cc.Color(0, 255, 10);
             }, this.powerCooltime);
         }
     }
@@ -310,25 +338,28 @@ export default class player extends cc.Component {
     }
 
     meleeAttack() {
-        for (var prop in this.rangeTarget) {
-            let currentPosition = this.node.convertToWorldSpaceAR(cc.v2(0, 0));
-            let enemyPosition = this.rangeTarget[prop];
-            let nextTargetAngle = calcAngleDegrees(
-                enemyPosition.x - currentPosition.x,
-                enemyPosition.y - currentPosition.y
-            );
-            if (
-                nextTargetAngle < this.targetAngle + 22.5 &&
-                nextTargetAngle > (this.targetAngle - 22.5) % 360
-            ) {
-                // ERROR
-                let currentEnemy = this.enemys.children[prop];
-                console.log(currentEnemy.name);
-                currentEnemy
-                    .getComponent(currentEnemy.name)
-                    .enemyHurt(this.playerData.atk);
+        if(this.rangeTarget) {
+            for (var prop in this.rangeTarget) {
+                let currentPosition = this.node.convertToWorldSpaceAR(cc.v2(0, 0));
+                let enemyPosition = this.rangeTarget[prop];
+                let nextTargetAngle = calcAngleDegrees(
+                    enemyPosition.x - currentPosition.x,
+                    enemyPosition.y - currentPosition.y
+                );
+                if (
+                    nextTargetAngle < this.targetAngle + 22.5 &&
+                    nextTargetAngle > (this.targetAngle - 22.5) % 360
+                ) {
+                    // ERROR
+                    let currentEnemy = this.enemys.children[prop];
+                    currentEnemy
+                        .getComponent(currentEnemy.name)
+                        .enemyHurt(this.playerData.atk);
+                }
             }
         }
+        this.rangeTarget = {}
+        
     }
 
     traceEnemy() {
@@ -385,14 +416,15 @@ export default class player extends cc.Component {
     }
 
     lifeDamage(damage: number) {
-        console.log("get hurt", damage);
         if (this.playerData.hp > 0) {
+            this.playerHurtAnimation();
             console.log("before hurt", this.playerData.hp);
             this.playerData.hp -=
                 damage * (1 - this.playerData.def / (this.playerData.def + 10));
-            console.log("after hurt", this.playerData.hp);
         }
         if (this.playerData.hp <= 0) {
+            this.playerDieAnimation();
+            cc.find("gameManager").getComponent(gameManager).pause = true
             let index = this.node.parent.name.slice(-1);
             var winner = ''
             if(index == '1')

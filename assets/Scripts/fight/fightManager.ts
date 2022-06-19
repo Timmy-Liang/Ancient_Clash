@@ -158,7 +158,7 @@ export default class gameManager extends cc.Component {
             }
         }
         if (keyboardInput[cc.macro.KEY.forwardslash]) this.player2.playerAttack();
-
+        if (keyboardInput[cc.macro.KEY.period]) this.player2.playerPower();
         if (keyboardInput[cc.macro.KEY.down] && keyboardInput[cc.macro.KEY.right]) {
             this.player2.playerMoveDir("SE");
         } else if (

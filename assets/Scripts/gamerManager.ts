@@ -38,7 +38,7 @@ export default class gameManager extends cc.Component {
     private mapLeft: cc.TiledMap = null;
     private mapRight: cc.TiledMap = null;
 
-    private pause: boolean = false;
+    public pause: boolean = false;
     private physicManager: cc.PhysicsManager = null;
 
     private meleeEnemyCount: number = 1;
@@ -79,8 +79,13 @@ export default class gameManager extends cc.Component {
         this.timer=120;
         this.timer1= cc.find("Canvas/camera1/bar1/Timer").getComponent(cc.Label);
         this.timer2= cc.find("Canvas/camera2/bar2/Timer").getComponent(cc.Label);
+
         this.coin1label= cc.find("Canvas/camera1/bar1/coin").getComponent(cc.Label);
         this.coin2label= cc.find("Canvas/camera2/bar2/coin").getComponent(cc.Label);
+        this.coin1=JSON.parse(cc.sys.localStorage.getItem("p1")).money;
+        this.coin2=JSON.parse(cc.sys.localStorage.getItem("p2")).money;
+        this.coin1label.string=this.coin1.toString();
+        this.coin2label.string=this.coin2.toString();
 
         this.camera1 = cc.find("Canvas/camera1");
         this.camera2 = cc.find("Canvas/camera2");
@@ -95,9 +100,6 @@ export default class gameManager extends cc.Component {
 
         this.initWall(this.mapLeft);
         this.initWall(this.mapRight);
-
-        this.player1_restEnemy = this.meleeEnemyCount + this.wizardCount;
-        this.player2_restEnemy = this.meleeEnemyCount + this.wizardCount;
         //i=1 for player1, i=2 for player2
         for (let i = 1; i < 3; i++) {
             this.initEnemies(i, this.meleeEnemyCount, this.wizardCount, this.archerEnemyCount);
@@ -118,10 +120,8 @@ export default class gameManager extends cc.Component {
             this.isTiming=true;
             this.schedule(this.timeCounting, 1);
         }
-        
-        
-        
     }
+
     playBGM(){
         cc.audioEngine.playMusic(this.bgm, true);
     }
@@ -210,12 +210,18 @@ export default class gameManager extends cc.Component {
 
     initEnemies(index: number, meleeCount: number, wizardCount: number, archerCount: number) {
         for (let i = 0; i < meleeCount; i++) {
+            if(index==1) this.player1_restEnemy++, console.log("now p1_enemy: ", this.player1_restEnemy);
+            else if(index==2) this.player2_restEnemy++, console.log("now p2_enemy: ", this.player2_restEnemy);
             this.initMelee(index);
         }
         for (let i = 0; i < wizardCount; i++) {
+            if(index==1) this.player1_restEnemy++, console.log("now p1_enemy: ", this.player1_restEnemy);
+            else if(index==2) this.player2_restEnemy++, console.log("now p2_enemy: ", this.player2_restEnemy);
             this.initWizard(index);
         }
         for (let i = 0; i < archerCount; i++) {
+            if(index==1) this.player1_restEnemy++, console.log("now p1_enemy: ", this.player1_restEnemy);
+            else if(index==2) this.player2_restEnemy++, console.log("now p2_enemy: ", this.player2_restEnemy);
             this.initArcher(index);
         }
     }
@@ -278,7 +284,7 @@ export default class gameManager extends cc.Component {
             }
         }
         if (keyboardInput[cc.macro.KEY.forwardslash]) this.player2.playerAttack();
-
+        if (keyboardInput[cc.macro.KEY.period]) this.player2.playerPower();
         if (keyboardInput[cc.macro.KEY.down] && keyboardInput[cc.macro.KEY.right]) {
             this.player2.playerMoveDir("SE");
         } else if (
@@ -312,10 +318,20 @@ export default class gameManager extends cc.Component {
     gameOver(status: string) {
         this.endBGM();
         if(status == 'tie') {
+            let sth=JSON.parse(cc.sys.localStorage.getItem("p1"));
+            sth.money+=this.coin1;
+            cc.log("p1 update", sth)
+            cc.sys.localStorage.setItem('p1', JSON.stringify(sth));
+
+            sth=JSON.parse(cc.sys.localStorage.getItem("p2"));
+            sth.money+=this.coin2;
+            cc.log("p2 update", sth)
+            cc.sys.localStorage.setItem('p2', JSON.stringify(sth));
+
             this.camera1.active = false;
             this.camera2.active = false;
             cc.find("Canvas/loadingCamera").active = true;
-            cc.find("Canvas/tmp_bg").active = true;
+            cc.find("Canvas/tmp_bg").active = true;            
             cc.director.loadScene("shop");
         }
         else if(status == 'winner1') {
@@ -346,24 +362,46 @@ export default class gameManager extends cc.Component {
         if (x > 0) {
             this.player2_restEnemy -= 1;
             if (this.player2_restEnemy == 0) {
-                if (this.player1_restEnemy == 0) {
-                    this.gameOver('tie');
-                }
+                if (this.player1_restEnemy == 0) this.gameOver('tie');
                 else {
                     cc.find("Canvas/camera2/Clean").active = true;
+                    if (this.passControl == 0) {
+                        this.passControl = 2;
+                        //this.initEnemies(1, 1, 1, 1);
+                    }
                 }
             }
         }
         else {
             this.player1_restEnemy -= 1;
             if (this.player1_restEnemy == 0) {
-                if(this.player2_restEnemy == 0){
-                    this.gameOver('tie')
-                }
-                else {
+                if(this.player2_restEnemy == 0) this.gameOver('tie');
+                else{
                     cc.find("Canvas/camera1/Clean").active = true;
+                    if (this.passControl == 0) {
+                        this.passControl = 1;
+                        //this.initEnemies(2, 1, 1, 1);
+                    }
                 }
             }
         }
+          if (this.passControl == 3) {
+            let sth=JSON.parse(cc.sys.localStorage.getItem("p1"));
+            sth.money+=this.coin1;
+            cc.log("p1 update", sth)
+            cc.sys.localStorage.setItem('p1', JSON.stringify(sth));
+
+            sth=JSON.parse(cc.sys.localStorage.getItem("p2"));
+            sth.money+=this.coin2;
+            cc.log("p2 update", sth)
+            cc.sys.localStorage.setItem('p2', JSON.stringify(sth));
+            //console.log("enter shop");
+            this.camera1.active = false;
+            this.camera2.active = false;
+            cc.find("Canvas/loadingCamera").active = true;
+            cc.find("Canvas/tmp_bg").active = true;
+            this.endBGM();
+            cc.director.loadScene("shop");
+          }
     }
 }

@@ -89,6 +89,10 @@ export default class fightBullet extends cc.Component {
 
     //detect collision with enemies
     onBeginContact(contact, self, other) {
+        if(other.tag == 3) { // hit bullet
+            contact.disabled = true;
+            return;
+        }
         if(other.tag == 1){ // hit player
             other.node.getComponent('fightPlayer').lifeDamage(100)
         }
