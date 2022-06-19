@@ -754,4 +754,6 @@ export default class shopManager extends cc.Component {
            this.scheduleOnce(()=>{
             cc.director.loadScene("level" + nextLevel.toString());
            }, 0.2);
+        }
+      }
 }
