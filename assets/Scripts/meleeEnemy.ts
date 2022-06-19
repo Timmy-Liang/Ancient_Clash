@@ -46,7 +46,8 @@ export default class meleeEnemy extends cc.Component {
     private animateState = null;
 
     private attacking = null
-
+    @property(cc.AudioClip)
+    private knifeSound:cc.AudioClip=null;
     onLoad() {
     }
 
@@ -152,7 +153,7 @@ export default class meleeEnemy extends cc.Component {
             this.gameManager.getComponent("gamerManager").enemyReduce(this.node.x);
             this.node.active = false;
             if(this.node.parent.name=="enemy1")this.gameManager.getComponent("gamerManager").addcoin(1,10);
-            else if(this.node.parent.name=="enemy2")this.gameManager.getComponent("gamerManager").addcoin(2,10g);
+            else if(this.node.parent.name=="enemy2")this.gameManager.getComponent("gamerManager").addcoin(2,10);
             this.node.destroy();
         }
     }
@@ -187,6 +188,7 @@ export default class meleeEnemy extends cc.Component {
     onBeginContact(contact, self, other) {
         if (other.node.name == 'player') {
             this.enemyAttackAnimation();
+            cc.audioEngine.playEffect(this.knifeSound,false);
             other.node.getComponent(player).lifeDamage(1);
         }
         else if (other.node.name == 'bullet') {

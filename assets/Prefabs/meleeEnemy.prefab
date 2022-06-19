@@ -408,6 +408,9 @@
       "__id__": 1
     },
     "_enabled": true,
+    "knifeSound": {
+      "__uuid__": "e49fb877-335b-4a56-9cec-fc84c175d2ea"
+    },
     "_id": ""
   },
   {

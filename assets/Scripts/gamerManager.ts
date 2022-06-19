@@ -96,7 +96,7 @@ export default class gameManager extends cc.Component {
             this.isTiming=true;
             this.schedule(this.timeCounting, 1);
         }
-        this.playBGM();
+        //this.playBGM();
         
         
     }
