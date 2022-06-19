@@ -25,7 +25,8 @@ cc.Class({
 
     onLoad() {
         let index = this.node.parent.name.slice(-1);
-        this.mapNode = cc.find("Canvas/map1_" + index);
+        let level = cc.sys.localStorage.getItem("level");
+        this.mapNode = cc.find("Canvas/map" + level + "_" + index);
         this.path = new Array(cc.v2);
         this.tiledMap = this.mapNode.getComponent(cc.TiledMap);
         this.tiledSize = this.tiledMap.getTileSize();

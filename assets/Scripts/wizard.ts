@@ -44,8 +44,8 @@ export default class wizard extends cc.Component {
 
         }
 
-
-        this.map = cc.find("Canvas/map1_" + index);
+        let level = cc.sys.localStorage.getItem('level');
+        this.map = cc.find("Canvas/map" + level + "_" + index);
         this.wizardLifeProgress = this.node.getChildByName("lifeBar");
 
     }
@@ -92,6 +92,7 @@ export default class wizard extends cc.Component {
     }
 
     isInCycle(target: cc.Node) {
+        if (!target) return;
         let radius = 75 * this.targetRange;
         //(px-tx)^2 + (py-ty)^2 <= r^2
         let targetPos = target.convertToWorldSpaceAR(cc.v2(0, 0));

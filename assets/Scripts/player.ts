@@ -1,3 +1,5 @@
+import gameManager from "./gamerManager";
+
 const { ccclass, property } = cc._decorator;
 
 @ccclass
@@ -289,6 +291,9 @@ export default class player extends cc.Component {
 
     lifeDamage(damage: number) {
         if (this.life > 0) this.life -= damage;
+        if (this.life <= 0) {
+            cc.find("gameManager").getComponent(gameManager).gameOver();
+        }
     }
 
     update(dt) {
