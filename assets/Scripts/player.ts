@@ -40,7 +40,7 @@ export default class player extends cc.Component {
     private characterName: string = 'archer';
     private characterTag: number = 0;
     @property({type:cc.AudioClip})
-    windcutSound: cc.AudioClip = null;
+    attackSound: cc.AudioClip = null;
     
 
     onLoad() {
@@ -131,7 +131,7 @@ export default class player extends cc.Component {
         }
     }
     playerAttackSound(){
-        cc.audioEngine.play(this.windcutSound, false,1);
+        cc.audioEngine.play(this.attackSound, false,1);
     }
     playerWalkAnimation() {
         if (this.attacking)

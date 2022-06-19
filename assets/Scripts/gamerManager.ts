@@ -85,7 +85,7 @@ export default class gameManager extends cc.Component {
     }
 
     start() {
-        //this.playBGM();
+        this.playBGM();
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP, this.onKeyUp, this);
 
@@ -113,10 +113,10 @@ export default class gameManager extends cc.Component {
     playBGM(){
         cc.audioEngine.play(this.bgm, true, 0.5);
     }
-    playeffect(effect){
+    /*playeffect(effect){
         if(effect=="windcut")cc.audioEngine.play(this.windcutSound, false, 1);
         //else if(effect=="knife");
-    }
+    }*/
     initPlayer() {
         let p1Info = JSON.parse(cc.sys.localStorage.getItem("p1"))
         var p1: cc.Node, p2: cc.Node;
