@@ -313,7 +313,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "wall",
+    "_name": "item",
     "_objFlags": 0,
     "_parent": {
       "__id__": 3
@@ -371,7 +371,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "91YJnUVRlCeJ7jd1xwJzOw"
+    "_id": "44ygDTGnpEDoNoSjlvPPan"
   },
   {
     "__type__": "cc.TiledLayer",
@@ -389,11 +389,11 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_id": "fbwrD/JuhGJq5sbHp9MooT"
+    "_id": "52+Y1MRb9EjLZULc3ZKIGR"
   },
   {
     "__type__": "cc.Node",
-    "_name": "item",
+    "_name": "wall",
     "_objFlags": 0,
     "_parent": {
       "__id__": 3
@@ -451,7 +451,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "44ygDTGnpEDoNoSjlvPPan"
+    "_id": "91YJnUVRlCeJ7jd1xwJzOw"
   },
   {
     "__type__": "cc.TiledLayer",
@@ -464,9 +464,12 @@
     "_materials": [
       {
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+      },
+      {
+        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_id": "52+Y1MRb9EjLZULc3ZKIGR"
+    "_id": "fbwrD/JuhGJq5sbHp9MooT"
   },
   {
     "__type__": "cc.TiledMap",
@@ -635,7 +638,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "wall",
+    "_name": "item",
     "_objFlags": 0,
     "_parent": {
       "__id__": 11
@@ -693,7 +696,7 @@
     "_is3DNode": false,
     "_groupIndex": 3,
     "groupIndex": 3,
-    "_id": "fcZfAKyrxFy4Ap3NHIvXJ/"
+    "_id": "abxUpk0OlAIYy9wG+YFYsu"
   },
   {
     "__type__": "cc.TiledLayer",
@@ -711,11 +714,11 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_id": "4235JcPHpHia2sExcYJcVV"
+    "_id": "5fN9EdGS5Arrk2TihFEsrQ"
   },
   {
     "__type__": "cc.Node",
-    "_name": "item",
+    "_name": "wall",
     "_objFlags": 0,
     "_parent": {
       "__id__": 11
@@ -773,7 +776,7 @@
     "_is3DNode": false,
     "_groupIndex": 3,
     "groupIndex": 3,
-    "_id": "abxUpk0OlAIYy9wG+YFYsu"
+    "_id": "fcZfAKyrxFy4Ap3NHIvXJ/"
   },
   {
     "__type__": "cc.TiledLayer",
@@ -786,9 +789,12 @@
     "_materials": [
       {
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+      },
+      {
+        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_id": "5fN9EdGS5Arrk2TihFEsrQ"
+    "_id": "4235JcPHpHia2sExcYJcVV"
   },
   {
     "__type__": "cc.TiledMap",

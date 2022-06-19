@@ -88,6 +88,7 @@ export default class gameManager extends cc.Component {
         this.camera1 = cc.find("Canvas/camera1");
         this.camera2 = cc.find("Canvas/camera2");
 
+        //cc.director.getPhysicsManager().debugDrawFlags = 1;
     }
 
     start() {
