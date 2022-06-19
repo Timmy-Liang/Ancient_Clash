@@ -312,6 +312,11 @@ export default class gameManager extends cc.Component {
             }
         }
           if (this.passControl == 3) {
+            //console.log("enter shop");
+            cc.find("Canvas/camera1").active = false;
+            cc.find("Canvas/camera2").active = false;
+            cc.find("Canvas/loadingCamera").active = true;
+            cc.find("Canvas/tmp_bg").active = true;
             cc.director.loadScene("shop");
           }
     }

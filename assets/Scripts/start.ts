@@ -63,6 +63,7 @@ export default class start extends cc.Component {
         
     }
     gamestart(){
+        console.log("start...");
         //寫入cc.sys.localstorage
         let p1_Data= {
             job: this.p1charaname,
@@ -90,6 +91,7 @@ export default class start extends cc.Component {
         cc.sys.localStorage.setItem('p1', JSON.stringify(p1_Data));
         cc.sys.localStorage.setItem('p2', JSON.stringify(p2_Data));
         cc.sys.localStorage.setItem('level', "1");
+        cc.find("Canvas/tmp_bg").active = true;
         cc.director.loadScene("level1");
     }
 
