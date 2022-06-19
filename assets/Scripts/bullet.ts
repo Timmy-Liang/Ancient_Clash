@@ -33,7 +33,7 @@ export default class bullet extends cc.Component {
         //this.node.getComponent(cc.Animation).play('bulletArcher'); // Archer
         if(node.name == 'archer'){
             this.node.angle =  targetAngle + 135
-        }
+        } 
 
         this.scheduleOnce(() => {
             this.bulletManager.put(this.node);

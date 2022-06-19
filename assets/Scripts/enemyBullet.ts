@@ -25,6 +25,9 @@ export default class enemyBullet extends cc.Component {
         this.setInitPos(node, targetDirection);
         this.speedX = Math.cos(targetAngle * Math.PI / 180);
         this.speedY = Math.sin(targetAngle * Math.PI / 180);
+        if (node.name == 'archerEnemy'){
+            this.node.angle = targetAngle + 135;
+        }
         this.scheduleOnce(() => {
             this.node.destroy();
         }, 3)
