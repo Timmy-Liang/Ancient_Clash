@@ -8,23 +8,28 @@
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class leaderboard extends cc.Component {
+export default class NewClass extends cc.Component {
+
+    @property(cc.Label)
+    label: cc.Label = null;
 
     
-    label: cc.Label = null;
+
     // LIFE-CYCLE CALLBACKS:
 
-    onLoad () {
-        this.label=cc.find("Canvas/board/view/content/item").getComponent(cc.Label);
-        this.label.string="name        rate       games\ntimothy      90            20\nDanny\nDaniel";
-    }
+    // onLoad () {}
 
     start () {
-
+        let userdata=JSON.parse(cc.sys.localStorage.getItem("userdata"))
+        if(cc.sys.localStorage.getItem("winstate")=="winner1"){
+            this.label.string=(userdata.p1name+"\nWON");
+        }
+        else{
+            this.label.string=(userdata.p2name+"\nWON");
+        }
     }
-    backToStart(){
+    backhome(){
         cc.director.loadScene("start");
     }
-
     // update (dt) {}
 }
