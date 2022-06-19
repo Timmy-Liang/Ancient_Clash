@@ -422,7 +422,6 @@ export default class player extends cc.Component {
         }
         if (this.playerData.hp <= 0) {
             this.playerDieAnimation();
-            cc.find("gameManager").getComponent(gameManager).pause = true
             let index = this.node.parent.name.slice(-1);
             var winner = ''
             if(index == '1')

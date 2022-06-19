@@ -10,6 +10,8 @@ export default class fightPlayer extends cc.Component {
     @property(cc.Prefab)
     private powerBulletprefab: cc.Prefab = null;
 
+    @property(cc.AudioClip)
+    attackSound: cc.AudioClip = null;
 
     private moveDir: string = 'S';
     private aimDir: cc.Vec2 = cc.v2(0, 0);
@@ -34,7 +36,7 @@ export default class fightPlayer extends cc.Component {
 
     private targetNode: cc.Node = null;
     private targetPosition: cc.Vec2 = cc.v2(0, 0);
-    private targetDirection: string = '';
+    private targetDirection: string = 'S';
     private targetAngle: number = 0;
 
     private life: number = 10;
@@ -61,6 +63,7 @@ export default class fightPlayer extends cc.Component {
         this.colorOfpower= this.powerprogress.getChildByName('bar');
         let index = this.node.parent.name.slice(-1);
         this.playerData = JSON.parse(cc.sys.localStorage.getItem("p" + index));
+        this.speed=this.playerData.spd*75;
         this.playerData = this.dataUpdata(this.playerData);
         this.lifeMax = this.playerData.hp;
         if(index == '1') 
@@ -208,11 +211,31 @@ export default class fightPlayer extends cc.Component {
         })
     }
 
+    playerDieAnimation () {
+        this.anim.stop();
+        this.attacking = true;
+        this.animateState = this.anim.play(
+            this.characterName + "Dying" + this.targetDirection
+        );
+    }
+
+    playerHurtAnimation () {
+        this.anim.stop();
+        this.attacking = true;
+        this.animateState = this.anim.play(
+            this.characterName + "Hurt" + this.targetDirection
+        );
+        this.anim.on("finished", (e) => {
+            this.attacking = false;
+        });
+    }
+
     playerAttack() {
         this.traceTarget();
         let currentTime = cc.director.getTotalTime() / 1000.0;
         if (currentTime >= this.nextAttackTime) {
             this.nextAttackTime = currentTime + this.attackCooldown;
+            cc.audioEngine.playEffect(this.attackSound,false);
             if(this.characterTag == 0 || this.characterTag == 1){
                 this.createBullet();
             }
@@ -276,8 +299,11 @@ export default class fightPlayer extends cc.Component {
             bullet = this.bulletPool.get(this.bulletPool);
         }
 
-        if (bullet != null)
-            bullet.getComponent('fightBullet').init(this.node, this.targetDirection, this.targetAngle);
+        if (bullet != null){
+            let index = parseInt(this.node.parent.name.slice(-1));
+            bullet.getComponent('fightBullet').init(this.node, this.targetDirection, this.targetAngle, this.playerData.atk, index);
+        }
+            
     }
 
     meleeAttack() {
@@ -285,7 +311,7 @@ export default class fightPlayer extends cc.Component {
         let otherPos = this.targetNode.convertToWorldSpaceAR(cc.v3(0, 0, 0));
         let diff = cc.v2(otherPos.x - currentPos.x, otherPos.y - currentPos.y)
         if (diff.mag() < this.attackRange)
-            this.targetNode.getComponent('fightPlayer').lifeDamage(1);
+            this.targetNode.getComponent('fightPlayer').lifeDamage(this.playerData.atk);
     }
 
     traceTarget() {
@@ -327,10 +353,12 @@ export default class fightPlayer extends cc.Component {
 
     lifeDamage(damage: number) {
         if (this.playerData.hp > 0) {
+            this.playerHurtAnimation();
             this.playerData.hp -=
                 damage * (1 - this.playerData.def / (this.playerData.def + 10));
         }
         if (this.playerData.hp <= 0) {
+            this.playerDieAnimation();
             let index = this.node.parent.name.slice(-1);
             var winner = ''
             if(index == '1')

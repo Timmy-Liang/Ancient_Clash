@@ -775,6 +775,9 @@
     "powerBulletprefab": {
       "__uuid__": "f7b9db56-e876-4ea4-a170-6e6bc4b350b7"
     },
+    "attackSound": {
+      "__uuid__": "e49fb877-335b-4a56-9cec-fc84c175d2ea"
+    },
     "_id": ""
   },
   {

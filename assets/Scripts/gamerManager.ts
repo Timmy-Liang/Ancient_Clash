@@ -35,7 +35,7 @@ export default class gameManager extends cc.Component {
   private mapLeft: cc.TiledMap = null;
   private mapRight: cc.TiledMap = null;
 
-  public pause: boolean = false;
+  private pause: boolean = false;
   private physicManager: cc.PhysicsManager = null;
 
   private meleeEnemyCount: number = 1;
@@ -349,6 +349,7 @@ export default class gameManager extends cc.Component {
 
   gameOver(status: string) {
     this.endBGM();
+    this.pause = true;
     cc.sys.localStorage.setItem("winstate", status);
     if (status == "tie") {
       let sth = JSON.parse(cc.sys.localStorage.getItem("p1"));
