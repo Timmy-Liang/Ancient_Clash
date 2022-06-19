@@ -18,6 +18,8 @@ export default class enemyBullet extends cc.Component {
     private speedX: number = 0;
     private speedY: number = 0;
 
+    private damage: number=10;
+
 
     public init(node: cc.Node, targetDirection: string, targetAngle: number) {
         this.setInitPos(node, targetDirection);
@@ -58,7 +60,7 @@ export default class enemyBullet extends cc.Component {
     //detect collision with enemies
     onBeginContact(contact, self, other) {
         if(other.tag == 1){
-            other.node.getComponent('player').lifeDamage(1);
+            other.node.getComponent('player').lifeDamage(this.damage);
             this.unscheduleAllCallbacks();
             this.node.destroy();
             return;

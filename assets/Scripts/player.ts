@@ -45,6 +45,7 @@ export default class player extends cc.Component {
     private characterName: string = 'archer';
     private characterTag: number = 0;
 
+    private playerData;
 
     onLoad() {
         this.bulletPool = new cc.NodePool('bullet');
@@ -56,6 +57,11 @@ export default class player extends cc.Component {
         let index = this.node.parent.name.slice(-1);
         this.enemys = cc.find("Canvas/enemy" + index);
         this.enemyCount = this.enemys.childrenCount;
+
+        this.playerData=JSON.parse(cc.sys.localStorage.getItem("p" + index));
+        this.playerData=this.dataUpdata(this.playerData);
+        this.lifeMax=this.playerData.hp;
+
         try {
             let currentCharacter = JSON.parse(cc.sys.localStorage.getItem("p" + index)).job;
             if (currentCharacter) {
@@ -219,7 +225,7 @@ export default class player extends cc.Component {
                     this.traceEnemy();
                     this.createBullet();
                     this.playerAttackAnimation();
-                }, 0.2, 4)
+                }, 0.1, 4)
             }
             else if(this.characterTag==1){
                 this.traceEnemy();
@@ -247,6 +253,7 @@ export default class player extends cc.Component {
             }
             this.scheduleOnce(() => {
                 this.setPowerCooldown(0);
+                this.playerData.def=this.playerData.def + this.playerData.def*1.5 + 10;
                 this.colorOfpower.color=new cc.Color(0, 255, 80);
             }, this.powerCooltime)
         }
@@ -264,7 +271,7 @@ export default class player extends cc.Component {
         }
 
         if (bullet != null)
-            bullet.getComponent('bullet').init(this.node, this.targetDirection, this.targetAngle);
+            bullet.getComponent('bullet').init(this.node, this.targetDirection, this.targetAngle, this.playerData.atk);
     }
 
     meleeAttack() {
@@ -275,7 +282,7 @@ export default class player extends cc.Component {
             if(nextTargetAngle < this.targetAngle + 22.5 && nextTargetAngle > (this.targetAngle - 22.5) % 360){ // ERROR 
                 let currentEnemy = this.enemys.children[prop]
                 console.log(currentEnemy.name);
-                currentEnemy.getComponent(currentEnemy.name).enemyHurt(1);
+                currentEnemy.getComponent(currentEnemy.name).enemyHurt(this.playerData.atk);
             }
                 
         }
@@ -332,14 +339,40 @@ export default class player extends cc.Component {
     }
 
     lifeDamage(damage: number) {
-        if (this.life > 0) this.life -= damage;
+        console.log("get hurt", damage)
+        if (this.playerData.hp > 0) {
+            console.log("before hurt", this.playerData.hp)
+            this.playerData.hp -= damage * (1- this.playerData.def/(this.playerData.def+10));
+            console.log("after hurt", this.playerData.hp)
+        }
     }
 
     update(dt) {
         this.playerMove(dt);
         this.playerWalkAnimation();
-        this.lifeprogress.getComponent(cc.ProgressBar).progress = this.life / this.lifeMax;
+        this.lifeprogress.getComponent(cc.ProgressBar).progress = this.playerData.hp / this.lifeMax;
         if(this.powerCooldown) this.powerprogress.getComponent(cc.ProgressBar).progress+=dt/this.powerCooltime;
+    }
+
+    dataUpdata(tem){
+        if(tem.weapon){
+            let weaponTem=JSON.parse(cc.sys.localStorage.getItem(tem.weapon));
+            tem.atk+=weaponTem.atk;
+        }
+        if(tem.boots){
+            let bootsTem=JSON.parse(cc.sys.localStorage.getItem(tem.boots));
+            tem.def+=bootsTem.def;
+            tem.hp+=bootsTem.hp;
+            tem.spd+=bootsTem.spd;
+
+        }
+        if(tem.armor){
+            let armorTem=JSON.parse(cc.sys.localStorage.getItem(tem.armor));
+            tem.def+=armorTem.def;
+            tem.hp+=armorTem.hp;
+            tem.spd+=armorTem.spd;
+        }
+        return tem;
     }
 }
 

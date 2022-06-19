@@ -14,7 +14,6 @@ cc.Class({
     layerSize: null,
     nodeArray: null,
     nextCalculateTime: 0,
-    findCoolDown: 0,
     path: null,
     wall: null,
     pathLen: 0,
@@ -35,9 +34,7 @@ cc.Class({
         this.initialNodeArray = new Array(this.layerSize.width);
         for (let i = 0; i < this.layerSize.width; i++)
             this.initialNodeArray[i] = new Array(this.layerSize.height)
-        this.findCoolDown = 3;
         this.initMap();
-
     },
 
 
@@ -136,25 +133,25 @@ cc.Class({
         // West
 
         if (x > 0) {
-            this.nodeArray[x-1][y].cost = 1;
+            this.nodeArray[x - 1][y].cost = 1;
             ret.push(this.nodeArray[x - 1][y]);
         }
 
         // East
         if (x < this.layerSize.width - 1) {
-            this.nodeArray[x+1][y].cost = 1;
+            this.nodeArray[x + 1][y].cost = 1;
             ret.push(this.nodeArray[x + 1][y]);
         }
 
         // South
         if (y > 0) {
-            this.nodeArray[x][y-1].cost = 1;
+            this.nodeArray[x][y - 1].cost = 1;
             ret.push(this.nodeArray[x][y - 1]);
         }
 
         // North
         if (y < this.layerSize.height - 1) {
-            this.nodeArray[x][y+1].cost = 1;
+            this.nodeArray[x][y + 1].cost = 1;
             ret.push(this.nodeArray[x][y + 1]);
         }
 
@@ -201,8 +198,8 @@ cc.Class({
         let endY = this.layerSize.height - Math.round(targetPos.y / this.tiledSize.height)
         let start = this.nodeArray[startX][startY];
         let end = this.nodeArray[endX][endY];
-        
-        
+
+
 
         var openHeap = this.buildHeap();
         openHeap.push(start);
@@ -210,39 +207,12 @@ cc.Class({
             // Grab the lowest f(x) to process next.  Heap keeps this sorted for us.
             var currentNode = openHeap.pop();
 
+
             // End case -- result has been found, return the traced path.
             if (currentNode === end) {
                 var curr = currentNode;
                 var ret = [];
                 while (curr.parent) {
-                    /*
-                    let offsetX = curr.x - curr.parent.x;
-                    let offsetY = curr.y - curr.parent.y;
-                    if(offsetX > 0 && offsetY > 0){
-                        ret.push('NE');
-                    }
-                    else if(offsetX > 0 && offsetY < 0) {
-                        ret.push('NW');
-                    }
-                    else if(offsetX < 0 && offsetY > 0) {
-                        ret.push("SE");
-                    }
-                    else if(offsetX < 0 && offsetY < 0) {
-                        ret.push('SW') 
-                    }
-                    else if(offsetX > 0) {
-                        ret.push('E')
-                    }
-                    else if(offsetX < 0) {
-                        ret.push('W')
-                    }
-                    else if(offsetY > 0) {
-                        ret.push('N')
-                    }
-                    else if(offsetY < 0) {
-                        ret.push('S')
-                    }
-                    */
                     ret.push([curr.x - curr.parent.x, curr.y - curr.parent.y]);
                     curr = curr.parent;
                 }
@@ -258,17 +228,17 @@ cc.Class({
             for (let i = 0; i < 8; i++) {
                 let cur_x = currentNode.x + dx[i];
                 let cur_y = currentNode.y + dy[i];
-                if(cur_x < 0 || cur_y < 0 || cur_x >= this.layerSize.width || cur_y >= this.layerSize.height)
+                if (cur_x < 0 || cur_y < 0 || cur_x >= this.layerSize.width || cur_y >= this.layerSize.height)
                     continue
                 let next_node = this.nodeArray[cur_x][cur_y];
-                if((next_node.closed || next_node.wall) && next_node != end)
+                if ((next_node.closed || next_node.wall) && next_node != end)
                     continue
                 var next_g = currentNode.cost;
-                if(i >= 4){
+                if (i >= 4) {
                     next_g += 0.3
                 }
                 var next_visited = next_node.visited;
-                if(!next_visited || next_g < next_node.g) {
+                if (!next_visited || next_g < next_node.g) {
                     next_node.visited = true;
                     next_node.parent = currentNode;
                     next_node.h = this.heuristic(next_node, end);
@@ -285,41 +255,7 @@ cc.Class({
                     }
                 }
             }
-            /*
-            for (var i = 0, il = neighbors.length; i < il; i++) {
 
-                var neighbor = neighbors[i];
-                if (neighbor.closed || neighbor.wall) {
-
-                    // Not a valid node to process, skip to next neighbor.
-                    continue;
-                }
-
-                // The g score is the shortest distance from start to current node.
-                // We need to check if the path we have arrived at this neighbor is the shortest one we have seen yet.
-                var gScore = currentNode.g + neighbor.cost;
-                var beenVisited = neighbor.visited;
-
-                if (!beenVisited || gScore < neighbor.g) {
-
-                    // Found an optimal (so far) path to this node.  Take score for node to see how good it is.
-                    neighbor.visited = true;
-                    neighbor.parent = currentNode;
-                    neighbor.h = this.heuristic(neighbor, end);
-                    neighbor.g = gScore;
-                    neighbor.f = neighbor.g + neighbor.h;
-
-                    if (!beenVisited) {
-                        // Pushing to heap will put it in proper place based on the 'f' value.
-                        openHeap.push(neighbor);
-                    }
-                    else {
-                        // Already seen the node, but since it has been rescored we need to reorder it in the heap
-                        openHeap.rescoreElement(neighbor);
-                    }
-                }
-            }
-            */
         }
 
         // No result was found - empty array signifies failure to find path.
@@ -383,7 +319,7 @@ BinaryHeap.prototype = {
         }
         return result;
     },
-    rescoreElement: function(node) {
+    rescoreElement: function (node) {
         this.sinkDown(this.content.indexOf(node));
     },
 
