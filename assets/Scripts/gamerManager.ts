@@ -317,6 +317,7 @@ export default class gameManager extends cc.Component {
 
     gameOver(status: string) {
         this.endBGM();
+        cc.sys.localStorage.setItem("winstate",status);
         if(status == 'tie') {
             let sth=JSON.parse(cc.sys.localStorage.getItem("p1"));
             sth.money+=this.coin1;
@@ -340,7 +341,7 @@ export default class gameManager extends cc.Component {
             cc.find("Canvas/camera1/Win").active = true;
             cc.find("Canvas/camera2/Lose").active = true;
             this.scheduleOnce(() => {
-                cc.director.loadScene("start")
+                cc.director.loadScene("endgame")
             }, 3)
         }
         else if(status == 'winner2') {
@@ -349,7 +350,7 @@ export default class gameManager extends cc.Component {
             cc.find("Canvas/camera1/Lose").active = true;
             cc.find("Canvas/camera2/Win").active = true;
             this.scheduleOnce(() => {
-                cc.director.loadScene("start")
+                cc.director.loadScene("endgame")
             }, 3)
         }
     }

@@ -31,9 +31,15 @@ export default class start extends cc.Component {
     chara2: cc.Node = null;
     p1: cc.Node = null;
     p2: cc.Node = null;
+    p1name:cc.Label=null;
+    p2name:cc.Label=null;
+
     p1charaname:string=null;
     p2charaname:string=null;
-    
+    user1name:string=null;
+    user2name:string=null;
+    user3name:string=null;
+    user4name:string=null;
     
     start () {
         this.select.active=false;
@@ -52,6 +58,16 @@ export default class start extends cc.Component {
         this.p1charaname="archer";
         this.p2charaname="archer";
         this.equipInit();
+
+        this.user1name="Danny";
+        this.user2name="Daniel";
+        this.user3name="Mandy";
+        this.user4name="Timothy";
+        this.p1name=cc.find("Canvas/select_character/P1/name").getComponent(cc.Label);
+        this.p2name=cc.find("Canvas/select_character/P2/name").getComponent(cc.Label);
+        this.p1name.string="";
+        this.p2name.string="";
+
     }
     changetoselect2V2(){
         this.select.active=true;
@@ -71,16 +87,26 @@ export default class start extends cc.Component {
     gamestart(){
         console.log("start...");
         //寫入cc.sys.localstorage
-        let p1_Data= this.dataInit(this.p1charaname);
-        let p2_Data= this.dataInit(this.p2charaname);
+        //if()
+        if(this.p1name.string==""||this.p2name.string==""||this.p1name.string==this.p2name.string)return;
+        else{
+            let userdata={
+                p1name:this.p1name.string,
+                p2name:this.p2name.string
+            }
+            let p1_Data= this.dataInit(this.p1charaname);
+            let p2_Data= this.dataInit(this.p2charaname);
+            cc.sys.localStorage.setItem('userdata',JSON.stringify(userdata));
+            cc.sys.localStorage.setItem('p1', JSON.stringify(p1_Data));
+            cc.sys.localStorage.setItem('p2', JSON.stringify(p2_Data));
+            cc.sys.localStorage.setItem('level', "1");
+            cc.find("Canvas/tmp_bg").active = true;
+            cc.audioEngine.stopMusic();
+            console.log("start to load");
 
-        cc.sys.localStorage.setItem('p1', JSON.stringify(p1_Data));
-        cc.sys.localStorage.setItem('p2', JSON.stringify(p2_Data));
-        cc.sys.localStorage.setItem('level', "1");
-        cc.find("Canvas/tmp_bg").active = true;
-        cc.audioEngine.stopMusic();
-        console.log("start to load");
-        cc.director.loadScene("level1");
+            cc.director.loadScene("level1");
+        }
+        
     }
 
     btnArcherPressed(){
@@ -147,7 +173,38 @@ export default class start extends cc.Component {
             this.p2charaname="warrior";
         }
     }
-
+    userBtn(event,customeventdata){
+        if(this.shade1.active){
+            if(customeventdata[0]==1){
+                this.p1name.string=this.user1name;
+            }
+            else if(customeventdata[0]==2){
+                this.p1name.string=this.user2name;
+            }
+            else if(customeventdata[0]==3){
+                this.p1name.string=this.user3name;
+            }
+            else if(customeventdata[0]==4){
+                this.p1name.string=this.user4name;
+            }
+            
+        }
+        else{
+            if(customeventdata[0]==1){
+                this.p2name.string=this.user1name;
+            }
+            else if(customeventdata[0]==2){
+                this.p2name.string=this.user2name;
+            }
+            else if(customeventdata[0]==3){
+                this.p2name.string=this.user3name;
+            }
+            else if(customeventdata[0]==4){
+                this.p2name.string=this.user4name;
+            }
+        }
+        
+    }
     dataInit(name){
         let data={
             job: name,

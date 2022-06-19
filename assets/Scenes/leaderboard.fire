@@ -823,8 +823,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 631.1,
-      "height": 226
+      "width": 820.43,
+      "height": 852
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -835,7 +835,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -250,
+        -470,
         -10.149999618530273,
         0,
         0,
@@ -875,10 +875,10 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "name        rate       games\ntimothy      90            20",
-    "_N$string": "name        rate       games\ntimothy      90            20",
-    "_fontSize": 100,
-    "_lineHeight": 100,
+    "_string": "name        rate       games\ntimothy      90            20\nDanny\nDaniel",
+    "_N$string": "name        rate       games\ntimothy      90            20\nDanny\nDaniel",
+    "_fontSize": 130,
+    "_lineHeight": 200,
     "_enableWrapText": true,
     "_N$file": {
       "__uuid__": "cae23f31-28b6-4050-9382-a37bf9323cc9"
