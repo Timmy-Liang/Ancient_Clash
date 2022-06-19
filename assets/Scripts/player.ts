@@ -390,11 +390,16 @@ export default class player extends cc.Component {
             this.playerData.hp -=
                 damage * (1 - this.playerData.def / (this.playerData.def + 10));
         }
-        /*
-            if (this.life <= 0) {
-                cc.find("gameManager").getComponent(gameManager).gameOver();
-            }
-            */
+        if (this.playerData.hp <= 0) {
+            let index = this.node.parent.name.slice(-1);
+            var winner = ''
+            if(index == '1')
+                winner = '2'
+            else
+                winner = '1'
+            cc.find("gameManager").getComponent(gameManager).gameOver('winner' + winner);
+        }
+        
     }
 
     update(dt) {

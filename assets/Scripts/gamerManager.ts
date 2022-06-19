@@ -64,9 +64,6 @@ export default class gameManager extends cc.Component {
     private passControl: number = 0;
     private camera1: cc.Node = null;
     private camera2: cc.Node = null;
-    //1: player1 pass first
-    //2: player2 pass first
-    //3: both player pass
 
     // LIFE-CYCLE CALLBACKS:
 
@@ -109,6 +106,14 @@ export default class gameManager extends cc.Component {
         }
         this.timeCounting = () => {
             let t=this.timer-1;
+            if(t < 0) {
+                if(this.player1_restEnemy > this.player2_restEnemy) {
+                    this.gameOver("winner2");
+                }
+                else {
+                    this.gameOver("winner1");
+                }
+            }
             this.updateTime(t);
         }
         if(this.isTiming==false){
@@ -310,13 +315,33 @@ export default class gameManager extends cc.Component {
         }
     }
 
-    gameOver() {
-        this.camera1.active = false;
-        this.camera2.active = false;
-        cc.find("Canvas/loadingCamera").active = true;
-        cc.find("Canvas/tmp_bg").active = true;
+    gameOver(status: string) {
         this.endBGM();
-        cc.director.loadScene("start");
+        if(status == 'tie') {
+            this.camera1.active = false;
+            this.camera2.active = false;
+            cc.find("Canvas/loadingCamera").active = true;
+            cc.find("Canvas/tmp_bg").active = true;
+            cc.director.loadScene("shop");
+        }
+        else if(status == 'winner1') {
+            cc.find("Canvas/camera1/Clean").active = false;
+            cc.find("Canvas/camera2/Clean").active = false;
+            cc.find("Canvas/camera1/Win").active = true;
+            cc.find("Canvas/camera2/Lose").active = true;
+            this.scheduleOnce(() => {
+                cc.director.loadScene("start")
+            }, 3)
+        }
+        else if(status == 'winner2') {
+            cc.find("Canvas/camera1/Clean").active = false;
+            cc.find("Canvas/camera2/Clean").active = false;
+            cc.find("Canvas/camera1/Lose").active = true;
+            cc.find("Canvas/camera2/Win").active = true;
+            this.scheduleOnce(() => {
+                cc.director.loadScene("start")
+            }, 3)
+        }
     }
 
     update(dt) {
@@ -326,26 +351,28 @@ export default class gameManager extends cc.Component {
     enemyReduce(x) {
         if (x > 0) {
             this.player2_restEnemy -= 1;
-            console.log("now p2_enemy: ", this.player2_restEnemy);
             if (this.player2_restEnemy == 0) {
-                console.log("player2 clean");
-                if (this.passControl == 0) {
-                    this.passControl = 2;
-                    this.initEnemies(1, 1, 1, 1);
+                if (this.player1_restEnemy == 0) this.gameOver('tie');
+                else {
+                    cc.find("Canvas/camera2/Clean").active = true;
+                    if (this.passControl == 0) {
+                        this.passControl = 2;
+                        this.initEnemies(1, 1, 1, 1);
+                    }
                 }
-                else if (this.passControl == 1) this.passControl = 3;
             }
         }
         else {
             this.player1_restEnemy -= 1;
-            console.log("now p1_enemy: ", this.player1_restEnemy);
             if (this.player1_restEnemy == 0) {
-                console.log("player1 clean")
-                if (this.passControl == 0) {
-                    this.passControl = 1;
-                    this.initEnemies(2, 1, 1, 1);
+                if(this.player2_restEnemy == 0) this.gameOver('tie');
+                else{
+                    cc.find("Canvas/camera1/Clean").active = true;
+                    if (this.passControl == 0) {
+                        this.passControl = 1;
+                        this.initEnemies(2, 1, 1, 1);
+                    }
                 }
-                else if (this.passControl == 2) this.passControl = 3;
             }
         }
           if (this.passControl == 3) {

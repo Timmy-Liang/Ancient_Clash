@@ -47,6 +47,8 @@ export default class fightPlayer extends cc.Component {
     private otherPlayerIndex: string = '0'
     private otherPlayerJob: string = 'knight';
 
+    private playerData;
+
 
     onLoad() {
         this.bulletPool = new cc.NodePool('fightBullet');
@@ -56,7 +58,9 @@ export default class fightPlayer extends cc.Component {
         this.powerprogress = this.node.getChildByName('powerBar');
         this.colorOfpower= this.powerprogress.getChildByName('bar');
         let index = this.node.parent.name.slice(-1);
-        console.log("current Index = " + index)
+        this.playerData = JSON.parse(cc.sys.localStorage.getItem("p" + index));
+        this.playerData = this.dataUpdata(this.playerData);
+        this.lifeMax = this.playerData.hp;
         if(index == '1') 
             this.otherPlayerIndex = '2';
         else 
@@ -319,7 +323,20 @@ export default class fightPlayer extends cc.Component {
     }
 
     lifeDamage(damage: number) {
-        if (this.life > 0) this.life -= damage;
+        if (this.playerData.hp > 0) {
+            this.playerData.hp -=
+                damage * (1 - this.playerData.def / (this.playerData.def + 10));
+        }
+        if (this.playerData.hp <= 0) {
+            let index = this.node.parent.name.slice(-1);
+            var winner = ''
+            if(index == '1')
+                winner = '2'
+            else
+                winner = '1'
+            cc.find("gameManager").getComponent('fightManager').gameOver('winner' + winner);
+        }
+        
     }
 
     update(dt) {
@@ -327,6 +344,26 @@ export default class fightPlayer extends cc.Component {
         this.playerWalkAnimation();
         this.lifeprogress.getComponent(cc.ProgressBar).progress = this.life / this.lifeMax;
         if(this.powerCooldown) this.powerprogress.getComponent(cc.ProgressBar).progress+=dt/this.powerCooltime;
+    }
+
+    dataUpdata(tem) {
+        if (tem.weapon) {
+            let weaponTem = JSON.parse(cc.sys.localStorage.getItem(tem.weapon));
+            tem.atk += weaponTem.atk;
+        }
+        if (tem.boots) {
+            let bootsTem = JSON.parse(cc.sys.localStorage.getItem(tem.boots));
+            tem.def += bootsTem.def;
+            tem.hp += bootsTem.hp;
+            tem.spd += bootsTem.spd;
+        }
+        if (tem.armor) {
+            let armorTem = JSON.parse(cc.sys.localStorage.getItem(tem.armor));
+            tem.def += armorTem.def;
+            tem.hp += armorTem.hp;
+            tem.spd += armorTem.spd;
+        }
+        return tem;
     }
 }
 

@@ -59,6 +59,9 @@ export default class gameManager extends cc.Component {
     playBGM(){
         cc.audioEngine.play(this.bgm, true, 0.5);
     }
+    endBGM(){
+        cc.audioEngine.stopMusic();
+    }
     initPlayer() {
         let p1Info = JSON.parse(cc.sys.localStorage.getItem("p1"))
         var p1: cc.Node, p2: cc.Node;
@@ -186,10 +189,24 @@ export default class gameManager extends cc.Component {
         }
     }
 
-    gameOver() {
-        cc.find("Canvas/loadingCamera").active = true;
-        cc.find("Canvas/tmp_bg").active = true;
-        cc.director.loadScene("start");
+    gameOver(status: string) {
+        this.endBGM();
+        if(status == 'winner1') {
+            let winNode = cc.find("Canvas/Win");
+            winNode.getComponent(cc.Label).string = "Player 1 Win"
+            winNode.active = true;
+            this.scheduleOnce(() => {
+                cc.director.loadScene("start")
+            }, 3)
+        }
+        else if(status == 'winner2') {
+            let winNode = cc.find("Canvas/Win");
+            winNode.getComponent(cc.Label).string = "Player 2 Win"
+            winNode.active = true;
+            this.scheduleOnce(() => {
+                cc.director.loadScene("start")
+            }, 3)
+        }
     }
 
     update(dt) {
