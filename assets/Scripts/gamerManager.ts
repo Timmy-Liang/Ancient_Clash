@@ -37,8 +37,8 @@ export default class gameManager extends cc.Component {
     private pause: boolean = false;
     private physicManager: cc.PhysicsManager = null;
 
-    private meleeEnemyCount: number = 1;
-    private archerEnemyCount: number = 0;
+    private meleeEnemyCount: number = 3;
+    private archerEnemyCount: number = 3;
     private wizardCount: number = 0;
 
     private player1_restEnemy: number = 0;

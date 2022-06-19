@@ -16,8 +16,8 @@ export default class meleeEnemy extends cc.Component {
     private target: cc.Node = null;
 
     private detectRange: number = 200;
-    private attackRange: number = 5;
-    private attackCooldown: number = 1;
+    private attackCooldown: number = 2;
+    private nextAttackTime: number = 0;
     private moveSpeed: number = 40;
     public tracingPlayer: boolean = false;
 
@@ -183,21 +183,27 @@ export default class meleeEnemy extends cc.Component {
     }
 
     onBeginContact(contact, self, other) {
-        if (other.node.name == 'player') {
-            this.enemyAttackAnimation();
-            other.node.getComponent(player).lifeDamage(1);
-        }
-        else if (other.node.name == 'bullet') {
-            this.enemyHurt(1);
+        if (other.tag == 1) {
+            let currentTime = cc.director.getTotalTime() / 1000.0;
+            if (currentTime >= this.nextAttackTime) {
+                this.nextAttackTime = currentTime + this.attackCooldown
+                this.enemyAttackAnimation();
+                other.node.getComponent(player).lifeDamage(1);
+            }
         }
     }
 
     onPreSolve(contact, self, other) {
         if (this.attacking)
             return;
-        if (other.node.name == 'player') {
-            this.enemyAttackAnimation();
-            other.node.getComponent(player).lifeDamage(1);
+        if (other.tag == 1) {
+            let currentTime = cc.director.getTotalTime() / 1000.0;
+            if (currentTime >= this.nextAttackTime) {
+                this.nextAttackTime = currentTime + this.attackCooldown
+                this.enemyAttackAnimation();
+                other.node.getComponent(player).lifeDamage(1);
+            }
+            
         }
     }
 
