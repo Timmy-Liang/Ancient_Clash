@@ -166,7 +166,7 @@ export default class start extends cc.Component {
             data.atk=10;
             data.def=2;
             data.hp=30;
-            data.spd=5;
+            data.spd=4;
             data.weapon="crossBow1";
             data.armor="archerArmor1";
         }
@@ -174,7 +174,7 @@ export default class start extends cc.Component {
             data.atk=15;
             data.def=4;
             data.hp=30;
-            data.spd=3;
+            data.spd=2;
             data.weapon="sling1";
             data.armor="slingerArmor1";
         }
@@ -182,7 +182,7 @@ export default class start extends cc.Component {
             data.atk=7;
             data.def=10;
             data.hp=50;
-            data.spd=4;
+            data.spd=2;
             data.weapon="sword1";
             data.armor="knightArmor1";
         }
@@ -190,7 +190,7 @@ export default class start extends cc.Component {
             data.atk=12;
             data.def=2;
             data.hp=30;
-            data.spd=4;
+            data.spd=3;
             data.weapon="sword1";
             data.armor="warriorArmor1";
         }
