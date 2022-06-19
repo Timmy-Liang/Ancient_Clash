@@ -30,6 +30,10 @@ export default class bullet extends cc.Component {
         this.speedX = Math.cos(targetAngle * Math.PI / 180);
         this.speedY = Math.sin(targetAngle * Math.PI / 180);
         this.damage=atk;
+        //this.node.getComponent(cc.Animation).play('bulletArcher'); // Archer
+        if(node.name == 'archer'){
+            this.node.angle =  targetAngle + 135
+        }
 
         this.scheduleOnce(() => {
             this.bulletManager.put(this.node);
@@ -87,7 +91,7 @@ export default class bullet extends cc.Component {
 
     //detect collision with enemies
     onBeginContact(contact, self, other) {
-        if(other.tag == 1){ // hit player
+        if(other.tag == 1 || other.tag == 3){ // hit player
             contact.disabled = true;
             return;
         }

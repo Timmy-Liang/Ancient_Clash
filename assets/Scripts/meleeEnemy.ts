@@ -266,6 +266,7 @@ export default class meleeEnemy extends cc.Component {
             let currentTime = cc.director.getTotalTime() / 1000.0;
             if (currentTime >= this.nextAttackTime) {
                 this.attackDir = contact.getWorldManifold().normal;
+                cc.audioEngine.playEffect(this.knifeSound,false);
                 this.nextAttackTime = currentTime + this.attackCooldown
                 this.enemyAttackAnimation();
                 other.node.getComponent(player).lifeDamage(this.damage);
