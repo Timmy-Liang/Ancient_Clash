@@ -12,9 +12,9 @@ export default class fightBullet extends cc.Component {
 
     private bulletManager = null;
 
-    private bulletSpeed: number = 15;
+    private bulletSpeed: number = 40;
 
-    private initPosOffset: number = 32;
+    private initPosOffset: number = 60;
 
     private damage: number = 1;
 
@@ -88,7 +88,6 @@ export default class fightBullet extends cc.Component {
     onBeginContact(contact, self, other) {
         if(other.tag == 1){ // hit player
             other.node.getComponent('fightPlayer').lifeDamage(1)
-            return;
         }
         this.node.stopAllActions();
 

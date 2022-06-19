@@ -41,24 +41,26 @@ export default class fightPlayer extends cc.Component {
     private powerprogress: cc.Node = null;
     private colorOfpower: cc.Node= null;
 
-    private characterName: string = 'archer';
+    private characterName: string = 'knight';
     private characterTag: number = 0;
 
     private otherPlayerIndex: string = '0'
+    private otherPlayerJob: string = 'knight';
 
 
     onLoad() {
-        this.bulletPool = new cc.NodePool('bullet');
+        this.bulletPool = new cc.NodePool('fightBullet');
         this.powerBulletpool= new cc.NodePool('powerBullet');
         this.anim = this.getComponent(cc.Animation);
         this.lifeprogress = this.node.getChildByName('lifeBar');
         this.powerprogress = this.node.getChildByName('powerBar');
         this.colorOfpower= this.powerprogress.getChildByName('bar');
         let index = this.node.parent.name.slice(-1);
-        if(index == '0') 
-            this.otherPlayerIndex = '1';
+        console.log("current Index = " + index)
+        if(index == '1') 
+            this.otherPlayerIndex = '2';
         else 
-            this.otherPlayerIndex = '0'
+            this.otherPlayerIndex = '1'
         try {
             let currentCharacter = JSON.parse(cc.sys.localStorage.getItem("p" + index)).job;
             if (currentCharacter) {
@@ -78,6 +80,7 @@ export default class fightPlayer extends cc.Component {
                         break;
                 }
             }
+            this.otherPlayerJob = JSON.parse(cc.sys.localStorage.getItem("p" + this.otherPlayerIndex)).job
         }
         catch {
 
@@ -85,7 +88,7 @@ export default class fightPlayer extends cc.Component {
     }
 
     start() {
-        this.targetNode = cc.find("Canvas/player" + this.otherPlayerIndex)
+        this.targetNode = cc.find("Canvas/player" + this.otherPlayerIndex + "/" + this.otherPlayerJob)
         for (let i: number = 0; i < this.maxBullet; i++) {
             let bullet = cc.instantiate(this.bulletPrefab);
             this.bulletPool.put(bullet);
@@ -267,7 +270,7 @@ export default class fightPlayer extends cc.Component {
         }
 
         if (bullet != null)
-            bullet.getComponent('bullet').init(this.node, this.targetDirection, this.targetAngle);
+            bullet.getComponent('fightBullet').init(this.node, this.targetDirection, this.targetAngle);
     }
 
     meleeAttack() {

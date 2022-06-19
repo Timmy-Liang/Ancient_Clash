@@ -45,14 +45,14 @@ export default class gameManager extends cc.Component {
         this.physicManager = cc.director.getPhysicsManager();
         this.physicManager.enabled = true;
         this.initPlayer();
-        let level = cc.sys.localStorage.getItem("level");
+        this.map = cc.find("Canvas/pkMap").getComponent(cc.TiledMap)
+        //let level = cc.sys.localStorage.getItem("level");
     }
 
     start() {
         this.playBGM();
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP, this.onKeyUp, this);
-
         this.initWall(this.map);
         
     }
@@ -78,7 +78,7 @@ export default class gameManager extends cc.Component {
         
         }
         p1.parent = cc.find('Canvas/player1');
-        p1.setPosition(cc.v2(335, -55))
+        p1.setPosition(cc.v2(-450, 0))
 
         let p2Info = JSON.parse(cc.sys.localStorage.getItem("p2"))
         switch (p2Info.job) {
@@ -96,7 +96,7 @@ export default class gameManager extends cc.Component {
                 break;
         }
         p2.parent = cc.find('Canvas/player2');
-        p2.setPosition(cc.v2(335, -55))
+        p2.setPosition(cc.v2(450, 0))
         this.player1 = p1.getComponent(fightPlayer);
         this.player2 = p2.getComponent(fightPlayer);
     }
