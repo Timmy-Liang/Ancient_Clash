@@ -142,6 +142,8 @@ export default class archerEnemy extends cc.Component {
         if (this.enemyLife <= 0) {
             this.gameManager.getComponent("gamerManager").enemyReduce(this.node.x);
             this.node.active = false;
+            if(this.node.parent.name=="enemy1")this.gameManager.getComponent("gamerManager").addcoin(1,15);
+            else if(this.node.parent.name=="enemy2")this.gameManager.getComponent("gamerManager").addcoin(2,15);
             this.node.destroy();
         }
     }

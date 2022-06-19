@@ -36,7 +36,7 @@ export default class start extends cc.Component {
     
     
     start () {
-        
+        this.select.active=false;
         //this.playBGM();
     }
     /*playBGM(){
@@ -55,6 +55,9 @@ export default class start extends cc.Component {
     }
     changetoselect2V2(){
         this.select.active=true;
+    }
+    toLeaderboard(){
+        cc.director.loadScene("leaderboard");
     }
     playerswitch1(customEventData: string){ 
         this.shade1.active=true;
@@ -164,6 +167,8 @@ export default class start extends cc.Component {
             this.p2charaname="warrior";
         }
     }
-
+    closeCharSel(){
+        this.select.active=false;
+    }
     // update (dt) {}
 }

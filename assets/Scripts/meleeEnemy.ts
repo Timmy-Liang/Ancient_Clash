@@ -11,6 +11,10 @@ const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class meleeEnemy extends cc.Component {
+    @property({type:cc.AudioClip})
+    knifeSound: cc.AudioClip = null;
+    @property({type:cc.AudioClip})
+    killedSound: cc.AudioClip = null;
     private gameManager: cc.Node = null;
 
     private target: cc.Node = null;
@@ -151,6 +155,9 @@ export default class meleeEnemy extends cc.Component {
         if (this.enemyLife <= 0) {
             this.gameManager.getComponent("gamerManager").enemyReduce(this.node.x);
             this.node.active = false;
+            if(this.node.parent.name=="enemy1")this.gameManager.getComponent("gamerManager").addcoin(1,10);
+            else if(this.node.parent.name=="enemy2")this.gameManager.getComponent("gamerManager").addcoin(2,10);
+            cc.audioEngine.playEffect(this.killedSound,false);
             this.node.destroy();
         }
     }
@@ -186,6 +193,7 @@ export default class meleeEnemy extends cc.Component {
         if (other.tag == 1) {
             let currentTime = cc.director.getTotalTime() / 1000.0;
             if (currentTime >= this.nextAttackTime) {
+                cc.audioEngine.playEffect(this.knifeSound,false);
                 this.nextAttackTime = currentTime + this.attackCooldown
                 this.enemyAttackAnimation();
                 other.node.getComponent(player).lifeDamage(1);
