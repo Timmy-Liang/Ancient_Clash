@@ -36,7 +36,7 @@ export default class start extends cc.Component {
     
     
     start () {
-        
+        this.select.active=false;
         //this.playBGM();
     }
     /*playBGM(){
@@ -57,6 +57,9 @@ export default class start extends cc.Component {
     }
     changetoselect2V2(){
         this.select.active=true;
+    }
+    toLeaderboard(){
+        cc.director.loadScene("leaderboard");
     }
     playerswitch1(customEventData: string){ 
         this.shade1.active=true;
@@ -517,4 +520,8 @@ export default class start extends cc.Component {
         let tem=true;
         cc.sys.localStorage.setItem('equipInit', JSON.stringify(tem));
     }
+    closeCharSel(){
+        this.select.active=false;
+    }
+    // update (dt) {}
 }

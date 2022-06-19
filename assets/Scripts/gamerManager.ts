@@ -61,7 +61,7 @@ export default class gameManager extends cc.Component {
     private coin2: number = null;
     private coin1label: cc.Label = null;
     private coin2label: cc.Label = null;
-
+    
     private passControl: number = 0;
     private camera1: cc.Node = null;
     private camera2: cc.Node = null;
@@ -116,12 +116,11 @@ export default class gameManager extends cc.Component {
         
     }
     playBGM(){
-        cc.audioEngine.play(this.bgm, true, 0.5);
+        cc.audioEngine.playMusic(this.bgm, true);
     }
-    /*playeffect(effect){
-        if(effect=="windcut")cc.audioEngine.play(this.windcutSound, false, 1);
-        //else if(effect=="knife");
-    }*/
+    endBGM(){
+        cc.audioEngine.stopMusic();
+    }
     initPlayer() {
         let p1Info = JSON.parse(cc.sys.localStorage.getItem("p1"))
         var p1: cc.Node, p2: cc.Node;
@@ -308,6 +307,7 @@ export default class gameManager extends cc.Component {
         this.camera2.active = false;
         cc.find("Canvas/loadingCamera").active = true;
         cc.find("Canvas/tmp_bg").active = true;
+        this.endBGM();
         cc.director.loadScene("start");
     }
 
@@ -344,6 +344,7 @@ export default class gameManager extends cc.Component {
             this.camera2.active = false;
             cc.find("Canvas/loadingCamera").active = true;
             cc.find("Canvas/tmp_bg").active = true;
+            this.endBGM();
             cc.director.loadScene("shop");
           }
     }
