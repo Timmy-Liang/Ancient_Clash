@@ -88,7 +88,9 @@ export default class start extends cc.Component {
         console.log("start...");
         //寫入cc.sys.localstorage
         //if()
-        if(this.p1name.string==""||this.p2name.string==""||this.p1name.string==this.p2name.string)return;
+        if(this.p1name.string==""||this.p2name.string==""||this.p1name.string==this.p2name.string) {
+            alert("please select the player name");
+        }
         else{
             let userdata={
                 p1name:this.p1name.string,
