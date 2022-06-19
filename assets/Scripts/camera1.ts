@@ -23,7 +23,7 @@ export default class camera1 extends cc.Component {
     }
 
     update () {
-        let new_x = this.player1.x - 960;
+        let new_x = this.player1.x - 1080;
         if(new_x > -850) new_x = -850;
         else if(new_x < -1920) new_x = -1920;
 

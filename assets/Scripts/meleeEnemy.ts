@@ -15,6 +15,7 @@ export default class meleeEnemy extends cc.Component {
     knifeSound: cc.AudioClip = null;
     @property({type:cc.AudioClip})
     killedSound: cc.AudioClip = null;
+
     private gameManager: cc.Node = null;
 
     private target: cc.Node = null;

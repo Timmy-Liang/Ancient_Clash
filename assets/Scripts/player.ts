@@ -61,6 +61,7 @@ export default class player extends cc.Component {
         this.enemyCount = this.enemys.childrenCount;
 
         this.playerData = JSON.parse(cc.sys.localStorage.getItem("p" + index));
+        console.log(index + " Data: ", this.playerData);
         this.playerData = this.dataUpdata(this.playerData);
         this.lifeMax = this.playerData.hp;
 

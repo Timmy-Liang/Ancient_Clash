@@ -98,9 +98,6 @@ export default class gameManager extends cc.Component {
 
         this.initWall(this.mapLeft);
         this.initWall(this.mapRight);
-
-        this.player1_restEnemy = this.meleeEnemyCount + this.wizardCount;
-        this.player2_restEnemy = this.meleeEnemyCount + this.wizardCount;
         //i=1 for player1, i=2 for player2
         for (let i = 1; i < 3; i++) {
             this.initEnemies(i, this.meleeEnemyCount, this.wizardCount, this.archerEnemyCount);
@@ -113,10 +110,8 @@ export default class gameManager extends cc.Component {
             this.isTiming=true;
             this.schedule(this.timeCounting, 1);
         }
-        
-        
-        
     }
+
     playBGM(){
         cc.audioEngine.playMusic(this.bgm, true);
     }
@@ -205,12 +200,18 @@ export default class gameManager extends cc.Component {
 
     initEnemies(index: number, meleeCount: number, wizardCount: number, archerCount: number) {
         for (let i = 0; i < meleeCount; i++) {
+            if(index==1) this.player1_restEnemy++;
+            else if(index==2) this.player2_restEnemy++;
             this.initMelee(index);
         }
         for (let i = 0; i < wizardCount; i++) {
+            if(index==1) this.player1_restEnemy++;
+            else if(index==2) this.player2_restEnemy++;
             this.initWizard(index);
         }
         for (let i = 0; i < archerCount; i++) {
+            if(index==1) this.player1_restEnemy++;
+            else if(index==2) this.player2_restEnemy++;
             this.initArcher(index);
         }
     }
@@ -318,9 +319,11 @@ export default class gameManager extends cc.Component {
     }
 
     enemyReduce(x) {
+        console.log("enemyreduce")
         if (x > 0) {
             this.player2_restEnemy -= 1;
             if (this.player2_restEnemy == 0) {
+                console.log("player2 clean");
                 if (this.passControl == 0) {
                     this.passControl = 2;
                     //this.initEnemies(1, 1, 1, 1);
@@ -331,6 +334,7 @@ export default class gameManager extends cc.Component {
         else {
             this.player1_restEnemy -= 1;
             if (this.player1_restEnemy == 0) {
+                console.log("player1 clean")
                 if (this.passControl == 0) {
                     this.passControl = 1;
                     //this.initEnemies(2, 1, 1, 1);
