@@ -35,7 +35,7 @@ export default class player extends cc.Component {
     private enemys: cc.Node = null;
     private enemyCount: number = 0;
     private targetPosition: cc.Vec2 = cc.v2(0, 0);
-    private targetDirection: string = "";
+    private targetDirection: string = "S";
     private targetAngle: number = 0;
 
     private life: number = 10;
@@ -224,6 +224,25 @@ export default class player extends cc.Component {
             this.attacking = false;
         });
     }
+    
+    playerDieAnimation () {
+        this.anim.stop();
+        this.attacking = true;
+        this.animateState = this.anim.play(
+            this.characterName + "Dying" + this.targetDirection
+        );
+    }
+
+    playerHurtAnimation () {
+        this.anim.stop();
+        this.attacking = true;
+        this.animateState = this.anim.play(
+            this.characterName + "Hurt" + this.targetDirection
+        );
+        this.anim.on("finished", (e) => {
+            this.attacking = false;
+        });
+    }
 
     playerAttack() {
         this.traceEnemy();
@@ -323,7 +342,6 @@ export default class player extends cc.Component {
             ) {
                 // ERROR
                 let currentEnemy = this.enemys.children[prop];
-                console.log(currentEnemy.name);
                 currentEnemy
                     .getComponent(currentEnemy.name)
                     .enemyHurt(this.playerData.atk);
@@ -387,12 +405,15 @@ export default class player extends cc.Component {
     lifeDamage(damage: number) {
         console.log("get hurt", damage);
         if (this.playerData.hp > 0) {
+            this.playerHurtAnimation();
             console.log("before hurt", this.playerData.hp);
             this.playerData.hp -=
                 damage * (1 - this.playerData.def / (this.playerData.def + 10));
             console.log("after hurt", this.playerData.hp);
         }
         if (this.playerData.hp <= 0) {
+            this.playerDieAnimation();
+            cc.find("gameManager").getComponent(gameManager).pause = true
             let index = this.node.parent.name.slice(-1);
             var winner = ''
             if(index == '1')

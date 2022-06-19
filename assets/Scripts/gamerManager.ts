@@ -38,7 +38,7 @@ export default class gameManager extends cc.Component {
     private mapLeft: cc.TiledMap = null;
     private mapRight: cc.TiledMap = null;
 
-    private pause: boolean = false;
+    public pause: boolean = false;
     private physicManager: cc.PhysicsManager = null;
 
     private meleeEnemyCount: number = 1;
