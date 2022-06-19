@@ -26,7 +26,9 @@ export default class gameManager extends cc.Component {
     knight: cc.Prefab = null;
     @property(cc.Prefab)
     slinger: cc.Prefab = null;
-
+    @property(cc.AudioClip)
+    bgm: cc.AudioClip = null;
+    
     private enemy: cc.Node = null;
     private player1: player = null;
     private player2: player = null;
@@ -94,6 +96,12 @@ export default class gameManager extends cc.Component {
             this.isTiming=true;
             this.schedule(this.timeCounting, 1);
         }
+        this.playBGM();
+        
+        
+    }
+    playBGM(){
+        cc.audioEngine.playMusic(this.bgm, true);
     }
     initPlayer() {
         let p1Info = JSON.parse(cc.sys.localStorage.getItem("p1"))

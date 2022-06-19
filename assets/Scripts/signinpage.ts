@@ -9,7 +9,15 @@ const {ccclass, property} = cc._decorator;
 
 @ccclass
 export default class signinpage extends cc.Component {
-    start(){}
+    @property(cc.AudioClip)
+    bgm: cc.AudioClip = null;
+    start () {
+        
+        this.playBGM();
+    }
+    playBGM(){
+        cc.audioEngine.playMusic(this.bgm, true);
+    }
     testBtnEvent(){
         cc.director.loadScene("start");
     }

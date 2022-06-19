@@ -33,11 +33,15 @@ export default class start extends cc.Component {
     p2: cc.Node = null;
     p1charaname:string=null;
     p2charaname:string=null;
-
+    
     
     start () {
-
+        
+        this.playBGM();
     }
+    /*playBGM(){
+        cc.audioEngine.playMusic(this.bgm, true);
+    }*/
     onLoad(): void {
         this.p1=cc.instantiate(this.archerPrefab);
         this.p1.parent = this.chara1;
@@ -90,6 +94,7 @@ export default class start extends cc.Component {
         cc.sys.localStorage.setItem('p1', JSON.stringify(p1_Data));
         cc.sys.localStorage.setItem('p2', JSON.stringify(p2_Data));
         cc.sys.localStorage.setItem('level', "1");
+        cc.audioEngine.stopMusic();
         cc.director.loadScene("game");
     }
 
