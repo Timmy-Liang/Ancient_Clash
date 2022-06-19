@@ -14,7 +14,8 @@ export default class shopManager extends cc.Component {
 
     @property(cc.Prefab)
     playerShopping: cc.Prefab = null;
-
+    @property(cc.AudioClip)
+    bgm: cc.AudioClip = null;
     private ButtonShow: boolean= false;
     private BothReady: boolean= false;
     private Buy: boolean= false;
@@ -151,7 +152,15 @@ export default class shopManager extends cc.Component {
         this.armorGenerate(2, this.p2.armor);
         this.bootsGenerate(2, this.p2.boots);
     }
-    
+    start(){
+        this.playBGM();
+    }
+    playBGM(){
+        cc.audioEngine.playMusic(this.bgm, true);
+    }
+    endBGM(){
+        cc.audioEngine.stopMusic();
+    }
     equipBuy(tag, type, equipName){
         this.Buy=true;
         this.ButtonShow=true;
@@ -742,6 +751,7 @@ export default class shopManager extends cc.Component {
         cc.sys.localStorage.setItem('equipInit', JSON.stringify(tem));
     }
       nextLevel() {
+        this.endBGM();
         let level = parseInt(cc.sys.localStorage.getItem("level"));
         let nextLevel = level + 1;
         if (nextLevel == 5) {
