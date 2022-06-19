@@ -9,8 +9,44 @@ const {ccclass, property} = cc._decorator;
 
 @ccclass
 export default class signinpage extends cc.Component {
-    start(){}
+    @property(cc.AudioClip)
+    bgm: cc.AudioClip = null;
+    private logInWindow:cc.Node=null;
+    private signUpWindow:cc.Node=null;
+    onLoad(){
+        this.logInWindow=cc.find("Canvas/login_window");
+        this.signUpWindow=cc.find("Canvas/signup_window");
+    }
+    start () {
+        this.logInWindow.active=false;
+        this.signUpWindow.active=false;
+        this.playBGM();
+        
+    }
+    playBGM(){
+        cc.audioEngine.playMusic(this.bgm, true);
+    }
     testBtnEvent(){
         cc.director.loadScene("start");
     }
+    logInBtn(){
+
+        this.logInWindow.active=true;
+    }
+    signUpBtn(){
+        this.signUpWindow.active=true;
+    }
+    closeSignUp(){
+        this.signUpWindow.active=false;
+    }
+    closeLogIn(){
+        this.logInWindow.active=false;
+    }
+    submitLogIn(){
+
+    }
+    submitSingUp(){
+
+    }
+
 }

@@ -26,7 +26,12 @@ export default class gameManager extends cc.Component {
     knight: cc.Prefab = null;
     @property(cc.Prefab)
     slinger: cc.Prefab = null;
-
+    @property(cc.AudioClip)
+    bgm: cc.AudioClip = null;
+    @property(cc.AudioClip)
+    windcutSound: cc.AudioClip = null;
+    @property(cc.AudioClip)
+    walkSound: cc.AudioClip = null;
     private enemy: cc.Node = null;
     private player1: player = null;
     private player2: player = null;
@@ -80,7 +85,7 @@ export default class gameManager extends cc.Component {
     }
 
     start() {
-        
+        this.playBGM();
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP, this.onKeyUp, this);
 
@@ -101,7 +106,17 @@ export default class gameManager extends cc.Component {
             this.isTiming=true;
             this.schedule(this.timeCounting, 1);
         }
+        
+        
+        
     }
+    playBGM(){
+        cc.audioEngine.play(this.bgm, true, 0.5);
+    }
+    /*playeffect(effect){
+        if(effect=="windcut")cc.audioEngine.play(this.windcutSound, false, 1);
+        //else if(effect=="knife");
+    }*/
     initPlayer() {
         let p1Info = JSON.parse(cc.sys.localStorage.getItem("p1"))
         var p1: cc.Node, p2: cc.Node;
@@ -149,7 +164,7 @@ export default class gameManager extends cc.Component {
         this.timer2.string=this.timer.toString();
     }
     addcoin(playernum,addnum){
-        cc.log("addcoin");
+        //cc.log("addcoin");
         if(playernum==1){
             this.coin1+=addnum;
             this.coin1label.string=this.coin1.toString();
