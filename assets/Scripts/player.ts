@@ -256,7 +256,9 @@ export default class player extends cc.Component {
                     0.1,
                     4
                 );
-            } else if (this.characterTag == 1) {
+            } 
+            
+            else if (this.characterTag == 1) {
                 this.traceEnemy();
                 let powerBullet = null;
                 if (this.powerBulletpool.size() > 0)
@@ -267,24 +269,28 @@ export default class player extends cc.Component {
                         .init(this.node, this.targetDirection, this.targetAngle);
 
                 this.playerAttackAnimation();
-            } else if (this.characterTag == 2) {
+            }
+            
+            else if (this.characterTag == 2) {
                 this.attackCooldown = 0.25;
                 this.node.color = new cc.Color(248, 86, 86);
                 this.scheduleOnce(() => {
                     this.attackCooldown = 0.5;
                     this.node.color = new cc.Color(255, 255, 255);
                 }, 2.5);
-            } else if (this.characterTag == 3) {
+            }
+            
+            else if (this.characterTag == 3) {
                 this.node.color = new cc.Color(134, 250, 255);
+                this.playerData.def = this.playerData.def * 2 + 20;
                 this.scheduleOnce(() => {
+                    this.playerData.def = (this.playerData.def - 20 ) /2;
                     this.node.color = new cc.Color(255, 255, 255);
                 }, 2.5);
             }
             this.scheduleOnce(() => {
                 this.setPowerCooldown(0);
-                this.playerData.def =
-                    this.playerData.def + this.playerData.def * 1.5 + 10;
-                this.colorOfpower.color = new cc.Color(0, 255, 80);
+                //this.colorOfpower.color = new cc.Color(255, 255, 255);
             }, this.powerCooltime);
         }
     }
