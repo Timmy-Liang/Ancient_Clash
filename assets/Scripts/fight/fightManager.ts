@@ -22,10 +22,6 @@ export default class gameManager extends cc.Component {
 
     @property(cc.AudioClip)
     bgm: cc.AudioClip = null;
-    @property(cc.AudioClip)
-    windcutSound: cc.AudioClip = null;
-    @property(cc.AudioClip)
-    walkSound: cc.AudioClip = null;
     
     private player1: fightPlayer = null;
     private player2: fightPlayer = null;
@@ -33,11 +29,6 @@ export default class gameManager extends cc.Component {
     private map: cc.TiledMap = null;
     private pause: boolean = false;
     private physicManager: cc.PhysicsManager = null;
-
-    private passControl: number = 0;
-    //1: player1 pass first
-    //2: player2 pass first
-    //3: both player pass
 
     // LIFE-CYCLE CALLBACKS:
 
@@ -191,12 +182,13 @@ export default class gameManager extends cc.Component {
 
     gameOver(status: string) {
         this.endBGM();
+        this.pause = true;
         if(status == 'winner1') {
             let winNode = cc.find("Canvas/Win");
             winNode.getComponent(cc.Label).string = "Player 1 Win"
             winNode.active = true;
             this.scheduleOnce(() => {
-                cc.director.loadScene("start")
+                cc.director.loadScene("endgame")
             }, 3)
         }
         else if(status == 'winner2') {
@@ -204,7 +196,7 @@ export default class gameManager extends cc.Component {
             winNode.getComponent(cc.Label).string = "Player 2 Win"
             winNode.active = true;
             this.scheduleOnce(() => {
-                cc.director.loadScene("start")
+                cc.director.loadScene("endgame")
             }, 3)
         }
     }

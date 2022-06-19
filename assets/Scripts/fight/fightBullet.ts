@@ -17,6 +17,7 @@ export default class fightBullet extends cc.Component {
     private initPosOffset: number = 60;
 
     private damage: number = 1;
+    private owner: number = 0;
 
     private speedX: number = 0;
     private speedY: number = 0;
@@ -24,12 +25,13 @@ export default class fightBullet extends cc.Component {
     public isTriggered = false; // I add this to make the bullet kill one enemy at a time.
 
     // when created, the bullet need to be placed at correct position and play animation.
-    public init(node: cc.Node, targetDirection: string, targetAngle: number) {
+    public init(node: cc.Node, targetDirection: string, targetAngle: number, atk: number, owner: number) {
         this.setInitPos(node, targetDirection);
         //this.bulletMove()
         this.speedX = Math.cos(targetAngle * Math.PI / 180);
         this.speedY = Math.sin(targetAngle * Math.PI / 180);
-
+        this.damage=atk;
+        this.owner = owner;
         this.scheduleOnce(() => {
             this.bulletManager.put(this.node);
         }, 1);
@@ -94,7 +96,13 @@ export default class fightBullet extends cc.Component {
             return;
         }
         if(other.tag == 1){ // hit player
-            other.node.getComponent('fightPlayer').lifeDamage(100)
+            let index = parseInt(other.node.parent.name.slice(-1));
+            if(index != this.owner)
+                other.node.getComponent('fightPlayer').lifeDamage(this.damage)
+            else {
+                contact.disabled = true;
+                return;
+            }
         }
         this.node.stopAllActions();
 

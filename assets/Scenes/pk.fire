@@ -1000,12 +1000,6 @@
     "bgm": {
       "__uuid__": "f1f313dd-9d33-4b35-a377-780a0a33d8cc"
     },
-    "windcutSound": {
-      "__uuid__": "9ad2b6a5-cac4-4ccf-8815-c11f19c7d1bd"
-    },
-    "walkSound": {
-      "__uuid__": "bff3fd24-5075-41c0-97ec-a4efb7036de8"
-    },
     "_id": "1aZUETHslM27pMo301BqT3"
   }
 ]
