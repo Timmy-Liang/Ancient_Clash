@@ -318,10 +318,20 @@ export default class gameManager extends cc.Component {
     gameOver(status: string) {
         this.endBGM();
         if(status == 'tie') {
+            let sth=JSON.parse(cc.sys.localStorage.getItem("p1"));
+            sth.money+=this.coin1;
+            cc.log("p1 update", sth)
+            cc.sys.localStorage.setItem('p1', JSON.stringify(sth));
+
+            sth=JSON.parse(cc.sys.localStorage.getItem("p2"));
+            sth.money+=this.coin2;
+            cc.log("p2 update", sth)
+            cc.sys.localStorage.setItem('p2', JSON.stringify(sth));
+
             this.camera1.active = false;
             this.camera2.active = false;
             cc.find("Canvas/loadingCamera").active = true;
-            cc.find("Canvas/tmp_bg").active = true;
+            cc.find("Canvas/tmp_bg").active = true;            
             cc.director.loadScene("shop");
         }
         else if(status == 'winner1') {
@@ -357,7 +367,7 @@ export default class gameManager extends cc.Component {
                     cc.find("Canvas/camera2/Clean").active = true;
                     if (this.passControl == 0) {
                         this.passControl = 2;
-                        this.initEnemies(1, 1, 1, 1);
+                        //this.initEnemies(1, 1, 1, 1);
                     }
                 }
             }
@@ -370,7 +380,7 @@ export default class gameManager extends cc.Component {
                     cc.find("Canvas/camera1/Clean").active = true;
                     if (this.passControl == 0) {
                         this.passControl = 1;
-                        this.initEnemies(2, 1, 1, 1);
+                        //this.initEnemies(2, 1, 1, 1);
                     }
                 }
             }
@@ -378,10 +388,12 @@ export default class gameManager extends cc.Component {
           if (this.passControl == 3) {
             let sth=JSON.parse(cc.sys.localStorage.getItem("p1"));
             sth.money+=this.coin1;
+            cc.log("p1 update", sth)
             cc.sys.localStorage.setItem('p1', JSON.stringify(sth));
 
             sth=JSON.parse(cc.sys.localStorage.getItem("p2"));
             sth.money+=this.coin2;
+            cc.log("p2 update", sth)
             cc.sys.localStorage.setItem('p2', JSON.stringify(sth));
             //console.log("enter shop");
             this.camera1.active = false;

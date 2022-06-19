@@ -195,10 +195,10 @@ export default class meleeEnemy extends cc.Component {
         this.enemyLife -= hp;
         this.enemyLifeProgress.getComponent(cc.ProgressBar).progress = this.enemyLife / this.enemyMaxLife;
         if (this.enemyLife <= 0) {
-            this.gameManager.getComponent("gamerManager").enemyReduce(this.node.x);
             this.node.active = false;
             if(this.node.parent.name=="enemy1")this.gameManager.getComponent("gamerManager").addcoin(1,10);
             else if(this.node.parent.name=="enemy2")this.gameManager.getComponent("gamerManager").addcoin(2,10);
+            this.gameManager.getComponent("gamerManager").enemyReduce(this.node.x);
             cc.audioEngine.playEffect(this.killedSound,false);
             this.node.destroy();
         }

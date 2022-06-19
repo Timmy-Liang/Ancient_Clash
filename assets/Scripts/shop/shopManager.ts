@@ -93,6 +93,7 @@ export default class shopManager extends cc.Component {
 
         //-----------------p1 initialize---------------//
         this.p1=JSON.parse(cc.sys.localStorage.getItem("p1"));
+        console.log("shop p1: ", this.p1);
         this.p1_Label=cc.find("Canvas/p1_Label").getComponent(cc.Label);
         this.labelUpdate(1);
 
@@ -122,6 +123,7 @@ export default class shopManager extends cc.Component {
         
         //-----------------p2 initialize---------------//
         this.p2=JSON.parse(cc.sys.localStorage.getItem("p2"));
+        console.log("shop p1: ", this.p1);
         this.p2_Label=cc.find("Canvas/p2_Label").getComponent(cc.Label);
         this.labelUpdate(2);
 
@@ -268,7 +270,7 @@ export default class shopManager extends cc.Component {
             "ATK: "+tem.atk+"\n"
             +"DEF: "+tem.def+"\n"
             +"HP: " + tem.hp+"\n"
-            +"SPD: "+ tem.hp+"\n"
+            +"SPD: "+ tem.spd+"\n"
             +"Money: "+tem.money;
         }
         else if(tag==2){
