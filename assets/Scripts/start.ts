@@ -37,7 +37,7 @@ export default class start extends cc.Component {
     
     start () {
         
-        this.playBGM();
+        //this.playBGM();
     }
     /*playBGM(){
         cc.audioEngine.playMusic(this.bgm, true);
