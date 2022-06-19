@@ -338,24 +338,28 @@ export default class player extends cc.Component {
     }
 
     meleeAttack() {
-        for (var prop in this.rangeTarget) {
-            let currentPosition = this.node.convertToWorldSpaceAR(cc.v2(0, 0));
-            let enemyPosition = this.rangeTarget[prop];
-            let nextTargetAngle = calcAngleDegrees(
-                enemyPosition.x - currentPosition.x,
-                enemyPosition.y - currentPosition.y
-            );
-            if (
-                nextTargetAngle < this.targetAngle + 22.5 &&
-                nextTargetAngle > (this.targetAngle - 22.5) % 360
-            ) {
-                // ERROR
-                let currentEnemy = this.enemys.children[prop];
-                currentEnemy
-                    .getComponent(currentEnemy.name)
-                    .enemyHurt(this.playerData.atk);
+        if(this.rangeTarget) {
+            for (var prop in this.rangeTarget) {
+                let currentPosition = this.node.convertToWorldSpaceAR(cc.v2(0, 0));
+                let enemyPosition = this.rangeTarget[prop];
+                let nextTargetAngle = calcAngleDegrees(
+                    enemyPosition.x - currentPosition.x,
+                    enemyPosition.y - currentPosition.y
+                );
+                if (
+                    nextTargetAngle < this.targetAngle + 22.5 &&
+                    nextTargetAngle > (this.targetAngle - 22.5) % 360
+                ) {
+                    // ERROR
+                    let currentEnemy = this.enemys.children[prop];
+                    currentEnemy
+                        .getComponent(currentEnemy.name)
+                        .enemyHurt(this.playerData.atk);
+                }
             }
         }
+        this.rangeTarget = {}
+        
     }
 
     traceEnemy() {
