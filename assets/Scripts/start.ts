@@ -40,7 +40,8 @@ export default class start extends cc.Component {
     user2name:string=null;
     user3name:string=null;
     user4name:string=null;
-    
+    twoplayBtn: cc.Node = null;
+    boardBtn: cc.Node = null;
     start () {
         this.select.active=false;
         //this.playBGM();
@@ -68,8 +69,13 @@ export default class start extends cc.Component {
         this.p1name.string="";
         this.p2name.string="";
 
+        this.twoplayBtn=cc.find("Canvas/2v2Btn");
+        this.boardBtn=cc.find("Canvas/leaderboard");
+
     }
     changetoselect2V2(){
+        this.twoplayBtn.active=false;
+        this.boardBtn.active=false;
         this.select.active=true;
     }
     toLeaderboard(){
@@ -580,6 +586,8 @@ export default class start extends cc.Component {
         console.log("equip init!")
     }
     closeCharSel(){
+        this.twoplayBtn.active=true;
+        this.boardBtn.active=true;
         this.select.active=false;
     }
     // update (dt) {}
