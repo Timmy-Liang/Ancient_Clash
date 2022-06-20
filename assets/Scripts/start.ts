@@ -154,7 +154,7 @@ export default class start extends cc.Component {
             cc.sys.localStorage.setItem('p1', JSON.stringify(p1_Data));
             cc.sys.localStorage.setItem('p2', JSON.stringify(p2_Data));
             cc.sys.localStorage.setItem('level', "1");
-            cc.find("Canvas/loading_bg").active = true;
+            cc.find("Canvas/opIntro").active = true;
             cc.audioEngine.stopMusic();
             console.log("start to load");
 
@@ -282,7 +282,7 @@ export default class start extends cc.Component {
         if(name=="archer"){
             data.atk=8;
             data.def=2;
-            data.hp=30;
+            data.hp=28;
             data.spd=3.5;
             data.weapon="crossBow1";
             data.armor="archerArmor1";
@@ -290,7 +290,7 @@ export default class start extends cc.Component {
         else if(name=="slinger"){
             data.atk=15;
             data.def=4;
-            data.hp=30;
+            data.hp=33;
             data.spd=2.5;
             data.weapon="sling1";
             data.armor="slingerArmor1";
@@ -306,7 +306,7 @@ export default class start extends cc.Component {
         else if(name=="warrior"){
             data.atk=12;
             data.def=2;
-            data.hp=30;
+            data.hp=40;
             data.spd=3;
             data.weapon="sword1";
             data.armor="warriorArmor1";
