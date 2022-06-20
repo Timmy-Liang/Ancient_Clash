@@ -26,6 +26,8 @@ export default class wizard extends cc.Component {
     private nextMoveTime: number = 0;
     private waitRandomFactor: number = 0.1;
 
+    private coin: number= 5;
+
     private wizardLife: number = 300;
     private wizardMaxLife: number = 300;
     private wizardLifeProgress: cc.Node = null;
@@ -114,8 +116,8 @@ export default class wizard extends cc.Component {
         if (this.wizardLife <= 0) {
             this.node.active = false;
             cc.audioEngine.playEffect(this.killedSound,false);
-            if(this.node.parent.name=="enemy1")this.gameManager.getComponent("gamerManager").addcoin(1,25);
-            else if(this.node.parent.name=="enemy2")this.gameManager.getComponent("gamerManager").addcoin(2,25);
+            if(this.node.parent.name=="enemy1")this.gameManager.getComponent("gamerManager").addcoin(1,this.coin);
+            else if(this.node.parent.name=="enemy2")this.gameManager.getComponent("gamerManager").addcoin(2,this.coin);
             this.gameManager.getComponent("gamerManager").enemyReduce(this.node.x);
             if (this.target != null) this.target.destroy();
             this.node.destroy();

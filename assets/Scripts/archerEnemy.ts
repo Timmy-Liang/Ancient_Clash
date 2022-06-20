@@ -22,7 +22,7 @@ export default class archerEnemy extends cc.Component {
 
     private target: cc.Node = null;
 
-    private detectRange: number = 300;
+    private detectRange: number = 400;
     private attackRange: number = 5;
     private attackCooldown: number = 2;
     private nextAttackTime: number = 0;
@@ -35,6 +35,8 @@ export default class archerEnemy extends cc.Component {
     private nextMoveTime: number = 0;
     private nextTraceTime: number = 0;
     private waitRandomFactor: number = 0.1;
+
+    private coin: number=3;
 
     private enemyLife: number = 85;
     private enemyMaxLife: number = 85;
@@ -148,8 +150,8 @@ export default class archerEnemy extends cc.Component {
         if (this.enemyLife <= 0) {
             cc.audioEngine.playEffect(this.killedSound,false);
             this.node.active = false;
-            if(this.node.parent.name=="enemy1")this.gameManager.getComponent("gamerManager").addcoin(1,15);
-            else if(this.node.parent.name=="enemy2")this.gameManager.getComponent("gamerManager").addcoin(2,15);
+            if(this.node.parent.name=="enemy1")this.gameManager.getComponent("gamerManager").addcoin(1,this.coin);
+            else if(this.node.parent.name=="enemy2")this.gameManager.getComponent("gamerManager").addcoin(2,this.coin);
             this.gameManager.getComponent("gamerManager").enemyReduce(this.node.x);
             this.node.destroy();
         }
@@ -193,12 +195,13 @@ export default class archerEnemy extends cc.Component {
         }
         this.enemyWalkAnimation();
     }
-
+    /*
     onBeginContact(contact, self, other) {
         if (other.tag == 1) {
             other.node.getComponent(player).lifeDamage(this.damage);
         }
     }
+    */
 }
 
 
