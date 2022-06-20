@@ -27,7 +27,7 @@ export default class wizard extends cc.Component {
     private waitRandomFactor: number = 0.1;
 
     private wizardLife: number = 300;
-    private wizardMaxLife: number = 200;
+    private wizardMaxLife: number = 300;
     private wizardLifeProgress: cc.Node = null;
     private target: cc.Node = null;
 
