@@ -312,7 +312,7 @@ export default class start extends cc.Component {
             data.armor="archerArmor1";
         }
         else if(name=="slinger"){
-            data.atk=15;
+            data.atk=14;
             data.def=4;
             data.hp=33;
             data.spd=2.5;
@@ -365,7 +365,7 @@ export default class start extends cc.Component {
             atk: 0,
             def: 10,
             hp: 25,
-            spd: 0.5,
+            spd: 1,
             price: 40
         }
         let knightArmor1={
