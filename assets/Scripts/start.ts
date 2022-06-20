@@ -229,7 +229,7 @@ export default class start extends cc.Component {
             data.atk=8;
             data.def=2;
             data.hp=30;
-            data.spd=4;
+            data.spd=3.5;
             data.weapon="crossBow1";
             data.armor="archerArmor1";
         }
@@ -280,14 +280,14 @@ export default class start extends cc.Component {
             atk: 0,
             def: 7,
             hp: 22,
-            spd: 0,
+            spd: 0.5,
             price: 30
         }
         let archerArmor5={
             atk: 0,
             def: 10,
             hp: 25,
-            spd: 1,
+            spd: 0.5,
             price: 40
         }
         let knightArmor1={
@@ -315,7 +315,7 @@ export default class start extends cc.Component {
             atk: 0,
             def: 16,
             hp: 40,
-            spd: 0,
+            spd: 0.5,
             price: 40
         }
         let slingerArmor1={
@@ -336,14 +336,14 @@ export default class start extends cc.Component {
             atk: 0,
             def: 5,
             hp: 28,
-            spd: 0,
+            spd: 0.5,
             price: 30
         }
         let slingerArmor4={
             atk: 0,
             def: 8,
             hp: 35,
-            spd: 1,
+            spd: 0.5,
             price: 40
         }
         let warriorArmor1={
@@ -364,7 +364,7 @@ export default class start extends cc.Component {
             atk: 0,
             def: 10,
             hp: 25,
-            spd: 0,
+            spd: 0.5,
             price: 30
         }
         let warriorArmor4={
@@ -380,56 +380,56 @@ export default class start extends cc.Component {
             atk: 0,
             def: 1,
             hp: 0,
-            spd: 1,
+            spd: 0.5,
             price: 10
         }
         let boots2={
             atk: 0,
             def: 3,
-            hp: 5,
-            spd: 1,
+            hp: 10,
+            spd: 0.5,
             price: 20
         }
         let boots3={
             atk: 0,
             def: 5,
-            hp: 10,
-            spd: 2,
+            hp: 15,
+            spd: 1,
             price: 30
         }
         let boots4={
             atk: 0,
             def: 4,
             hp: 15,
-            spd: 2,
+            spd: 1,
             price: 40
         }
         let boots5={
             atk: 0,
             def: 5,
-            hp: 5,
-            spd: 1,
+            hp: 10,
+            spd: 0.5,
             price: 25
         }
         let boots6={
             atk: 0,
             def: 10,
-            hp: 10,
-            spd: 2,
+            hp: 15,
+            spd: 1,
             price: 40
         }
         let boots7={
             atk: 0,
             def: 2,
-            hp: 15,
-            spd: 1,
+            hp: 12,
+            spd: 0.5,
             price: 20
         }
         let boots8={
             atk: 0,
             def: 7,
-            hp: 25,
-            spd: 2,
+            hp: 20,
+            spd: 1,
             price: 35
         }
 
