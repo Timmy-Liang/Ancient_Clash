@@ -76,9 +76,11 @@ export default class player extends cc.Component {
                 switch (currentCharacter) {
                     case "archer":
                         this.characterTag = 0;
+                        this.attackCooldown=0.4;
                         break;
                     case "slinger":
                         this.characterTag = 1;
+                        this.attackCooldown=0.6;
                         break;
                     case "warrior":
                         this.attackRange=120;

@@ -39,7 +39,7 @@ export default class gameManager extends cc.Component {
     private physicManager: cc.PhysicsManager = null;
 
     private meleeEnemyCount: number = 0;
-    private archerEnemyCount: number = 1;
+    private archerEnemyCount: number = 0;
     private wizardCount: number = 0;
 
     private player1_restEnemy: number = 0;
@@ -106,14 +106,14 @@ export default class gameManager extends cc.Component {
 
         this.camera1 = cc.find("Canvas/camera1");
         this.camera2 = cc.find("Canvas/camera2");
-        /*
+        
         this.meleeEnemyCount =  Math.floor(level*2)+1;
         this.archerEnemyCount = Math.floor(level*2);
         this.wizardCount = Math.floor(level*2);
-        */
-        this.meleeEnemyCount =  Math.floor(level*1.5)+1;
-        this.archerEnemyCount = Math.floor(level*1.5);
-        this.wizardCount = Math.floor(level*1.5);
+        
+        //this.meleeEnemyCount =  Math.floor(level*1.5)+1;
+        //this.archerEnemyCount = Math.floor(level*1.5);
+        //this.wizardCount = Math.floor(level*1.5);
         //cc.director.getPhysicsManager().debugDrawFlags = 1;
     }
 
