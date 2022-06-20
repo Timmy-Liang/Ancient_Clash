@@ -17,7 +17,7 @@ export default class player extends cc.Component {
 
     private anim: cc.Animation = null;
     private animateState = null;
-
+ 
     private maxBullet: number = 5;
     private bulletPool: cc.NodePool = null;
     private powerBulletpool: cc.NodePool = null;
@@ -81,9 +81,11 @@ export default class player extends cc.Component {
                         this.characterTag = 1;
                         break;
                     case "warrior":
+                        this.attackRange=80;
                         this.characterTag = 2;
                         break;
                     case "knight":
+                        this.attackRange=80;
                         this.characterTag = 3;
                         break;
                 }
