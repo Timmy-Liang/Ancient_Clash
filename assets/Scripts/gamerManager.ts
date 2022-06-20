@@ -231,6 +231,8 @@ export default class gameManager extends cc.Component {
         let layer = map.getLayer("wall");
         let layerSize = layer.getLayerSize();
         //check each tiled
+        let dx = [1, -1, 0, 0, 1, -1, -1, 1]
+        let dy = [0, 0, 1, -1, 1, 1, -1, -1];
         for (let i = 0; i < layerSize.width; i++) {
             for (let j = 0; j < layerSize.height; j++) {
                 let tiled = layer.getTiledTileAt(i, j, true);
@@ -245,7 +247,17 @@ export default class gameManager extends cc.Component {
                     collider.apply();
                 }
                 else {
-                    this.validEnemySpace.push([i, j]);
+                    let wallAround = false;
+                    for(let idx = 0; idx < 8; idx++) {
+                        if(wallAround)
+                            break;
+                        let nextX = i + dx[idx], nextY = j + dy[idx];
+                        if(nextX < layerSize.width && nextX >= 0 && nextY < layerSize.height && nextY >= 0) {
+                            wallAround = true;
+                        }
+                    }
+                    if(!wallAround)
+                        this.validEnemySpace.push([i, j]);
                 }
             }
         }
