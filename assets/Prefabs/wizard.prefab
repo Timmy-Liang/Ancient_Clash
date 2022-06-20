@@ -371,6 +371,12 @@
       "__uuid__": "17405811-1dfa-44e3-9208-b7bbda662acb"
     },
     "gameManager": null,
+    "killedSound": {
+      "__uuid__": "0fb3914b-1737-43bd-937c-1fe629568060"
+    },
+    "bombSound": {
+      "__uuid__": "95caf602-ac8b-4ed8-9069-18d88a606553"
+    },
     "_id": ""
   },
   {
