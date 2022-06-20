@@ -44,13 +44,32 @@ export default class start extends cc.Component {
     user4name:string=null;
     twoplayBtn: cc.Node = null;
     boardBtn: cc.Node = null;
+    private p1BtnLabel:cc.Label = null;
+    private p2BtnLabel:cc.Label = null;
+    private p3BtnLabel:cc.Label = null;
+    private p4BtnLabel:cc.Label = null;
+
     start () {
-        this.select.active=false;
-        //this.playBGM();
+        
+        let user = firebase.auth().currentUser;
+        let ref = firebase.database().ref("account_data/" + user.uid+"/userdata");
+        var info;
+        ref.once('value', (snapshot) => {
+            info=snapshot.val();
+        }).then(e => {
+            this.user1name=info.user1.name;
+            this.user2name=info.user2.name;
+            this.user3name=info.user3.name;
+            this.user4name=info.user4.name;
+
+            this.p1BtnLabel.string=info.user1.name;
+            this.p2BtnLabel.string=info.user2.name;
+            this.p3BtnLabel.string=info.user3.name;
+            this.p4BtnLabel.string=info.user4.name;
+            cc.sys.localStorage.setItem("account_data",JSON.stringify(info));
+            
+        })
     }
-    /*playBGM(){
-        cc.audioEngine.playMusic(this.bgm, true);
-    }*/
     onLoad(): void {
         //firebase
         /*let user = firebase.auth().currentUser;
@@ -61,6 +80,7 @@ export default class start extends cc.Component {
         });
         cc.sys.localStorage.setItem("account_data",JSON.stringify(info));
         */
+        this.select.active=false;
         this.p1=cc.instantiate(this.archerPrefab);
         this.p1.parent = this.chara1;
         this.p1.position = cc.v3(0, 0);
@@ -70,7 +90,13 @@ export default class start extends cc.Component {
         this.p1charaname="archer";
         this.p2charaname="archer";
         this.equipInit();
-        //test data
+        this.p1BtnLabel=cc.find("Canvas/select_character/p1Btn/Background/Label").getComponent(cc.Label);
+        this.p2BtnLabel=cc.find("Canvas/select_character/p2Btn/Background/Label").getComponent(cc.Label);
+        this.p3BtnLabel=cc.find("Canvas/select_character/p3Btn/Background/Label").getComponent(cc.Label);
+        this.p4BtnLabel=cc.find("Canvas/select_character/p4Btn/Background/Label").getComponent(cc.Label);
+
+        //test 
+        /*
         let user1={
             name:"Danny  ",
             wincount:0,
@@ -101,13 +127,10 @@ export default class start extends cc.Component {
             uid: "usercre.user.uid",
             email: "email",
             userdata:userdata
-        }
+        }*/
         //test data
-        this.user1name="Danny";
-        this.user2name="Daniel";
-        this.user3name="Mandy";
-        this.user4name="Timothy";
-        cc.sys.localStorage.setItem("account_data",JSON.stringify(info));
+        
+
         this.p1name=cc.find("Canvas/select_character/P1/name").getComponent(cc.Label);
         this.p2name=cc.find("Canvas/select_character/P2/name").getComponent(cc.Label);
         this.p1name.string="";
@@ -117,6 +140,7 @@ export default class start extends cc.Component {
         this.boardBtn=cc.find("Canvas/leaderboard");
 
     }
+    
     changetoselect2V2(){
         this.twoplayBtn.active=false;
         this.boardBtn.active=false;
