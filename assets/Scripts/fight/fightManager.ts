@@ -36,7 +36,6 @@ export default class gameManager extends cc.Component {
         this.resetKeyboard();
         this.physicManager = cc.director.getPhysicsManager();
         this.physicManager.enabled = true;
-        this.physicManager.debugDrawFlags = 1;
         this.initPlayer();
         this.map = cc.find("Canvas/pkMap").getComponent(cc.TiledMap)
         //let level = cc.sys.localStorage.getItem("level");
