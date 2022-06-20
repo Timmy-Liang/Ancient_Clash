@@ -89,7 +89,7 @@ export default class wizard extends cc.Component {
         let fire = cc.instantiate(this.fire);
         fire.scale = this.targetRange;
         fire.parent = this.map;
-
+        cc.audioEngine.playEffect(this.bombSound,false);
         fire.setPosition(pos);
         this.scheduleOnce(() => {
             fire.destroy();
@@ -113,6 +113,7 @@ export default class wizard extends cc.Component {
         this.wizardLifeProgress.getComponent(cc.ProgressBar).progress = this.wizardLife / this.wizardMaxLife;
         if (this.wizardLife <= 0) {
             this.node.active = false;
+            cc.audioEngine.playEffect(this.killedSound,false);
             if(this.node.parent.name=="enemy1")this.gameManager.getComponent("gamerManager").addcoin(1,25);
             else if(this.node.parent.name=="enemy2")this.gameManager.getComponent("gamerManager").addcoin(2,25);
             this.gameManager.getComponent("gamerManager").enemyReduce(this.node.x);

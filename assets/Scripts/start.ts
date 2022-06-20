@@ -59,7 +59,7 @@ export default class start extends cc.Component {
         this.p1charaname="archer";
         this.p2charaname="archer";
         this.equipInit();
-
+        
         this.user1name="Danny";
         this.user2name="Daniel";
         this.user3name="Mandy";

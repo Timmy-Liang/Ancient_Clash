@@ -20,6 +20,7 @@ export default class NewClass extends cc.Component {
     // onLoad () {}
 
     start () {
+        cc.audioEngine.stopMusic();
         let userdata=JSON.parse(cc.sys.localStorage.getItem("userdata"))
         if(cc.sys.localStorage.getItem("winstate")=="winner1"){
             this.label.string=(userdata.p1name+"\nWON");
