@@ -38,9 +38,9 @@ export default class gameManager extends cc.Component {
     private pause: boolean = false;
     private physicManager: cc.PhysicsManager = null;
 
-  private meleeEnemyCount: number = 0;
-  private archerEnemyCount: number = 1;
-  private wizardCount: number = 1;
+    private meleeEnemyCount: number = 0;
+    private archerEnemyCount: number = 1;
+    private wizardCount: number = 1;
 
     private player1_restEnemy: number = 0;
     private player2_restEnemy: number = 0;
@@ -95,7 +95,10 @@ export default class gameManager extends cc.Component {
 
         this.camera1 = cc.find("Canvas/camera1");
         this.camera2 = cc.find("Canvas/camera2");
-
+        
+        this.meleeEnemyCount =  Math.floor(level*2)+2;
+        this.archerEnemyCount = Math.floor(level*2)+1;
+        this.wizardCount = Math.floor(level*2);
         //cc.director.getPhysicsManager().debugDrawFlags = 1;
     }
 
@@ -238,29 +241,23 @@ export default class gameManager extends cc.Component {
     ) {
         for (let i = 0; i < meleeCount; i++) {
             if (index == 1)
-                this.player1_restEnemy++,
-                    console.log("now p1_enemy: ", this.player1_restEnemy);
+                this.player1_restEnemy++;
             else if (index == 2)
-                this.player2_restEnemy++,
-                    console.log("now p2_enemy: ", this.player2_restEnemy);
+                this.player2_restEnemy++;
             this.initMelee(index);
         }
         for (let i = 0; i < wizardCount; i++) {
             if (index == 1)
-                this.player1_restEnemy++,
-                    console.log("now p1_enemy: ", this.player1_restEnemy);
+                this.player1_restEnemy++;
             else if (index == 2)
-                this.player2_restEnemy++,
-                    console.log("now p2_enemy: ", this.player2_restEnemy);
+                this.player2_restEnemy++;
             this.initWizard(index);
         }
         for (let i = 0; i < archerCount; i++) {
             if (index == 1)
-                this.player1_restEnemy++,
-                    console.log("now p1_enemy: ", this.player1_restEnemy);
+                this.player1_restEnemy++;
             else if (index == 2)
-                this.player2_restEnemy++,
-                    console.log("now p2_enemy: ", this.player2_restEnemy);
+                this.player2_restEnemy++;
             this.initArcher(index);
         }
     }
@@ -310,8 +307,8 @@ export default class gameManager extends cc.Component {
         if (this.pause) return;
         this.player1.playerMoveDir("IDLE");
         this.player2.playerMoveDir("IDLE");
-        if (keyboardInput[cc.macro.KEY.space]) this.player1.playerAttack();
-        if (keyboardInput[cc.macro.KEY.m]) this.player1.playerPower();
+        if (keyboardInput[cc.macro.KEY.f]) this.player1.playerAttack();
+        if (keyboardInput[cc.macro.KEY.g]) this.player1.playerPower();
         if (keyboardInput[cc.macro.KEY.s] && keyboardInput[cc.macro.KEY.d]) {
             this.player1.playerMoveDir("SE");
         } else if (keyboardInput[cc.macro.KEY.d] && keyboardInput[cc.macro.KEY.w]) {
@@ -370,12 +367,10 @@ export default class gameManager extends cc.Component {
         if (status == "tie") {
             let sth = JSON.parse(cc.sys.localStorage.getItem("p1"));
             sth.money += this.coin1;
-            cc.log("p1 update", sth);
             cc.sys.localStorage.setItem("p1", JSON.stringify(sth));
 
             sth = JSON.parse(cc.sys.localStorage.getItem("p2"));
             sth.money += this.coin2;
-            cc.log("p2 update", sth);
             cc.sys.localStorage.setItem("p2", JSON.stringify(sth));
 
             this.camera1.active = false;
@@ -417,7 +412,7 @@ export default class gameManager extends cc.Component {
                     cc.find("Canvas/camera2/Clean").active = true;
                     if (this.passControl == 0) {
                         this.passControl = 2;
-                        //this.initEnemies(1, 1, 0, 0);
+                        this.initEnemies(1, Math.floor(this.timer/25)+1, Math.floor(this.timer/30), Math.floor(this.timer/40));
                     }
                 }
             }
@@ -429,7 +424,7 @@ export default class gameManager extends cc.Component {
                     cc.find("Canvas/camera1/Clean").active = true;
                     if (this.passControl == 0) {
                         this.passControl = 1;
-                        //this.initEnemies(2, 1, 0, 0);
+                        this.initEnemies(1, Math.floor(this.timer/25)+1, Math.floor(this.timer/30), Math.floor(this.timer/40));
                     }
                 }
             }
@@ -437,12 +432,10 @@ export default class gameManager extends cc.Component {
         if (this.passControl == 3) {
             let sth = JSON.parse(cc.sys.localStorage.getItem("p1"));
             sth.money += this.coin1;
-            cc.log("p1 update", sth);
             cc.sys.localStorage.setItem("p1", JSON.stringify(sth));
 
             sth = JSON.parse(cc.sys.localStorage.getItem("p2"));
             sth.money += this.coin2;
-            cc.log("p2 update", sth);
             cc.sys.localStorage.setItem("p2", JSON.stringify(sth));
             //console.log("enter shop");
             this.camera1.active = false;
