@@ -62,12 +62,16 @@ export default class enemyBullet extends cc.Component {
 
     //detect collision with enemies
     onBeginContact(contact, self, other) {
-        if(other.tag == 1){
-            other.node.getComponent('player').lifeDamage(this.damage);
-            this.unscheduleAllCallbacks();
-            this.node.destroy();
+        if(other.tag == 2 || other.tag == 3) { // hit enemy or bullet
+            contact.disabled = true;
             return;
         }
+        if(other.tag == 1){
+            other.node.getComponent('player').lifeDamage(this.damage);
+        }
+        this.unscheduleAllCallbacks();
+        this.node.destroy();
+        return;
         
 
     }
