@@ -71,11 +71,6 @@ export default class signinpage extends cc.Component {
             cc.director.loadScene("start");
 
         }).catch(e => console.log("eEEError"));
-        
-        
-        
-        
-        
         */
        
     }
@@ -108,7 +103,7 @@ export default class signinpage extends cc.Component {
             .then((usercre) => {
                 
                 alert("sign up success")
-                let ref = firebase.database().ref("user_data/" + usercre.user.uid);
+                let ref = firebase.database().ref("account_data/" + usercre.user.uid);
                 let userdata={
                     user1:user1,
                     user2:user2,

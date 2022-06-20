@@ -33,6 +33,8 @@ export default class start extends cc.Component {
     p2: cc.Node = null;
     p1name:cc.Label=null;
     p2name:cc.Label=null;
+    p1id:number=0;//1 to 4
+    p2id:number=0;
 
     p1charaname:string=null;
     p2charaname:string=null;
@@ -50,6 +52,15 @@ export default class start extends cc.Component {
         cc.audioEngine.playMusic(this.bgm, true);
     }*/
     onLoad(): void {
+        //firebase
+        /*let user = firebase.auth().currentUser;
+        let ref = firebase.database().ref("account_data/" + user.uid);
+        var info;
+        ref.once('value').then(function(snapshot){
+            info=snapshot.val();
+        });
+        cc.sys.localStorage.setItem("account_data",JSON.stringify(info));
+        */
         this.p1=cc.instantiate(this.archerPrefab);
         this.p1.parent = this.chara1;
         this.p1.position = cc.v3(0, 0);
@@ -59,11 +70,44 @@ export default class start extends cc.Component {
         this.p1charaname="archer";
         this.p2charaname="archer";
         this.equipInit();
-        
+        //test data
+        let user1={
+            name:"Danny",
+            wincount:0,
+            totalcount:0
+        };
+        let user2={
+            name:"Daniel",
+            wincount:0,
+            totalcount:0
+        };
+        let user3={
+            name:"Mandy",
+            wincount:0,
+            totalcount:0
+        };
+        let user4={
+            name:"Timothy",
+            wincount:0,
+            totalcount:0
+        };
+        let userdata={
+            user1:user1,
+            user2:user2,
+            user3:user3,
+            user4:user4
+        }
+        var info={
+            uid: "usercre.user.uid",
+            email: "email",
+            userdata:userdata
+        }
+        //test data
         this.user1name="Danny";
         this.user2name="Daniel";
         this.user3name="Mandy";
         this.user4name="Timothy";
+        cc.sys.localStorage.setItem("account_data",JSON.stringify(info));
         this.p1name=cc.find("Canvas/select_character/P1/name").getComponent(cc.Label);
         this.p2name=cc.find("Canvas/select_character/P2/name").getComponent(cc.Label);
         this.p1name.string="";
@@ -94,17 +138,19 @@ export default class start extends cc.Component {
         console.log("start...");
         //寫入cc.sys.localstorage
         //if()
-        if(this.p1name.string==""||this.p2name.string==""||this.p1name.string==this.p2name.string) {
+        if(this.p1id==0||this.p2id==0||this.p1id==this.p2id) {
             alert("please select the player name");
         }
         else{
-            let userdata={
+            let playerdata={
                 p1name:this.p1name.string,
-                p2name:this.p2name.string
+                p2name:this.p2name.string,
+                p1id:this.p1id,
+                p2id:this.p2id
             }
             let p1_Data= this.dataInit(this.p1charaname);
             let p2_Data= this.dataInit(this.p2charaname);
-            cc.sys.localStorage.setItem('userdata',JSON.stringify(userdata));
+            cc.sys.localStorage.setItem('playerdata',JSON.stringify(playerdata));
             cc.sys.localStorage.setItem('p1', JSON.stringify(p1_Data));
             cc.sys.localStorage.setItem('p2', JSON.stringify(p2_Data));
             cc.sys.localStorage.setItem('level', "1");
@@ -184,30 +230,38 @@ export default class start extends cc.Component {
     userBtn(event,customeventdata){
         if(this.shade1.active){
             if(customeventdata[0]==1){
+                this.p1id=1;
                 this.p1name.string=this.user1name;
             }
             else if(customeventdata[0]==2){
+                this.p1id=2;
                 this.p1name.string=this.user2name;
             }
             else if(customeventdata[0]==3){
+                this.p1id=3;
                 this.p1name.string=this.user3name;
             }
             else if(customeventdata[0]==4){
+                this.p1id=4;
                 this.p1name.string=this.user4name;
             }
             
         }
         else{
             if(customeventdata[0]==1){
+                this.p2id=1;
                 this.p2name.string=this.user1name;
             }
             else if(customeventdata[0]==2){
+                this.p2id=2;
                 this.p2name.string=this.user2name;
             }
             else if(customeventdata[0]==3){
+                this.p2id=3;
                 this.p2name.string=this.user3name;
             }
             else if(customeventdata[0]==4){
+                this.p2id=4;
                 this.p2name.string=this.user4name;
             }
         }
