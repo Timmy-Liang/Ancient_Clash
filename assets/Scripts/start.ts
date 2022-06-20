@@ -72,17 +72,17 @@ export default class start extends cc.Component {
         this.equipInit();
         //test data
         let user1={
-            name:"Danny",
+            name:"Danny  ",
             wincount:0,
             totalcount:0
         };
         let user2={
-            name:"Daniel",
+            name:"Daniel ",
             wincount:0,
             totalcount:0
         };
         let user3={
-            name:"Mandy",
+            name:"Mandy  ",
             wincount:0,
             totalcount:0
         };

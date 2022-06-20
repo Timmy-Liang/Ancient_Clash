@@ -76,22 +76,22 @@ export default class signinpage extends cc.Component {
     }
     submitSingUp(){
         let user1={
-            name:"Danny",
+            name:"Danny     ",
             wincount:0,
             totalcount:0
         };
         let user2={
-            name:"Daniel",
+            name:"Daniel    ",
             wincount:0,
             totalcount:0
         };"Daniel";
         let user3={
-            name:"Mandy",
+            name:"Mandy     ",
             wincount:0,
             totalcount:0
         };
         let user4={
-            name:"Timothy",
+            name:"Timothy   ",
             wincount:0,
             totalcount:0
         };
