@@ -107,9 +107,9 @@ export default class gameManager extends cc.Component {
         this.camera1 = cc.find("Canvas/camera1");
         this.camera2 = cc.find("Canvas/camera2");
         
-        this.meleeEnemyCount =  Math.floor(level*2)+1;
-        this.archerEnemyCount = Math.floor(level*2);
-        this.wizardCount = Math.floor(level*2);
+        this.meleeEnemyCount =  Math.floor(level*1.4)+2;
+        this.archerEnemyCount = Math.floor(level*1.4)+1;
+        this.wizardCount = Math.floor(level*1.4);
         
         //this.meleeEnemyCount =  Math.floor(level*1.5)+1;
         //this.archerEnemyCount = Math.floor(level*1.5);
@@ -363,7 +363,7 @@ export default class gameManager extends cc.Component {
             let index = Math.floor(Math.random() * length)
             let nextX = this.validEnemySpace[index][0];
             let nextY = this.validEnemySpace[index][1];
-            if(nextX > 10 && nextX < 110 && nextY > 10 && nextY < 110)
+            if(nextX > 15 && nextX < 105 && nextY > 15 && nextY < 105)
                 return this.validEnemySpace[index]
         }
     }
