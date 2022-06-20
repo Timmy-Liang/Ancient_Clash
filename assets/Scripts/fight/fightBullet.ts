@@ -12,7 +12,7 @@ export default class fightBullet extends cc.Component {
 
     private bulletManager = null;
 
-    private bulletSpeed: number = 40;
+    private bulletSpeed: number = 15;
 
     private initPosOffset: number = 60;
 
@@ -110,6 +110,6 @@ export default class fightBullet extends cc.Component {
 
         this.scheduleOnce(() => {
             this.bulletManager.put(this.node);
-        }, 0.03); // for better animation effect, I delay 0.1s when bullet hits the enemy
+        }, 0.005); // for better animation effect, I delay 0.1s when bullet hits the enemy
     }
 }
