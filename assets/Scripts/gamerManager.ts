@@ -74,6 +74,7 @@ export default class gameManager extends cc.Component {
         this.physicManager.enabled = true;
         this.initPlayer();
         let level = cc.sys.localStorage.getItem("level");
+        console.log("Level " + level)
         this.mapLeft = cc
             .find("Canvas/map" + level + "_1")
             .getComponent(cc.TiledMap);
@@ -247,16 +248,16 @@ export default class gameManager extends cc.Component {
                     collider.apply();
                 }
                 else {
-                    let wallAround = false;
-                    for(let idx = 0; idx < 8; idx++) {
-                        if(wallAround)
-                            break;
-                        let nextX = i + dx[idx], nextY = j + dy[idx];
-                        if(nextX < layerSize.width && nextX >= 0 && nextY < layerSize.height && nextY >= 0) {
-                            wallAround = true;
-                        }
-                    }
-                    if(!wallAround)
+                    // let wallAround = false;
+                    // for(let idx = 0; idx < 8; idx++) {
+                    //     if(wallAround)
+                    //         break;
+                    //     let nextX = i + dx[idx], nextY = j + dy[idx];
+                    //     if(nextX < layerSize.width && nextX >= 0 && nextY < layerSize.height && nextY >= 0) {
+                    //         wallAround = true;
+                    //     }
+                    // }
+                    // if(!wallAround)
                         this.validEnemySpace.push([i, j]);
                 }
             }
