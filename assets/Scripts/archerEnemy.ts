@@ -51,9 +51,6 @@ export default class archerEnemy extends cc.Component {
     private targetAngle: number = 0;
     private targetPosition: cc.Vec2 = cc.v2(0, 0);
 
-    private damage: number = 10;
-    
-
     onLoad() {
         
     }
@@ -63,7 +60,6 @@ export default class archerEnemy extends cc.Component {
         let index = this.node.parent.name.slice(-1);
         try {
             let job = JSON.parse(cc.sys.localStorage.getItem("p" + index)).job;
-            console.log("JOB " + job)
             if(job)
                 this.target = cc.find("Canvas/player" + index).getChildByName(job);  
         }
@@ -158,7 +154,6 @@ export default class archerEnemy extends cc.Component {
     }
 
     createBullet () {
-        console.log("creat bullet")
         let bullet = cc.instantiate(this.bulletPrefab);
         let currentPos = this.node.convertToWorldSpaceAR(cc.v2(0, 0));
         this.targetPosition = this.target.convertToWorldSpaceAR(cc.v2(0, 0))
@@ -188,7 +183,6 @@ export default class archerEnemy extends cc.Component {
         else {
             if(currentTime >= this.nextAttackTime) {
                 this.nextAttackTime = currentTime + this.attackCooldown;
-                console.log("attck!")
                 this.createBullet();
                 this.enemyAttackAnimation();
             }
