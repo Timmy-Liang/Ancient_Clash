@@ -24,7 +24,8 @@ export default class bullet extends cc.Component {
     public isTriggered = false; // I add this to make the bullet kill one enemy at a time.
 
     // when created, the bullet need to be placed at correct position and play animation.
-    public init(node: cc.Node, targetDirection: string, targetAngle: number) {
+    public init(node: cc.Node, targetDirection: string, targetAngle: number, tak) {
+        this.damage=tak*3.5;
         this.setInitPos(node, targetDirection);
         //this.bulletMove()
         this.speedX = Math.cos(targetAngle * Math.PI / 180);
@@ -32,7 +33,6 @@ export default class bullet extends cc.Component {
 
         this.scheduleOnce(() => {
             this.bulletManager.put(this.node);
-            console.log("after put, powerpool size: ", this.bulletManager.size())
         }, 1.5);
     }
 

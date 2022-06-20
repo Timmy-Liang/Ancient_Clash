@@ -144,7 +144,6 @@ export default class meleeEnemy extends cc.Component {
     }
 
     detectRangePlayer() {
-        //console.log(this.node.position.sub(this.player1.node.position).mag())
         if (this.node.convertToWorldSpaceAR(cc.v2(0, 0)).sub(this.target.convertToWorldSpaceAR(cc.v2(0, 0))).mag() < this.detectRange) {
             this.moveSpeed = 150;
             this.tracingPlayer = true;

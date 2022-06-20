@@ -58,6 +58,9 @@ export default class gameManager extends cc.Component {
     private coin1label: cc.Label = null;
     private coin2label: cc.Label = null;
 
+    private count1: cc.Label = null;
+    private count2: cc.Label = null;
+
     private camera1: cc.Node = null;
     private camera2: cc.Node = null;
 
@@ -89,6 +92,13 @@ export default class gameManager extends cc.Component {
         this.coin2label = cc
             .find("Canvas/camera2/bar2/coin")
             .getComponent(cc.Label);
+        this.count1 = cc
+            .find("Canvas/camera1/RemainEnemy/count")
+            .getComponent(cc.Label);
+        this.count2 = cc
+            .find("Canvas/camera2/RemainEnemy/count")
+            .getComponent(cc.Label);
+
         this.coin1 = JSON.parse(cc.sys.localStorage.getItem("p1")).money;
         this.coin2 = JSON.parse(cc.sys.localStorage.getItem("p2")).money;
         this.coin1label.string = this.coin1.toString();
@@ -96,10 +106,14 @@ export default class gameManager extends cc.Component {
 
         this.camera1 = cc.find("Canvas/camera1");
         this.camera2 = cc.find("Canvas/camera2");
-        
+        /*
         this.meleeEnemyCount =  Math.floor(level*2)+1;
         this.archerEnemyCount = Math.floor(level*2);
         this.wizardCount = Math.floor(level*2);
+        */
+        this.meleeEnemyCount =  Math.floor(level*1)+1;
+        this.archerEnemyCount = Math.floor(level*1);
+        this.wizardCount = Math.floor(level*1);
         //cc.director.getPhysicsManager().debugDrawFlags = 1;
     }
 
@@ -264,6 +278,8 @@ export default class gameManager extends cc.Component {
                 this.player2_restEnemy++;
             this.initArcher(index);
         }
+        this.count1.string=this.player1_restEnemy.toString();
+        this.count2.string=this.player2_restEnemy.toString();
     }
 
     initMelee(index: number) {
@@ -289,19 +305,6 @@ export default class gameManager extends cc.Component {
                 break;
             }
         }
-        if(index == 1) 
-            console.log("Enemy 1 " + melee.x + " " + melee.y);
-        else 
-            console.log("Enemy 2 " + melee.x + " " + melee.y);
-        // let nextEnemyWorldPosition = melee.convertToWorldSpaceAR(cc.v2(0, 0));
-        // if(index == 1) {
-        //     console.log("Enemy 1 " + melee.x + " " + melee.y);
-        //     console.log((playerWorldPosition.sub(nextEnemyWorldPosition)).mag())
-        // }
-        // else {
-        //     console.log("Enemy 2 " + melee.x + " " + melee.y);
-        //     console.log((playerWorldPosition.sub(nextEnemyWorldPosition)).mag())
-        // }
         
     }
 
@@ -328,10 +331,6 @@ export default class gameManager extends cc.Component {
             }
             
         }
-        if(index == 1) 
-            console.log("Enemy 1 " + wizard.x + " " + wizard.y);
-        else 
-            console.log("Enemy 2 " + wizard.x + " " + wizard.y);
     }
 
     initArcher(index: number) {
@@ -357,10 +356,6 @@ export default class gameManager extends cc.Component {
             }
             
         }
-        if(index == 1) 
-            console.log("Enemy 1 " + archerEnemy.x + " " + archerEnemy.y);
-        else 
-            console.log("Enemy 2 " + archerEnemy.x + " " + archerEnemy.y);
     }
 
     randomValidSpace(length: number) {
@@ -486,20 +481,22 @@ export default class gameManager extends cc.Component {
     enemyReduce(x) {
         if (x > 0) {
             this.player2_restEnemy -= 1;
+            this.count2.string=this.player2_restEnemy.toString();
             if (this.player2_restEnemy == 0) {
                 if (this.player1_restEnemy == 0) this.gameOver("tie");
                 else {
                     cc.find("Canvas/camera2/Clean").active = true;
-                    this.initEnemies(1, Math.floor(this.timer/25)+1, Math.floor(this.timer/30), Math.floor(this.timer/40));
+                    this.initEnemies(1, Math.floor(this.timer/35)+1, Math.floor(this.timer/48), Math.floor(this.timer/60));
                 }
             }
         } else {
             this.player1_restEnemy -= 1;
+            this.count1.string=this.player1_restEnemy.toString();
             if (this.player1_restEnemy == 0) {
                 if (this.player2_restEnemy == 0) this.gameOver("tie");
                 else {
                     cc.find("Canvas/camera1/Clean").active = true;
-                    this.initEnemies(2, Math.floor(this.timer/30)+1, Math.floor(this.timer/30), Math.floor(this.timer/40));
+                    this.initEnemies(2, Math.floor(this.timer/35)+1, Math.floor(this.timer/48), Math.floor(this.timer/60));
                 }
             }
         }

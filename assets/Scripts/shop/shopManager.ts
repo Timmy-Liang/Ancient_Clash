@@ -409,7 +409,7 @@ export default class shopManager extends cc.Component {
         this.endBGM();
         let level = parseInt(cc.sys.localStorage.getItem("level"));
         let nextLevel = level + 1;
-        if (nextLevel == 5) {
+        if (nextLevel == 4) {
             //over all level
             //enter player flighting mode
             cc.find("loading_bg").active = true;

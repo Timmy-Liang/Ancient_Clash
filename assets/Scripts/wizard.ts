@@ -82,7 +82,6 @@ export default class wizard extends cc.Component {
 
         this.scheduleOnce(() => {
             if (this.isInCycle()) {
-                //console.log("yes");
                 this.player.getComponent("player").lifeDamage(this.damage);
                 this.explosion(pos);
             }

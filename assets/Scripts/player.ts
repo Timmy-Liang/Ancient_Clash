@@ -81,11 +81,11 @@ export default class player extends cc.Component {
                         this.characterTag = 1;
                         break;
                     case "warrior":
-                        this.attackRange=100;
+                        this.attackRange=120;
                         this.characterTag = 2;
                         break;
                     case "knight":
-                        this.attackRange=100;
+                        this.attackRange=120;
                         this.characterTag = 3;
                         break;
                 }
@@ -296,7 +296,7 @@ export default class player extends cc.Component {
                 if (powerBullet != null){
                     powerBullet
                         .getComponent("powerBullet")
-                        .init(this.node, this.targetDirection, this.targetAngle);
+                        .init(this.node, this.targetDirection, this.targetAngle, this.playerData.atk);
                 }
                 cc.audioEngine.playEffect(this.attackSound,false);
                 this.playerAttackAnimation();
@@ -388,7 +388,6 @@ export default class player extends cc.Component {
                 nextTargetPosition = cc.v2(enemyPos.x, enemyPos.y);
             }
             if (currentDistance <= this.attackRange) {
-                console.log("in range")
                 this.rangeTarget[i] = cc.v2(enemyPos.x, enemyPos.y);
             }
         }
@@ -428,7 +427,6 @@ export default class player extends cc.Component {
     }
 
     lifeDamage(damage: number) {
-        console.log("hurt!");
         if (this.playerData.hp > 0) {
             this.playerHurtAnimation();
             this.playerData.hp -=
