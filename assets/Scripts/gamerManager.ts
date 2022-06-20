@@ -11,141 +11,89 @@ const keyboardInput = {};
 
 @ccclass
 export default class gameManager extends cc.Component {
-  @property(cc.Prefab)
-  meleeEnemy: cc.Prefab = null;
-  @property(cc.Prefab)
-  archerEnemy: cc.Prefab = null;
-  @property(cc.Prefab)
-  wizard: cc.Prefab = null;
+    @property(cc.Prefab)
+    meleeEnemy: cc.Prefab = null;
+    @property(cc.Prefab)
+    archerEnemy: cc.Prefab = null;
+    @property(cc.Prefab)
+    wizard: cc.Prefab = null;
 
-  @property(cc.Prefab)
-  archer: cc.Prefab = null;
-  @property(cc.Prefab)
-  warrior: cc.Prefab = null;
-  @property(cc.Prefab)
-  knight: cc.Prefab = null;
-  @property(cc.Prefab)
-  slinger: cc.Prefab = null;
-  @property(cc.AudioClip)
-  bgm: cc.AudioClip = null;
-  private enemy: cc.Node = null;
-  private player1: player = null;
-  private player2: player = null;
+    @property(cc.Prefab)
+    archer: cc.Prefab = null;
+    @property(cc.Prefab)
+    warrior: cc.Prefab = null;
+    @property(cc.Prefab)
+    knight: cc.Prefab = null;
+    @property(cc.Prefab)
+    slinger: cc.Prefab = null;
+    @property(cc.AudioClip)
+    bgm: cc.AudioClip = null;
+    private enemy: cc.Node = null;
+    private player1: player = null;
+    private player2: player = null;
 
-  private mapLeft: cc.TiledMap = null;
-  private mapRight: cc.TiledMap = null;
+    private mapLeft: cc.TiledMap = null;
+    private mapRight: cc.TiledMap = null;
 
-  private pause: boolean = false;
-  private physicManager: cc.PhysicsManager = null;
+    private pause: boolean = false;
+    private physicManager: cc.PhysicsManager = null;
 
-<<<<<<< HEAD
-  private meleeEnemyCount: number = 1;
-  private archerEnemyCount: number = 0;
-  private wizardCount: number = 0;
-=======
     private meleeEnemyCount: number = 0;
     private archerEnemyCount: number = 1;
     private wizardCount: number = 0;
->>>>>>> 9a98143684cf0919925faa778b51709708f3b14c
 
-  private player1_restEnemy: number = 0;
-  private player2_restEnemy: number = 0;
+    private player1_restEnemy: number = 0;
+    private player2_restEnemy: number = 0;
 
-  private player1Job: string = "archer";
-  private player2Job: string = "archer";
+    private player1Job: string = "archer";
+    private player2Job: string = "archer";
 
-  private timer1: cc.Label = null;
-  private timer2: cc.Label = null;
-  private timeCounting;
-  private timer: number = 0;
-  private isTiming: boolean = false;
-  private coin1: number = null;
-  private coin2: number = null;
-  private coin1label: cc.Label = null;
-  private coin2label: cc.Label = null;
+    private timer1: cc.Label = null;
+    private timer2: cc.Label = null;
+    private timeCounting;
+    private timer: number = 0;
+    private isTiming: boolean = false;
+    private coin1: number = null;
+    private coin2: number = null;
+    private coin1label: cc.Label = null;
+    private coin2label: cc.Label = null;
 
-<<<<<<< HEAD
-  private passControl: number = 0;
-  private camera1: cc.Node = null;
-  private camera2: cc.Node = null;
-
-  // LIFE-CYCLE CALLBACKS:
-=======
     private camera1: cc.Node = null;
     private camera2: cc.Node = null;
 
     private validEnemySpace: Array<Array<number>> = [];
 
     // LIFE-CYCLE CALLBACKS:
->>>>>>> 9a98143684cf0919925faa778b51709708f3b14c
 
-  onLoad() {
-    this.resetKeyboard();
-    this.physicManager = cc.director.getPhysicsManager();
-    this.physicManager.enabled = true;
-    this.initPlayer();
-    let level = cc.sys.localStorage.getItem("level");
-    this.mapLeft = cc
-      .find("Canvas/map" + level + "_1")
-      .getComponent(cc.TiledMap);
-    this.mapRight = cc
-      .find("Canvas/map" + level + "_2")
-      .getComponent(cc.TiledMap);
-    this.enemy = cc.find("Canvas/enemy");
+    onLoad() {
+        this.resetKeyboard();
+        this.physicManager = cc.director.getPhysicsManager();
+        this.physicManager.enabled = true;
+        this.initPlayer();
+        let level = cc.sys.localStorage.getItem("level");
+        this.mapLeft = cc
+            .find("Canvas/map" + level + "_1")
+            .getComponent(cc.TiledMap);
+        this.mapRight = cc
+            .find("Canvas/map" + level + "_2")
+            .getComponent(cc.TiledMap);
+        this.enemy = cc.find("Canvas/enemy");
 
-    this.timer = 120;
-    this.timer1 = cc.find("Canvas/camera1/bar1/Timer").getComponent(cc.Label);
-    this.timer2 = cc.find("Canvas/camera2/bar2/Timer").getComponent(cc.Label);
+        this.timer = 120;
+        this.timer1 = cc.find("Canvas/camera1/bar1/Timer").getComponent(cc.Label);
+        this.timer2 = cc.find("Canvas/camera2/bar2/Timer").getComponent(cc.Label);
 
-    this.coin1label = cc
-      .find("Canvas/camera1/bar1/coin")
-      .getComponent(cc.Label);
-    this.coin2label = cc
-      .find("Canvas/camera2/bar2/coin")
-      .getComponent(cc.Label);
-    this.coin1 = JSON.parse(cc.sys.localStorage.getItem("p1")).money;
-    this.coin2 = JSON.parse(cc.sys.localStorage.getItem("p2")).money;
-    this.coin1label.string = this.coin1.toString();
-    this.coin2label.string = this.coin2.toString();
+        this.coin1label = cc
+            .find("Canvas/camera1/bar1/coin")
+            .getComponent(cc.Label);
+        this.coin2label = cc
+            .find("Canvas/camera2/bar2/coin")
+            .getComponent(cc.Label);
+        this.coin1 = JSON.parse(cc.sys.localStorage.getItem("p1")).money;
+        this.coin2 = JSON.parse(cc.sys.localStorage.getItem("p2")).money;
+        this.coin1label.string = this.coin1.toString();
+        this.coin2label.string = this.coin2.toString();
 
-<<<<<<< HEAD
-    this.camera1 = cc.find("Canvas/camera1");
-    this.camera2 = cc.find("Canvas/camera2");
-
-    //cc.director.getPhysicsManager().debugDrawFlags = 1;
-  }
-
-  start() {
-    this.playBGM();
-    cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
-    cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP, this.onKeyUp, this);
-
-    this.initWall(this.mapLeft);
-    this.initWall(this.mapRight);
-    //i=1 for player1, i=2 for player2
-    for (let i = 1; i < 3; i++) {
-      this.initEnemies(
-        i,
-        this.meleeEnemyCount,
-        this.wizardCount,
-        this.archerEnemyCount
-      );
-    }
-    this.timeCounting = () => {
-      let t = this.timer - 1;
-      if (t < 0) {
-        if (this.player1_restEnemy > this.player2_restEnemy) {
-          this.gameOver("winner2");
-        } else {
-          this.gameOver("winner1");
-        }
-      }
-      this.updateTime(t);
-    };
-    if (this.isTiming == false) {
-      this.isTiming = true;
-      this.schedule(this.timeCounting, 1);
-=======
         this.camera1 = cc.find("Canvas/camera1");
         this.camera2 = cc.find("Canvas/camera2");
         
@@ -571,332 +519,5 @@ export default class gameManager extends cc.Component {
         //     this.endBGM();
         //     cc.director.loadScene("shop");
         // }
->>>>>>> 9a98143684cf0919925faa778b51709708f3b14c
     }
-  }
-  
-  resetKeyboard () {
-    keyboardInput[cc.macro.KEY.space] = 0;
-    keyboardInput[cc.macro.KEY.m] = 0
-    keyboardInput[cc.macro.KEY.s] = 0
-    keyboardInput[cc.macro.KEY.d] = 0
-    keyboardInput[cc.macro.KEY.w] = 0
-    keyboardInput[cc.macro.KEY.a] = 0
-    keyboardInput[cc.macro.KEY.forwardslash] = 0
-    keyboardInput[cc.macro.KEY.period] = 0
-    keyboardInput[cc.macro.KEY.up] = 0
-    keyboardInput[cc.macro.KEY.down] = 0
-    keyboardInput[cc.macro.KEY.right] = 0
-    keyboardInput[cc.macro.KEY.left] = 0
-}
-
-  playBGM() {
-    cc.audioEngine.playMusic(this.bgm, true);
-  }
-  endBGM() {
-    cc.audioEngine.stopMusic();
-  }
-  initPlayer() {
-    let p1Info = JSON.parse(cc.sys.localStorage.getItem("p1"));
-    var p1: cc.Node, p2: cc.Node;
-    switch (p1Info.job) {
-      case "archer":
-        p1 = cc.instantiate(this.archer);
-        break;
-      case "warrior":
-        p1 = cc.instantiate(this.warrior);
-        break;
-      case "slinger":
-        p1 = cc.instantiate(this.slinger);
-        break;
-      case "knight":
-        p1 = cc.instantiate(this.knight);
-        break;
-    }
-    p1.parent = cc.find("Canvas/player1");
-    p1.setPosition(cc.v2(335, -55));
-
-    let p2Info = JSON.parse(cc.sys.localStorage.getItem("p2"));
-    switch (p2Info.job) {
-      case "archer":
-        p2 = cc.instantiate(this.archer);
-        break;
-      case "warrior":
-        p2 = cc.instantiate(this.warrior);
-        break;
-      case "slinger":
-        p2 = cc.instantiate(this.slinger);
-        break;
-      case "knight":
-        p2 = cc.instantiate(this.knight);
-        break;
-    }
-    p2.parent = cc.find("Canvas/player2");
-    p2.setPosition(cc.v2(335, -55));
-    this.player1 = p1.getComponent(player);
-    this.player2 = p2.getComponent(player);
-  }
-  updateTime(t) {
-    this.timer = t;
-    if (this.passControl != 1) this.timer1.string = this.timer.toString();
-    if (this.passControl != 2) this.timer2.string = this.timer.toString();
-  }
-  addcoin(playernum, addnum) {
-    //cc.log("addcoin");
-    if (playernum == 1) {
-      this.coin1 += addnum;
-      this.coin1label.string = this.coin1.toString();
-    } else {
-      this.coin2 += addnum;
-      this.coin2label.string = this.coin2.toString();
-    }
-  }
-  initWall(map: cc.TiledMap) {
-    let tiledSize = map.getTileSize();
-    let layer = map.getLayer("wall");
-    let layerSize = layer.getLayerSize();
-    //check each tiled
-    for (let i = 0; i < layerSize.width; i++) {
-      for (let j = 0; j < layerSize.height; j++) {
-        let tiled = layer.getTiledTileAt(i, j, true);
-        //console.log("checking " + i + " " + j );
-        if (tiled.gid != 0) {
-          tiled.node.group = "wall";
-          let body = tiled.node.addComponent(cc.RigidBody);
-          body.type = cc.RigidBodyType.Static;
-          let collider = tiled.node.addComponent(cc.PhysicsBoxCollider);
-          collider.offset = cc.v2(tiledSize.width / 2, tiledSize.height / 2);
-          collider.size = tiledSize;
-          collider.apply();
-        }
-      }
-    }
-  }
-
-  initEnemies(
-    index: number,
-    meleeCount: number,
-    wizardCount: number,
-    archerCount: number
-  ) {
-    for (let i = 0; i < meleeCount; i++) {
-      if (index == 1)
-        this.player1_restEnemy++,
-          console.log("now p1_enemy: ", this.player1_restEnemy);
-      else if (index == 2)
-        this.player2_restEnemy++,
-          console.log("now p2_enemy: ", this.player2_restEnemy);
-      this.initMelee(index);
-    }
-    for (let i = 0; i < wizardCount; i++) {
-      if (index == 1)
-        this.player1_restEnemy++,
-          console.log("now p1_enemy: ", this.player1_restEnemy);
-      else if (index == 2)
-        this.player2_restEnemy++,
-          console.log("now p2_enemy: ", this.player2_restEnemy);
-      this.initWizard(index);
-    }
-    for (let i = 0; i < archerCount; i++) {
-      if (index == 1)
-        this.player1_restEnemy++,
-          console.log("now p1_enemy: ", this.player1_restEnemy);
-      else if (index == 2)
-        this.player2_restEnemy++,
-          console.log("now p2_enemy: ", this.player2_restEnemy);
-      this.initArcher(index);
-    }
-  }
-
-  initMelee(index: number) {
-    let melee = cc.instantiate(this.meleeEnemy);
-    melee.parent = cc.find("Canvas/enemy" + index);
-    let pos;
-    pos = cc.v2(
-      -1820 + 1920 * (index - 1) + Math.floor(Math.random() * 1750),
-      -875 + Math.floor(Math.random() * 1740)
-    );
-    melee.setPosition(pos);
-  }
-
-  initWizard(index: number) {
-    let wizard = cc.instantiate(this.wizard);
-    wizard.parent = cc.find("Canvas/enemy" + index);
-    let pos;
-    pos = cc.v2(
-      -1650 + 1920 * (index - 1) + Math.floor(Math.random() * 1570),
-      -850 + Math.floor(Math.random() * 1700)
-    );
-    wizard.setPosition(pos);
-  }
-
-  initArcher(index: number) {
-    let archerEnemy = cc.instantiate(this.archerEnemy);
-    archerEnemy.parent = cc.find("Canvas/enemy" + index);
-    let pos;
-    pos = cc.v2(
-      -1820 + 1920 * (index - 1) + Math.floor(Math.random() * 1750),
-      -875 + Math.floor(Math.random() * 1740)
-    );
-    archerEnemy.setPosition(pos);
-  }
-
-  onKeyDown(event) {
-    keyboardInput[event.keyCode] = 1;
-  }
-
-  onKeyUp(event) {
-    keyboardInput[event.keyCode] = 0;
-  }
-
-  keyboardUpdate() {
-    if (this.pause) return;
-    this.player1.playerMoveDir("IDLE");
-    this.player2.playerMoveDir("IDLE");
-    if (keyboardInput[cc.macro.KEY.space]) this.player1.playerAttack();
-    if (keyboardInput[cc.macro.KEY.m]) this.player1.playerPower();
-    if (keyboardInput[cc.macro.KEY.s] && keyboardInput[cc.macro.KEY.d]) {
-      this.player1.playerMoveDir("SE");
-    } else if (keyboardInput[cc.macro.KEY.d] && keyboardInput[cc.macro.KEY.w]) {
-      this.player1.playerMoveDir("NE");
-    } else if (keyboardInput[cc.macro.KEY.w] && keyboardInput[cc.macro.KEY.a]) {
-      this.player1.playerMoveDir("NW");
-    } else if (keyboardInput[cc.macro.KEY.a] && keyboardInput[cc.macro.KEY.s]) {
-      this.player1.playerMoveDir("SW");
-    } else {
-      if (keyboardInput[cc.macro.KEY.a]) {
-        this.player1.playerMoveDir("W");
-      } else if (keyboardInput[cc.macro.KEY.s]) {
-        this.player1.playerMoveDir("S");
-      } else if (keyboardInput[cc.macro.KEY.d]) {
-        this.player1.playerMoveDir("E");
-      } else if (keyboardInput[cc.macro.KEY.w]) {
-        this.player1.playerMoveDir("N");
-      }
-    }
-    if (keyboardInput[cc.macro.KEY.forwardslash]) this.player2.playerAttack();
-    if (keyboardInput[cc.macro.KEY.period]) this.player2.playerPower();
-    if (keyboardInput[cc.macro.KEY.down] && keyboardInput[cc.macro.KEY.right]) {
-      this.player2.playerMoveDir("SE");
-    } else if (
-      keyboardInput[cc.macro.KEY.right] &&
-      keyboardInput[cc.macro.KEY.up]
-    ) {
-      this.player2.playerMoveDir("NE");
-    } else if (
-      keyboardInput[cc.macro.KEY.up] &&
-      keyboardInput[cc.macro.KEY.left]
-    ) {
-      this.player2.playerMoveDir("NW");
-    } else if (
-      keyboardInput[cc.macro.KEY.left] &&
-      keyboardInput[cc.macro.KEY.down]
-    ) {
-      this.player2.playerMoveDir("SW");
-    } else {
-      if (keyboardInput[cc.macro.KEY.up]) {
-        this.player2.playerMoveDir("N");
-      } else if (keyboardInput[cc.macro.KEY.down]) {
-        this.player2.playerMoveDir("S");
-      } else if (keyboardInput[cc.macro.KEY.right]) {
-        this.player2.playerMoveDir("E");
-      } else if (keyboardInput[cc.macro.KEY.left]) {
-        this.player2.playerMoveDir("W");
-      }
-    }
-  }
-
-  gameOver(status: string) {
-    
-    this.pause = true;
-    cc.sys.localStorage.setItem("winstate", status);
-    if (status == "tie") {
-        this.endBGM();
-      let sth = JSON.parse(cc.sys.localStorage.getItem("p1"));
-      sth.money += this.coin1;
-      cc.log("p1 update", sth);
-      cc.sys.localStorage.setItem("p1", JSON.stringify(sth));
-
-      sth = JSON.parse(cc.sys.localStorage.getItem("p2"));
-      sth.money += this.coin2;
-      cc.log("p2 update", sth);
-      cc.sys.localStorage.setItem("p2", JSON.stringify(sth));
-
-      this.camera1.active = false;
-      this.camera2.active = false;
-      cc.find("Canvas/loadingCamera").active = true;
-      cc.find("Canvas/loading_bg").active = true;
-      this.scheduleOnce(() => {
-        cc.director.loadScene("shop");
-      }, 0.3);
-    } else if (status == "winner1") {
-        this.endBGM();
-      cc.find("Canvas/camera1/Clean").active = false;
-      cc.find("Canvas/camera2/Clean").active = false;
-      cc.find("Canvas/camera1/Win").active = true;
-      cc.find("Canvas/camera2/Lose").active = true;
-      this.scheduleOnce(() => {
-        cc.director.loadScene("endgame");
-      }, 3);
-    } else if (status == "winner2") {
-        this.endBGM();
-      cc.find("Canvas/camera1/Clean").active = false;
-      cc.find("Canvas/camera2/Clean").active = false;
-      cc.find("Canvas/camera1/Lose").active = true;
-      cc.find("Canvas/camera2/Win").active = true;
-      this.scheduleOnce(() => {
-        cc.director.loadScene("endgame");
-      }, 3);
-    }
-  }
-
-  update(dt) {
-    this.keyboardUpdate();
-  }
-
-  enemyReduce(x) {
-    if (x > 0) {
-      this.player2_restEnemy -= 1;
-      if (this.player2_restEnemy == 0) {
-        if (this.player1_restEnemy == 0) this.gameOver("tie");
-        else {
-          cc.find("Canvas/camera2/Clean").active = true;
-          if (this.passControl == 0) {
-            this.passControl = 2;
-            //this.initEnemies(1, 1, 0, 0);
-          }
-        }
-      }
-    } else {
-      this.player1_restEnemy -= 1;
-      if (this.player1_restEnemy == 0) {
-        if (this.player2_restEnemy == 0) this.gameOver("tie");
-        else {
-          cc.find("Canvas/camera1/Clean").active = true;
-          if (this.passControl == 0) {
-            this.passControl = 1;
-            //this.initEnemies(2, 1, 0, 0);
-          }
-        }
-      }
-    }
-    if (this.passControl == 3) {
-      let sth = JSON.parse(cc.sys.localStorage.getItem("p1"));
-      sth.money += this.coin1;
-      cc.log("p1 update", sth);
-      cc.sys.localStorage.setItem("p1", JSON.stringify(sth));
-
-      sth = JSON.parse(cc.sys.localStorage.getItem("p2"));
-      sth.money += this.coin2;
-      cc.log("p2 update", sth);
-      cc.sys.localStorage.setItem("p2", JSON.stringify(sth));
-      //console.log("enter shop");
-      this.camera1.active = false;
-      this.camera2.active = false;
-      cc.find("Canvas/loadingCamera").active = true;
-      cc.find("Canvas/loading_bg").active = true;
-      this.endBGM();
-      cc.director.loadScene("shop");
-    }
-  }
 }
