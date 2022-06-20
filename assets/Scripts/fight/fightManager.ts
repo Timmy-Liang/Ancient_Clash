@@ -49,8 +49,8 @@ export default class gameManager extends cc.Component {
         
     }
     resetKeyboard () {
-        keyboardInput[cc.macro.KEY.space] = 0;
-        keyboardInput[cc.macro.KEY.m] = 0
+        keyboardInput[cc.macro.KEY.f] = 0;
+        keyboardInput[cc.macro.KEY.f] = 0
         keyboardInput[cc.macro.KEY.s] = 0
         keyboardInput[cc.macro.KEY.d] = 0
         keyboardInput[cc.macro.KEY.w] = 0
@@ -199,6 +199,7 @@ export default class gameManager extends cc.Component {
     gameOver(status: string) {
         this.endBGM();
         this.pause = true;
+        cc.sys.localStorage.setItem("winstate", status);
         if(status == 'winner1') {
             let winNode = cc.find("Canvas/Win");
             winNode.getComponent(cc.Label).string = "Player 1 Win"

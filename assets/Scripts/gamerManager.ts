@@ -151,8 +151,8 @@ export default class gameManager extends cc.Component {
     }
 
     resetKeyboard() {
-        keyboardInput[cc.macro.KEY.space] = 0;
-        keyboardInput[cc.macro.KEY.m] = 0
+        keyboardInput[cc.macro.KEY.f] = 0;
+        keyboardInput[cc.macro.KEY.g] = 0
         keyboardInput[cc.macro.KEY.s] = 0
         keyboardInput[cc.macro.KEY.d] = 0
         keyboardInput[cc.macro.KEY.w] = 0
