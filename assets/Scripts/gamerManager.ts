@@ -39,8 +39,8 @@ export default class gameManager extends cc.Component {
   private physicManager: cc.PhysicsManager = null;
 
   private meleeEnemyCount: number = 0;
-  private archerEnemyCount: number = 0;
-  private wizardCount: number = 1;
+  private archerEnemyCount: number = 1;
+  private wizardCount: number = 0;
 
   private player1_restEnemy: number = 0;
   private player2_restEnemy: number = 0;
@@ -365,7 +365,7 @@ export default class gameManager extends cc.Component {
       this.camera1.active = false;
       this.camera2.active = false;
       cc.find("Canvas/loadingCamera").active = true;
-      cc.find("Canvas/tmp_bg").active = true;
+      cc.find("Canvas/loading_bg").active = true;
       this.scheduleOnce(() => {
         cc.director.loadScene("shop");
       }, 0.3);
@@ -432,7 +432,7 @@ export default class gameManager extends cc.Component {
       this.camera1.active = false;
       this.camera2.active = false;
       cc.find("Canvas/loadingCamera").active = true;
-      cc.find("Canvas/tmp_bg").active = true;
+      cc.find("Canvas/loading_bg").active = true;
       this.endBGM();
       cc.director.loadScene("shop");
     }

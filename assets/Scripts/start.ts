@@ -108,7 +108,7 @@ export default class start extends cc.Component {
             cc.sys.localStorage.setItem('p1', JSON.stringify(p1_Data));
             cc.sys.localStorage.setItem('p2', JSON.stringify(p2_Data));
             cc.sys.localStorage.setItem('level', "1");
-            cc.find("Canvas/tmp_bg").active = true;
+            cc.find("Canvas/loading_bg").active = true;
             cc.audioEngine.stopMusic();
             console.log("start to load");
 
