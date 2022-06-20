@@ -102,8 +102,10 @@ export default class bullet extends cc.Component {
 
         this.unscheduleAllCallbacks();
 
+        
         this.scheduleOnce(() => {
             this.bulletManager.put(this.node);
-        }, 0.03); // for better animation effect, I delay 0.1s when bullet hits the enemy
+        }, 0.005); // for better animation effect, I delay 0.1s when bullet hits the enemy
+        
     }
 }

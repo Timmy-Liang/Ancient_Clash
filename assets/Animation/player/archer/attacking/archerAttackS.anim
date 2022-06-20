@@ -1,11 +1,11 @@
 {
   "__type__": "cc.AnimationClip",
-  "_name": "playerAttackS",
+  "_name": "archerAttackS",
   "_objFlags": 0,
   "_native": "",
   "_duration": 0.26666666666666666,
   "sample": 60,
-  "speed": 1,
+  "speed": 0.6,
   "wrapMode": 1,
   "curveData": {
     "comps": {
