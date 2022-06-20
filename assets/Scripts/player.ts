@@ -35,7 +35,7 @@ export default class player extends cc.Component {
     private enemys: cc.Node = null;
     private enemyCount: number = 0;
     private targetPosition: cc.Vec2 = cc.v2(0, 0);
-    private targetDirection: string = "";
+    private targetDirection: string = "S";
     private targetAngle: number = 0;
 
     private life: number = 10;
@@ -48,6 +48,9 @@ export default class player extends cc.Component {
     private characterTag: number = 0;
 
     private playerData;
+
+    private dying: boolean = false;
+    private hurting: boolean = false;
 
     onLoad() {
         this.bulletPool = new cc.NodePool("bullet");
@@ -148,7 +151,7 @@ export default class player extends cc.Component {
     }
 
     playerWalkAnimation() {
-        if (this.attacking) return;
+        if (this.attacking || this.hurting || this.dying) return;
 
         switch (this.moveDir) {
             case "N":
@@ -215,6 +218,7 @@ export default class player extends cc.Component {
     }
 
     playerAttackAnimation() {
+        if (this.hurting || this.dying) return;
         this.anim.stop();
         this.attacking = true;
         this.animateState = this.anim.play(
@@ -224,6 +228,28 @@ export default class player extends cc.Component {
             this.attacking = false;
         });
     }
+    
+    playerDieAnimation () {
+        if (this.dying) return;
+        this.anim.stop();
+        this.dying = true;
+        this.animateState = this.anim.play(
+            this.characterName + "Dying" + this.targetDirection
+        );
+    }
+
+    playerHurtAnimation () {
+        if (this.dying) return;
+        this.anim.stop();
+        this.hurting = true;
+        this.animateState = this.anim.play(
+            this.characterName + "Hurt" + this.targetDirection
+        );
+        this.anim.on("finished", (e) => {
+            this.hurting = false;
+        });
+    }
+
 
     playerAttack() {
         this.traceEnemy();
@@ -318,25 +344,29 @@ export default class player extends cc.Component {
     }
 
     meleeAttack() {
-        for (var prop in this.rangeTarget) {
-            let currentPosition = this.node.convertToWorldSpaceAR(cc.v2(0, 0));
-            let enemyPosition = this.rangeTarget[prop];
-            let nextTargetAngle = calcAngleDegrees(
-                enemyPosition.x - currentPosition.x,
-                enemyPosition.y - currentPosition.y
-            );
-            if (
-                nextTargetAngle < this.targetAngle + 22.5 &&
-                nextTargetAngle > (this.targetAngle - 22.5) % 360
-            ) {
-                // ERROR
-                let currentEnemy = this.enemys.children[prop];
-                //console.log(currentEnemy.name);
-                currentEnemy
-                    .getComponent(currentEnemy.name)
-                    .enemyHurt(this.playerData.atk);
+        if(!this.rangeTarget) { 
+            for (var prop in this.rangeTarget) {
+                let currentPosition = this.node.convertToWorldSpaceAR(cc.v2(0, 0));
+                let enemyPosition = this.rangeTarget[prop];
+                let nextTargetAngle = calcAngleDegrees(
+                    enemyPosition.x - currentPosition.x,
+                    enemyPosition.y - currentPosition.y
+                );
+                if (
+                    nextTargetAngle < this.targetAngle + 22.5 &&
+                    nextTargetAngle > (this.targetAngle - 22.5) % 360
+                ) {
+                    // ERROR
+                    let currentEnemy = this.enemys.children[prop];
+                    //console.log(currentEnemy.name);
+                    currentEnemy
+                        .getComponent(currentEnemy.name)
+                        .enemyHurt(this.playerData.atk);
+                }
             }
         }
+        this.rangeTarget = {};
+        
     }
 
     traceEnemy() {
@@ -395,10 +425,12 @@ export default class player extends cc.Component {
     lifeDamage(damage: number) {
         console.log("hurt!");
         if (this.playerData.hp > 0) {
+            this.playerHurtAnimation();
             this.playerData.hp -=
                 damage * (1 - this.playerData.def / (this.playerData.def + 10));
         }
         if (this.playerData.hp <= 0) {
+            this.playerDieAnimation();
             let index = this.node.parent.name.slice(-1);
             var winner = ''
             if(index == '1')

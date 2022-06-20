@@ -38,9 +38,9 @@ export default class gameManager extends cc.Component {
     private pause: boolean = false;
     private physicManager: cc.PhysicsManager = null;
 
-    private meleeEnemyCount: number = 2;
+    private meleeEnemyCount: number = 0;
     private archerEnemyCount: number = 3;
-    private wizardCount: number = 2;
+    private wizardCount: number = 0;
 
     private player1_restEnemy: number = 0;
     private player2_restEnemy: number = 0;
@@ -353,7 +353,7 @@ export default class gameManager extends cc.Component {
             let nextY = -960 + (120 - nextOffsetY) * 16;
             archerEnemy.setPosition(cc.v2(nextX, nextY));
             let nextEnemyWorldPosition = archerEnemy.convertToWorldSpaceAR(cc.v2(0, 0));
-            if ((nextEnemyWorldPosition.sub(playerWorldPosition)).mag() > 350) {
+            if ((nextEnemyWorldPosition.sub(playerWorldPosition)).mag() > 450) {
                 break;
             }
             
@@ -383,9 +383,11 @@ export default class gameManager extends cc.Component {
     }
 
     keyboardUpdate() {
-        if (this.pause) return;
         this.player1.playerMoveDir("IDLE");
         this.player2.playerMoveDir("IDLE");
+        if (this.pause) return;
+        
+        
         if (keyboardInput[cc.macro.KEY.f]) this.player1.playerAttack();
         if (keyboardInput[cc.macro.KEY.g]) this.player1.playerPower();
         if (keyboardInput[cc.macro.KEY.s] && keyboardInput[cc.macro.KEY.d]) {
