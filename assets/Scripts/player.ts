@@ -17,7 +17,7 @@ export default class player extends cc.Component {
 
     private anim: cc.Animation = null;
     private animateState = null;
-
+ 
     private maxBullet: number = 5;
     private bulletPool: cc.NodePool = null;
     private powerBulletpool: cc.NodePool = null;
@@ -49,6 +49,9 @@ export default class player extends cc.Component {
 
     private playerData;
 
+    private dying: boolean = false;
+    private hurting: boolean = false;
+
     onLoad() {
         this.bulletPool = new cc.NodePool("bullet");
         this.powerBulletpool = new cc.NodePool("powerBullet");
@@ -64,7 +67,6 @@ export default class player extends cc.Component {
         this.speed=this.playerData.spd*75;
         this.playerData = this.dataUpdata(this.playerData);
         this.lifeMax = this.playerData.hp;
-
         try {
             let currentCharacter = JSON.parse(
                 cc.sys.localStorage.getItem("p" + index)
@@ -79,13 +81,17 @@ export default class player extends cc.Component {
                         this.characterTag = 1;
                         break;
                     case "warrior":
+                        this.attackRange=80;
                         this.characterTag = 2;
                         break;
                     case "knight":
+                        this.attackRange=80;
                         this.characterTag = 3;
                         break;
                 }
             }
+            if(this.characterTag == 2 || this.characterTag == 3)
+                this.attackRange = 80;
         } catch { }
     }
 
@@ -149,7 +155,7 @@ export default class player extends cc.Component {
     }
 
     playerWalkAnimation() {
-        if (this.attacking) return;
+        if (this.attacking || this.hurting || this.dying) return;
 
         switch (this.moveDir) {
             case "N":
@@ -216,6 +222,7 @@ export default class player extends cc.Component {
     }
 
     playerAttackAnimation() {
+        if (this.hurting || this.dying) return;
         this.anim.stop();
         this.attacking = true;
         this.animateState = this.anim.play(
@@ -227,23 +234,26 @@ export default class player extends cc.Component {
     }
     
     playerDieAnimation () {
+        if (this.dying) return;
         this.anim.stop();
-        this.attacking = true;
+        this.dying = true;
         this.animateState = this.anim.play(
             this.characterName + "Dying" + this.targetDirection
         );
     }
 
     playerHurtAnimation () {
+        if (this.dying) return;
         this.anim.stop();
-        this.attacking = true;
+        this.hurting = true;
         this.animateState = this.anim.play(
             this.characterName + "Hurt" + this.targetDirection
         );
         this.anim.on("finished", (e) => {
-            this.attacking = false;
+            this.hurting = false;
         });
     }
+
 
     playerAttack() {
         this.traceEnemy();
@@ -270,6 +280,7 @@ export default class player extends cc.Component {
                     () => {
                         this.traceEnemy();
                         this.createBullet();
+                        cc.audioEngine.playEffect(this.attackSound,false);
                         this.playerAttackAnimation();
                     },
                     0.1,
@@ -282,11 +293,12 @@ export default class player extends cc.Component {
                 let powerBullet = null;
                 if (this.powerBulletpool.size() > 0)
                     powerBullet = this.powerBulletpool.get(this.powerBulletpool);
-                if (powerBullet != null)
+                if (powerBullet != null){
                     powerBullet
                         .getComponent("powerBullet")
                         .init(this.node, this.targetDirection, this.targetAngle);
-
+                }
+                cc.audioEngine.playEffect(this.attackSound,false);
                 this.playerAttackAnimation();
             }
             
@@ -336,7 +348,7 @@ export default class player extends cc.Component {
     }
 
     meleeAttack() {
-        if(this.rangeTarget) {
+        if(this.rangeTarget) { 
             for (var prop in this.rangeTarget) {
                 let currentPosition = this.node.convertToWorldSpaceAR(cc.v2(0, 0));
                 let enemyPosition = this.rangeTarget[prop];
@@ -350,13 +362,14 @@ export default class player extends cc.Component {
                 ) {
                     // ERROR
                     let currentEnemy = this.enemys.children[prop];
+                    //console.log(currentEnemy.name);
                     currentEnemy
                         .getComponent(currentEnemy.name)
                         .enemyHurt(this.playerData.atk);
                 }
             }
         }
-        this.rangeTarget = {}
+        this.rangeTarget = {};
         
     }
 
@@ -375,6 +388,7 @@ export default class player extends cc.Component {
                 nextTargetPosition = cc.v2(enemyPos.x, enemyPos.y);
             }
             if (currentDistance <= this.attackRange) {
+                console.log("in range")
                 this.rangeTarget[i] = cc.v2(enemyPos.x, enemyPos.y);
             }
         }
@@ -414,9 +428,9 @@ export default class player extends cc.Component {
     }
 
     lifeDamage(damage: number) {
+        console.log("hurt!");
         if (this.playerData.hp > 0) {
             this.playerHurtAnimation();
-            console.log("before hurt", this.playerData.hp);
             this.playerData.hp -=
                 damage * (1 - this.playerData.def / (this.playerData.def + 10));
         }

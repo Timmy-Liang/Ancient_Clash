@@ -63,5 +63,9 @@
       "enable": false
     }
   },
+<<<<<<< HEAD
   "start-scene": "1ae719bb-ecd3-4a3b-8753-f787ceca60e5"
+=======
+  "start-scene": "656d65b7-29f7-44d0-9434-594701d920fc"
+>>>>>>> 9a98143684cf0919925faa778b51709708f3b14c
 }

@@ -6444,7 +6444,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "loading_bg",
+    "_name": "opIntro",
     "_objFlags": 0,
     "_parent": {
       "__id__": 2
@@ -6486,8 +6486,8 @@
         0,
         0,
         1,
-        1,
-        1,
+        0.9,
+        0.6,
         1
       ]
     },
@@ -6502,7 +6502,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "45K1kXve9B05uxGeSVlIXx"
+    "_id": "dfRQHsfJZFRJpCCeY6Ovy6"
   },
   {
     "__type__": "cc.Sprite",
@@ -6520,7 +6520,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "3f99b845-ef26-465c-89c5-49527704a66c"
+      "__uuid__": "43178b73-abbd-45af-a1c3-aab42724af1e"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -6534,7 +6534,7 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": null,
-    "_id": "35S286MX5O27G5MR4THr2f"
+    "_id": "8a8TVlWKVPdrv1ytwhPNCV"
   },
   {
     "__type__": "cc.Canvas",

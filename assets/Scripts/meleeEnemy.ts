@@ -20,10 +20,10 @@ export default class meleeEnemy extends cc.Component {
 
     private target: cc.Node = null;
 
-    private detectRange: number = 300;
-    private attackCooldown: number = 2;
+    private detectRange: number = 400;
+    private attackCooldown: number = 2.2;
     private nextAttackTime: number = 0;
-    private moveSpeed: number = 40;
+    private moveSpeed: number = 80;
     private attackDir: cc.Vec2 = cc.v2(0, 0)
     public tracingPlayer: boolean = false;
 
@@ -40,9 +40,11 @@ export default class meleeEnemy extends cc.Component {
     private nextTraceTime: number = 0;
     private waitRandomFactor: number = 0.1;
 
-    private enemyLife: number = 150;
+    private coin:number =2;
 
-    private enemyMaxLife: number = 150;
+    private enemyLife: number = 170;
+
+    private enemyMaxLife: number = 170;
 
     private enemyLifeProgress: cc.Node = null;
 
@@ -139,7 +141,7 @@ export default class meleeEnemy extends cc.Component {
     detectRangePlayer() {
         //console.log(this.node.position.sub(this.player1.node.position).mag())
         if (this.node.convertToWorldSpaceAR(cc.v2(0, 0)).sub(this.target.convertToWorldSpaceAR(cc.v2(0, 0))).mag() < this.detectRange) {
-            this.moveSpeed = 200;
+            this.moveSpeed = 150;
             this.tracingPlayer = true;
         }
         return 0;
@@ -196,8 +198,8 @@ export default class meleeEnemy extends cc.Component {
         this.enemyLifeProgress.getComponent(cc.ProgressBar).progress = this.enemyLife / this.enemyMaxLife;
         if (this.enemyLife <= 0) {
             this.node.active = false;
-            if(this.node.parent.name=="enemy1")this.gameManager.getComponent("gamerManager").addcoin(1,10);
-            else if(this.node.parent.name=="enemy2")this.gameManager.getComponent("gamerManager").addcoin(2,10);
+            if(this.node.parent.name=="enemy1")this.gameManager.getComponent("gamerManager").addcoin(1,this.coin);
+            else if(this.node.parent.name=="enemy2")this.gameManager.getComponent("gamerManager").addcoin(2,this.coin);
             this.gameManager.getComponent("gamerManager").enemyReduce(this.node.x);
             cc.audioEngine.playEffect(this.killedSound,false);
             this.node.destroy();

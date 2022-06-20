@@ -44,35 +44,8 @@ export default class shopManager extends cc.Component {
     private p2_Label;
 
     private equipBg;
-    /*
-    p1_Data= {
-        job: "slinger",
-        atk: 10,
-        def: 10,
-        hp: 10,
-        spd: 10,
-        money: 1000,
-        armor: "slingerArmor1",
-        boots: "boots1",
-        weapon: "sling1"
-    }
-    p2_Data={
-        job: "warrior",
-        atk: 10,
-        def: 10,
-        hp: 10,
-        spd: 10,
-        money: 1000,
-        armor: "warriorArmor1",
-        boots: "boots1",
-        weapon: "sword1"
-    }
-    */
 
     onLoad(){
-        //cc.sys.localStorage.setItem('p1', JSON.stringify(this.p1_Data));
-        //cc.sys.localStorage.setItem('p2', JSON.stringify(this.p2_Data));
-
         var sth=this;
         cc.loader.loadRes("equipPrefabs/equipBg", function (err, prefab) {
             sth.equipBg = cc.instantiate(prefab);

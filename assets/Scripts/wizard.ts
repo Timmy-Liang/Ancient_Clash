@@ -26,12 +26,14 @@ export default class wizard extends cc.Component {
     private nextMoveTime: number = 0;
     private waitRandomFactor: number = 0.1;
 
-    private wizardLife: number = 300;
-    private wizardMaxLife: number = 300;
+    private coin: number= 5;
+
+    private wizardLife: number = 220;
+    private wizardMaxLife: number = 220;
     private wizardLifeProgress: cc.Node = null;
     private target: cc.Node = null;
 
-    private targetRange: number = 5;
+    private targetRange: number = 2;
     private targetGenerate;
     private damage: number = 15;
 
@@ -59,7 +61,7 @@ export default class wizard extends cc.Component {
             this.generateTargetRegion();
         };
 
-        this.schedule(this.targetGenerate, 10);
+        this.schedule(this.targetGenerate, 6);
     }
   
     generateTargetRegion() {
@@ -77,13 +79,13 @@ export default class wizard extends cc.Component {
         this.target.setPosition(pos);
 
         this.scheduleOnce(() => {
-            if (this.isInCycle(this.target)) {
+            if (this.isInCycle()) {
                 //console.log("yes");
                 this.player.getComponent("player").lifeDamage(this.damage);
                 this.explosion(pos);
             }
             this.target.destroy();
-        }, 4);
+        }, 1.33);
     }
     explosion(pos: number) {
         let fire = cc.instantiate(this.fire);
@@ -96,11 +98,11 @@ export default class wizard extends cc.Component {
         }, 1.1);
     }
 
-    isInCycle(target: cc.Node) {
-        if (!target) return;
+    isInCycle() {
+        if (!this.target) return;
         let radius = 75 * this.targetRange;
         //(px-tx)^2 + (py-ty)^2 <= r^2
-        let targetPos = target.convertToWorldSpaceAR(cc.v2(0, 0));
+        let targetPos = this.target.convertToWorldSpaceAR(cc.v2(0, 0));
         let playerPos = this.player.convertToWorldSpaceAR(cc.v2(0, 0));
         let w = playerPos.x - targetPos.x;
         let h = playerPos.y - targetPos.y;
@@ -114,8 +116,8 @@ export default class wizard extends cc.Component {
         if (this.wizardLife <= 0) {
             this.node.active = false;
             cc.audioEngine.playEffect(this.killedSound,false);
-            if(this.node.parent.name=="enemy1")this.gameManager.getComponent("gamerManager").addcoin(1,25);
-            else if(this.node.parent.name=="enemy2")this.gameManager.getComponent("gamerManager").addcoin(2,25);
+            if(this.node.parent.name=="enemy1")this.gameManager.getComponent("gamerManager").addcoin(1,this.coin);
+            else if(this.node.parent.name=="enemy2")this.gameManager.getComponent("gamerManager").addcoin(2,this.coin);
             this.gameManager.getComponent("gamerManager").enemyReduce(this.node.x);
             if (this.target != null) this.target.destroy();
             this.node.destroy();
