@@ -96,9 +96,9 @@ export default class gameManager extends cc.Component {
         this.camera1 = cc.find("Canvas/camera1");
         this.camera2 = cc.find("Canvas/camera2");
         
-        this.meleeEnemyCount =  Math.floor(level*2)+2;
-        this.archerEnemyCount = Math.floor(level*2)+1;
-        this.wizardCount = Math.floor(level*2);
+        //this.meleeEnemyCount =  Math.floor(level*2)+2;
+        //this.archerEnemyCount = Math.floor(level*2)+1;
+        //this.wizardCount = Math.floor(level*2);
         //cc.director.getPhysicsManager().debugDrawFlags = 1;
     }
 
