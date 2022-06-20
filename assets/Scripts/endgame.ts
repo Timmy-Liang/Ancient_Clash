@@ -29,9 +29,10 @@ export default class NewClass extends cc.Component {
             this.label.string=(playerdata.p1name+"\nWON");
         }
         else{
-            this.winID=playerdata.p2id
+            this.winID=playerdata.p2id;
             this.label.string=(playerdata.p2name+"\nWON");
         }
+        
     }
     backhome(){
         cc.director.loadScene("start");

@@ -381,7 +381,7 @@ export default class gameManager extends cc.Component {
             this.camera1.active = false;
             this.camera2.active = false;
             cc.find("Canvas/loadingCamera").active = true;
-            cc.find("Canvas/tmp_bg").active = true;
+            cc.find("Canvas/loading_bg").active = true;
             this.scheduleOnce(() => {
                 cc.director.loadScene("shop");
             }, 0.3);
