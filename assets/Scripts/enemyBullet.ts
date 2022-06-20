@@ -22,6 +22,7 @@ export default class enemyBullet extends cc.Component {
 
 
     public init(node: cc.Node, targetDirection: string, targetAngle: number) {
+        console.log("bullet init!");
         this.setInitPos(node, targetDirection);
         this.speedX = Math.cos(targetAngle * Math.PI / 180);
         this.speedY = Math.sin(targetAngle * Math.PI / 180);
@@ -62,17 +63,16 @@ export default class enemyBullet extends cc.Component {
 
     //detect collision with enemies
     onBeginContact(contact, self, other) {
-        if(other.tag == 2 || other.tag == 3) { // hit enemy or bullet
+        if(other.tag == 1){
+            console.log("hit!!")
+            other.node.getComponent('player').lifeDamage(this.damage);
+        }
+        else if(other.tag == 2 || other.tag == 3) { // hit enemy or bullet
             contact.disabled = true;
             return;
-        }
-        if(other.tag == 1){
-            other.node.getComponent('player').lifeDamage(this.damage);
         }
         this.unscheduleAllCallbacks();
         this.node.destroy();
         return;
-        
-
     }
 }
