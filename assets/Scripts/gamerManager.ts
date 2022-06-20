@@ -248,16 +248,18 @@ export default class gameManager extends cc.Component {
                     collider.apply();
                 }
                 else {
-                    // let wallAround = false;
-                    // for(let idx = 0; idx < 8; idx++) {
-                    //     if(wallAround)
-                    //         break;
-                    //     let nextX = i + dx[idx], nextY = j + dy[idx];
-                    //     if(nextX < layerSize.width && nextX >= 0 && nextY < layerSize.height && nextY >= 0) {
-                    //         wallAround = true;
-                    //     }
-                    // }
-                    // if(!wallAround)
+                    let wallAround = false;
+                    for(let idx = 0; idx < 8; idx++) {
+                        if(wallAround)
+                            break;
+                        let nextX = i + dx[idx], nextY = j + dy[idx];
+                        if(nextX < layerSize.width && nextX >= 0 && nextY < layerSize.height && nextY >= 0) {
+                            let nextTiled = layer.getTiledTileAt(i, j, true);
+                            if(nextTiled.gid != 0)
+                                wallAround = true;
+                        }
+                    }
+                    if(!wallAround)
                         this.validEnemySpace.push([i, j]);
                 }
             }
