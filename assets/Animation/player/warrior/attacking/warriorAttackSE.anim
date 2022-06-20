@@ -1,9 +1,12 @@
 {
   "__type__": "cc.AnimationClip",
-  "_name": "",
+  "_name": "warriorAttackSE",
   "_objFlags": 0,
+  "_native": "",
   "_duration": 0,
   "sample": 60,
+  "speed": 0.6,
+  "wrapMode": 1,
   "curveData": {},
   "events": []
 }
