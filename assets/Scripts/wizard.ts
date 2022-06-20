@@ -28,12 +28,12 @@ export default class wizard extends cc.Component {
 
     private coin: number= 5;
 
-    private wizardLife: number = 300;
-    private wizardMaxLife: number = 300;
+    private wizardLife: number = 220;
+    private wizardMaxLife: number = 220;
     private wizardLifeProgress: cc.Node = null;
     private target: cc.Node = null;
 
-    private targetRange: number = 5;
+    private targetRange: number = 2;
     private targetGenerate;
     private damage: number = 15;
 
@@ -61,7 +61,7 @@ export default class wizard extends cc.Component {
             this.generateTargetRegion();
         };
 
-        this.schedule(this.targetGenerate, 10);
+        this.schedule(this.targetGenerate, 6);
     }
   
     generateTargetRegion() {
@@ -85,7 +85,7 @@ export default class wizard extends cc.Component {
                 this.explosion(pos);
             }
             this.target.destroy();
-        }, 4);
+        }, 1.33);
     }
     explosion(pos: number) {
         let fire = cc.instantiate(this.fire);

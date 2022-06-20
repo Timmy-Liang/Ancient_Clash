@@ -39,7 +39,7 @@ export default class gameManager extends cc.Component {
     private physicManager: cc.PhysicsManager = null;
 
     private meleeEnemyCount: number = 0;
-    private archerEnemyCount: number = 1;
+    private archerEnemyCount: number = 3;
     private wizardCount: number = 0;
 
     private player1_restEnemy: number = 0;
@@ -98,9 +98,9 @@ export default class gameManager extends cc.Component {
         this.camera1 = cc.find("Canvas/camera1");
         this.camera2 = cc.find("Canvas/camera2");
         
-        //this.meleeEnemyCount =  Math.floor(level*2)+2;
-        //this.archerEnemyCount = Math.floor(level*2)+1;
-        //this.wizardCount = Math.floor(level*2);
+        this.meleeEnemyCount =  Math.floor(level*2)+1;
+        this.archerEnemyCount = Math.floor(level*2);
+        this.wizardCount = Math.floor(level*2);
         //cc.director.getPhysicsManager().debugDrawFlags = 1;
     }
 
@@ -353,7 +353,7 @@ export default class gameManager extends cc.Component {
             let nextY = -960 + (120 - nextOffsetY) * 16;
             archerEnemy.setPosition(cc.v2(nextX, nextY));
             let nextEnemyWorldPosition = archerEnemy.convertToWorldSpaceAR(cc.v2(0, 0));
-            if ((nextEnemyWorldPosition.sub(playerWorldPosition)).mag() > 350) {
+            if ((nextEnemyWorldPosition.sub(playerWorldPosition)).mag() > 450) {
                 break;
             }
             
@@ -383,9 +383,11 @@ export default class gameManager extends cc.Component {
     }
 
     keyboardUpdate() {
-        if (this.pause) return;
         this.player1.playerMoveDir("IDLE");
         this.player2.playerMoveDir("IDLE");
+        if (this.pause) return;
+        
+        
         if (keyboardInput[cc.macro.KEY.f]) this.player1.playerAttack();
         if (keyboardInput[cc.macro.KEY.g]) this.player1.playerPower();
         if (keyboardInput[cc.macro.KEY.s] && keyboardInput[cc.macro.KEY.d]) {
@@ -503,7 +505,7 @@ export default class gameManager extends cc.Component {
                     cc.find("Canvas/camera1/Clean").active = true;
                     if (this.passControl == 0) {
                         this.passControl = 1;
-                        this.initEnemies(1, Math.floor(this.timer/25)+1, Math.floor(this.timer/30), Math.floor(this.timer/40));
+                        this.initEnemies(1, Math.floor(this.timer/30)+1, Math.floor(this.timer/30), Math.floor(this.timer/40));
                     }
                 }
             }

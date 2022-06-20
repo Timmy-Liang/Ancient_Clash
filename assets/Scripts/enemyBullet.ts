@@ -18,7 +18,9 @@ export default class enemyBullet extends cc.Component {
     private speedX: number = 0;
     private speedY: number = 0;
 
-    private damage: number=10;
+    private damage: number=5;
+
+    private isTriggered = false;
 
 
     public init(node: cc.Node, targetDirection: string, targetAngle: number) {
@@ -63,13 +65,15 @@ export default class enemyBullet extends cc.Component {
 
     //detect collision with enemies
     onBeginContact(contact, self, other) {
-        if(other.tag == 1){
-            console.log("hit!!")
-            other.node.getComponent('player').lifeDamage(this.damage);
-        }
-        else if(other.tag == 2 || other.tag == 3) { // hit enemy or bullet
+        if(this.isTriggered)
+            return;
+        if(other.tag == 2 || other.tag == 3) { // hit enemy or bullet
             contact.disabled = true;
             return;
+        }
+        if(other.tag == 1){
+            other.node.getComponent('player').lifeDamage(this.damage);
+            this.isTriggered = true;
         }
         this.unscheduleAllCallbacks();
         this.node.destroy();
