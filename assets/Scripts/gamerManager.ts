@@ -111,9 +111,9 @@ export default class gameManager extends cc.Component {
         this.archerEnemyCount = Math.floor(level*2);
         this.wizardCount = Math.floor(level*2);
         */
-        this.meleeEnemyCount =  Math.floor(level*1)+1;
-        this.archerEnemyCount = Math.floor(level*1);
-        this.wizardCount = Math.floor(level*1);
+        this.meleeEnemyCount =  Math.floor(level*1.5)+1;
+        this.archerEnemyCount = Math.floor(level*1.5);
+        this.wizardCount = Math.floor(level*1.5);
         //cc.director.getPhysicsManager().debugDrawFlags = 1;
     }
 
