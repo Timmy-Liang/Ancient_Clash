@@ -77,7 +77,7 @@ export default class wizard extends cc.Component {
         this.target.setPosition(pos);
 
         this.scheduleOnce(() => {
-            if (this.isInCycle(this.target)) {
+            if (this.isInCycle()) {
                 //console.log("yes");
                 this.player.getComponent("player").lifeDamage(this.damage);
                 this.explosion(pos);
@@ -96,11 +96,11 @@ export default class wizard extends cc.Component {
         }, 1.1);
     }
 
-    isInCycle(target: cc.Node) {
-        if (!target) return;
+    isInCycle() {
+        if (!this.target) return;
         let radius = 75 * this.targetRange;
         //(px-tx)^2 + (py-ty)^2 <= r^2
-        let targetPos = target.convertToWorldSpaceAR(cc.v2(0, 0));
+        let targetPos = this.target.convertToWorldSpaceAR(cc.v2(0, 0));
         let playerPos = this.player.convertToWorldSpaceAR(cc.v2(0, 0));
         let w = playerPos.x - targetPos.x;
         let h = playerPos.y - targetPos.y;
