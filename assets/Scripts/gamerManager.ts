@@ -38,9 +38,9 @@ export default class gameManager extends cc.Component {
     private pause: boolean = false;
     private physicManager: cc.PhysicsManager = null;
 
-  private meleeEnemyCount: number = 0;
-  private archerEnemyCount: number = 1;
-  private wizardCount: number = 1;
+    private meleeEnemyCount: number = 2;
+    private archerEnemyCount: number = 3;
+    private wizardCount: number = 2;
 
     private player1_restEnemy: number = 0;
     private player2_restEnemy: number = 0;
@@ -61,6 +61,8 @@ export default class gameManager extends cc.Component {
     private passControl: number = 0;
     private camera1: cc.Node = null;
     private camera2: cc.Node = null;
+
+    private validEnemySpace: Array<Array<number>> = [];
 
     // LIFE-CYCLE CALLBACKS:
 
@@ -132,7 +134,7 @@ export default class gameManager extends cc.Component {
         }
     }
 
-    resetKeyboard () {
+    resetKeyboard() {
         keyboardInput[cc.macro.KEY.space] = 0;
         keyboardInput[cc.macro.KEY.m] = 0
         keyboardInput[cc.macro.KEY.s] = 0
@@ -226,6 +228,9 @@ export default class gameManager extends cc.Component {
                     collider.size = tiledSize;
                     collider.apply();
                 }
+                else {
+                    this.validEnemySpace.push([i, j]);
+                }
             }
         }
     }
@@ -268,34 +273,108 @@ export default class gameManager extends cc.Component {
     initMelee(index: number) {
         let melee = cc.instantiate(this.meleeEnemy);
         melee.parent = cc.find("Canvas/enemy" + index);
-        let pos;
-        pos = cc.v2(
-            -1820 + 1920 * (index - 1) + Math.floor(Math.random() * 1750),
-            -875 + Math.floor(Math.random() * 1740)
-        );
-        melee.setPosition(pos);
+
+        let length = this.validEnemySpace.length;
+        var playerWorldPosition;
+        if(index == 1) {
+            playerWorldPosition = this.player1.node.convertToWorldSpaceAR(cc.v2(0, 0));
+        }
+        else{
+            playerWorldPosition = this.player2.node.convertToWorldSpaceAR(cc.v2(0, 0));
+        }
+        while (true) {
+            let nextValidIndex = this.randomValidSpace(length);
+            let nextOffsetX = nextValidIndex[0], nextOffsetY = nextValidIndex[1];
+            let nextX = -1920 + 1920 * (index - 1) + nextOffsetX * 16;
+            let nextY = -960 + (120 - nextOffsetY) * 16;
+            melee.setPosition(cc.v2(nextX, nextY));
+            let nextEnemyWorldPosition = melee.convertToWorldSpaceAR(cc.v2(0, 0));
+            if ((nextEnemyWorldPosition.sub(playerWorldPosition)).mag() > 350) {
+                break;
+            }
+        }
+        if(index == 1) 
+            console.log("Enemy 1 " + melee.x + " " + melee.y);
+        else 
+            console.log("Enemy 2 " + melee.x + " " + melee.y);
+        // let nextEnemyWorldPosition = melee.convertToWorldSpaceAR(cc.v2(0, 0));
+        // if(index == 1) {
+        //     console.log("Enemy 1 " + melee.x + " " + melee.y);
+        //     console.log((playerWorldPosition.sub(nextEnemyWorldPosition)).mag())
+        // }
+        // else {
+        //     console.log("Enemy 2 " + melee.x + " " + melee.y);
+        //     console.log((playerWorldPosition.sub(nextEnemyWorldPosition)).mag())
+        // }
+        
     }
 
     initWizard(index: number) {
         let wizard = cc.instantiate(this.wizard);
         wizard.parent = cc.find("Canvas/enemy" + index);
-        let pos;
-        pos = cc.v2(
-            -1650 + 1920 * (index - 1) + Math.floor(Math.random() * 1570),
-            -850 + Math.floor(Math.random() * 1700)
-        );
-        wizard.setPosition(pos);
+        let length = this.validEnemySpace.length;
+        var playerWorldPosition;
+        if(index == 1) {
+            playerWorldPosition = this.player1.node.convertToWorldSpaceAR(cc.v2(0, 0));
+        }
+        else{
+            playerWorldPosition = this.player2.node.convertToWorldSpaceAR(cc.v2(0, 0));
+        }
+        while (true) {
+            let nextValidIndex = this.randomValidSpace(length);
+            let nextOffsetX = nextValidIndex[0], nextOffsetY = nextValidIndex[1];
+            let nextX = -1920 + (index - 1) * 1920 + nextOffsetX * 16;
+            let nextY = -960 + (120 - nextOffsetY) * 16;
+            wizard.setPosition(cc.v2(nextX, nextY));
+            let nextEnemyWorldPosition = wizard.convertToWorldSpaceAR(cc.v2(0, 0));
+            if ((nextEnemyWorldPosition.sub(playerWorldPosition)).mag() > 350) {
+                break;
+            }
+            
+        }
+        if(index == 1) 
+            console.log("Enemy 1 " + wizard.x + " " + wizard.y);
+        else 
+            console.log("Enemy 2 " + wizard.x + " " + wizard.y);
     }
 
     initArcher(index: number) {
         let archerEnemy = cc.instantiate(this.archerEnemy);
         archerEnemy.parent = cc.find("Canvas/enemy" + index);
-        let pos;
-        pos = cc.v2(
-            -1820 + 1920 * (index - 1) + Math.floor(Math.random() * 1750),
-            -875 + Math.floor(Math.random() * 1740)
-        );
-        archerEnemy.setPosition(pos);
+        let length = this.validEnemySpace.length;
+        var playerWorldPosition;
+        if(index == 1) {
+            playerWorldPosition = this.player1.node.convertToWorldSpaceAR(cc.v2(0, 0));
+        }
+        else{
+            playerWorldPosition = this.player2.node.convertToWorldSpaceAR(cc.v2(0, 0));
+        }
+        while (true) {
+            let nextValidIndex = this.randomValidSpace(length);
+            let nextOffsetX = nextValidIndex[0], nextOffsetY = nextValidIndex[1];
+            let nextX = -1920 + 1920 * (index - 1) + nextOffsetX * 16;
+            let nextY = -960 + (120 - nextOffsetY) * 16;
+            archerEnemy.setPosition(cc.v2(nextX, nextY));
+            let nextEnemyWorldPosition = archerEnemy.convertToWorldSpaceAR(cc.v2(0, 0));
+            if ((nextEnemyWorldPosition.sub(playerWorldPosition)).mag() > 350) {
+                break;
+            }
+            
+        }
+        if(index == 1) 
+            console.log("Enemy 1 " + archerEnemy.x + " " + archerEnemy.y);
+        else 
+            console.log("Enemy 2 " + archerEnemy.x + " " + archerEnemy.y);
+    }
+
+    randomValidSpace(length: number) {
+        while(true) {
+            let index = Math.floor(Math.random() * length)
+            let nextX = this.validEnemySpace[index][0];
+            let nextY = this.validEnemySpace[index][1];
+            if(nextX > 5 && nextX < 115 && nextY > 5 && nextY < 115)
+                return this.validEnemySpace[index]
+        }
     }
 
     onKeyDown(event) {
