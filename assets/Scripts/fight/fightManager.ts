@@ -33,6 +33,7 @@ export default class gameManager extends cc.Component {
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
+        this.resetKeyboard();
         this.physicManager = cc.director.getPhysicsManager();
         this.physicManager.enabled = true;
         this.initPlayer();
@@ -47,6 +48,21 @@ export default class gameManager extends cc.Component {
         this.initWall(this.map);
         
     }
+    resetKeyboard () {
+        keyboardInput[cc.macro.KEY.space] = 0;
+        keyboardInput[cc.macro.KEY.m] = 0
+        keyboardInput[cc.macro.KEY.s] = 0
+        keyboardInput[cc.macro.KEY.d] = 0
+        keyboardInput[cc.macro.KEY.w] = 0
+        keyboardInput[cc.macro.KEY.a] = 0
+        keyboardInput[cc.macro.KEY.forwardslash] = 0
+        keyboardInput[cc.macro.KEY.period] = 0
+        keyboardInput[cc.macro.KEY.up] = 0
+        keyboardInput[cc.macro.KEY.down] = 0
+        keyboardInput[cc.macro.KEY.right] = 0
+        keyboardInput[cc.macro.KEY.left] = 0
+    }
+
     playBGM(){
         cc.audioEngine.play(this.bgm, true, 0.5);
     }
