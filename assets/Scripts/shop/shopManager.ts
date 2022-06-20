@@ -439,13 +439,13 @@ export default class shopManager extends cc.Component {
         if (nextLevel == 5) {
             //over all level
             //enter player flighting mode
-            cc.find("tmp_bg").active = true;
+            cc.find("loading_bg").active = true;
             this.scheduleOnce(()=>{
                 cc.director.loadScene("pk");
             }, 0.2);
         } 
         else {
-            cc.find("tmp_bg").active = true;
+            cc.find("loading_bg").active = true;
            cc.sys.localStorage.setItem("level", nextLevel.toString());
            
            this.scheduleOnce(()=>{
