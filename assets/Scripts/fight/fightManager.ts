@@ -46,7 +46,7 @@ export default class gameManager extends cc.Component {
         this.playBGM();
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP, this.onKeyUp, this);
-        this.initWall(this.map);
+        //this.initWall(this.map);
         
     }
     resetKeyboard () {
