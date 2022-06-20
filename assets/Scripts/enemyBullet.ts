@@ -24,8 +24,10 @@ export default class enemyBullet extends cc.Component {
 
 
     public init(node: cc.Node, targetDirection: string, targetAngle: number) {
-        console.log("bullet init!");
+
+        let level=cc.sys.localStorage.getItem("level");
         this.setInitPos(node, targetDirection);
+        this.damage=6+level*2;
         this.speedX = Math.cos(targetAngle * Math.PI / 180);
         this.speedY = Math.sin(targetAngle * Math.PI / 180);
         if (node.name == 'archerEnemy'){

@@ -81,11 +81,11 @@ export default class player extends cc.Component {
                         this.characterTag = 1;
                         break;
                     case "warrior":
-                        this.attackRange=80;
+                        this.attackRange=100;
                         this.characterTag = 2;
                         break;
                     case "knight":
-                        this.attackRange=80;
+                        this.attackRange=100;
                         this.characterTag = 3;
                         break;
                 }

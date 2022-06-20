@@ -33,14 +33,15 @@ export default class wizard extends cc.Component {
     private wizardLifeProgress: cc.Node = null;
     private target: cc.Node = null;
 
-    private targetRange: number = 2;
+    private targetRange: number = 3.2;
     private targetGenerate;
     private damage: number = 15;
 
-
+    private level: number=0;
 
     onLoad() {
         this.gameManager = cc.find("gameManager");
+        this.level=cc.sys.localStorage.getItem("level");
         let index = this.node.parent.name.slice(-1);
         try {
             let job = JSON.parse(cc.sys.localStorage.getItem("p" + index)).job;
@@ -62,6 +63,7 @@ export default class wizard extends cc.Component {
         };
 
         this.schedule(this.targetGenerate, 6);
+        this.damage=8+ this.level*3;
     }
   
     generateTargetRegion() {
@@ -85,7 +87,7 @@ export default class wizard extends cc.Component {
                 this.explosion(pos);
             }
             this.target.destroy();
-        }, 1.33);
+        }, 2);
     }
     explosion(pos: number) {
         let fire = cc.instantiate(this.fire);

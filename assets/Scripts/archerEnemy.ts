@@ -51,9 +51,6 @@ export default class archerEnemy extends cc.Component {
     private targetAngle: number = 0;
     private targetPosition: cc.Vec2 = cc.v2(0, 0);
 
-    private damage: number = 10;
-    
-
     onLoad() {
         
     }

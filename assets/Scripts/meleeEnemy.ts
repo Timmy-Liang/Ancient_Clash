@@ -57,7 +57,10 @@ export default class meleeEnemy extends cc.Component {
     private lastPosition : cc.Vec2 = cc.v2(0, 0)
     private damage: number = 7;
 
+    private level: number=0;
+
     onLoad() {
+        this.level=cc.sys.localStorage.getItem("level");
     }
 
     start() {
@@ -75,6 +78,8 @@ export default class meleeEnemy extends cc.Component {
 
         this.enemyLifeProgress = this.node.getChildByName('lifeBar');
         this.anim = this.getComponent(cc.Animation);
+        
+        this.damage=4+this.level*2;
     }
 
     wandering(dt: number) {

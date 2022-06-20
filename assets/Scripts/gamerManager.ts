@@ -505,7 +505,7 @@ export default class gameManager extends cc.Component {
                     cc.find("Canvas/camera1/Clean").active = true;
                     if (this.passControl == 0) {
                         this.passControl = 1;
-                        this.initEnemies(1, Math.floor(this.timer/30)+1, Math.floor(this.timer/30), Math.floor(this.timer/40));
+                        this.initEnemies(2, Math.floor(this.timer/30)+1, Math.floor(this.timer/30), Math.floor(this.timer/40));
                     }
                 }
             }
