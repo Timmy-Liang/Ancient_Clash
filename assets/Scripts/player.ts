@@ -88,6 +88,8 @@ export default class player extends cc.Component {
                         break;
                 }
             }
+            if(this.characterTag == 2 || this.characterTag == 3)
+                this.attackRange = 80;
         } catch { }
     }
 
@@ -344,7 +346,7 @@ export default class player extends cc.Component {
     }
 
     meleeAttack() {
-        if(!this.rangeTarget) { 
+        if(this.rangeTarget) { 
             for (var prop in this.rangeTarget) {
                 let currentPosition = this.node.convertToWorldSpaceAR(cc.v2(0, 0));
                 let enemyPosition = this.rangeTarget[prop];
@@ -384,6 +386,7 @@ export default class player extends cc.Component {
                 nextTargetPosition = cc.v2(enemyPos.x, enemyPos.y);
             }
             if (currentDistance <= this.attackRange) {
+                console.log("in range")
                 this.rangeTarget[i] = cc.v2(enemyPos.x, enemyPos.y);
             }
         }
