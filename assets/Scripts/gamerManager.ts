@@ -39,7 +39,7 @@ export default class gameManager extends cc.Component {
     private physicManager: cc.PhysicsManager = null;
 
     private meleeEnemyCount: number = 0;
-    private archerEnemyCount: number = 3;
+    private archerEnemyCount: number = 1;
     private wizardCount: number = 0;
 
     private player1_restEnemy: number = 0;
@@ -58,7 +58,6 @@ export default class gameManager extends cc.Component {
     private coin1label: cc.Label = null;
     private coin2label: cc.Label = null;
 
-    private passControl: number = 0;
     private camera1: cc.Node = null;
     private camera2: cc.Node = null;
 
@@ -200,8 +199,8 @@ export default class gameManager extends cc.Component {
     }
     updateTime(t) {
         this.timer = t;
-        if (this.passControl != 1) this.timer1.string = this.timer.toString();
-        if (this.passControl != 2) this.timer2.string = this.timer.toString();
+        if (this.player1_restEnemy != 0) this.timer1.string = this.timer.toString();
+        if (this.player2_restEnemy != 0) this.timer2.string = this.timer.toString();
     }
     addcoin(playernum, addnum) {
         //cc.log("addcoin");
@@ -491,10 +490,7 @@ export default class gameManager extends cc.Component {
                 if (this.player1_restEnemy == 0) this.gameOver("tie");
                 else {
                     cc.find("Canvas/camera2/Clean").active = true;
-                    if (this.passControl == 0) {
-                        this.passControl = 2;
-                        this.initEnemies(1, Math.floor(this.timer/25)+1, Math.floor(this.timer/30), Math.floor(this.timer/40));
-                    }
+                    this.initEnemies(1, Math.floor(this.timer/25)+1, Math.floor(this.timer/30), Math.floor(this.timer/40));
                 }
             }
         } else {
@@ -503,28 +499,25 @@ export default class gameManager extends cc.Component {
                 if (this.player2_restEnemy == 0) this.gameOver("tie");
                 else {
                     cc.find("Canvas/camera1/Clean").active = true;
-                    if (this.passControl == 0) {
-                        this.passControl = 1;
-                        this.initEnemies(1, Math.floor(this.timer/30)+1, Math.floor(this.timer/30), Math.floor(this.timer/40));
-                    }
+                    this.initEnemies(2, Math.floor(this.timer/30)+1, Math.floor(this.timer/30), Math.floor(this.timer/40));
                 }
             }
         }
-        if (this.passControl == 3) {
-            let sth = JSON.parse(cc.sys.localStorage.getItem("p1"));
-            sth.money += this.coin1;
-            cc.sys.localStorage.setItem("p1", JSON.stringify(sth));
+        // if (this.passControl == 3) {
+        //     let sth = JSON.parse(cc.sys.localStorage.getItem("p1"));
+        //     sth.money += this.coin1;
+        //     cc.sys.localStorage.setItem("p1", JSON.stringify(sth));
 
-            sth = JSON.parse(cc.sys.localStorage.getItem("p2"));
-            sth.money += this.coin2;
-            cc.sys.localStorage.setItem("p2", JSON.stringify(sth));
-            //console.log("enter shop");
-            this.camera1.active = false;
-            this.camera2.active = false;
-            cc.find("Canvas/loadingCamera").active = true;
-            cc.find("Canvas/tmp_bg").active = true;
-            this.endBGM();
-            cc.director.loadScene("shop");
-        }
+        //     sth = JSON.parse(cc.sys.localStorage.getItem("p2"));
+        //     sth.money += this.coin2;
+        //     cc.sys.localStorage.setItem("p2", JSON.stringify(sth));
+        //     //console.log("enter shop");
+        //     this.camera1.active = false;
+        //     this.camera2.active = false;
+        //     cc.find("Canvas/loadingCamera").active = true;
+        //     cc.find("Canvas/tmp_bg").active = true;
+        //     this.endBGM();
+        //     cc.director.loadScene("shop");
+        // }
     }
 }
