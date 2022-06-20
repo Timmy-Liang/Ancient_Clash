@@ -65,13 +65,13 @@ export default class signinpage extends cc.Component {
         let email = this.logEmailBox.getComponent(cc.EditBox).textLabel.string;
         let password=this.logPassBox.getComponent(cc.EditBox).textLabel.string;
         cc.log(email+"\n"+password);
-        /*firebase.auth().signInWithEmailAndPassword(email, password).then((r) => {
+        firebase.auth().signInWithEmailAndPassword(email, password).then((r) => {
             alert("login success");
             
             cc.director.loadScene("start");
 
         }).catch(e => console.log("eEEError"));
-        */
+        
        
     }
     submitSingUp(){
@@ -98,11 +98,11 @@ export default class signinpage extends cc.Component {
         
         let email = this.signEmailBox.getComponent(cc.EditBox).textLabel.string;
         let password=this.signPassBox.getComponent(cc.EditBox).textLabel.string;
-        cc.log(email+"\n"+password);
-        /*firebase.auth().createUserWithEmailAndPassword(email, password)
+        console.log(email+"\n"+password);
+        firebase.auth().createUserWithEmailAndPassword(email, password)
             .then((usercre) => {
                 
-                alert("sign up success")
+                alert("sign up success");
                 let ref = firebase.database().ref("account_data/" + usercre.user.uid);
                 let userdata={
                     user1:user1,
@@ -113,14 +113,14 @@ export default class signinpage extends cc.Component {
                 ref.set({
                     uid: usercre.user.uid,
                     email: email,
-                    userdata=userdata
+                    userdata:userdata
                 });
                 //this.props.usHand();
 
             })
             .catch(e => {
                 console.log(e.message);
-            });*/
+            });
     }
 
 }
