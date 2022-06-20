@@ -19,6 +19,11 @@ export default class signinpage extends cc.Component {
     private logEmailBox:cc.Node=null;
     private signPassBox:cc.Node=null;
     private logPassBox:cc.Node=null;
+
+    private player1Box:cc.Node=null;
+    private player2Box:cc.Node=null;
+    private player3Box:cc.Node=null;
+    private player4Box:cc.Node=null;
     onLoad(){
         this.logInWindow=cc.find("Canvas/login_window");
         this.signUpWindow=cc.find("Canvas/signup_window");
@@ -28,6 +33,11 @@ export default class signinpage extends cc.Component {
         this.signPassBox=cc.find("Canvas/signup_window/pass/pass_EditBox");
         this.logEmailBox=cc.find("Canvas/login_window/email/email_EditBox");
         this.logPassBox=cc.find("Canvas/login_window/pass/pass_EditBox");
+
+        this.player1Box=cc.find("Canvas/signup_window/playersname/p1name/name");
+        this.player2Box=cc.find("Canvas/signup_window/playersname/p2name/name");
+        this.player3Box=cc.find("Canvas/signup_window/playersname/p3name/name");
+        this.player4Box=cc.find("Canvas/signup_window/playersname/p4name/name");
     }
     start () {
         this.logInWindow.active=false;
@@ -65,44 +75,56 @@ export default class signinpage extends cc.Component {
         let email = this.logEmailBox.getComponent(cc.EditBox).textLabel.string;
         let password=this.logPassBox.getComponent(cc.EditBox).textLabel.string;
         cc.log(email+"\n"+password);
-        /*firebase.auth().signInWithEmailAndPassword(email, password).then((r) => {
-            alert("login success");
-            
-            cc.director.loadScene("start");
-
-        }).catch(e => console.log("eEEError"));
-        */
+        
+        
+            firebase.auth().signInWithEmailAndPassword(email, password).then((r) => {
+                alert("login success");
+                
+                cc.director.loadScene("start");
+    
+            }).catch(e => console.log("eEEError"));
+        
+        
+        
        
     }
     submitSingUp(){
-        let user1={
-            name:"Danny",
-            wincount:0,
-            totalcount:0
-        };
-        let user2={
-            name:"Daniel",
-            wincount:0,
-            totalcount:0
-        };"Daniel";
-        let user3={
-            name:"Mandy",
-            wincount:0,
-            totalcount:0
-        };
-        let user4={
-            name:"Timothy",
-            wincount:0,
-            totalcount:0
-        };
+        
         
         let email = this.signEmailBox.getComponent(cc.EditBox).textLabel.string;
         let password=this.signPassBox.getComponent(cc.EditBox).textLabel.string;
-        cc.log(email+"\n"+password);
-        /*firebase.auth().createUserWithEmailAndPassword(email, password)
+        console.log(email+"\n"+password);
+        if(this.player1Box.getComponent(cc.EditBox).textLabel.string=="" ||
+        this.player2Box.getComponent(cc.EditBox).textLabel.string==""||
+        this.player3Box.getComponent(cc.EditBox).textLabel.string==""||
+        this.player4Box.getComponent(cc.EditBox).textLabel.string==""
+        ){
+            alert("please type in the player's name");
+        }else{
+            let user1={
+                name:this.player1Box.getComponent(cc.EditBox).textLabel.string,
+                wincount:0,
+                totalcount:0
+            };
+            let user2={
+                name:this.player2Box.getComponent(cc.EditBox).textLabel.string,
+                wincount:0,
+                totalcount:0
+            };
+            let user3={
+                name:this.player3Box.getComponent(cc.EditBox).textLabel.string,
+                wincount:0,
+                totalcount:0
+            };
+            let user4={
+                name:this.player4Box.getComponent(cc.EditBox).textLabel.string,
+                wincount:0,
+                totalcount:0
+            };
+            firebase.auth().createUserWithEmailAndPassword(email, password)
             .then((usercre) => {
                 
-                alert("sign up success")
+                alert("sign up success");
                 let ref = firebase.database().ref("account_data/" + usercre.user.uid);
                 let userdata={
                     user1:user1,
@@ -113,14 +135,16 @@ export default class signinpage extends cc.Component {
                 ref.set({
                     uid: usercre.user.uid,
                     email: email,
-                    userdata=userdata
+                    userdata:userdata
                 });
                 //this.props.usHand();
 
             })
             .catch(e => {
                 console.log(e.message);
-            });*/
+            });
+        }
+        
     }
 
 }
