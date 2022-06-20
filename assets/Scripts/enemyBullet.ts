@@ -18,7 +18,7 @@ export default class enemyBullet extends cc.Component {
     private speedX: number = 0;
     private speedY: number = 0;
 
-    private damage: number=10;
+    private damage: number=5;
 
 
     public init(node: cc.Node, targetDirection: string, targetAngle: number) {

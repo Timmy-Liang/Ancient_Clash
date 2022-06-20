@@ -38,9 +38,9 @@ export default class gameManager extends cc.Component {
     private pause: boolean = false;
     private physicManager: cc.PhysicsManager = null;
 
-    private meleeEnemyCount: number = 2;
-    private archerEnemyCount: number = 3;
-    private wizardCount: number = 2;
+    private meleeEnemyCount: number = 0;
+    private archerEnemyCount: number = 0;
+    private wizardCount: number = 10;
 
     private player1_restEnemy: number = 0;
     private player2_restEnemy: number = 0;
@@ -98,9 +98,9 @@ export default class gameManager extends cc.Component {
         this.camera1 = cc.find("Canvas/camera1");
         this.camera2 = cc.find("Canvas/camera2");
         
-        //this.meleeEnemyCount =  Math.floor(level*2)+2;
-        //this.archerEnemyCount = Math.floor(level*2)+1;
-        //this.wizardCount = Math.floor(level*2);
+        this.meleeEnemyCount =  Math.floor(level*2)+1;
+        this.archerEnemyCount = Math.floor(level*2);
+        this.wizardCount = Math.floor(level*2);
         //cc.director.getPhysicsManager().debugDrawFlags = 1;
     }
 
@@ -503,7 +503,7 @@ export default class gameManager extends cc.Component {
                     cc.find("Canvas/camera1/Clean").active = true;
                     if (this.passControl == 0) {
                         this.passControl = 1;
-                        this.initEnemies(1, Math.floor(this.timer/25)+1, Math.floor(this.timer/30), Math.floor(this.timer/40));
+                        this.initEnemies(1, Math.floor(this.timer/30)+1, Math.floor(this.timer/30), Math.floor(this.timer/40));
                     }
                 }
             }
