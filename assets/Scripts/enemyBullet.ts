@@ -22,6 +22,7 @@ export default class enemyBullet extends cc.Component {
 
 
     public init(node: cc.Node, targetDirection: string, targetAngle: number) {
+        console.log("init!")
         this.setInitPos(node, targetDirection);
         this.speedX = Math.cos(targetAngle * Math.PI / 180);
         this.speedY = Math.sin(targetAngle * Math.PI / 180);
@@ -67,6 +68,7 @@ export default class enemyBullet extends cc.Component {
             return;
         }
         if(other.tag == 1){
+            console.log("hit!!")
             other.node.getComponent('player').lifeDamage(this.damage);
         }
         this.unscheduleAllCallbacks();
