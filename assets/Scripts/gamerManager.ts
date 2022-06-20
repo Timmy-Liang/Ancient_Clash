@@ -363,7 +363,7 @@ export default class gameManager extends cc.Component {
             let index = Math.floor(Math.random() * length)
             let nextX = this.validEnemySpace[index][0];
             let nextY = this.validEnemySpace[index][1];
-            if(nextX > 5 && nextX < 115 && nextY > 5 && nextY < 115)
+            if(nextX > 10 && nextX < 110 && nextY > 10 && nextY < 110)
                 return this.validEnemySpace[index]
         }
     }
@@ -380,7 +380,6 @@ export default class gameManager extends cc.Component {
         this.player1.playerMoveDir("IDLE");
         this.player2.playerMoveDir("IDLE");
         if (this.pause) return;
-        
         
         if (keyboardInput[cc.macro.KEY.f]) this.player1.playerAttack();
         if (keyboardInput[cc.macro.KEY.g]) this.player1.playerPower();
