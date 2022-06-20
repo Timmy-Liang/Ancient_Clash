@@ -77,7 +77,7 @@ export default class signinpage extends cc.Component {
         
         
         */
-
+       
     }
     submitSingUp(){
         let user1={
