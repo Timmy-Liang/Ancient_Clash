@@ -52,6 +52,8 @@ export default class fightPlayer extends cc.Component {
     private otherPlayerJob: string = 'knight';
 
     private playerData;
+    private dying: boolean = false;
+    private hurting: boolean = false;
 
 
     onLoad() {
@@ -82,9 +84,11 @@ export default class fightPlayer extends cc.Component {
                         this.characterTag = 1;
                         break;
                     case 'warrior':
+                        this.attackRange = 120;
                         this.characterTag = 2;
                         break;
                     case 'knight':
+                        this.attackRange = 120;
                         this.characterTag = 3;
                         break;
                 }
@@ -159,8 +163,7 @@ export default class fightPlayer extends cc.Component {
     }
 
     playerWalkAnimation() {
-        if (this.attacking)
-            return;
+        if (this.attacking || this.hurting || this.dying) return;
 
         switch (this.moveDir) {
             case 'N':
@@ -203,6 +206,7 @@ export default class fightPlayer extends cc.Component {
     }
 
     playerAttackAnimation() {
+        if (this.hurting || this.dying) return;
         this.anim.stop();
         this.attacking = true;
         this.animateState = this.anim.play(this.characterName + 'Attack' + this.targetDirection);
@@ -212,6 +216,7 @@ export default class fightPlayer extends cc.Component {
     }
 
     playerDieAnimation () {
+        if (this.dying) return;
         this.anim.stop();
         this.attacking = true;
         this.animateState = this.anim.play(
@@ -220,6 +225,7 @@ export default class fightPlayer extends cc.Component {
     }
 
     playerHurtAnimation () {
+        if (this.dying) return;
         this.anim.stop();
         this.attacking = true;
         this.animateState = this.anim.play(
