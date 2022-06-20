@@ -3074,7 +3074,7 @@
     "_N$background": {
       "__id__": 56
     },
-    "_N$inputFlag": 5,
+    "_N$inputFlag": 0,
     "_N$inputMode": 6,
     "_N$stayOnTop": false,
     "_id": "73G6nh6MRETJuFzFoFqrn1"
@@ -3223,7 +3223,7 @@
         "__id__": 69
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 74
@@ -5589,7 +5589,7 @@
     "_N$background": {
       "__id__": 110
     },
-    "_N$inputFlag": 5,
+    "_N$inputFlag": 0,
     "_N$inputMode": 6,
     "_N$stayOnTop": false,
     "_id": "1cD8zDXU5C07zgvnt6kxvS"
